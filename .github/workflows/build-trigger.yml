@@ -19,14 +19,14 @@ concurrency:
 
 jobs:
   fire:
-    if: github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
+    if: github.ref == 'refs/heads/main' || (github.event_name == 'workflow_dispatch' && inputs.test_mode == true)
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
       - name: Fire deploy webhook
         id: hook
         env:
-          DEPLOY_WEBHOOK_URL: ${{ inputs.test_mode && secrets.DEPLOY_WEBHOOK_URL_TEST || secrets.DEPLOY_WEBHOOK_URL }}
+          DEPLOY_WEBHOOK_URL: ${{ inputs.test_mode == true && secrets.DEPLOY_WEBHOOK_URL_TEST || secrets.DEPLOY_WEBHOOK_URL }}
         run: |
           set -euo pipefail
           STATUS=$(curl --silent --show-error \

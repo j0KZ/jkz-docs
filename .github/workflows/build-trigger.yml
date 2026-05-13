@@ -1,0 +1,52 @@
+name: Build Trigger
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      test_mode:
+        description: 'TEMPORARY (removed by wg-24-cleanup PR). When true, route curl POST to DEPLOY_WEBHOOK_URL_TEST instead of production URL. Used once for AC #5 smoke test.'
+        required: false
+        type: boolean
+        default: false
+
+permissions: {}
+
+concurrency:
+  group: build-trigger-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  fire:
+    if: github.ref == 'refs/heads/main' || (github.event_name == 'workflow_dispatch' && inputs.test_mode == true)
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Fire deploy webhook
+        id: hook
+        env:
+          DEPLOY_WEBHOOK_URL: ${{ inputs.test_mode == true && secrets.DEPLOY_WEBHOOK_URL_TEST || secrets.DEPLOY_WEBHOOK_URL }}
+        run: |
+          set -euo pipefail
+          STATUS=$(curl --silent --show-error \
+            --fail-with-body \
+            --max-time 30 \
+            --retry 2 --retry-delay 5 \
+            --output /tmp/hook-body.txt \
+            --write-out '%{http_code}' \
+            -X POST "$DEPLOY_WEBHOOK_URL")
+          echo "status=$STATUS" >> "$GITHUB_OUTPUT"
+          echo "Deploy webhook returned $STATUS"
+      - name: Notify Telegram on failure
+        if: failure()
+        env:
+          WIKI_TELEGRAM_WEBHOOK: ${{ secrets.WIKI_TELEGRAM_WEBHOOK }}
+          COMMIT: ${{ github.sha }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          MSG="wiki-generator: build-trigger FAILED on jkz-docs@${COMMIT:0:7}. Run: ${RUN_URL}"
+          curl --silent --show-error --fail-with-body --max-time 10 \
+            -X POST "$WIKI_TELEGRAM_WEBHOOK" \
+            --data-urlencode "text=${MSG}"

@@ -1,0 +1,94 @@
+name: Sanitizer Recheck
+
+# Defense-in-depth: the wiki-generator sanitizer runs against this PR's
+# changed .md files. The vendored copy lives at `vendored/sanitizers/`
+# and is kept in sync with the private source by `sanitizer-sync.yml`.
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '**/*.md'
+      - 'vendored/sanitizers/**'
+      - 'vendored/sanitize-md.mjs'
+      - '.github/workflows/sanitizer-recheck.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: sanitizer-recheck-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  recheck:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout PR head
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      - name: Verify vendored sanitizer present
+        run: |
+          set -euo pipefail
+          if [ ! -f vendored/sanitizers/index.js ]; then
+            echo "ERROR: vendored/sanitizers/index.js missing -- sync workflow has not run yet."
+            exit 1
+          fi
+          if [ ! -f vendored/sanitize-md.mjs ]; then
+            echo "ERROR: vendored/sanitize-md.mjs (CLI shim) missing."
+            exit 1
+          fi
+
+      - name: Compute changed .md files
+        id: changed
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+          # Diff filter ACMR: Added, Copied, Modified, Renamed (no deletes).
+          # NUL-delimited to survive filenames with whitespace or newlines.
+          git diff --name-only -z --diff-filter=ACMR "$BASE_SHA" "$HEAD_SHA" -- '*.md' > changed.zlist
+          # Count NUL terminators (one per filename); avoid wc -l on a NUL stream.
+          count=$(tr -cd '\0' < changed.zlist | wc -c | tr -d '[:space:]')
+          : "${count:=0}"
+          echo "count=${count}" >> "$GITHUB_OUTPUT"
+          echo "Changed .md files (${count}):"
+          tr '\0' '\n' < changed.zlist || true
+
+      - name: Run sanitizer on changed files
+        if: steps.changed.outputs.count != '0'
+        run: |
+          set -euo pipefail
+          # -0: read NUL-delimited names. -r: skip exec on empty input (GNU xargs).
+          xargs -0 -r -a changed.zlist node vendored/sanitize-md.mjs
+
+      - name: Skip notice (no .md changes)
+        if: steps.changed.outputs.count == '0'
+        run: echo "No .md files changed in this PR -- nothing to sanitize."
+
+      - name: Notify Telegram on failure
+        if: failure()
+        env:
+          WIKI_TELEGRAM_WEBHOOK: ${{ secrets.WIKI_TELEGRAM_WEBHOOK }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          if [ -z "${WIKI_TELEGRAM_WEBHOOK:-}" ]; then
+            echo "WIKI_TELEGRAM_WEBHOOK not set -- skipping Telegram alert."
+            exit 0
+          fi
+          MSG="wiki-generator: sanitizer-recheck FAILED. PR: ${PR_URL} Run: ${RUN_URL}"
+          curl --silent --show-error --fail-with-body --max-time 10 \
+            -X POST "$WIKI_TELEGRAM_WEBHOOK" \
+            --data-urlencode "text=${MSG}"

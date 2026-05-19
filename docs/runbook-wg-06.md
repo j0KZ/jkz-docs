@@ -87,10 +87,12 @@ gh api \
 cat /tmp/jkz-docs-rsc.json
 ```
 
-Step 2 -- append `sanitizer-recheck` to the contexts array and PUT it
-back. The endpoint
-`PUT /repos/{owner}/{repo}/branches/{branch}/protection/required_status_checks/contexts`
-accepts an additive array; using it avoids the full-replace foot-gun:
+Step 2 -- append `sanitizer-recheck` to the contexts array via the
+additive `POST` subroute. The endpoint
+`POST /repos/{owner}/{repo}/branches/{branch}/protection/required_status_checks/contexts`
+is GitHub's documented "Add status check contexts" verb -- it appends to
+the existing list rather than replacing it, which avoids the
+full-replace foot-gun of `PUT` on the same subroute:
 
 ```bash
 gh api \
@@ -101,8 +103,10 @@ gh api \
   -f 'contexts[]=sanitizer-recheck'
 ```
 
-(`POST` to that subroute is GitHub's documented "add" verb; it is
-idempotent -- re-adding the same context returns the existing array.)
+(`POST` on this subroute is additive and idempotent -- re-adding the
+same context returns the existing array. `PUT` on the same subroute
+replaces the full list; do not substitute the verbs. Reference:
+<https://docs.github.com/en/rest/branches/branch-protection#add-status-check-contexts>.)
 
 Step 3 -- verify:
 

@@ -16,7 +16,6 @@
 //
 // Exit codes:
 //   0 -- no files supplied OR all files clean
-//   2 -- usage error (none of the args resolve to a file)
 //   3 -- a file was unreadable / IO error
 //   EXIT_SECRET_DETECTED (42) -- at least one file contained a secret hit
 //                                 (value re-exported from secret_sanitizer.js)

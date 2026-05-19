@@ -56,19 +56,21 @@ jobs:
         run: |
           set -euo pipefail
           # Diff filter ACMR: Added, Copied, Modified, Renamed (no deletes).
-          git diff --name-only --diff-filter=ACMR "$BASE_SHA" "$HEAD_SHA" -- '*.md' > changed.txt || true
-          count=$(wc -l < changed.txt || echo 0)
+          # NUL-delimited to survive filenames with whitespace or newlines.
+          git diff --name-only -z --diff-filter=ACMR "$BASE_SHA" "$HEAD_SHA" -- '*.md' > changed.zlist
+          # Count NUL terminators (one per filename); avoid wc -l on a NUL stream.
+          count=$(tr -cd '\0' < changed.zlist | wc -c | tr -d '[:space:]')
+          : "${count:=0}"
           echo "count=${count}" >> "$GITHUB_OUTPUT"
           echo "Changed .md files (${count}):"
-          cat changed.txt || true
+          tr '\0' '\n' < changed.zlist || true
 
       - name: Run sanitizer on changed files
         if: steps.changed.outputs.count != '0'
         run: |
           set -euo pipefail
-          # xargs -r is GNU-specific (no-op on empty input); ubuntu-latest has GNU coreutils.
-          # Using xargs to forward the file list as argv to the shim.
-          xargs -r -a changed.txt node vendored/sanitize-md.mjs
+          # -0: read NUL-delimited names. -r: skip exec on empty input (GNU xargs).
+          xargs -0 -r -a changed.zlist node vendored/sanitize-md.mjs
 
       - name: Skip notice (no .md changes)
         if: steps.changed.outputs.count == '0'

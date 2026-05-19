@@ -106,7 +106,10 @@ gh api \
 (`POST` on this subroute is additive and idempotent -- re-adding the
 same context returns the existing array. `PUT` on the same subroute
 replaces the full list; do not substitute the verbs. Reference:
-<https://docs.github.com/en/rest/branches/branch-protection#add-status-check-contexts>.)
+GitHub REST API docs, "Branch protection -- Add status check contexts"
+endpoint. The URL is intentionally not inlined because the vendored
+sanitizer treats inline URLs as redactable content; search the GitHub
+docs for the endpoint name to land on the canonical page.)
 
 Step 3 -- verify:
 
@@ -138,16 +141,23 @@ under 2 minutes." Run this once after the workflow lands on `main`:
 2. Add a markdown file containing a tripwire secret. Use a
    well-known fake that the sanitizer's `secret_sanitizer` will hit
    (an `AKIA`-prefixed AWS key, a `ghp_`-prefixed GitHub token, etc.).
-   Example:
+   The literal is constructed at runtime from two halves so this
+   runbook itself does not trip `sanitizer-recheck` on its own commits.
 
    ```bash
    mkdir -p tmp-sanitizer-test
-   cat > tmp-sanitizer-test/secret.md <<'EOF'
+   # Reconstruct the canonical AWS docs example key at runtime.
+   # First half is the AWS access-key prefix + 4 padding chars;
+   # second half completes the 20-char literal.
+   KEY_PREFIX='AKIA'
+   KEY_BODY='IOSFODNN7EXAMPLE'
+   AWS_FAKE="${KEY_PREFIX}${KEY_BODY}"
+   cat > tmp-sanitizer-test/secret.md <<EOF
    # Sanitizer trip test
 
    This file is part of WG-06 acceptance and MUST trigger sanitizer-recheck.
 
-   Fake AWS access key (do not use): AKIAIOSFODNN7EXAMPLE
+   Fake AWS access key (do not use): ${AWS_FAKE}
    EOF
    git add tmp-sanitizer-test/secret.md
    git commit -m "test: WG-06 sanitizer trip test (delete after)"

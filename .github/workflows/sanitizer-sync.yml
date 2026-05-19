@@ -1,0 +1,143 @@
+name: Sanitizer Sync
+
+# Daily sync of the wiki-generator sanitizer source from the private
+# jkz_Multi-Agent_System repository into `vendored/sanitizers/` of
+# this public repo. Sanitizer is vendored (not npm-packaged) for v1.
+
+on:
+  schedule:
+    # 06:17 UTC daily -- off-the-hour to avoid the cron stampede.
+    - cron: '17 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sanitizer-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout jkz-docs (public)
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.WIKI_BOT_TOKEN }}
+          persist-credentials: true
+          fetch-depth: 0
+
+      - name: Checkout sanitizer source (private)
+        uses: actions/checkout@v4
+        with:
+          repository: j0KZ/jkz_Multi-Agent_System
+          token: ${{ secrets.WIKI_BOT_TOKEN }}
+          path: private-src
+          sparse-checkout: |
+            skills/wiki-generator/src/sanitizers
+          sparse-checkout-cone-mode: false
+          persist-credentials: false
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      - name: Mirror sanitizer source into vendored/
+        run: |
+          set -euo pipefail
+          SRC="private-src/skills/wiki-generator/src/sanitizers/"
+          DST="vendored/sanitizers/"
+          if [ ! -d "$SRC" ]; then
+            echo "ERROR: sanitizer source not found at $SRC"
+            exit 1
+          fi
+          mkdir -p "$DST"
+          # Trailing slashes on both args + --delete = contents of SRC
+          # become exactly contents of DST. Excludes the CLI shim's
+          # parent dir is unnecessary because the shim lives in
+          # vendored/ (parent), not vendored/sanitizers/.
+          rsync -a --delete "$SRC" "$DST"
+          echo "--- post-sync listing of $DST ---"
+          ls -la "$DST"
+
+      - name: Smoke test (vendored module loads)
+        run: |
+          set -euo pipefail
+          # Module is ESM -- use dynamic import. A SyntaxError or missing
+          # export here fails the job and prevents committing a broken sync.
+          node --input-type=module -e "
+            import('./vendored/sanitizers/index.js').then((m) => {
+              const required = ['composeAll', 'STAGE_ORDER', 'scan', 'EXIT_SECRET_DETECTED', 'isPathBlocked'];
+              const missing = required.filter((k) => !(k in m));
+              if (missing.length) {
+                console.error('Missing exports:', missing.join(', '));
+                process.exit(1);
+              }
+              console.log('vendored sanitizer surface OK');
+            }).catch((err) => { console.error(err); process.exit(1); });
+          "
+
+      - name: Smoke test (CLI shim runs clean on empty input)
+        run: |
+          set -euo pipefail
+          node vendored/sanitize-md.mjs
+
+      - name: Detect changes
+        id: diff
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- vendored/sanitizers; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "No vendored sanitizer changes."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "Detected vendored sanitizer changes:"
+            git diff --stat -- vendored/sanitizers
+          fi
+
+      - name: Commit & push update
+        if: steps.diff.outputs.changed == 'true'
+        env:
+          SOURCE_REPO: j0KZ/jkz_Multi-Agent_System
+          SOURCE_REF: ${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          # Resolve the source commit so the message is auditable.
+          SRC_SHA=$(git -C private-src rev-parse HEAD)
+          SHORT_SHA="${SRC_SHA:0:12}"
+          git config user.name 'jkz-wiki-bot'
+          git config user.email 'wiki-bot@users.noreply.github.com'
+          git add vendored/sanitizers
+          # Multi-line commit message via -F to avoid embedding newlines
+          # inside the YAML run-step scalar (which trips YAML parsers).
+          MSG_FILE=$(mktemp)
+          {
+            echo "chore(sanitizer-sync): vendor sanitizer @ ${SHORT_SHA}"
+            echo
+            echo "Source: ${SOURCE_REPO}@${SRC_SHA}"
+            echo "Workflow run: ${SOURCE_REF}"
+          } > "$MSG_FILE"
+          git commit -F "$MSG_FILE"
+          rm -f "$MSG_FILE"
+          # `persist-credentials: true` on the public checkout already
+          # configured the bot token for `origin`. Push directly to main.
+          git push origin HEAD:main
+
+      - name: Notify Telegram on failure
+        if: failure()
+        env:
+          WIKI_TELEGRAM_WEBHOOK: ${{ secrets.WIKI_TELEGRAM_WEBHOOK }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          if [ -z "${WIKI_TELEGRAM_WEBHOOK:-}" ]; then
+            echo "WIKI_TELEGRAM_WEBHOOK not set -- skipping Telegram alert."
+            exit 0
+          fi
+          MSG="wiki-generator: sanitizer-sync FAILED on jkz-docs. Run: ${RUN_URL}"
+          curl --silent --show-error --fail-with-body --max-time 10 \
+            -X POST "$WIKI_TELEGRAM_WEBHOOK" \
+            --data-urlencode "text=${MSG}"

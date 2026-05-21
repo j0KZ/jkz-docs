@@ -52,8 +52,11 @@ jobs:
           BOT_LOGIN=$(gh api user --jq '.login')
           echo "Wiki bot account: ${BOT_LOGIN}"
 
+          # --search "sort:created-desc": gh pr list has no --sort flag and its
+          # default order is not guaranteed to be by creation date. We need the
+          # PR the bot most recently *opened*, so sort explicitly.
           LAST_PR_JSON=$(gh pr list --repo "$REPO" --author "$BOT_LOGIN" \
-            --state all --limit 1 --json number,createdAt)
+            --state all --search "sort:created-desc" --limit 1 --json number,createdAt)
           LAST_PR_NUMBER=$(echo "$LAST_PR_JSON" | jq -r '.[0].number // empty')
           LAST_PR_CREATED=$(echo "$LAST_PR_JSON" | jq -r '.[0].createdAt // empty')
 

@@ -207,7 +207,7 @@ not via a direct `git push origin HEAD:main`. The branch protection rule
 on `main` requires the `recheck` status check (see section 3), and
 `recheck` only runs on PRs. A direct push will always be rejected with:
 
-```
+```text
 remote: error: GH006: Protected branch update failed for refs/heads/main.
 remote: - Required status check "recheck" is expected.
 ```
@@ -218,7 +218,11 @@ The flow inside `.github/workflows/sanitizer-sync.yml` is:
    provenance + collision-safe re-runs.
 2. Push the vendored sanitizer to that branch.
 3. `gh pr create` against `main`.
-4. `gh pr merge --auto --squash --delete-branch`.
+4. `gh pr merge --auto --squash` (branch cleanup is delegated to the
+   repo-level `delete_branch_on_merge` setting -- see the settings
+   table below; `--delete-branch` is intentionally omitted because
+   combining it with `--auto` is unsupported when a merge queue is
+   enabled).
 
 `recheck` runs on the PR and gates auto-merge. The defense-in-depth from
 WG-06 is preserved.

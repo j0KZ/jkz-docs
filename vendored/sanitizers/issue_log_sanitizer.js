@@ -2,7 +2,7 @@
  * Issue-log sanitizer: normalize stack-trace frame paths to basename and
  * strip auth-header values.
  *
- * Operations (in order — independent regions, ordering chosen for
+ * Operations (in order -- independent regions, ordering chosen for
  * determinism):
  *   1. Path-in-frame collapse. For lines of the form
  *      `... at <funcName> (/abs/path/to/file.ext:LINE:COL)` (or Windows

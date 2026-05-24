@@ -11,6 +11,7 @@ export { isPathBlocked } from './path_blocklist.js';
 export { shannonEntropy } from './entropy.js';
 export { logSecretHit } from './log.js';
 export { scan, EXIT_SECRET_DETECTED } from './secret_sanitizer.js';
+export { PUBLIC_HOST_ALLOWLIST } from './regexes.js';
 export {
   sanitizeImplementations,
   BODY_LOC_THRESHOLD,

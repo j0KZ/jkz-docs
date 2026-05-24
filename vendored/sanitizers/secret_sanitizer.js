@@ -6,7 +6,7 @@
  *
  *   - Normal hit:        `{ kind, index, length, fingerprint }`
  *   - Entropy hit:       `{ kind: 'high_entropy', index, length, fingerprint, entropy }`
- *                        where `entropy` is `round2(shannonEntropy(window))` — a
+ *                        where `entropy` is `round2(shannonEntropy(window))` -- a
  *                        coarse statistic, not invertible to bytes.
  *   - Size-cap sentinel: `{ kind: 'input_too_large', byteLength }` (emitted once;
  *                        no other matches when this fires).
@@ -19,7 +19,8 @@
  *   1. Type guard (`content` is a string; `opts` is a plain object or undefined).
  *   2. 1 MiB size cap (short-circuits with `kind: 'input_too_large'`).
  *   3. Provider iteration (6 catalogue entries).
- *   4. Host iteration (4 catalogue entries). The `ipv6_candidate` entry is
+ *   4. Host iteration (4 catalogue entries; url/host hits on
+ *      PUBLIC_HOST_ALLOWLIST are exempt). The `ipv6_candidate` entry is
  *      the ONLY kind requiring post-regex validation: `node:net`'s `isIPv6()`
  *      is the truth source. Candidates that fail validation are dropped;
  *      validated candidates are pushed with `kind: 'ipv6'`. Host kinds may
@@ -32,7 +33,7 @@
  *   7. Return `{ found, matches }`.
  *
  * `opts` is validated for shape (plain-object-or-undefined) but its keys are
- * currently ignored — reserved for future use (e.g., custom entropy
+ * currently ignored -- reserved for future use (e.g., custom entropy
  * threshold, allowlist patterns). The type guard is forward-compat hardening,
  * not dead code: it prevents callers from silently passing the wrong shape
  * today and being surprised when behavior changes.
@@ -48,6 +49,7 @@ import { shannonEntropy } from './entropy.js';
 import {
   PROVIDER_REGEXES,
   HOST_REGEXES,
+  PUBLIC_HOST_ALLOWLIST,
   ENTROPY_WINDOW_RE,
   ENTROPY_MIN_SCORE,
 } from './regexes.js';
@@ -64,8 +66,33 @@ function round2(n) {
   return Math.round(n * 100) / 100;
 }
 
+function hostnameOf(raw) {
+  // url-kind raw starts with scheme://; host-kind raw is a bare FQDN[:port].
+  let s = raw;
+  const schemeIdx = s.indexOf('://');
+  if (schemeIdx !== -1) s = s.slice(schemeIdx + 3);
+  // strip path, query, fragment, port
+  s = s.split('/')[0].split('?')[0].split('#')[0];
+  const colon = s.lastIndexOf(':');
+  if (colon !== -1) s = s.slice(0, colon);
+  return s.toLowerCase();
+}
+
+function isAllowlistedHost(hostname) {
+  if (PUBLIC_HOST_ALLOWLIST.has(hostname)) return true;
+  for (const allowed of PUBLIC_HOST_ALLOWLIST) {
+    if (hostname.endsWith('.' + allowed)) return true;
+  }
+  return false;
+}
+
+// True only for `{}`-style objects: rejects arrays, Date, Map, Set, and class
+// instances. `opts` is documented as a plain object, so passing anything else
+// is a programmer error and must throw.
 function isPlainObject(v) {
-  return v !== null && typeof v === 'object' && !Array.isArray(v);
+  if (v === null || typeof v !== 'object') return false;
+  const proto = Object.getPrototypeOf(v);
+  return proto === Object.prototype || proto === null;
 }
 
 /**
@@ -147,11 +174,17 @@ export function scan(content, opts) {
       if (kind === 'ipv6_candidate') {
         // IPv6: regex is permissive; isIPv6() is the truth source.
         // Bare "::" is a valid IPv6 (unspecified address) per isIPv6, but it
-        // is not a host worth redacting — drop it explicitly.
+        // is not a host worth redacting -- drop it explicitly.
         if (!raw.includes(':')) continue;
         if (raw === '::') continue;
         if (!isIPv6(raw)) continue;
         finalKind = 'ipv6';
+      }
+      // url/host hits on PUBLIC_HOST_ALLOWLIST are exempt: the match is
+      // treated as if it never existed (CI-gate exemption for canonical
+      // public-doc URLs). ipv4/ipv6 are never exempt.
+      if ((finalKind === 'url' || finalKind === 'host') && isAllowlistedHost(hostnameOf(raw))) {
+        continue;
       }
       if (
         push({

@@ -24,7 +24,7 @@
  * `report.stages` is always a 5-entry array. Order matches `STAGE_ORDER`.
  * Each entry carries `{name, mutated}` plus stage-specific fields:
  *   - path_blocklist: `{blocked?:bool, skipped?:bool, reason?:string}`
- *   - secret: `{found:bool, matchCount:number}` (mutated is always false —
+ *   - secret: `{found:bool, matchCount:number}` (mutated is always false --
  *     scan is a detector, never modifies content)
  *   - implementation, pii, issue_log: `{mutated: bool}`
  *

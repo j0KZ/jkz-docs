@@ -6,7 +6,7 @@
  * Algorithm: line-walk + brace-walker. Best-effort: strips same-line string
  * literals and trailing `//` comments only. Multi-line strings, block
  * comments containing braces, and template-literal interpolations are not
- * handled (M1 — failure mode is over-redaction).
+ * handled (M1 -- failure mode is over-redaction).
  *
  * Decision tree (per function body):
  *   1. LOC <= threshold → untouched.

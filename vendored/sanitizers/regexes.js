@@ -6,7 +6,7 @@
  * union of all regexes):
  *
  *   - Bounded quantifiers only (`{n,m}`); never `.*`, never unbounded `+`/`*`.
- *   - Explicit lookbehind+lookahead boundaries — no character-class boundary
+ *   - Explicit lookbehind+lookahead boundaries -- no character-class boundary
  *     repetition that could backtrack.
  *   - No nested quantifiers.
  *
@@ -63,6 +63,19 @@ export const HOST_REGEXES = Object.freeze([
   Object.freeze({ kind: 'url', pattern: URL_RE }),
   Object.freeze({ kind: 'host', pattern: HOST_FQDN_RE }),
 ]);
+
+// --- Public-host allowlist (CI-gate exemption) ---
+// Hosts considered safe to cite inline in public documentation. A url/host
+// match whose hostname is (or is a subdomain of) an entry here is NOT
+// reported by scan(). Membership is by exact host or registrable-suffix
+// match. Widening this set is a deliberate spec change -- keep it narrow.
+export const PUBLIC_HOST_ALLOWLIST = Object.freeze(new Set([
+  'github.com',
+  'docs.github.com',
+  'raw.githubusercontent.com',
+  'docs.anthropic.com',
+  'www.anthropic.com',
+]));
 
 // --- Entropy fallback ---------------------------------------------------
 

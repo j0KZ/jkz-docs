@@ -225,8 +225,30 @@ WG-06 is preserved.
 
 The workflow needs `permissions.pull-requests: write` (in addition to
 `contents: write`) for `gh pr create` and `--auto`. The repo also needs
-auto-merge enabled at the repo level (Settings → General → "Allow
-auto-merge").
+two one-time settings enabled (Settings → General → Pull Requests):
+
+| Setting                        | Required | Why |
+|--------------------------------|----------|-----|
+| Allow auto-merge               | yes      | `gh pr merge --auto` fails on repos where this is off |
+| Automatically delete head branches | yes  | The sync workflow no longer passes `--delete-branch` (incompatible with `--auto` when a merge queue is configured), so the repo-level setting handles cleanup of `sanitizer-sync/auto-*` branches |
+
+CLI equivalents (one-time, idempotent):
+
+```bash
+gh api -X PATCH repos/j0KZ/jkz-docs \
+  -F allow_auto_merge=true \
+  -F delete_branch_on_merge=true
+```
+
+Verify:
+
+```bash
+gh api repos/j0KZ/jkz-docs --jq '{allow_auto_merge, delete_branch_on_merge}'
+```
+
+If either flag is `false` when the sync workflow runs, the workflow will
+fail at the `gh pr merge --auto` step (auto-merge disabled) or leave
+`sanitizer-sync/auto-*` branches behind (auto-delete disabled).
 
 Historical note: this behavior changed on 2026-05-24 after the original
 direct-push flow failed 5 consecutive daily runs (2026-05-19 → 2026-05-23,

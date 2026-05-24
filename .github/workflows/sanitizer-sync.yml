@@ -150,7 +150,12 @@ jobs:
             --title "chore(sanitizer-sync): vendor sanitizer @ ${SHORT_SHA}" \
             --body-file "$PR_BODY_FILE"
           rm -f "$PR_BODY_FILE"
-          gh pr merge "$BRANCH" --auto --squash --delete-branch
+          # `--delete-branch` is intentionally omitted: combining it with
+          # `--auto` is unsupported when a merge queue is enabled on the
+          # base branch (gh would exit non-zero before scheduling the
+          # auto-merge). Branch cleanup is delegated to the repo-level
+          # `delete_branch_on_merge` setting -- see runbook section 6.
+          gh pr merge "$BRANCH" --auto --squash
 
       - name: Notify Telegram on failure
         if: failure()

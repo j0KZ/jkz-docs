@@ -199,3 +199,38 @@ under 2 minutes." Run this once after the workflow lands on `main`:
 - **CLI shim location**: the shim is at `vendored/sanitize-md.mjs`
   (parent of `vendored/sanitizers/`). It is intentionally outside the
   rsync mirror target so the daily sync's `--delete` does not wipe it.
+
+## 6. Sync workflow: PR + auto-merge (not direct push)
+
+The sync workflow lands its commit through a PR with auto-merge enabled,
+not via a direct `git push origin HEAD:main`. The branch protection rule
+on `main` requires the `recheck` status check (see section 3), and
+`recheck` only runs on PRs. A direct push will always be rejected with:
+
+```
+remote: error: GH006: Protected branch update failed for refs/heads/main.
+remote: - Required status check "recheck" is expected.
+```
+
+The flow inside `.github/workflows/sanitizer-sync.yml` is:
+
+1. Create a unique branch keyed on `<SHORT_SHA>-<run_id>` for auditable
+   provenance + collision-safe re-runs.
+2. Push the vendored sanitizer to that branch.
+3. `gh pr create` against `main`.
+4. `gh pr merge --auto --squash --delete-branch`.
+
+`recheck` runs on the PR and gates auto-merge. The defense-in-depth from
+WG-06 is preserved.
+
+The workflow needs `permissions.pull-requests: write` (in addition to
+`contents: write`) for `gh pr create` and `--auto`. The repo also needs
+auto-merge enabled at the repo level (Settings → General → "Allow
+auto-merge").
+
+Historical note: this behavior changed on 2026-05-24 after the original
+direct-push flow failed 5 consecutive daily runs (2026-05-19 → 2026-05-23,
+all with the GH006 error above). The original assumption was that
+`persist-credentials: true` on the public checkout was sufficient to push
+to `main`; the branch protection requirement was not accounted for. The
+root cause was branch protection, not auth or schema.

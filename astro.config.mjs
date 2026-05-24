@@ -6,8 +6,8 @@ import starlightGiscus from 'starlight-giscus';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://j0kz.dev',
-  base: '/docs',
+  site: 'https://docs.j0kz.dev',
+  base: '/',
   integrations: [
     mermaid({
       theme: 'forest',

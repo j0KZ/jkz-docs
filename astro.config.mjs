@@ -21,12 +21,12 @@ export default defineConfig({
       sidebar: [
         {
           label: 'Reference',
-          items: [{ autogenerate: { directory: 'reference' } }],
+          autogenerate: { directory: 'reference' },
         },
         {
           label: 'API Reference',
           collapsed: true,
-          items: [{ autogenerate: { directory: 'api-reference' } }],
+          autogenerate: { directory: 'api-reference' },
         },
       ],
       plugins: [

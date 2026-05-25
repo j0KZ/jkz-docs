@@ -1,7 +1,5 @@
 ---
-deprecated_since: null
 description: Module skills/wiki-generator/src/config
-editUrl: null
 pagefind: true
 sidebar:
   label: config

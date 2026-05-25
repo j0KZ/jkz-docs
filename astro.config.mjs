@@ -23,6 +23,11 @@ export default defineConfig({
           label: 'Reference',
           items: [{ autogenerate: { directory: 'reference' } }],
         },
+        {
+          label: 'API Reference',
+          collapsed: true,
+          items: [{ autogenerate: { directory: 'api-reference' } }],
+        },
       ],
       plugins: [
         starlightGiscus({

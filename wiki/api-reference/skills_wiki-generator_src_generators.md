@@ -1,5 +1,7 @@
 ---
+deprecated_since: null
 description: Module skills/wiki-generator/src/generators
+editUrl: null
 pagefind: true
 sidebar:
   label: generators
@@ -83,7 +85,7 @@ _None._
 ### `__getAtomicWriteFileForTests`
 
 ```text
-__getAtomicWriteFileForTests()
+__getAtomicWriteFileForTests(): unknown
 ```
 
 Test-only seam so a stubbed rename failure can exercise AC-8 without
@@ -95,7 +97,7 @@ _None._
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -104,7 +106,7 @@ _None._
 ### `__resetPromptCacheForTests`
 
 ```text
-__resetPromptCacheForTests()
+__resetPromptCacheForTests(): void
 ```
 
 Test-only: reset the cached template so a fresh read can be triggered
@@ -116,7 +118,7 @@ _None._
 
 #### Returns
 
-_None._
+`void`
 
 #### Examples
 
@@ -125,7 +127,7 @@ _None._
 ### `_getValidator`
 
 ```text
-_getValidator()
+_getValidator(): unknown
 ```
 
 Internal getter so tests can confirm the validator is the same instance.
@@ -136,7 +138,7 @@ _None._
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -145,7 +147,7 @@ _None._
 ### `appendEntryToFile`
 
 ```text
-appendEntryToFile(outputPath, formattedMarkdown, category, issueNumber)
+appendEntryToFile(outputPath, formattedMarkdown, category, issueNumber): object
 ```
 
 #### Params
@@ -157,7 +159,7 @@ appendEntryToFile(outputPath, formattedMarkdown, category, issueNumber)
 
 #### Returns
 
-_None._
+`object`
 
 #### Examples
 
@@ -166,7 +168,7 @@ _None._
 ### `bucketOf`
 
 ```text
-bucketOf(dirRel, buckets)
+bucketOf(dirRel, buckets): unknown
 ```
 
 Classify a JS-module dirRel into a bucket name. Iterates buckets in
@@ -179,7 +181,7 @@ declaration order; first match wins. Returns 'core' as catch-all.
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -188,7 +190,7 @@ _None._
 ### `buildDepGraph`
 
 ```text
-async buildDepGraph({ rootDir, globs, buckets })
+async buildDepGraph({ rootDir, globs, buckets }): object
 ```
 
 Build the architecture dep graph: JS modules from AST + directory
@@ -200,7 +202,7 @@ descriptors from config.buckets.
 
 #### Returns
 
-_None._
+`object`
 
 #### Examples
 
@@ -209,7 +211,7 @@ _None._
 ### `crossCheckHallucinations`
 
 ```text
-crossCheckHallucinations(llmText, exportNames)
+crossCheckHallucinations(llmText, exportNames): unknown
 ```
 
 Compute the set of mentioned symbols that are neither in `exportNames`
@@ -222,7 +224,7 @@ nor in the intrinsics allowlist. A non-empty result is a hallucination.
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -231,7 +233,7 @@ _None._
 ### `demoteHeadings`
 
 ```text
-demoteHeadings(text)
+demoteHeadings(text): unknown
 ```
 
 Demote every ATX heading line (`#`-prefixed) by one level, capped at
@@ -249,7 +251,7 @@ line within a ```` ``` ```` block) is therefore not treated as a close.
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -258,7 +260,7 @@ _None._
 ### `enforcePromptBudget`
 
 ```text
-enforcePromptBudget({ userTemplate, vars })
+enforcePromptBudget({ userTemplate, vars }): object
 ```
 
 Enforce the input prompt budget. If the rendered USER text exceeds
@@ -276,7 +278,7 @@ diagnostics in warnings).
 
 #### Returns
 
-_None._
+`object`
 
 #### Examples
 
@@ -285,7 +287,7 @@ _None._
 ### `escapeScalar`
 
 ```text
-escapeScalar(s)
+escapeScalar(s): unknown
 ```
 
 Quote a YAML scalar string conservatively.
@@ -301,7 +303,7 @@ the value is emitted as a plain scalar.
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -310,7 +312,7 @@ _None._
 ### `extractMentionedSymbols`
 
 ```text
-extractMentionedSymbols(text)
+extractMentionedSymbols(text): unknown
 ```
 
 Scan the LLM text for backtick-quoted bare identifiers. Returns the set
@@ -323,7 +325,7 @@ tokens or contain operators / punctuation).
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -332,7 +334,7 @@ _None._
 ### `formatEntryMarkdown`
 
 ```text
-formatEntryMarkdown(category, entry, issueNumber)
+formatEntryMarkdown(category, entry, issueNumber): unknown
 ```
 
 #### Params
@@ -343,7 +345,7 @@ formatEntryMarkdown(category, entry, issueNumber)
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -352,7 +354,7 @@ _None._
 ### `generateApiReference`
 
 ```text
-async generateApiReference({ rootDir, config, now })
+async generateApiReference({ rootDir, config, now }): object
 ```
 
 Generate API reference pages, write them to disk, and reconcile
@@ -365,7 +367,7 @@ proves no LLM call was made (`__llmCallCount === 0`).
 
 #### Returns
 
-_None._
+`object`
 
 #### Examples
 
@@ -374,7 +376,7 @@ _None._
 ### `generateArchitectureDoc`
 
 ```text
-async generateArchitectureDoc({ rootDir, config, now, describer })
+async generateArchitectureDoc({ rootDir, config, now, describer }): object
 ```
 
 #### Params
@@ -383,7 +385,7 @@ async generateArchitectureDoc({ rootDir, config, now, describer })
 
 #### Returns
 
-_None._
+`object`
 
 #### Examples
 
@@ -392,7 +394,7 @@ _None._
 ### `generateChangelog`
 
 ```text
-async generateChangelog({ rootDir, config, now, fetcher, narrator })
+async generateChangelog({ rootDir, config, now, fetcher, narrator }): object
 ```
 
 Generate `wiki/reference/changelog.md`.
@@ -403,7 +405,7 @@ Generate `wiki/reference/changelog.md`.
 
 #### Returns
 
-_None._
+`object`
 
 #### Examples
 
@@ -420,7 +422,7 @@ async generateIssueEntries({
   config,
   stateDir,
   rootDir,
-})
+}): object
 ```
 
 Generate wiki entries from a batch of classified issues.
@@ -431,7 +433,7 @@ Generate wiki entries from a batch of classified issues.
 
 #### Returns
 
-_None._
+`object`
 
 #### Examples
 
@@ -440,7 +442,7 @@ _None._
 ### `generateLlmsFullTxt`
 
 ```text
-async generateLlmsFullTxt({ rootDir, config })
+async generateLlmsFullTxt({ rootDir, config }): object
 ```
 
 Generate `llms-full.txt`. See file header for full behaviour.
@@ -451,7 +453,7 @@ Generate `llms-full.txt`. See file header for full behaviour.
 
 #### Returns
 
-_None._
+`object`
 
 #### Examples
 
@@ -460,7 +462,7 @@ _None._
 ### `generateLlmsTxt`
 
 ```text
-async generateLlmsTxt({ rootDir, config })
+async generateLlmsTxt({ rootDir, config }): object
 ```
 
 Generate `llms.txt`. See file header for full behaviour.
@@ -471,7 +473,7 @@ Generate `llms.txt`. See file header for full behaviour.
 
 #### Returns
 
-_None._
+`object`
 
 #### Examples
 
@@ -480,7 +482,7 @@ _None._
 ### `generateModuleDocs`
 
 ```text
-async generateModuleDocs({ rootDir, config })
+async generateModuleDocs({ rootDir, config }): object
 ```
 
 Generate module documentation pages. See file header for the contract.
@@ -491,7 +493,7 @@ Generate module documentation pages. See file header for the contract.
 
 #### Returns
 
-_None._
+`object`
 
 #### Examples
 
@@ -500,7 +502,7 @@ _None._
 ### `generateReferencePages`
 
 ```text
-async generateReferencePages({ rootDir, config, now })
+async generateReferencePages({ rootDir, config, now }): object
 ```
 
 Generate the 6 reference pages, write them under
@@ -513,7 +515,7 @@ fire a Telegram notification when warnings accumulated.
 
 #### Returns
 
-_None._
+`object`
 
 #### Examples
 
@@ -522,7 +524,7 @@ _None._
 ### `generateSidebar`
 
 ```text
-async generateSidebar({ rootDir, config, humanizer })
+async generateSidebar({ rootDir, config, humanizer }): object
 ```
 
 Generate `sidebar.json`. See file header for full behaviour.
@@ -537,7 +539,7 @@ omit it; the default uses the real Haiku-backed helper.
 
 #### Returns
 
-_None._
+`object`
 
 #### Examples
 
@@ -546,7 +548,7 @@ _None._
 ### `generateWorkflowDocs`
 
 ```text
-async generateWorkflowDocs({ rootDir, config, now, _generateGuide })
+async generateWorkflowDocs({ rootDir, config, now, _generateGuide }): object
 ```
 
 Generate workflow guide pages. See the file header for behaviour.
@@ -557,7 +559,7 @@ Generate workflow guide pages. See the file header for behaviour.
 
 #### Returns
 
-_None._
+`object`
 
 #### Examples
 
@@ -566,7 +568,7 @@ _None._
 ### `groupModules`
 
 ```text
-async groupModules({ rootDir, globs })
+async groupModules({ rootDir, globs }): unknown
 ```
 
 Expand globs and group matching source files by immediate parent dir.
@@ -577,7 +579,7 @@ Expand globs and group matching source files by immediate parent dir.
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -586,7 +588,7 @@ _None._
 ### `loadModuleHashes`
 
 ```text
-async loadModuleHashes(stateDirAbs)
+async loadModuleHashes(stateDirAbs): unknown
 ```
 
 Load the persisted module-hash map. The schema is richer than
@@ -600,7 +602,7 @@ the file is missing.
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -609,7 +611,7 @@ _None._
 ### `loadPrompt`
 
 ```text
-loadPrompt(category)
+loadPrompt(category): object
 ```
 
 Load a prompt template for the given category.
@@ -620,7 +622,7 @@ Load a prompt template for the given category.
 
 #### Returns
 
-_None._
+`object`
 
 #### Examples
 
@@ -629,7 +631,7 @@ _None._
 ### `loadPromptTemplate`
 
 ```text
-loadPromptTemplate()
+loadPromptTemplate(): unknown
 ```
 
 Load and cache the prompt template, splitting on the three section
@@ -642,7 +644,7 @@ _None._
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -651,7 +653,7 @@ _None._
 ### `newFileHeader`
 
 ```text
-newFileHeader(category)
+newFileHeader(category): unknown
 ```
 
 #### Params
@@ -660,7 +662,7 @@ newFileHeader(category)
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -669,7 +671,7 @@ _None._
 ### `pageNameForDir`
 
 ```text
-pageNameForDir(dirRel)
+pageNameForDir(dirRel): unknown
 ```
 
 Derive the page filename from a POSIX-relative directory path.
@@ -682,7 +684,7 @@ Uses split/join so EVERY `/` becomes `_`, not just the first occurrence.
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -691,7 +693,7 @@ _None._
 ### `parseFrontmatter`
 
 ```text
-parseFrontmatter(text)
+parseFrontmatter(text): unknown
 ```
 
 Extract the `title` and `description` fields from a frontmatter YAML
@@ -704,7 +706,7 @@ double-quoted, and single-quoted scalars and ignores any other keys.
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -713,7 +715,7 @@ _None._
 ### `renderMermaid`
 
 ```text
-renderMermaid({ nodes, edges, title })
+renderMermaid({ nodes, edges, title }): unknown
 ```
 
 Render a Mermaid `graph LR` block from a node + edge set.
@@ -728,7 +730,7 @@ for a JS-module node. Edges render one per line, sorted lexically.
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -743,7 +745,7 @@ renderModulePage({
   exports,
   signatures,
   jsdocBlocks,
-})
+}): unknown
 ```
 
 Render a complete API reference page.
@@ -754,7 +756,7 @@ Render a complete API reference page.
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -763,7 +765,7 @@ _None._
 ### `renderPage`
 
 ```text
-renderPage({ frontmatter, summary, sections })
+renderPage({ frontmatter, summary, sections }): unknown
 ```
 
 Compose the full architecture page from a frontmatter block, a
@@ -776,7 +778,7 @@ summary paragraph, and an ordered list of sections (each either a
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -785,7 +787,7 @@ _None._
 ### `renderTable`
 
 ```text
-renderTable({ nodes, edges, title })
+renderTable({ nodes, edges, title }): unknown
 ```
 
 Render a Markdown table fallback for sub-graphs that exceed the
@@ -799,7 +801,7 @@ use `Directory | Files | Description`.
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -808,7 +810,7 @@ _None._
 ### `resolveOutputPath`
 
 ```text
-resolveOutputPath(rootDir, config, category)
+resolveOutputPath(rootDir, config, category): unknown
 ```
 
 #### Params
@@ -819,7 +821,7 @@ resolveOutputPath(rootDir, config, category)
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -828,7 +830,7 @@ _None._
 ### `saveModuleHashes`
 
 ```text
-async saveModuleHashes(stateDirAbs, hashes)
+async saveModuleHashes(stateDirAbs, hashes): void
 ```
 
 Persist the module-hash map atomically. Keys sorted alphabetically.
@@ -841,7 +843,7 @@ Mirrors the tmp+rename pattern from `hash_tracker.saveHashes`.
 
 #### Returns
 
-_None._
+`void`
 
 #### Examples
 
@@ -850,7 +852,7 @@ _None._
 ### `serializeFrontmatter`
 
 ```text
-serializeFrontmatter(obj)
+serializeFrontmatter(obj): unknown
 ```
 
 Build, ajv-validate, and deterministically serialize Starlight frontmatter.
@@ -863,7 +865,7 @@ Throws an Error tagged with the ajv error path on invalid input.
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -872,7 +874,7 @@ _None._
 ### `serializeObject`
 
 ```text
-serializeObject(obj, depth)
+serializeObject(obj, depth): unknown
 ```
 
 Serialize an object as YAML at the given indent depth, with sorted keys.
@@ -884,7 +886,7 @@ Serialize an object as YAML at the given indent depth, with sorted keys.
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -893,7 +895,7 @@ _None._
 ### `serializeReferenceFrontmatter`
 
 ```text
-serializeReferenceFrontmatter(obj)
+serializeReferenceFrontmatter(obj): unknown
 ```
 
 Variant of serializeFrontmatter for WG-34 reference/catalog pages. Identical
@@ -907,7 +909,7 @@ when config.site.repoUrl is unavailable.
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -916,7 +918,7 @@ _None._
 ### `serializeScalar`
 
 ```text
-serializeScalar(value)
+serializeScalar(value): unknown
 ```
 
 Serialize a single value with stable formatting.
@@ -930,7 +932,7 @@ Booleans render unquoted, numbers render verbatim, null renders as bare
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -939,7 +941,7 @@ _None._
 ### `splitSections`
 
 ```text
-splitSections(text)
+splitSections(text): object
 ```
 
 Split the LLM text into the five required sections. Throws a typed
@@ -951,7 +953,7 @@ error when a section is missing or out of order.
 
 #### Returns
 
-_None._
+`object`
 
 #### Examples
 
@@ -960,7 +962,7 @@ _None._
 ### `stripFrontmatter`
 
 ```text
-stripFrontmatter(text)
+stripFrontmatter(text): unknown
 ```
 
 Strip a leading frontmatter block (`---\n...\n---\n`). Returns the
@@ -973,7 +975,7 @@ input unchanged.
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -982,7 +984,7 @@ _None._
 ### `validateEntry`
 
 ```text
-validateEntry(category, entry)
+validateEntry(category, entry): object
 ```
 
 Run the binary rubric against an entry.
@@ -994,7 +996,7 @@ Run the binary rubric against an entry.
 
 #### Returns
 
-_None._
+`object`
 
 #### Examples
 
@@ -1003,7 +1005,7 @@ _None._
 ### `validateHedges`
 
 ```text
-validateHedges(content)
+validateHedges(content): object
 ```
 
 Detect banned hedge phrases (case-insensitive substring match).
@@ -1014,7 +1016,7 @@ Detect banned hedge phrases (case-insensitive substring match).
 
 #### Returns
 
-_None._
+`object`
 
 #### Examples
 

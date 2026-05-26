@@ -71,14 +71,19 @@ function buildBlockedReport() {
  * Run all sanitizers in canonical order on `content`.
  *
  * @param {string} content - The text to sanitize.
- * @param {{path?: string}} [opts] - Optional. `opts.path` is the absolute
- *   filesystem path the content was read from; when supplied it gates the
- *   pipeline via `isPathBlocked`.
+ * @param {{path?: string, hostAllowlist?: string[]}} [opts] - Optional.
+ *   `opts.path` is the absolute filesystem path the content was read from;
+ *   when supplied it gates the pipeline via `isPathBlocked`.
+ *   `opts.hostAllowlist` is an array of bare hostnames forwarded to the
+ *   secret detector as per-call additions to its static
+ *   `PUBLIC_HOST_ALLOWLIST` (matches the host exactly OR any subdomain of
+ *   it). Use for the project's own configured public hosts (e.g. the docs
+ *   site, the publish-target repo host).
  * @returns {{content: string, report: {stages: Array<object>}}} The
  *   sanitized content and a uniform 5-entry stage report.
  * @throws {TypeError} If `content` is not a string, `opts` is supplied and
- *   is not a plain object, or `opts.path` is supplied and is not a
- *   non-empty string.
+ *   is not a plain object, `opts.path` is supplied and is not a non-empty
+ *   string, or `opts.hostAllowlist` is supplied and is not an array.
  */
 export function composeAll(content, opts) {
   // 1. Type guards.
@@ -92,6 +97,9 @@ export function composeAll(content, opts) {
     if (typeof opts.path !== 'string' || opts.path.length === 0) {
       throw new TypeError('composeAll: opts.path must be a non-empty string');
     }
+  }
+  if (opts !== undefined && opts.hostAllowlist !== undefined && !Array.isArray(opts.hostAllowlist)) {
+    throw new TypeError('composeAll: opts.hostAllowlist must be an array of strings or undefined');
   }
 
   const pathProvided = opts !== undefined && opts.path !== undefined;
@@ -121,8 +129,13 @@ export function composeAll(content, opts) {
     });
   }
 
-  // 4. Secret detector. Record-only; never throws on `found`.
-  const secretResult = scan(content);
+  // 4. Secret detector. Record-only; never throws on `found`. The optional
+  //    `opts.hostAllowlist` is forwarded so url/host matches on the
+  //    project's own configured public hosts are exempted in this call.
+  const scanOpts = opts !== undefined && Array.isArray(opts.hostAllowlist)
+    ? { hostAllowlist: opts.hostAllowlist }
+    : undefined;
+  const secretResult = scan(content, scanOpts);
   stages.push({
     name: 'secret',
     mutated: false,

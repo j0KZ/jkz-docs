@@ -78,10 +78,16 @@ function hostnameOf(raw) {
   return s.toLowerCase();
 }
 
-function isAllowlistedHost(hostname) {
+function isAllowlistedHost(hostname, extraHosts) {
   if (PUBLIC_HOST_ALLOWLIST.has(hostname)) return true;
   for (const allowed of PUBLIC_HOST_ALLOWLIST) {
     if (hostname.endsWith('.' + allowed)) return true;
+  }
+  if (extraHosts !== undefined) {
+    if (extraHosts.has(hostname)) return true;
+    for (const allowed of extraHosts) {
+      if (hostname.endsWith('.' + allowed)) return true;
+    }
   }
   return false;
 }
@@ -99,11 +105,15 @@ function isPlainObject(v) {
  * Scan `content` for secret-shaped substrings.
  *
  * @param {string} content - The text to scan.
- * @param {object|undefined} [opts] - Reserved for future use; validated for
- *   shape but currently ignored.
+ * @param {object|undefined} [opts] - Optional. `opts.hostAllowlist` is an
+ *   array of bare hostnames (e.g. `['docs.j0kz.dev']`) that supplement the
+ *   static `PUBLIC_HOST_ALLOWLIST` for url/host matches in this call only.
+ *   Comparison is case-insensitive and matches the exact host OR any
+ *   subdomain of it. Non-string entries are ignored.
  * @returns {{ found: boolean, matches: Array<object> }}
  * @throws {TypeError} If `content` is not a string, or `opts` is supplied and
- *   is not a plain object.
+ *   is not a plain object, or `opts.hostAllowlist` is supplied and is not an
+ *   array.
  */
 export function scan(content, opts) {
   // 1. Type guard.
@@ -112,6 +122,23 @@ export function scan(content, opts) {
   }
   if (opts !== undefined && !isPlainObject(opts)) {
     throw new TypeError('scan: opts must be a plain object or undefined');
+  }
+  if (opts !== undefined && opts.hostAllowlist !== undefined && !Array.isArray(opts.hostAllowlist)) {
+    throw new TypeError('scan: opts.hostAllowlist must be an array of strings or undefined');
+  }
+
+  // Build the per-call extra-host allowlist (lowercased, non-empty strings
+  // only). An empty result means no per-call additions; behavior is then
+  // identical to the prior signature.
+  let extraHosts;
+  if (opts !== undefined && Array.isArray(opts.hostAllowlist)) {
+    extraHosts = new Set();
+    for (const h of opts.hostAllowlist) {
+      if (typeof h === 'string' && h.length > 0) {
+        extraHosts.add(h.toLowerCase());
+      }
+    }
+    if (extraHosts.size === 0) extraHosts = undefined;
   }
 
   // 2. Size cap (short-circuit before any regex allocates).
@@ -180,10 +207,12 @@ export function scan(content, opts) {
         if (!isIPv6(raw)) continue;
         finalKind = 'ipv6';
       }
-      // url/host hits on PUBLIC_HOST_ALLOWLIST are exempt: the match is
-      // treated as if it never existed (CI-gate exemption for canonical
-      // public-doc URLs). ipv4/ipv6 are never exempt.
-      if ((finalKind === 'url' || finalKind === 'host') && isAllowlistedHost(hostnameOf(raw))) {
+      // url/host hits on PUBLIC_HOST_ALLOWLIST (plus the per-call
+      // `opts.hostAllowlist`, if any) are exempt: the match is treated as if
+      // it never existed (CI-gate exemption for canonical public-doc URLs
+      // and for the project's own configured public hosts). ipv4/ipv6 are
+      // never exempt.
+      if ((finalKind === 'url' || finalKind === 'host') && isAllowlistedHost(hostnameOf(raw), extraHosts)) {
         continue;
       }
       if (

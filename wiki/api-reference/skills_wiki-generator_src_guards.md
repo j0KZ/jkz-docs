@@ -1,5 +1,7 @@
 ---
+deprecated_since: null
 description: Module skills/wiki-generator/src/guards
+editUrl: null
 pagefind: true
 sidebar:
   label: guards
@@ -99,7 +101,7 @@ _None._
 ### `checkHallucination`
 
 ```text
-checkHallucination(opts)
+checkHallucination(opts): object
 ```
 
 Run the hallucination guard for one doc/source pair.
@@ -117,7 +119,7 @@ Decision table:
 
 #### Returns
 
-_None._
+`object`
 
 #### Examples
 
@@ -126,7 +128,7 @@ _None._
 ### `main`
 
 ```text
-main(argv, io)
+main(argv, io): unknown
 ```
 
 CLI entrypoint. Returns the process exit code instead of calling
@@ -145,7 +147,7 @@ Exit codes: 0 = pass, 1 = blocked (hallucination), 2 = usage / runtime error.
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 

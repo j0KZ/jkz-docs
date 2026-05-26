@@ -1,5 +1,7 @@
 ---
+deprecated_since: null
 description: Module skills/wiki-generator/src/utils
+editUrl: null
 pagefind: true
 sidebar:
   label: utils
@@ -131,7 +133,7 @@ _None._
 ### `__resetDepsForTests`
 
 ```text
-__resetDepsForTests()
+__resetDepsForTests(): void
 ```
 
 #### Params
@@ -140,7 +142,7 @@ _None._
 
 #### Returns
 
-_None._
+`void`
 
 #### Examples
 
@@ -149,7 +151,7 @@ _None._
 ### `__resetFetchForTests`
 
 ```text
-__resetFetchForTests()
+__resetFetchForTests(): void
 ```
 
 Test hook: clear the override.
@@ -160,7 +162,7 @@ _None._
 
 #### Returns
 
-_None._
+`void`
 
 #### Examples
 
@@ -169,7 +171,7 @@ _None._
 ### `__setClientFactoryForTests`
 
 ```text
-__setClientFactoryForTests(factory)
+__setClientFactoryForTests(factory): void
 ```
 
 Override the Anthropic client factory. Tests only.
@@ -180,7 +182,7 @@ Override the Anthropic client factory. Tests only.
 
 #### Returns
 
-_None._
+`void`
 
 #### Examples
 
@@ -189,7 +191,7 @@ _None._
 ### `__setDepsForTests`
 
 ```text
-__setDepsForTests(deps)
+__setDepsForTests(deps): void
 ```
 
 Override the Octokit constructor and execFile implementation. Tests only.
@@ -200,7 +202,7 @@ Override the Octokit constructor and execFile implementation. Tests only.
 
 #### Returns
 
-_None._
+`void`
 
 #### Examples
 
@@ -209,7 +211,7 @@ _None._
 ### `__setFetchForTests`
 
 ```text
-__setFetchForTests(fn)
+__setFetchForTests(fn): void
 ```
 
 Test hook: override the fetch implementation.
@@ -220,7 +222,7 @@ Test hook: override the fetch implementation.
 
 #### Returns
 
-_None._
+`void`
 
 #### Examples
 
@@ -229,7 +231,7 @@ _None._
 ### `__setSleepForTests`
 
 ```text
-__setSleepForTests(impl)
+__setSleepForTests(impl): void
 ```
 
 Override the backoff sleeper. Tests only -- pass () => Promise.resolve() to
@@ -241,7 +243,7 @@ skip delays entirely.
 
 #### Returns
 
-_None._
+`void`
 
 #### Examples
 
@@ -250,7 +252,7 @@ _None._
 ### `aliasModel`
 
 ```text
-aliasModel(name)
+aliasModel(name): object
 ```
 
 Map a friendly alias to the concrete model id and (when applicable) the
@@ -262,7 +264,7 @@ extended-thinking configuration. Throws on unknown alias.
 
 #### Returns
 
-_None._
+`object`
 
 #### Examples
 
@@ -271,7 +273,7 @@ _None._
 ### `appendRunRecord`
 
 ```text
-async appendRunRecord(stateDir, record)
+async appendRunRecord(stateDir, record): unknown
 ```
 
 Append one run's cost record to `<stateDir>/cost-history.json` and persist
@@ -285,7 +287,7 @@ total tokens, and the total USD.
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -294,7 +296,7 @@ _None._
 ### `calculateCost`
 
 ```text
-calculateCost(usage, model)
+calculateCost(usage, model): unknown
 ```
 
 Calculate cost in USD for a single LLM call.
@@ -306,7 +308,7 @@ Calculate cost in USD for a single LLM call.
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -315,7 +317,7 @@ _None._
 ### `callLLM`
 
 ```text
-async callLLM(opts)
+async callLLM(opts): object
 ```
 
 Call the Anthropic Messages API with retries and a normalized response.
@@ -326,7 +328,7 @@ Call the Anthropic Messages API with retries and a normalized response.
 
 #### Returns
 
-_None._
+`object`
 
 #### Examples
 
@@ -335,7 +337,7 @@ _None._
 ### `classifyWithHaiku`
 
 ```text
-async classifyWithHaiku({ system, userContent })
+async classifyWithHaiku({ system, userContent }): unknown
 ```
 
 Invoke Haiku in JSON mode and return a validated classification result.
@@ -346,7 +348,7 @@ Invoke Haiku in JSON mode and return a validated classification result.
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -355,7 +357,7 @@ _None._
 ### `createGitHubClient`
 
 ```text
-createGitHubClient(opts)
+createGitHubClient(opts): unknown
 ```
 
 Build a wrapper around Octokit. Token defaults to WIKI_BOT_TOKEN.
@@ -366,7 +368,7 @@ Build a wrapper around Octokit. Token defaults to WIKI_BOT_TOKEN.
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -375,7 +377,7 @@ _None._
 ### `dateKey`
 
 ```text
-dateKey(date)
+dateKey(date): unknown
 ```
 
 Format a `Date` as the `YYYY-MM-DD` calendar-day key.
@@ -386,7 +388,7 @@ Format a `Date` as the `YYYY-MM-DD` calendar-day key.
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -395,7 +397,7 @@ _None._
 ### `describeBuckets`
 
 ```text
-async describeBuckets(summaries, opts)
+async describeBuckets(summaries, opts): unknown
 ```
 
 Single batched Sonnet-medium call describing every architecture
@@ -409,7 +411,7 @@ failure (caller falls back via deterministicDescribe).
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -418,7 +420,7 @@ _None._
 ### `deterministicDescribe`
 
 ```text
-deterministicDescribe(bucketName)
+deterministicDescribe(bucketName): unknown
 ```
 
 Deterministic per-bucket fallback. Returns a fixed sentence for the
@@ -430,7 +432,7 @@ five spec-locked buckets; everything else returns a generic label.
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -439,7 +441,7 @@ _None._
 ### `deterministicHumanize`
 
 ```text
-deterministicHumanize(raw)
+deterministicHumanize(raw): unknown
 ```
 
 Deterministic fallback transform: split on `_`, `-`, and `/`,
@@ -454,7 +456,7 @@ directly without invoking the LLM.
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -463,7 +465,7 @@ _None._
 ### `fetchRecentMergedPRs`
 
 ```text
-async fetchRecentMergedPRs({ sinceIso, repoDir, runner })
+async fetchRecentMergedPRs({ sinceIso, repoDir, runner }): unknown
 ```
 
 Fetch merged PRs since `sinceIso` via `gh pr list --json ...`.
@@ -474,7 +476,7 @@ Fetch merged PRs since `sinceIso` via `gh pr list --json ...`.
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -483,7 +485,7 @@ _None._
 ### `formatMonthlySummary`
 
 ```text
-formatMonthlySummary(monthSummary, target)
+formatMonthlySummary(monthSummary, target): unknown
 ```
 
 Build the day-1-of-month Telegram summary text for the previous month.
@@ -495,7 +497,7 @@ Build the day-1-of-month Telegram summary text for the previous month.
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -504,7 +506,7 @@ _None._
 ### `formatRunSummary`
 
 ```text
-formatRunSummary({ runId, runSummary, projection })
+formatRunSummary({ runId, runSummary, projection }): unknown
 ```
 
 Build the per-run Telegram summary text: total tokens, total USD, the
@@ -516,7 +518,7 @@ per-generator (label) breakdown, and the month-to-date projection.
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -525,7 +527,7 @@ _None._
 ### `generateEntryWithSonnet`
 
 ```text
-async generateEntryWithSonnet({ system, userContent })
+async generateEntryWithSonnet({ system, userContent }): unknown
 ```
 
 Invoke Sonnet-medium in JSON mode and return the parsed entry object.
@@ -536,7 +538,7 @@ Invoke Sonnet-medium in JSON mode and return the parsed entry object.
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -545,7 +547,7 @@ _None._
 ### `generateWorkflowGuide`
 
 ```text
-async generateWorkflowGuide({ topic, signals, system, userContent })
+async generateWorkflowGuide({ topic, signals, system, userContent }): unknown
 ```
 
 Call Sonnet 4.6 medium (extended-thinking enabled) to produce a
@@ -562,7 +564,7 @@ Returns `{content, usage}` on success or `null` on any error.
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -571,7 +573,7 @@ _None._
 ### `getUsageSnapshot`
 
 ```text
-getUsageSnapshot()
+getUsageSnapshot(): unknown
 ```
 
 Return a deep copy of the accumulator entries so callers cannot mutate the
@@ -583,7 +585,7 @@ _None._
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -592,7 +594,7 @@ _None._
 ### `humanizeWithHaiku`
 
 ```text
-async humanizeWithHaiku(labels, opts)
+async humanizeWithHaiku(labels, opts): unknown
 ```
 
 Attempt to humanize a list of labels by calling Haiku. Returns a
@@ -606,7 +608,7 @@ failure. Caller decides whether to fall back.
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -615,7 +617,7 @@ _None._
 ### `loadHistory`
 
 ```text
-async loadHistory(stateDir)
+async loadHistory(stateDir): unknown
 ```
 
 Load the persisted cost history from `<stateDir>/cost-history.json`.
@@ -628,7 +630,7 @@ cost history is observability data, never a hard dependency.
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -637,7 +639,7 @@ _None._
 ### `logError`
 
 ```text
-async logError(event)
+async logError(event): unknown
 ```
 
 Log a pipeline error.
@@ -648,7 +650,7 @@ Log a pipeline error.
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -657,7 +659,7 @@ _None._
 ### `logUpdate`
 
 ```text
-async logUpdate(event)
+async logUpdate(event): unknown
 ```
 
 Log a routine pipeline update.
@@ -668,7 +670,7 @@ Log a routine pipeline update.
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -677,7 +679,7 @@ _None._
 ### `narrateWhatsNew`
 
 ```text
-async narrateWhatsNew(groupedPRs, opts)
+async narrateWhatsNew(groupedPRs, opts): object
 ```
 
 Generate the "What's New" narrative section via the LLM client.
@@ -689,7 +691,7 @@ Generate the "What's New" narrative section via the LLM client.
 
 #### Returns
 
-_None._
+`object`
 
 #### Examples
 
@@ -698,7 +700,7 @@ _None._
 ### `projectMonth`
 
 ```text
-projectMonth(history, now, target)
+projectMonth(history, now, target): object
 ```
 
 Project the current month's total cost from the spend so far.
@@ -715,7 +717,7 @@ is compared against `target` (default: the $50 WG-29 target).
 
 #### Returns
 
-_None._
+`object`
 
 #### Examples
 
@@ -724,7 +726,7 @@ _None._
 ### `recordUsage`
 
 ```text
-recordUsage(entry)
+recordUsage(entry): void
 ```
 
 Record one LLM call's token usage into the per-run accumulator.
@@ -740,7 +742,7 @@ attributed.
 
 #### Returns
 
-_None._
+`void`
 
 #### Examples
 
@@ -749,7 +751,7 @@ _None._
 ### `reportCost`
 
 ```text
-async reportCost({ stateDir, runId, telegramLogger, now, snapshot })
+async reportCost({ stateDir, runId, telegramLogger, now, snapshot }): object
 ```
 
 Orchestrator post-run hook: persist the run's cost record, post the per-run
@@ -766,7 +768,7 @@ cannot fail an otherwise-successful pipeline run.
 
 #### Returns
 
-_None._
+`object`
 
 #### Examples
 
@@ -775,7 +777,7 @@ _None._
 ### `resetUsage`
 
 ```text
-resetUsage()
+resetUsage(): void
 ```
 
 Clear the per-run usage accumulator. Call at the start of every run.
@@ -786,7 +788,7 @@ _None._
 
 #### Returns
 
-_None._
+`void`
 
 #### Examples
 
@@ -795,7 +797,7 @@ _None._
 ### `summarizeMonth`
 
 ```text
-summarizeMonth(history, yearMonth)
+summarizeMonth(history, yearMonth): object
 ```
 
 Aggregate every run record in the given calendar month.
@@ -807,7 +809,7 @@ Aggregate every run record in the given calendar month.
 
 #### Returns
 
-_None._
+`object`
 
 #### Examples
 
@@ -816,7 +818,7 @@ _None._
 ### `summarizeRun`
 
 ```text
-summarizeRun(snapshot)
+summarizeRun(snapshot): object
 ```
 
 Compute tokens + USD for a usage snapshot, broken down per accumulator
@@ -832,7 +834,7 @@ report. `calculateCost` throws on an unknown model, so the call is guarded.
 
 #### Returns
 
-_None._
+`object`
 
 #### Examples
 
@@ -841,7 +843,7 @@ _None._
 ### `yearMonthKey`
 
 ```text
-yearMonthKey(date)
+yearMonthKey(date): unknown
 ```
 
 Format a `Date` as the `YYYY-MM` calendar-month key.
@@ -852,7 +854,7 @@ Format a `Date` as the `YYYY-MM` calendar-month key.
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 

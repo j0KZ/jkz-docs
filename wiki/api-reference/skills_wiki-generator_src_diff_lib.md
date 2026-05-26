@@ -1,5 +1,7 @@
 ---
+deprecated_since: null
 description: Module skills/wiki-generator/src/diff/lib
+editUrl: null
 pagefind: true
 sidebar:
   label: lib
@@ -22,7 +24,7 @@ Module skills/wiki-generator/src/diff/lib
 ### `atomicWriteJson`
 
 ```text
-async atomicWriteJson(target, value, jsonSpace)
+async atomicWriteJson(target, value, jsonSpace): void
 ```
 
 Atomic JSON writer shared by wiki-generator diff trackers. Writes the
@@ -40,7 +42,7 @@ tmp filename format: tmp-<basename(target)>-<pid>-<ts>-<hex4>.
 
 #### Returns
 
-_None._
+`void`
 
 #### Examples
 

@@ -1,5 +1,7 @@
 ---
+deprecated_since: null
 description: Module skills/wiki-generator/src/classifiers
+editUrl: null
 pagefind: true
 sidebar:
   label: classifiers
@@ -79,7 +81,7 @@ _None._
 ### `classifyIssue`
 
 ```text
-async classifyIssue({ issue, sanitize, client })
+async classifyIssue({ issue, sanitize, client }): object
 ```
 
 Classify an issue into one of the 6 content categories or 'skip'.
@@ -90,7 +92,7 @@ Classify an issue into one of the 6 content categories or 'skip'.
 
 #### Returns
 
-_None._
+`object`
 
 #### Examples
 

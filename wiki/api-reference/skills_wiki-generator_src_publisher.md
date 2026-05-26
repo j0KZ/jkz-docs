@@ -1,5 +1,7 @@
 ---
+deprecated_since: null
 description: Module skills/wiki-generator/src/publisher
+editUrl: null
 pagefind: true
 sidebar:
   label: publisher
@@ -31,7 +33,7 @@ async generatePRBody({
   sourceCommits,
   repoUrl,
   dryRun,
-})
+}): unknown
 ```
 
 #### Params
@@ -40,7 +42,7 @@ async generatePRBody({
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -57,7 +59,7 @@ async handleAutoMerge({
   hitlRequired,
   dryRun,
   logger,
-})
+}): object
 ```
 
 #### Params
@@ -66,7 +68,7 @@ async handleAutoMerge({
 
 #### Returns
 
-_None._
+`object`
 
 #### Examples
 
@@ -84,7 +86,7 @@ async openPR({
   body,
   logger,
   base = 'main',
-})
+}): unknown
 ```
 
 #### Params
@@ -93,7 +95,7 @@ async openPR({
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -111,7 +113,7 @@ async publishFiles({
   hitlRequired,
   dryRun,
   logger,
-})
+}): object
 ```
 
 #### Params
@@ -120,7 +122,7 @@ async publishFiles({
 
 #### Returns
 
-_None._
+`object`
 
 #### Examples
 

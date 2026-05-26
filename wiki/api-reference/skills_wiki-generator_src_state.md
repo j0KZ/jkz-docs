@@ -1,5 +1,7 @@
 ---
+deprecated_since: null
 description: Module skills/wiki-generator/src/state
+editUrl: null
 pagefind: true
 sidebar:
   label: state
@@ -22,7 +24,7 @@ Module skills/wiki-generator/src/state
 ### `prune`
 
 ```text
-async prune(opts)
+async prune(opts): unknown
 ```
 
 Prune stale entries from `file-hashes.json` and `issue-entries.json`.
@@ -43,7 +45,7 @@ Two-pass policy:
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 

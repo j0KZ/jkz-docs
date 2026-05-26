@@ -1,5 +1,7 @@
 ---
+deprecated_since: null
 description: Module skills/wiki-generator/src
+editUrl: null
 pagefind: true
 sidebar:
   label: src
@@ -60,7 +62,7 @@ _None._
 ### `createTelegramLoggerAdapter`
 
 ```text
-createTelegramLoggerAdapter(impl)
+createTelegramLoggerAdapter(impl): object
 ```
 
 Build an adapter that bridges the orchestrator's structured-event logging
@@ -79,7 +81,7 @@ underlying implementation as event objects.
 
 #### Returns
 
-_None._
+`object`
 
 #### Examples
 

@@ -1,5 +1,7 @@
 ---
+deprecated_since: null
 description: Module skills/wiki-generator/src/sanitizers
+editUrl: null
 pagefind: true
 sidebar:
   label: sanitizers
@@ -238,7 +240,7 @@ _None._
 ### `composeAll`
 
 ```text
-composeAll(content, opts)
+composeAll(content, opts): object
 ```
 
 Run all sanitizers in canonical order on `content`.
@@ -250,7 +252,7 @@ Run all sanitizers in canonical order on `content`.
 
 #### Returns
 
-_None._
+`object`
 
 #### Examples
 
@@ -259,7 +261,7 @@ _None._
 ### `isPathBlocked`
 
 ```text
-isPathBlocked(absPath)
+isPathBlocked(absPath): unknown
 ```
 
 Stateless predicate: does the given absolute path point at content that the
@@ -273,7 +275,7 @@ the on-disk pattern check already ran against the resolved input.
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -282,7 +284,7 @@ _None._
 ### `logSecretHit`
 
 ```text
-logSecretHit(opts)
+logSecretHit(opts): void
 ```
 
 Emit a structured `secret_hit` record to stderr.
@@ -293,7 +295,7 @@ Emit a structured `secret_hit` record to stderr.
 
 #### Returns
 
-_None._
+`void`
 
 #### Examples
 
@@ -302,7 +304,7 @@ _None._
 ### `sanitizeImplementations`
 
 ```text
-sanitizeImplementations(content)
+sanitizeImplementations(content): unknown
 ```
 
 #### Params
@@ -311,7 +313,7 @@ sanitizeImplementations(content)
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -320,7 +322,7 @@ _None._
 ### `sanitizeIssueLog`
 
 ```text
-sanitizeIssueLog(content)
+sanitizeIssueLog(content): unknown
 ```
 
 #### Params
@@ -329,7 +331,7 @@ sanitizeIssueLog(content)
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -338,7 +340,7 @@ _None._
 ### `sanitizePII`
 
 ```text
-sanitizePII(content)
+sanitizePII(content): unknown
 ```
 
 #### Params
@@ -347,7 +349,7 @@ sanitizePII(content)
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -356,7 +358,7 @@ _None._
 ### `scan`
 
 ```text
-scan(content, opts)
+scan(content, opts): object
 ```
 
 Scan `content` for secret-shaped substrings.
@@ -368,7 +370,7 @@ Scan `content` for secret-shaped substrings.
 
 #### Returns
 
-_None._
+`object`
 
 #### Examples
 
@@ -377,7 +379,7 @@ _None._
 ### `shannonEntropy`
 
 ```text
-shannonEntropy(s)
+shannonEntropy(s): unknown
 ```
 
 Shannon entropy of a string in bits per character.
@@ -394,7 +396,7 @@ Pure, allocation-bounded (one `Map` keyed by unique characters), no I/O.
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 

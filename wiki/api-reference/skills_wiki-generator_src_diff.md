@@ -1,5 +1,7 @@
 ---
+deprecated_since: null
 description: Module skills/wiki-generator/src/diff
+editUrl: null
 pagefind: true
 sidebar:
   label: diff
@@ -30,7 +32,7 @@ Module skills/wiki-generator/src/diff
 ### `addEntry`
 
 ```text
-async addEntry(stateDir, issueNumber)
+async addEntry(stateDir, issueNumber): object
 ```
 
 Idempotently add an issue number to the persisted set. Returns whether the
@@ -43,7 +45,7 @@ entry was newly added and the resulting total count.
 
 #### Returns
 
-_None._
+`object`
 
 #### Examples
 
@@ -52,7 +54,7 @@ _None._
 ### `detectChanges`
 
 ```text
-detectChanges(prevHashes, nextHashes)
+detectChanges(prevHashes, nextHashes): object
 ```
 
 Compare two file-hash maps and emit added / modified / deleted / renamed
@@ -70,7 +72,7 @@ output is deterministic.
 
 #### Returns
 
-_None._
+`object`
 
 #### Examples
 
@@ -79,7 +81,7 @@ _None._
 ### `hashContent`
 
 ```text
-hashContent(input)
+hashContent(input): unknown
 ```
 
 SHA-256 hex digest over the given content. Buffers and strings are accepted;
@@ -91,7 +93,7 @@ strings are hashed as UTF-8 bytes (matching the on-disk representation).
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -100,7 +102,7 @@ _None._
 ### `hashFile`
 
 ```text
-async hashFile(absPath)
+async hashFile(absPath): unknown
 ```
 
 Read a file from disk and return its SHA-256 hex digest.
@@ -111,7 +113,7 @@ Read a file from disk and return its SHA-256 hex digest.
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -120,7 +122,7 @@ _None._
 ### `hashModule`
 
 ```text
-hashModule(parts)
+hashModule(parts): unknown
 ```
 
 Compute the composite SHA-256 module hash from the four input sections.
@@ -134,7 +136,7 @@ same digest.
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -143,7 +145,7 @@ _None._
 ### `loadEntries`
 
 ```text
-async loadEntries(stateDir)
+async loadEntries(stateDir): unknown
 ```
 
 Load the persisted set of documented issue numbers. Returns an empty Set
@@ -155,7 +157,7 @@ when the state file does not exist.
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -164,7 +166,7 @@ _None._
 ### `loadHashes`
 
 ```text
-async loadHashes(stateDir)
+async loadHashes(stateDir): object
 ```
 
 Load the persisted file-hash map from `<stateDir>/file-hashes.json`.
@@ -176,7 +178,7 @@ Returns an empty object when the file does not yet exist.
 
 #### Returns
 
-_None._
+`object`
 
 #### Examples
 
@@ -185,7 +187,7 @@ _None._
 ### `saveEntries`
 
 ```text
-async saveEntries(stateDir, set)
+async saveEntries(stateDir, set): void
 ```
 
 Persist the set of documented issue numbers atomically, sorted ascending.
@@ -197,7 +199,7 @@ Persist the set of documented issue numbers atomically, sorted ascending.
 
 #### Returns
 
-_None._
+`void`
 
 #### Examples
 
@@ -206,7 +208,7 @@ _None._
 ### `saveHashes`
 
 ```text
-async saveHashes(stateDir, hashes)
+async saveHashes(stateDir, hashes): void
 ```
 
 Persist the file-hash map atomically. Keys are sorted alphabetically so the
@@ -219,7 +221,7 @@ on-disk artifact is deterministic across runs.
 
 #### Returns
 
-_None._
+`void`
 
 #### Examples
 

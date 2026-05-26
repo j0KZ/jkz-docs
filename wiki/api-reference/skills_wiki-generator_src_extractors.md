@@ -1,5 +1,7 @@
 ---
+deprecated_since: null
 description: Module skills/wiki-generator/src/extractors
+editUrl: null
 pagefind: true
 sidebar:
   label: extractors
@@ -92,7 +94,7 @@ _None._
 ### `_formatJsDoc`
 
 ```text
-_formatJsDoc(parsed)
+_formatJsDoc(parsed): object
 ```
 
 #### Params
@@ -101,7 +103,7 @@ _formatJsDoc(parsed)
 
 #### Returns
 
-_None._
+`object`
 
 #### Examples
 
@@ -110,7 +112,7 @@ _None._
 ### `classifyCommit`
 
 ```text
-classifyCommit(subject)
+classifyCommit(subject): unknown
 ```
 
 Pure: classify a single conventional-commit subject line.
@@ -121,7 +123,7 @@ Pure: classify a single conventional-commit subject line.
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -130,7 +132,7 @@ _None._
 ### `extractAst`
 
 ```text
-extractAst({ path, source })
+extractAst({ path, source }): unknown
 ```
 
 #### Params
@@ -139,7 +141,7 @@ extractAst({ path, source })
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -148,7 +150,7 @@ _None._
 ### `extractAstAndJsDoc`
 
 ```text
-extractAstAndJsDoc({ path, source })
+extractAstAndJsDoc({ path, source }): object
 ```
 
 #### Params
@@ -157,7 +159,7 @@ extractAstAndJsDoc({ path, source })
 
 #### Returns
 
-_None._
+`object`
 
 #### Examples
 
@@ -166,7 +168,7 @@ _None._
 ### `extractChangelog`
 
 ```text
-async extractChangelog({ since = '30.days.ago', repoDir = process.cwd() })
+async extractChangelog({ since = '30.days.ago', repoDir = process.cwd() }): unknown
 ```
 
 Run `git log --since=<since>` in `repoDir` and return classified commits.
@@ -177,7 +179,7 @@ Run `git log --since=<since>` in `repoDir` and return classified commits.
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -186,7 +188,7 @@ _None._
 ### `extractConfigComments`
 
 ```text
-async extractConfigComments(rootDir)
+async extractConfigComments(rootDir): object
 ```
 
 Extract inline-comment annotations from project config files.
@@ -204,7 +206,7 @@ Looked-up files (best-effort -- missing files yield empty maps):
 
 #### Returns
 
-_None._
+`object`
 
 #### Examples
 
@@ -222,7 +224,7 @@ async extractIssues({
   maxPages = DEFAULT_MAX_PAGES,
   reset = false,
   now = () => new Date(),
-})
+}): object
 ```
 
 Paginated GraphQL extractor for issues. See file header for cursor invariants.
@@ -250,7 +252,7 @@ comments take the single-fetch path (no extra GraphQL calls). The
 
 #### Returns
 
-_None._
+`object`
 
 #### Examples
 
@@ -259,7 +261,7 @@ _None._
 ### `extractJsDoc`
 
 ```text
-extractJsDoc({ path, source })
+extractJsDoc({ path, source }): unknown
 ```
 
 #### Params
@@ -268,7 +270,7 @@ extractJsDoc({ path, source })
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -277,7 +279,7 @@ _None._
 ### `extractReadmes`
 
 ```text
-async extractReadmes(rootDir, opts)
+async extractReadmes(rootDir, opts): unknown
 ```
 
 Walk `rootDir` and collect every README.md in any subdirectory.
@@ -289,7 +291,7 @@ Walk `rootDir` and collect every README.md in any subdirectory.
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -298,7 +300,7 @@ _None._
 ### `notifyParseFailure`
 
 ```text
-notifyParseFailure({ path, message })
+notifyParseFailure({ path, message }): void
 ```
 
 #### Params
@@ -307,7 +309,7 @@ notifyParseFailure({ path, message })
 
 #### Returns
 
-_None._
+`void`
 
 #### Examples
 
@@ -316,7 +318,7 @@ _None._
 ### `parseSource`
 
 ```text
-parseSource({ path, source })
+parseSource({ path, source }): object
 ```
 
 #### Params
@@ -325,7 +327,7 @@ parseSource({ path, source })
 
 #### Returns
 
-_None._
+`object`
 
 #### Examples
 
@@ -334,7 +336,7 @@ _None._
 ### `readCursor`
 
 ```text
-readCursor(filePath)
+readCursor(filePath): object
 ```
 
 Read the cursor file. Returns safe defaults on any failure path.
@@ -351,7 +353,7 @@ Validation rules:
 
 #### Returns
 
-_None._
+`object`
 
 #### Examples
 
@@ -360,7 +362,7 @@ _None._
 ### `validatePath`
 
 ```text
-validatePath(rawPath, root, kind)
+validatePath(rawPath, root, kind): unknown
 ```
 
 Validate that `rawPath` resolves to a location inside `root`. On any
@@ -374,7 +376,7 @@ failure, write a generic error to stderr and call `process.exit(2)`.
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 
@@ -383,7 +385,7 @@ _None._
 ### `writeCursor`
 
 ```text
-writeCursor(filePath, cursor)
+writeCursor(filePath, cursor): void
 ```
 
 Atomically persist the cursor. Always overwrites `updated_at` with the
@@ -396,7 +398,7 @@ current ISO timestamp. Creates the parent directory if missing.
 
 #### Returns
 
-_None._
+`void`
 
 #### Examples
 

@@ -1,5 +1,7 @@
 ---
+deprecated_since: null
 description: Module skills/wiki-generator/src/config
+editUrl: null
 pagefind: true
 sidebar:
   label: config
@@ -23,7 +25,7 @@ Module skills/wiki-generator/src/config
 ### `__resetForTests`
 
 ```text
-__resetForTests()
+__resetForTests(): void
 ```
 
 Reset the singleton cache. Private API -- tests only.
@@ -34,7 +36,7 @@ _None._
 
 #### Returns
 
-_None._
+`void`
 
 #### Examples
 
@@ -43,7 +45,7 @@ _None._
 ### `getConfig`
 
 ```text
-getConfig()
+getConfig(): unknown
 ```
 
 #### Params
@@ -52,7 +54,7 @@ _None._
 
 #### Returns
 
-_None._
+`unknown`
 
 #### Examples
 

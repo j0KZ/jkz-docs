@@ -4,7 +4,7 @@ description: Release history for jkz -- Keep a Changelog 1.1.0 format, synced fr
 ---
 
 :::note[Placeholder]
-This page is a sidebar placeholder for the new information architecture. The full content lands in [WG-48](https://github.com/j0KZ/jkz_Multi-Agent_System/issues) (Phase 2: Changelog reference).
+This page is a sidebar placeholder for the new information architecture. The full content lands in [WG-48](https://github.com/j0KZ/jkz_Multi-Agent_System/issues) (Phase 2: Changelog reference, tracking #1528).
 :::
 
 ## What lives here (Phase 2)

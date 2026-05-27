@@ -4,7 +4,7 @@ description: The three phases of the pipeline, the roles, and how they hand off 
 ---
 
 :::note[Placeholder]
-This page is a sidebar placeholder for the new information architecture. The full content lands in [WG-54](https://github.com/j0KZ/jkz_Multi-Agent_System/issues) (Phase 1 spike: How jkz works).
+This page is a sidebar placeholder for the new information architecture. The full content lands in [WG-54](https://github.com/j0KZ/jkz_Multi-Agent_System/issues) (Phase 1 spike: How jkz works, tracking #1534).
 :::
 
 ## What lives here (Phase 1)

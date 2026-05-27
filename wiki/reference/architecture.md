@@ -4,7 +4,7 @@ description: System architecture overview for jkz -- phases, roles, model invoca
 ---
 
 :::note[Placeholder]
-This page is a sidebar placeholder for the new information architecture. The full content lands in [WG-47](https://github.com/j0KZ/jkz_Multi-Agent_System/issues) (Phase 2: Architecture reference).
+This page is a sidebar placeholder for the new information architecture. The full content lands in [WG-47](https://github.com/j0KZ/jkz_Multi-Agent_System/issues) (Phase 2: Architecture reference, tracking #1527).
 :::
 
 ## What lives here (Phase 2)

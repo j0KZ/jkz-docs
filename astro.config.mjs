@@ -51,6 +51,7 @@ export default defineConfig({
         {
           label: 'Build',
           items: [
+            { slug: 'build/lightweight-routes' },
             { slug: 'build/coming-soon' },
           ],
         },

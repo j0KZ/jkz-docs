@@ -64,6 +64,18 @@ export default defineConfig({
           ],
         },
         {
+          // Agent reference pages, grouped by pipeline phase. Plan phase
+          // (WG-59) ships first; Build / QA / Utility pages land in later
+          // WG issues. Order within a phase follows the deliberation flow,
+          // not the alphabet.
+          label: 'Agents',
+          items: [
+            { slug: 'agents/architect' },
+            { slug: 'agents/auditor' },
+            { slug: 'agents/curator' },
+          ],
+        },
+        {
           label: 'Reference',
           items: [
             { slug: 'reference/architecture' },

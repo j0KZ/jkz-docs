@@ -49,6 +49,14 @@ export default defineConfig({
           ],
         },
         {
+          label: 'Concepts',
+          items: [
+            { slug: 'concepts/worktree-isolation' },
+            { slug: 'concepts/merge-gate' },
+            { slug: 'concepts/cross-chat' },
+          ],
+        },
+        {
           label: 'Build',
           items: [
             { slug: 'build/coming-soon' },

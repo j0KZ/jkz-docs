@@ -22,7 +22,7 @@ An **agent worktree** is scratch space. When Claude Code dispatches a subagent w
 
 A pipeline command does not just `cd` into a directory. It runs a precise sequence so the session itself moves into the isolated tree and back out again:
 
-```
+```text
 issue-worktree.js ensure  →  EnterWorktree  →  ...work...  →  ExitWorktree(keep)  →  (optional) issue-worktree.js cleanup
 ```
 

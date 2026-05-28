@@ -61,7 +61,7 @@ The **Builder** implements the approved plan inside an isolated worktree and ope
 
 ## The twelve roles
 
-Each role is a single responsibility with a single model class. Creative roles construct; adversarial roles attack; validators confirm; utility roles support. Dedicated reference pages for each role arrive in Phase 2 of this wiki.
+Each role is a single responsibility with a single model class. Creative roles construct; adversarial roles attack; validators confirm; utility roles support. Dedicated reference pages for each role arrive in Phase 2 of this wiki, starting with the [Plan-phase agents](/agents/plan-phase/).
 
 | Role | Phase | Class | Purpose |
 |------|-------|-------|---------|

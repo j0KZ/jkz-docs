@@ -79,6 +79,9 @@ export default defineConfig({
             { slug: 'agents/doctor' },
             { slug: 'agents/lens' },
             { slug: 'agents/sentinel' },
+            { slug: 'agents/librarian' },
+            { slug: 'agents/classifier' },
+            { slug: 'agents/orchestrator' },
           ],
         },
         {

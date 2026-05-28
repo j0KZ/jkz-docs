@@ -3,7 +3,7 @@ title: Builder
 description: The creative role that implements an approved plan inside an isolated worktree and opens the pull request — Claude Opus, worktree-only writes, never merges.
 ---
 
-The **Builder** is where a plan becomes code. It takes the strategy the [Architect](/get-started/how-jkz-works/) designed and the [Auditor](/get-started/how-jkz-works/) and Curator signed off on, and it implements it faithfully inside an isolated worktree — then opens the pull request that every later role reviews.
+The **Builder** is where a plan becomes code. It takes the strategy the [Architect](/agents/architect/) designed and the [Auditor](/agents/auditor/) and [Curator](/agents/curator/) signed off on, and it implements it faithfully inside an isolated worktree — then opens the pull request that every later role reviews.
 
 The Builder does not make architectural decisions. Those were made in planning. Its discipline is execution: implement the plan exactly, match the existing style, and report any deviation honestly rather than quietly improving things it was not asked to touch.
 

@@ -49,14 +49,30 @@ export default defineConfig({
           ],
         },
         {
+          label: 'Concepts',
+          items: [
+            { slug: 'concepts/worktree-isolation' },
+            { slug: 'concepts/merge-gate' },
+            { slug: 'concepts/cross-chat' },
+          ],
+        },
+        {
           label: 'Build',
           items: [
+            { slug: 'build/lightweight-routes' },
             { slug: 'build/coming-soon' },
           ],
         },
         {
+          // Agent reference pages, grouped by pipeline phase. Plan phase
+          // (WG-59) ships first, then Build phase (WG-60); QA / Utility
+          // pages land in later WG issues. Order within a phase follows
+          // the deliberation flow, not the alphabet.
           label: 'Agents',
           items: [
+            { slug: 'agents/architect' },
+            { slug: 'agents/auditor' },
+            { slug: 'agents/curator' },
             { slug: 'agents/builder' },
             { slug: 'agents/judge' },
             { slug: 'agents/inspector' },

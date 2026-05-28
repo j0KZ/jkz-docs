@@ -55,6 +55,10 @@ export default defineConfig({
           ],
         },
         {
+          label: 'Agents',
+          items: sidebarFromWiki('agents'),
+        },
+        {
           label: 'Reference',
           items: [
             { slug: 'reference/architecture' },

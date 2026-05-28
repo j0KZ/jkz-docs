@@ -59,8 +59,8 @@ export default defineConfig({
         {
           label: 'Build',
           items: [
+            { slug: 'build/run-a-pipeline' },
             { slug: 'build/lightweight-routes' },
-            { slug: 'build/coming-soon' },
           ],
         },
         {

@@ -51,8 +51,11 @@ export default defineConfig({
         {
           label: 'Concepts',
           items: [
-            { slug: 'concepts/worktree-isolation' },
+            { slug: 'concepts/pipeline' },
+            { slug: 'concepts/evidence-hierarchy' },
+            { slug: 'concepts/ambiguity-gate' },
             { slug: 'concepts/merge-gate' },
+            { slug: 'concepts/worktree-isolation' },
             { slug: 'concepts/cross-chat' },
           ],
         },

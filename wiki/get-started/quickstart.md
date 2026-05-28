@@ -194,7 +194,7 @@ issue closes automatically via the `Closes #128` keyword in the PR body.
   behind the design.
 - [How jkz works](/get-started/how-jkz-works/) — the three phases, the twelve
   roles, and the deliberation loop in detail.
-- [Run a pipeline](/build/coming-soon/) — the day-to-day once you know the shape.
+- [Run a pipeline](/build/run-a-pipeline/) — the day-to-day once you know the shape.
 - [Architecture](/reference/architecture/) — phase boundaries, roles, and model
   routing for the full picture.
 

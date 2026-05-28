@@ -14,6 +14,8 @@ Across all commands the **orchestrator is Claude Code (Opus)**: it reads your in
 | **validator** | External / Ollama Cloud / Gemini | Curator, Inspector, Lens, Research-Reviewer |
 | **utility** | Claude Haiku | Librarian, Classifier |
 
+One model sits outside the class table: **Claude Sonnet** is the execution runtime for `/jkz:e2e`, driving the agent-browser to run the scenarios Opus generates.
+
 The pattern in every phase: **Opus creates → an adversarial backend challenges → a validator backend confirms.** Agents never talk to each other — every handoff is a Git artifact.
 
 :::note[Source of truth]

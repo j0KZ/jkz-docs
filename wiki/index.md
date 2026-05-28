@@ -34,9 +34,9 @@ New here? The path from zero to your first merged pull request.
 :::note[Build]
 The day-to-day, once you know the shape of a pipeline.
 
-- [Run a pipeline](/build/coming-soon/) — drive a feature from issue to approval.
-- [Fix a bug](/build/coming-soon/) — the lighter path for small, scoped changes.
-- [Ad-hoc work](/build/coming-soon/) — quick edits outside the full pipeline.
+- [Run a pipeline](/build/run-a-pipeline/) — drive a feature from issue to approval.
+- [Fix a bug](/build/lightweight-routes/) — the lighter path for small, scoped changes.
+- [Ad-hoc work](/build/lightweight-routes/) — quick edits outside the full pipeline.
 :::
 
 :::note[Reference]

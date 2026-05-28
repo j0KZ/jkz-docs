@@ -55,6 +55,14 @@ export default defineConfig({
           ],
         },
         {
+          label: 'Concepts',
+          items: [
+            { slug: 'concepts/worktree-isolation' },
+            { slug: 'concepts/cross-chat-awareness' },
+            { slug: 'concepts/merge-gate' },
+          ],
+        },
+        {
           label: 'Reference',
           items: [
             { slug: 'reference/architecture' },

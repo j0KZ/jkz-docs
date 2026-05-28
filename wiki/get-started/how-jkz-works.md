@@ -108,6 +108,6 @@ The first three are server-side and cannot be bypassed from inside a session. Th
 ## What this is not
 
 - **Not zero-touch.** Two ambiguity gates and a human merge are deliberate. jkz optimizes for control, not for getting you out of the loop.
-- **Not the fast path for trivial fixes.** A typo does not need an Architect. Use [`/jkz:quick`](/build/coming-soon/) (Builder + Judge only) for small scoped changes — or just edit the file directly.
+- **Not the fast path for trivial fixes.** A typo does not need an Architect. Use [`/jkz:quick`](/build/lightweight-routes/) (Builder + Judge only) for small scoped changes — or just edit the file directly.
 - **Not free.** Every phase spends tokens across multiple models. The deliberation buys correctness and a verifiable trail; it is not cheaper than a single-shot edit.
 - **Not a group chat.** Agents never message each other. Git is the only source of truth — if a verdict is not a comment or a commit, it did not happen.

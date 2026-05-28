@@ -64,6 +64,19 @@ export default defineConfig({
           ],
         },
         {
+          // Core pipeline command pages (WG-63), ordered by pipeline flow:
+          // plan -> build -> review -> qa. Each cross-links to How jkz works
+          // and the agents it dispatches. Commands drive the phases; the
+          // Agents group below documents the roles that do the work.
+          label: 'Commands',
+          items: [
+            { slug: 'commands/plan' },
+            { slug: 'commands/build' },
+            { slug: 'commands/review' },
+            { slug: 'commands/qa' },
+          ],
+        },
+        {
           // Agent reference pages, grouped by pipeline phase. Plan phase
           // (WG-59) ships first, then Build phase (WG-60); QA / Utility
           // pages land in later WG issues. Order within a phase follows

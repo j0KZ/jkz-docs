@@ -55,6 +55,15 @@ export default defineConfig({
           ],
         },
         {
+          label: 'Agents',
+          items: [
+            { slug: 'agents/builder' },
+            { slug: 'agents/judge' },
+            { slug: 'agents/inspector' },
+            { slug: 'agents/doctor' },
+          ],
+        },
+        {
           label: 'Reference',
           items: [
             { slug: 'reference/architecture' },

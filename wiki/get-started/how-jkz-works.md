@@ -3,7 +3,7 @@ title: How jkz works
 description: The three phases of the pipeline, the twelve roles, the multi-backend deliberation loop, and the human checkpoints that gate every merge.
 ---
 
-jkz turns one issue into one merged pull request by running it through three phases — **plan**, **build**, **QA** — staffed by twelve specialized roles. In each phase Opus drafts the work, an adversarial backend tries to break it, and a validator backend confirms the verdict. Agents never talk to each other: every handoff is a Git artifact (a plan comment, a PR diff, a review comment). The pipeline iterates on its own up to three times per phase, but it cannot reach `main`. You do that, and only you.
+jkz turns one issue into one merged pull request through three phases — **plan**, **build**, and (for features) **QA** — staffed by twelve specialized roles. In each phase Opus drafts the work, an adversarial backend tries to break it, and a validator backend confirms the verdict. Agents never talk to each other: every handoff is a Git artifact (a plan comment, a PR diff, a review comment). The pipeline iterates on its own up to three times per phase, but it cannot reach `main`. You do that, and only you.
 
 ## The pipeline at a glance
 

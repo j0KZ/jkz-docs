@@ -82,6 +82,20 @@ export default defineConfig({
           ],
         },
         {
+          // Command reference pages, built across three WG issues:
+          // lightweight & lifecycle (WG-64) ships first, then core
+          // pipeline (WG-63) and ancillary (WG-65). Order groups commands
+          // by category, not the alphabet; siblings insert their slugs here.
+          label: 'Commands',
+          items: [
+            { slug: 'commands/start' },
+            { slug: 'commands/quick' },
+            { slug: 'commands/fix' },
+            { slug: 'commands/resume' },
+            { slug: 'commands/status' },
+          ],
+        },
+        {
           label: 'Reference',
           items: [
             { slug: 'reference/architecture' },

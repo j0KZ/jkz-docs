@@ -58,6 +58,7 @@ export default defineConfig({
           label: 'Reference',
           items: [
             { slug: 'reference/architecture' },
+            { slug: 'reference/cli' },
             { slug: 'reference/changelog' },
             { slug: 'reference/design-decisions' },
             {

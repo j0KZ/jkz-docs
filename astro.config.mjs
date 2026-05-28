@@ -77,6 +77,8 @@ export default defineConfig({
             { slug: 'agents/judge' },
             { slug: 'agents/inspector' },
             { slug: 'agents/doctor' },
+            { slug: 'agents/lens' },
+            { slug: 'agents/sentinel' },
           ],
         },
         {

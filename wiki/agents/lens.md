@@ -15,7 +15,7 @@ Lens is a **reviewer, not an implementer**. It never plans, writes, or patches c
 | **Class** | validator |
 | **Backend** | Validator backend (Ollama Cloud `glm` by default; local Gemini CLI fallback when no endpoint is configured) |
 | **Runs with** | [Sentinel](/agents/sentinel/), in parallel |
-| **Fix loop** | A FAIL routes to the Doctor, up to 3× |
+| **Fix loop** | A FAIL routes to the [Doctor](/agents/doctor/), up to 3× |
 | **Invocation** | `node scripts/run.js resolve-wrapper.sh --role lens --pr <number>` |
 | **Can merge** | No. Read-only; posts PR comments. |
 

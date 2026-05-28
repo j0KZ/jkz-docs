@@ -15,7 +15,7 @@ Sentinel is **adversarial** by design, but adversarial is not obstructive. It de
 | **Class** | adversarial |
 | **Backend** | External, configurable, **required** — resolved at runtime via `JKZ_SENTINEL_ENDPOINT` / `JKZ_SENTINEL_MODEL` |
 | **Runs with** | [Lens](/agents/lens/), in parallel |
-| **Fix loop** | A FAIL routes to the Doctor, up to 3× |
+| **Fix loop** | A FAIL routes to the [Doctor](/agents/doctor/), up to 3× |
 | **Invocation** | `node scripts/run.js resolve-wrapper.sh --role sentinel --pr <number>` |
 | **Can merge** | No. Read-only; posts PR comments. |
 

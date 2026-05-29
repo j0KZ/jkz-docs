@@ -52,11 +52,16 @@ export default defineConfig({
           label: 'Concepts',
           items: [
             { slug: 'concepts/pipeline' },
+            { slug: 'concepts/issue-types' },
             { slug: 'concepts/evidence-hierarchy' },
             { slug: 'concepts/ambiguity-gate' },
             { slug: 'concepts/merge-gate' },
             { slug: 'concepts/worktree-isolation' },
             { slug: 'concepts/cross-chat' },
+            { slug: 'concepts/signal-format' },
+            { slug: 'concepts/context-management' },
+            { slug: 'concepts/fallback' },
+            { slug: 'concepts/plugin-mode' },
           ],
         },
         {

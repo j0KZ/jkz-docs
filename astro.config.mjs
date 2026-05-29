@@ -156,8 +156,12 @@ export default defineConfig({
           // New subsystem pages insert their slug below.
           label: 'Subsystems',
           items: [
+            { slug: 'subsystems/classifier-and-alignment' },
             { slug: 'subsystems/hermes' },
+            { slug: 'subsystems/hooks' },
             { slug: 'subsystems/mcp-servers' },
+            { slug: 'subsystems/telegram-bot' },
+            { slug: 'subsystems/wiki-generator' },
           ],
         },
         {

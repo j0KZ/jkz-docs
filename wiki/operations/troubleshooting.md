@@ -10,6 +10,7 @@ Most pipeline failures have a known cause and a one-line fix. This page is organ
 | Symptom / error | Entry |
 |-----------------|-------|
 | Guard emits JSON on stderr, scripts break when parsing | [Guard hooks](#guard-emits-json-on-stderr) |
+| A guard allows a command it should have blocked | [Fail-open guards](#fail-open-guard-hooks) |
 | `'\r': command not found` when running scripts | [CRLF line endings](#crlf-breaking-bash-scripts) |
 | `echo`, `cat`, `pwd` fail with cryptic errors | [Bash builtins](#bash-builtins-broken-in-the-sandbox) |
 | `Permission denied` or script not found in `scripts/*.sh` | [Script permissions](#windows-script-execution-permissions) |

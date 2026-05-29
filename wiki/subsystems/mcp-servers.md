@@ -3,7 +3,7 @@ title: MCP servers
 description: The Model Context Protocol servers jkz exposes and bundles — the jkz-pipeline server that lets any MCP client query and drive the pipeline, plus the finance data servers wired into the project.
 ---
 
-jkz speaks the [Model Context Protocol](https://modelcontextprotocol.io) on two fronts. It **exposes** its own server — `jkz-pipeline` — so any MCP-compatible client can read pipeline state and drive transitions without going through a slash command. And it **bundles** a handful of third-party servers, most of them finance data sources, so the same client can pull market and economic data alongside pipeline work.
+jkz speaks the Model Context Protocol (MCP) on two fronts. It **exposes** its own server — `jkz-pipeline` — so any MCP-compatible client can read pipeline state and drive transitions without going through a slash command. And it **bundles** a handful of third-party servers, most of them finance data sources, so the same client can pull market and economic data alongside pipeline work.
 
 Every server is declared in `.mcp.json` at the project root. That file is the single source of truth for which servers exist and how they launch; nothing here needs configuring in `.claude/settings.json`.
 

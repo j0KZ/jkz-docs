@@ -37,12 +37,12 @@ Patterns are not authored by hand. They are extracted from stored deliberations 
 
 A pattern's worth is not a flat count — it decays. When patterns are queried for injection, each row is scored on the fly:
 
-- **Success rate** — `success_count / (success_count + ignore_weight)`. A pattern that keeps getting validated and never ignored trends toward 1.0; one that validators keep rejecting trends toward 0.
-- **Time decay** — multiplied by `exp(−daysSinceUse / 14)`, so a pattern unused for two weeks is worth roughly a third of a fresh one. The exception: a **validated** pattern (reinforced three or more times) is immune to decay — once the pipeline has confirmed it repeatedly, it stops aging.
+- **Success rate** — `success_count` over `success_count` plus the accumulated ignore weight (`ignore_weight_score`, a float that grows with each validator rejection, falling back to a plain `ignore_count`). A pattern that keeps getting validated and never ignored trends toward 1.0; one that validators keep rejecting trends toward 0.
+- **Time decay** — multiplied by `exp(−daysSinceUse / 14)`, so a pattern unused for two weeks is worth roughly a third of a fresh one. The exception: a pattern reinforced three or more times is immune to decay — once the pipeline has confirmed it that often, it stops aging.
 - **Category weight** — a `rule` is multiplied by 1.3 and a `causal` link by 1.1, because a hard rule is worth surfacing over a loose observation.
 - **Context boost** — if the current issue's labels or changed files overlap with the context a pattern was learned in, its score gets a small bump. This is the `--labels` / `--phase` relevance signal: patterns from similar situations float to the top.
 
-When embeddings are available, the final score blends semantic similarity to the query with the decayed score (60/40). Patterns move through a lifecycle as their counts change — `observed` on first sight, `candidate` once seen twice, `validated` after three reinforcements, and eventually `deprecated` if they age out without being used.
+When embeddings are available, the final score blends semantic similarity to the query with the decayed score (60/40). Patterns move through a five-state lifecycle — `observed` on first sight, `candidate` once seen twice, `verified` once they recur across distinct contexts, `active` after an explicit promotion, and `deprecated` if they age out without being used. The automatic transitions run up to `verified`; the jump to `active` is a separate, human-approved promotion.
 
 ## Re-inject
 
@@ -52,12 +52,12 @@ The formatter renders each pattern as one line tagged with its track record — 
 
 ## Correct
 
-The loop's discipline comes from the correction step, which runs after a validator finishes. jkz pairs an adversarial role with the validator that checks it — the Curator checks the Auditor in Plan, the Inspector checks the Judge in Review, the Lens and Sentinel check QA. When the validator's verdict (read from its [`verdict-json`](/concepts/signal-format/) block) lists **false positives**, `feedback-loop.js` locates the matching text in the adversarial deliberation — by exact substring, or by fuzzy token overlap as a fallback — and penalizes that pattern with `increment-ignore`.
+The loop's discipline comes from the correction step, which runs after a validator finishes. The pipeline pairs an adversarial role with the validator that checks it — by convention the Curator checks the Auditor in Plan, the Inspector checks the Judge in Review, and the Lens checks the Sentinel in QA. The pairing isn't hardcoded in the correction step: the roles are handed to `feedback-loop.js` at runtime via `--adversarial-role` and `--validator-role`. When the validator's verdict (read from its [`verdict-json`](/concepts/signal-format/) block) lists **false positives**, `feedback-loop.js` locates the matching text in the adversarial deliberation — by exact substring, or by fuzzy token overlap as a fallback — and penalizes that pattern with `increment-ignore`.
 
 Two details make the penalty trustworthy:
 
-- **Per-role weight.** High-confidence validators hit harder. An Inspector or Sentinel false-positive call carries weight 1.5; other roles carry 1.0. A pattern the Inspector keeps rejecting decays toward irrelevance fast.
-- **Regression marking.** If a pattern that had been *validated* is suddenly ignored, it is flagged as a regression — a previously trusted signal that has started misfiring deserves attention, not a silent demotion.
+- **Per-role weight.** The penalty is scaled by the *adversarial* role whose pattern is being demoted — not by the validator that flagged it. Patterns tagged `sentinel` or `inspector` are penalized at weight 1.5; all other roles at 1.0, so a high-confidence role's misfires lose ground faster.
+- **Regression marking.** If a pattern that had repeatedly held up (the `was_validated` flag) is suddenly ignored, it is flagged as a regression — a previously trusted signal that has started misfiring deserves attention, not a silent demotion.
 
 On a **PASS** verdict the loop reinforces instead of penalizing, but only behind an [evidence gate](/concepts/evidence-hierarchy/): patterns are reinforced only when the adversarial deliberation is grounded in Level-1 (execution output) or Level-2 (file:line citation) evidence. Pure-reasoning verdicts (Level 3) reinforce nothing — otherwise the pipeline would learn to approve by narrative. When reinforcement does fire, the top or file-relevant patterns get a bump and the patterns that *weren't* reinforced are aged a step, so stale signal cleans itself up.
 

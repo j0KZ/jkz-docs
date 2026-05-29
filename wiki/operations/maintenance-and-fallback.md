@@ -92,8 +92,8 @@ On `429 / RESOURCE_EXHAUSTED` the wrapper first retries with backoff, then escal
 
 When you audit a fallback run, keep two fields distinct:
 
-- **`fallback_tier`** — `"api"` (tier 3 fired) or `"task"` (tier 4 fired, or tier 3 was never attempted). *Which layer* recovered the call.
-- **`fallback_provider`** — `"opus"` / `"sonnet"` / `"haiku"`. *Which model* the tier-4 Task tool dispatched to. Only meaningful when `fallback_tier="task"`.
+- **`fallback_tier`** — `"api"` if tier 3 was *attempted* (whether it served the verdict or was rejected and handed off to tier 4), or `"task"` if tier 3 was never attempted (no or partial tier-3 config) and the call went straight to tier 4. Records *which path* the run took. Note that a tier-4 hand-off after a rejected tier-3 attempt still carries `fallback_tier="api"`.
+- **`fallback_provider`** — `"opus"` / `"sonnet"` / `"haiku"`. *Which model* the tier-4 Task tool dispatched to. Only meaningful when the tier-4 Task tool actually fired.
 
 ### A backend is down — manual
 
@@ -102,7 +102,7 @@ The largest failures are not a single call going wrong but a whole backend being
 | Backend down | Behavior |
 |--------------|----------|
 | **Opus** (creative roles) | Pipeline stops. No other agent codes in its place. System notifies and waits. |
-| **Adversarial endpoint** (Auditor, Judge, Sentinel, Research-Auditor) | Review and the security pass are skipped. System notifies; you decide whether to continue. |
+| **Adversarial endpoint** (Auditor, Judge, Sentinel, Research-Auditor) | Review and the Sentinel security pass are skipped. System notifies; you decide whether to continue. |
 | **Validator endpoint** (Curator, Inspector, Lens, Research-Reviewer) | QA frontend and Inspector are skipped. System notifies; you decide. |
 | **External API endpoint** (any role on `JKZ_<ROLE>_ENDPOINT`) | `api-wrapper.sh` captures the HTTP error and persists error state. Pipeline notifies. |
 | **Codex CLI** (`JKZ_<ROLE>_BACKEND=codex`) | Wrapper exits 78 (missing CLI), 76 (auth error), or other internal codes (75 / 77). Pipeline notifies; you decide. |

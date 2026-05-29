@@ -162,6 +162,7 @@ export default defineConfig({
             { slug: 'subsystems/hooks' },
             { slug: 'subsystems/mcp-servers' },
             { slug: 'subsystems/pattern-learning' },
+            { slug: 'subsystems/research-finance' },
             { slug: 'subsystems/telegram-bot' },
             { slug: 'subsystems/wiki-generator' },
           ],

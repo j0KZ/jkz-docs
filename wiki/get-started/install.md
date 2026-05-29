@@ -17,7 +17,7 @@ dependency you can swap out. Everything else is a CLI it shells out to.
 
 | Tool | Min version | Why |
 | --- | --- | --- |
-| **Claude Code** | current | The orchestrator. Install from [claude.ai/download](https://claude.ai/download) or `npm install -g @anthropic-ai/claude-code`. |
+| **Claude Code** | current | The orchestrator. Install with `npm install -g @anthropic-ai/claude-code` (or the desktop app from Anthropic). |
 | **git** | 2.30+ | Source of truth for every handoff. |
 | **gh** (GitHub CLI) | 2.0+ | jkz drives issues, labels, and PRs through GitHub. Authenticate with `gh auth login`. |
 | **node** | 18+ | Runs the wrappers, state helpers, and MCP server. |
@@ -38,7 +38,7 @@ run without them, but a complete pipeline expects at least an adversarial backen
 | --- | --- | --- |
 | **codex** (OpenAI Codex CLI) | Auditor, Judge, Sentinel | `npm install -g @openai/codex` |
 | **gemini** (Google Gemini CLI) | Curator, Inspector, Lens | `npm install -g @google/gemini-cli` |
-| **coderabbit** (CodeRabbit CLI) | Pre-scan enrichment | [cli.coderabbit.ai](https://cli.coderabbit.ai) (Windows: requires WSL) |
+| **coderabbit** (CodeRabbit CLI) | Pre-scan enrichment | Install per the CodeRabbit CLI docs (Windows: requires WSL) |
 
 :::note[Missing a backend is a degraded run, not a failure]
 Without an adversarial backend, the review and security phases are skipped.

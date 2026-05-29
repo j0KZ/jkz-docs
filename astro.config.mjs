@@ -157,6 +157,7 @@ export default defineConfig({
           label: 'Subsystems',
           items: [
             { slug: 'subsystems/hermes' },
+            { slug: 'subsystems/telegram-bot' },
           ],
         },
         {

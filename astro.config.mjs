@@ -161,6 +161,7 @@ export default defineConfig({
             { slug: 'subsystems/coderabbit' },
             { slug: 'subsystems/hooks' },
             { slug: 'subsystems/mcp-servers' },
+            { slug: 'subsystems/pattern-learning' },
             { slug: 'subsystems/telegram-bot' },
             { slug: 'subsystems/wiki-generator' },
           ],

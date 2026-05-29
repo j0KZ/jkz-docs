@@ -142,6 +142,7 @@ export default defineConfig({
           // New subsystem pages insert their slug below.
           label: 'Subsystems',
           items: [
+            { slug: 'subsystems/hermes' },
             { slug: 'subsystems/pattern-learning' },
           ],
         },
@@ -150,6 +151,7 @@ export default defineConfig({
           items: [
             { slug: 'reference/architecture' },
             { slug: 'reference/cli' },
+            { slug: 'reference/skills' },
             { slug: 'reference/changelog' },
             { slug: 'reference/design-decisions' },
             {

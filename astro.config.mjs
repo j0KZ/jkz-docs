@@ -161,9 +161,21 @@ export default defineConfig({
             { slug: 'subsystems/coderabbit' },
             { slug: 'subsystems/hooks' },
             { slug: 'subsystems/mcp-servers' },
+            { slug: 'subsystems/pattern-learning' },
             { slug: 'subsystems/research-finance' },
             { slug: 'subsystems/telegram-bot' },
             { slug: 'subsystems/wiki-generator' },
+          ],
+        },
+        {
+          // Operations deep-dives (Layer C). Pages here document how the
+          // running system is operated, observed, and kept healthy end to end.
+          // New operations pages insert their slug below rather than creating
+          // a second Operations group.
+          label: 'Operations',
+          items: [
+            { slug: 'operations/memory' },
+            { slug: 'operations/slos-and-monitoring' },
           ],
         },
         {

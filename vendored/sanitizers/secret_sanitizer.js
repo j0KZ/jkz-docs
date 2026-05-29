@@ -151,6 +151,12 @@ export function scan(content, opts) {
   }
 
   const matches = [];
+  // Spans of url/host hits exempted by the host allowlist. They are NOT
+  // reported as matches, but they MUST suppress the entropy fallback over
+  // their own byte range (e.g. the path of an allowlisted GitHub PR URL),
+  // otherwise the entropy detector re-flags the very content the allowlist
+  // exempted. Each entry is `{ start, end }`.
+  const allowlistedSpans = [];
   let aborted = false;
   let sentinelPushed = false;
 
@@ -213,6 +219,7 @@ export function scan(content, opts) {
       // and for the project's own configured public hosts). ipv4/ipv6 are
       // never exempt.
       if ((finalKind === 'url' || finalKind === 'host') && isAllowlistedHost(hostnameOf(raw), extraHosts)) {
+        allowlistedSpans.push({ start: m.index, end: m.index + raw.length });
         continue;
       }
       if (
@@ -240,6 +247,10 @@ export function scan(content, opts) {
           typeof h.length === 'number',
       )
       .map((h) => ({ start: h.index, end: h.index + h.length }))
+      // Allowlisted url/host spans are not reported as matches but must still
+      // suppress entropy hits over their own range. Merge then re-sort by
+      // start so the single linear pointer-walk overlap test below holds.
+      .concat(allowlistedSpans)
       .sort((a, b) => a.start - b.start);
 
     let cursor = 0;

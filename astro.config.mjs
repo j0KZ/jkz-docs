@@ -160,6 +160,7 @@ export default defineConfig({
             { slug: 'subsystems/hermes' },
             { slug: 'subsystems/hooks' },
             { slug: 'subsystems/telegram-bot' },
+            { slug: 'subsystems/wiki-generator' },
           ],
         },
         {

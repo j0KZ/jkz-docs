@@ -120,6 +120,7 @@ export default defineConfig({
           items: [
             { slug: 'reference/architecture' },
             { slug: 'reference/cli' },
+            { slug: 'reference/skills' },
             { slug: 'reference/changelog' },
             { slug: 'reference/design-decisions' },
             {

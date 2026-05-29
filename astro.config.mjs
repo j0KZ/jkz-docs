@@ -137,6 +137,16 @@ export default defineConfig({
           ],
         },
         {
+          // Subsystems — internal operational components that sit beside the
+          // pipeline (the research/finance pipeline, Hermes, the Telegram bot,
+          // the MCP servers, the wiki generator). New subsystem pages append
+          // their slug here.
+          label: 'Subsystems',
+          items: [
+            { slug: 'subsystems/research-finance' },
+          ],
+        },
+        {
           label: 'Reference',
           items: [
             { slug: 'reference/architecture' },

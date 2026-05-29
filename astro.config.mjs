@@ -166,13 +166,14 @@ export default defineConfig({
           ],
         },
         {
-          // Operations deep-dives (Layer C). Pages here document how a
-          // running jkz install is operated and observed end to end. First
-          // page shipped by WG-84; new Operations pages insert their slug
-          // below rather than creating a second Operations group.
+          // Operations deep-dives (Layer C). Pages here document how the
+          // running system is operated, observed, and kept healthy end to end.
+          // New operations pages insert their slug below rather than creating
+          // a second Operations group.
           label: 'Operations',
           items: [
             { slug: 'operations/memory' },
+            { slug: 'operations/slos-and-monitoring' },
           ],
         },
         {

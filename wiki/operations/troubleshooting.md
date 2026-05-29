@@ -38,7 +38,7 @@ Most pipeline failures have a known cause and a one-line fix. This page is organ
 
 **Cause.** `hooks/guard-destructive.sh` emits structured JSON on stderr when it blocks a command:
 
-```
+```text
 {"blocked":true,"pattern":"<pattern>","level":"<level>"}
 BLOCKED by jkz guard: command matches pattern '<pattern>'
 ```

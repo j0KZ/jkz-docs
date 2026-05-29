@@ -137,6 +137,15 @@ export default defineConfig({
           ],
         },
         {
+          // Subsystems (WG-76+) — internal operational components that sit
+          // beside the pipeline: the Telegram bot, Hermes, the wiki
+          // generator. New subsystem pages append their slug here.
+          label: 'Subsystems',
+          items: [
+            { slug: 'subsystems/mcp-servers' },
+          ],
+        },
+        {
           label: 'Reference',
           items: [
             { slug: 'reference/architecture' },

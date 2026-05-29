@@ -137,6 +137,15 @@ export default defineConfig({
           ],
         },
         {
+          // Subsystems — internal operational components that sit beside the
+          // pipeline (the entry gatekeepers, the Telegram bot, Hermes, the
+          // wiki generator). New subsystem pages append their slug here.
+          label: 'Subsystems',
+          items: [
+            { slug: 'subsystems/classifier-and-alignment' },
+          ],
+        },
+        {
           label: 'Reference',
           items: [
             { slug: 'reference/architecture' },

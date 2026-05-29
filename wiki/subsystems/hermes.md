@@ -42,7 +42,7 @@ Jobs are organized by Telegram thread:
 | **29 — System Health** | Operational alerts and the daily digest | `git-sync`, `health-check`, `task-discovery`, `cli-updates`, `slo-check`, `daily-digest`, cost summaries, `research-poll`, `research-bisync` |
 | **33 — Maintenance** | Weekly audits, security scans, analytics, cleanup, learning | `entropy-scan`, `doc-sync`, `deps-audit`, `bugs-scan`, `supply-chain`, `quality-scan`, `postmortem`, `memory-curate`, `skill-security-audit`, `state-cleanup`, `learning-digest`, `pagefind-validate` |
 
-Every day at 07:00 CLT, `daily-digest` aggregates the day's reports into a single traffic-light summary (RED / YELLOW / GREEN), and flags any job that was expected to run but did not report. Two operational jobs are worth calling out: `git-sync` hard-resets the VPS working tree to `origin/main` each night so jobs run against merged code (runtime `state/` is gitignored and never clobbered), and `research-poll` drains the `jkz:research-pending` queue — the entry point to the [research subsystem](#research).
+Every day at 07:00 CLT, `daily-digest` aggregates the day's reports into a single traffic-light summary (RED / YELLOW / GREEN), and flags any job that was expected to run but did not report. Two operational jobs are worth calling out: `git-sync` hard-resets the VPS working tree to `origin/main` each night so jobs run against merged code (runtime `state/` is gitignored and never clobbered), and `research-poll` drains the `jkz:research-pending` queue — the entry point to Hermes's autonomous research subsystem, which runs headless `/jkz:research` invocations independently of the BUILD/REVIEW/QA pipeline.
 
 ## Cost model
 

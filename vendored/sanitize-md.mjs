@@ -27,6 +27,19 @@ import {
   EXIT_SECRET_DETECTED,
 } from './sanitizers/index.js';
 
+// Per-call host allowlist. The site's own publish host (the Astro `site`,
+// docs.j0kz.dev) legitimately appears in generated pages -- e.g. a changelog
+// commit subject like "wire jkz-docs build to docs.j0kz.dev publish target".
+// The `.dev` gTLD trips the sanitizer's host heuristic, so the host is exempted
+// via the per-call `hostAllowlist` -- the same mechanism the wiki-generator's
+// guard uses with `config.site.baseUrl`. This does NOT widen the global
+// PUBLIC_HOST_ALLOWLIST. Override/extend via SANITIZE_MD_HOST_ALLOWLIST
+// (comma-separated bare hostnames).
+const HOST_ALLOWLIST = (process.env.SANITIZE_MD_HOST_ALLOWLIST ?? 'docs.j0kz.dev')
+  .split(',')
+  .map((h) => h.trim())
+  .filter(Boolean);
+
 async function main() {
   const args = process.argv.slice(2).filter((a) => a.length > 0);
   if (args.length === 0) {
@@ -57,7 +70,7 @@ async function main() {
 
     let result;
     try {
-      result = composeAll(content, { path: absPath });
+      result = composeAll(content, { path: absPath, hostAllowlist: HOST_ALLOWLIST });
     } catch (err) {
       // TypeError from composeAll means the shim called the API wrong --
       // that is a bug, not a user-facing CI failure. Surface it loudly.

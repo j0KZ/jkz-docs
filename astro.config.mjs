@@ -158,6 +158,7 @@ export default defineConfig({
           items: [
             { slug: 'subsystems/classifier-and-alignment' },
             { slug: 'subsystems/hermes' },
+            { slug: 'subsystems/coderabbit' },
             { slug: 'subsystems/hooks' },
             { slug: 'subsystems/mcp-servers' },
             { slug: 'subsystems/telegram-bot' },

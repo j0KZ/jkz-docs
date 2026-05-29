@@ -43,6 +43,7 @@ export default defineConfig({
           label: 'Get started',
           items: [
             { label: 'Home', link: '/' },
+            { slug: 'get-started/install' },
             { slug: 'get-started/quickstart' },
             { slug: 'get-started/why-jkz' },
             { slug: 'get-started/how-jkz-works' },
@@ -52,11 +53,16 @@ export default defineConfig({
           label: 'Concepts',
           items: [
             { slug: 'concepts/pipeline' },
+            { slug: 'concepts/issue-types' },
             { slug: 'concepts/evidence-hierarchy' },
             { slug: 'concepts/ambiguity-gate' },
             { slug: 'concepts/merge-gate' },
             { slug: 'concepts/worktree-isolation' },
             { slug: 'concepts/cross-chat' },
+            { slug: 'concepts/signal-format' },
+            { slug: 'concepts/context-management' },
+            { slug: 'concepts/fallback' },
+            { slug: 'concepts/plugin-mode' },
           ],
         },
         {
@@ -92,6 +98,15 @@ export default defineConfig({
             { slug: 'commands/research' },
             { slug: 'commands/vault' },
             { slug: 'commands/health' },
+            // quality & audit
+            { slug: 'commands/bugs' },
+            { slug: 'commands/quality' },
+            { slug: 'commands/deps' },
+            { slug: 'commands/perf-audit' },
+            { slug: 'commands/e2e' },
+            { slug: 'commands/skill-audit' },
+            { slug: 'commands/simplify' },
+            { slug: 'commands/deslop' },
             // dev & review workflow
             { slug: 'commands/commit' },
             { slug: 'commands/cr-fix' },

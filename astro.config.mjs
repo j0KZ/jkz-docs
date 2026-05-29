@@ -93,6 +93,12 @@ export default defineConfig({
             { slug: 'commands/resume' },
             { slug: 'commands/start' },
             { slug: 'commands/status' },
+            { slug: 'commands/issue' },
+            { slug: 'commands/refine' },
+            { slug: 'commands/save' },
+            { slug: 'commands/load' },
+            { slug: 'commands/quit' },
+            { slug: 'commands/new-chat' },
             // ancillary
             { slug: 'commands/debate' },
             { slug: 'commands/research' },

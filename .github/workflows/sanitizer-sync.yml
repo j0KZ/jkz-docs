@@ -114,8 +114,8 @@ jobs:
           # provenance; run_id prevents collisions when a previous run for
           # the same SHA left an unmerged branch behind.
           BRANCH="sanitizer-sync/auto-${SHORT_SHA}-${SOURCE_REF}"
-          git config user.name 'jkz-wiki-bot'
-          git config user.email 'wiki-bot@users.noreply.github.com'
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git checkout -b "$BRANCH"
           git add vendored/sanitizers
           # Multi-line commit message via -F to avoid embedding newlines

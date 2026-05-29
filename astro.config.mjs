@@ -175,6 +175,7 @@ export default defineConfig({
           // a second Operations group.
           label: 'Operations',
           items: [
+            { slug: 'operations/autonomy' },
             { slug: 'operations/memory' },
             { slug: 'operations/slos-and-monitoring' },
           ],

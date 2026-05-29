@@ -1,0 +1,98 @@
+---
+deprecated_since: null
+description: Module src/classifiers
+pagefind: true
+sidebar:
+  label: classifiers
+  order: 2
+title: src/classifiers
+---
+
+## Module summary
+
+Module src/classifiers
+
+## Exports
+
+| Name | Kind | Default |
+| --- | --- | --- |
+| `CATEGORIES` | variable | no |
+| `CONFIDENCE_THRESHOLD` | variable | no |
+| `VALID_CATEGORIES` | variable | no |
+| `classifyIssue` | function | no |
+
+## Detail
+
+### `CATEGORIES`
+
+```text
+CATEGORIES
+```
+
+#### Params
+
+_None._
+
+#### Returns
+
+_None._
+
+#### Examples
+
+_None._
+
+### `CONFIDENCE_THRESHOLD`
+
+```text
+CONFIDENCE_THRESHOLD
+```
+
+#### Params
+
+_None._
+
+#### Returns
+
+_None._
+
+#### Examples
+
+_None._
+
+### `VALID_CATEGORIES`
+
+```text
+VALID_CATEGORIES
+```
+
+#### Params
+
+_None._
+
+#### Returns
+
+_None._
+
+#### Examples
+
+_None._
+
+### `classifyIssue`
+
+```text
+async classifyIssue({ issue, sanitize, client }): Promise<object>
+```
+
+Classify an issue into one of the 6 content categories or 'skip'.
+
+#### Params
+
+- `{ issue, sanitize, client }`
+
+#### Returns
+
+`Promise<object>`
+
+#### Examples
+
+_None._

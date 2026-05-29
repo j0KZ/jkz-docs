@@ -1,0 +1,23 @@
+# jkz_Multi-Agent_System — Auto-generated wiki
+
+> Auto-generated documentation index for https://github.com/j0KZ/jkz_Multi-Agent_System.
+
+## Api Reference
+
+- [src](https://docs.j0kz.dev/api-reference/src): Module src
+- [src/classifiers](https://docs.j0kz.dev/api-reference/src_classifiers): Module src/classifiers
+- [src/config](https://docs.j0kz.dev/api-reference/src_config): Module src/config
+- [src/diff](https://docs.j0kz.dev/api-reference/src_diff): Module src/diff
+- [src/diff/lib](https://docs.j0kz.dev/api-reference/src_diff_lib): Module src/diff/lib
+- [src/extractors](https://docs.j0kz.dev/api-reference/src_extractors): Module src/extractors
+- [src/generators](https://docs.j0kz.dev/api-reference/src_generators): Module src/generators
+- [src/guards](https://docs.j0kz.dev/api-reference/src_guards): Module src/guards
+- [src/publisher](https://docs.j0kz.dev/api-reference/src_publisher): Module src/publisher
+- [src/sanitizers](https://docs.j0kz.dev/api-reference/src_sanitizers): Module src/sanitizers
+- [src/state](https://docs.j0kz.dev/api-reference/src_state): Module src/state
+- [src/utils](https://docs.j0kz.dev/api-reference/src_utils): Module src/utils
+
+## Reference
+
+- [Architecture](https://docs.j0kz.dev/reference/architecture): **scripts** -- Operational and pipeline scripts. **core** -- Core wiki-generator infrastructure.
+- [Changelog](https://docs.j0kz.dev/reference/changelog): Release history for j0KZ/jkz_Multi-Agent_System

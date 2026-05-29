@@ -1,21 +1,74 @@
----
-title: Changelog
-description: Release history for j0KZ/jkz_Multi-Agent_System
+# Architecture
+
+## Architecture
+
+**scripts** -- Operational and pipeline scripts. **core** -- Core wiki-generator infrastructure.
+
+### scripts
+
+```mermaid
+graph LR
+  n0["scripts"]
+```
+
+Operational and pipeline scripts.
+
+### core
+
+```mermaid
+graph LR
+  n0["src"]
+  n1["src/classifiers"]
+  n2["src/config"]
+  n3["src/diff"]
+  n4["src/diff/lib"]
+  n5["src/extractors"]
+  n6["src/generators"]
+  n7["src/guards"]
+  n8["src/publisher"]
+  n9["src/sanitizers"]
+  n10["src/state"]
+  n11["src/utils"]
+  n0 --> n2
+  n0 --> n3
+  n0 --> n5
+  n0 --> n6
+  n0 --> n8
+  n0 --> n9
+  n0 --> n10
+  n0 --> n11
+  n1 --> n11
+  n3 --> n4
+  n6 --> n1
+  n6 --> n3
+  n6 --> n5
+  n6 --> n9
+  n6 --> n11
+  n10 --> n3
+  n10 --> n11
+  n11 --> n1
+  n11 --> n4
+```
+
+Core wiki-generator infrastructure.
+
 ---
 
 # Changelog
 
+## Changelog
+
 <a id="whats-new"></a>
-## What's New (last 14 days)
+### What's New (last 14 days)
 
 Narrative summary unavailable. See [Full history](#full-history) below.
 
 <a id="full-history"></a>
-## Full history
+### Full history
 
-### 2026-05
+#### 2026-05
 
-#### Features
+##### Features
 - wire llms_txt + llms_full_txt generators (WG-49) ([#1540](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1540))
 - WG-48 wire changelog_generator (#1528) ([#1539](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1539))
 - wire architecture_doc_generator (WG-47) ([#1537](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1537))
@@ -116,7 +169,7 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - add version history for memory entries (#1099) ([#1106](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1106))
 - inject failure taxonomy block into Doctor prompt ([#1096](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1096))
 
-#### Fixes
+##### Fixes
 - wiki-generator: secret_sanitizer high_entropy fallback flags allowlisted-host URL paths (blocks changelog publish / WG-48) ([#1550](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1550))
 - re-read PR_DIFF_CONTEXT in qa.md §3 defensive block (#1546) ([#1548](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1548))
 - bind GraphQL Int! variable via gh -F in check-parent-completion.js ([#1547](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1547))
@@ -179,7 +232,7 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - route adversarial detection through resolve-wrapper.sh ([#1128](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1128))
 - use exit 2 for runtime errors in orchestrate and jkz-update ([#1123](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1123))
 
-#### Refactors
+##### Refactors
 - extract qa.md §1 context-gathering into qa-gather-context.sh (Pattern B, #1358) ([#1538](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1538))
 - extract §1.6 failure classifier to Pattern B library (#1357) ([#1522](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1522))
 - wire per-folder bisync after research-comment ([#1507](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1507))
@@ -197,7 +250,7 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - extract §3 Lens + Sentinel dispatch to scripts/lib/ helpers ([#1381](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1381))
 - port tier-guard + triage detection from legacy issue.md ([#1324](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1324))
 
-#### Other
+##### Other
 - use authenticated gh bootstrap for private-repo install ([#1563](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1563))
 - remove orphan wiki-sync.yml workflow ([#1503](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1503))
 - wrap nested fence in module_doc.md prompt (#1442) ([#1475](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1475))
@@ -264,9 +317,9 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - spike mutation testing on atomic-write.js (Stryker) ([#1143](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1143))
 - refactor: condense CLAUDE.md — remove redundant one-liners, establish 130-line ceiling ([#1131](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1131))
 
-### 2026-04
+#### 2026-04
 
-#### Features
+##### Features
 - rollback support for jkz update (--version, --list, --previous) ([#1087](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1087))
 - add chore as first-class issue type (#1072) ([#1086](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1086))
 - per-project version pinning via .jkz-version (#1066) ([#1085](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1085))
@@ -394,7 +447,7 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - dynamic ground-truth injection for long-running agent loops ([#653](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/653))
 - turn counter notification + lock purge ([#655](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/655))
 
-#### Fixes
+##### Fixes
 - pin compatible versions and add uv support to install script ([#1088](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1088))
 - stdin prompt delivery and external model guards ([#1082](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1082))
 - harden cleanup-merged with defense-in-depth safety guards ([#1074](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1074))
@@ -477,7 +530,7 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - portability and install bugs ([#678](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/678))
 - fallback for import.meta.dirname undefined in esbuild bundles (#677) ([#679](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/679))
 
-#### Refactors
+##### Refactors
 - extract duplicated issue-type detection into shared skill ([#1081](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1081))
 - address legitimate findings from entropy scan #1027 (1 stub + 2 test gaps) ([#1047](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1047))
 - add tests for scripts/memory_lib (issue #953) ([#1018](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1018))
@@ -497,13 +550,13 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - fix entropy scan false positives and consolidate TEST_FILE constant ([#804](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/804))
 - DRY timeline regex, flat-dir test detection, em-dash fixes ([#774](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/774))
 
-#### Performance
+##### Performance
 - integrate context-mode MCP in research pipeline to reduce token accumulation ([#741](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/741))
 - focused diff -- cap total output, add prev-fix-file support ([#733](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/733))
 - focused diff for Doctor on iteration 2+ (#647) ([#688](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/688))
 - optimize model usage in CR triage and ambiguity gate ([#675](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/675))
 
-#### Other
+##### Other
 - bump actions/checkout from 4 to 6 ([#1093](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1093))
 - bump actions/github-script from 7 to 9 ([#1092](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1092))
 - bump softprops/action-gh-release from 2 to 3 ([#1091](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1091))
@@ -566,9 +619,9 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - bump actions/checkout from 4 to 6 ([#649](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/649))
 - bump trufflesecurity/trufflehog ([#648](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/648))
 
-### 2026-03
+#### 2026-03
 
-#### Features
+##### Features
 - detect verdict_conflict in review and QA phases ([#633](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/633))
 - add ReasoningBank RETRIEVE step ([#636](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/636))
 - token consumption optimizations + CC-inspired improvements ([#632](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/632))
@@ -727,7 +780,7 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - remote installer — curl | bash zero-clone setup
 - refactor jkz CLI — install (global) + init (per-project)
 
-#### Fixes
+##### Fixes
 - bash 3.2 compat + expand eslint/prettier config detection ([#634](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/634))
 - reset degraded_response and stale_deliberation flags on clean runs ([#639](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/639))
 - use --git-common-dir for shared state dir across worktrees ([#640](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/640))
@@ -807,7 +860,7 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - installer bugs — wizard options, banner z, junction, gemini model
 - PowerShell/CMD support for jkz CLI on Windows
 
-#### Refactors
+##### Refactors
 - add path-scoped frontmatter to .claude/rules/ (#625) ([#630](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/630))
 - fix ai-prose, ai-traces, and dry-check findings (#578) ([#594](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/594))
 - separate plan-digest output paths by mode (compile vs summarize) ([#581](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/581))
@@ -829,7 +882,7 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - reorganize docs, skills, and add phase-log tracking ([#88](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/88))
 - remove redundant issue approval in /jkz:start
 
-#### Performance
+##### Performance
 - pass compact-plan JSON to Curator instead of full verbatim plan ([#637](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/637))
 - reduce context overhead -- autocompact 70%, slim CLAUDE.md, compact instructions ([#521](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/521))
 - Context7 plan-specific queries + cache docs for fix iter 2+ ([#520](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/520))
@@ -847,7 +900,7 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - gate compress/summarize by prompt byte size ([#110](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/110))
 - dedupe pattern injection — remove manual patterns superseded by assemble-prompt middleware ([#109](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/109))
 
-#### Other
+##### Other
 - test+fix: global/scripts coverage and ai-prose self-exclusion (#578) ([#597](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/597))
 - reframe README -- multi-model rationale, command graph, mermaid diagrams ([#580](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/580))
 - update README with new roles, commands, and features ([#577](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/577))
@@ -913,9 +966,9 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - add npm link global CLI installation instructions
 - update all documentation to reflect PRs #52-#55
 
-### 2026-02
+#### 2026-02
 
-#### Features
+##### Features
 - hybrid Judge, per-role model, ADR/STRIDE/SLOs/deps-audit ([#55](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/55))
 - ADR extraction, STRIDE threat modeling, pipeline SLOs, postmortem, deps audit ([#54](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/54))
 - security hardening, statusline, SQLite metrics, MCP sessions ([#52](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/52))
@@ -1000,7 +1053,7 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - formalize orchestrator role with agent definition and state machine
 - rewrite agent personalities with distinct voices and identities
 
-#### Fixes
+##### Fixes
 - use $@ for forward-compatible arg passing and error on unknown commands
 - replace MIT license with proprietary notice ([#46](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/46))
 - address CodeRabbit review findings ([#44](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/44))
@@ -1052,11 +1105,11 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - harden codex-wrapper.sh + add Judge codex review path
 - reimplement MCP health_report in native Node.js
 
-#### Refactors
+##### Refactors
 - rename QA agent to Lens
 - rewrite list and cleanup-merged with callback parser
 
-#### Other
+##### Other
 - Feature/security statusline metrics sessions ([#53](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/53))
 - Merge branch 'main' of https://github.com/j0KZ/jkz_Multi-Agent_System
 - Feature/docker cli isolation ([#51](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/51))
@@ -1127,3 +1180,3548 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - update CLAUDE.md with bash prefix + Judge quota note
 - Add LICENSE, fix broken README links, add repo metadata
 - Initial commit: jkz multi-agent development system
+
+---
+
+# src
+
+### Module summary
+
+Module src
+
+### Exports
+
+| Name | Kind | Default |
+| --- | --- | --- |
+| `Orchestrator` | class | no |
+| `PHASES` | variable | no |
+| `createTelegramLoggerAdapter` | function | no |
+
+### Detail
+
+#### `Orchestrator`
+
+```text
+Orchestrator
+```
+
+##### Params
+
+_None._
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `PHASES`
+
+```text
+PHASES
+```
+
+##### Params
+
+_None._
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `createTelegramLoggerAdapter`
+
+```text
+createTelegramLoggerAdapter(impl): object
+```
+
+Build an adapter that bridges the orchestrator's structured-event logging
+and the `{logUpdate, logError}` string-or-object instance interface the
+publisher modules (`git_publisher`, `auto_merge`) require.
+
+`telegram_logger.js` exports module-level `logUpdate(event)`/`logError(event)`
+where `event` is `{message, ...meta}`. `git_publisher.publishFiles` calls
+`logger.logUpdate('git_publisher: ...')` with a plain string. The adapter
+normalizes a string argument to `{message}` so both call shapes reach the
+underlying implementation as event objects.
+
+##### Params
+
+- `impl = { logUpdate: realLogUpdate, logError: realLogError }`
+
+##### Returns
+
+`object`
+
+##### Examples
+
+_None._
+
+---
+
+# src/classifiers
+
+### Module summary
+
+Module src/classifiers
+
+### Exports
+
+| Name | Kind | Default |
+| --- | --- | --- |
+| `CATEGORIES` | variable | no |
+| `CONFIDENCE_THRESHOLD` | variable | no |
+| `VALID_CATEGORIES` | variable | no |
+| `classifyIssue` | function | no |
+
+### Detail
+
+#### `CATEGORIES`
+
+```text
+CATEGORIES
+```
+
+##### Params
+
+_None._
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `CONFIDENCE_THRESHOLD`
+
+```text
+CONFIDENCE_THRESHOLD
+```
+
+##### Params
+
+_None._
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `VALID_CATEGORIES`
+
+```text
+VALID_CATEGORIES
+```
+
+##### Params
+
+_None._
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `classifyIssue`
+
+```text
+async classifyIssue({ issue, sanitize, client }): Promise<object>
+```
+
+Classify an issue into one of the 6 content categories or 'skip'.
+
+##### Params
+
+- `{ issue, sanitize, client }`
+
+##### Returns
+
+`Promise<object>`
+
+##### Examples
+
+_None._
+
+---
+
+# src/config
+
+### Module summary
+
+Module src/config
+
+### Exports
+
+| Name | Kind | Default |
+| --- | --- | --- |
+| `__resetForTests` | function | no |
+| `getConfig` | function | no |
+
+### Detail
+
+#### `__resetForTests`
+
+```text
+__resetForTests(): void
+```
+
+Reset the singleton cache. Private API -- tests only.
+
+##### Params
+
+_None._
+
+##### Returns
+
+`void`
+
+##### Examples
+
+_None._
+
+#### `getConfig`
+
+```text
+getConfig()
+```
+
+##### Params
+
+_None._
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+---
+
+# src/diff
+
+### Module summary
+
+Module src/diff
+
+### Exports
+
+| Name | Kind | Default |
+| --- | --- | --- |
+| `addEntry` | function | no |
+| `detectChanges` | function | no |
+| `hashContent` | function | no |
+| `hashFile` | function | no |
+| `hashModule` | function | no |
+| `loadEntries` | function | no |
+| `loadHashes` | function | no |
+| `saveEntries` | function | no |
+| `saveHashes` | function | no |
+
+### Detail
+
+#### `addEntry`
+
+```text
+async addEntry(stateDir, issueNumber): Promise<object>
+```
+
+Idempotently add an issue number to the persisted set. Returns whether the
+entry was newly added and the resulting total count.
+
+##### Params
+
+- `stateDir`
+- `issueNumber`
+
+##### Returns
+
+`Promise<object>`
+
+##### Examples
+
+_None._
+
+#### `detectChanges`
+
+```text
+detectChanges(prevHashes, nextHashes): object
+```
+
+Compare two file-hash maps and emit added / modified / deleted / renamed
+entries.
+
+Rename heuristic: a path that disappeared from `prev` and a path that
+appeared in `next` are paired as a rename when their content hashes match
+exactly. The pairing is one-to-one and greedy by sorted `from` path so the
+output is deterministic.
+
+##### Params
+
+- `prevHashes`
+- `nextHashes`
+
+##### Returns
+
+`object`
+
+##### Examples
+
+_None._
+
+#### `hashContent`
+
+```text
+hashContent(input)
+```
+
+SHA-256 hex digest over the given content. Buffers and strings are accepted;
+strings are hashed as UTF-8 bytes (matching the on-disk representation).
+
+##### Params
+
+- `input`
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `hashFile`
+
+```text
+async hashFile(absPath): Promise<unknown>
+```
+
+Read a file from disk and return its SHA-256 hex digest.
+
+##### Params
+
+- `absPath`
+
+##### Returns
+
+`Promise<unknown>`
+
+##### Examples
+
+_None._
+
+#### `hashModule`
+
+```text
+hashModule(parts)
+```
+
+Compute the composite SHA-256 module hash from the four input sections.
+Changing any single section (AST, JSDoc, adjacent README, adjacent
+comments) produces a different hex digest. Same inputs always produce the
+same digest.
+
+##### Params
+
+- `parts`
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `loadEntries`
+
+```text
+async loadEntries(stateDir): Promise<unknown>
+```
+
+Load the persisted set of documented issue numbers. Returns an empty Set
+when the state file does not exist.
+
+##### Params
+
+- `stateDir`
+
+##### Returns
+
+`Promise<unknown>`
+
+##### Examples
+
+_None._
+
+#### `loadHashes`
+
+```text
+async loadHashes(stateDir): Promise<object>
+```
+
+Load the persisted file-hash map from `<stateDir>/file-hashes.json`.
+Returns an empty object when the file does not yet exist.
+
+##### Params
+
+- `stateDir`
+
+##### Returns
+
+`Promise<object>`
+
+##### Examples
+
+_None._
+
+#### `saveEntries`
+
+```text
+async saveEntries(stateDir, set): Promise<void>
+```
+
+Persist the set of documented issue numbers atomically, sorted ascending.
+
+##### Params
+
+- `stateDir`
+- `set`
+
+##### Returns
+
+`Promise<void>`
+
+##### Examples
+
+_None._
+
+#### `saveHashes`
+
+```text
+async saveHashes(stateDir, hashes): Promise<void>
+```
+
+Persist the file-hash map atomically. Keys are sorted alphabetically so the
+on-disk artifact is deterministic across runs.
+
+##### Params
+
+- `stateDir`
+- `hashes`
+
+##### Returns
+
+`Promise<void>`
+
+##### Examples
+
+_None._
+
+---
+
+# src/diff/lib
+
+### Module summary
+
+Module src/diff/lib
+
+### Exports
+
+| Name | Kind | Default |
+| --- | --- | --- |
+| `atomicWriteJson` | function | no |
+
+### Detail
+
+#### `atomicWriteJson`
+
+```text
+async atomicWriteJson(target, value, jsonSpace): Promise<void>
+```
+
+Atomic JSON writer shared by wiki-generator diff trackers. Writes the
+serialized value to a temp file in the SAME directory as the target,
+fsyncs it, then renames into place. Cross-device, permissions, or
+ENOSPC errors during rename leave the tmp file cleaned up.
+
+tmp filename format: tmp-<basename(target)>-<pid>-<ts>-<hex4>.
+
+##### Params
+
+- `target`
+- `value`
+- `jsonSpace = 2`
+
+##### Returns
+
+`Promise<void>`
+
+##### Examples
+
+_None._
+
+---
+
+# src/extractors
+
+### Module summary
+
+Module src/extractors
+
+### Exports
+
+| Name | Kind | Default |
+| --- | --- | --- |
+| `CURSOR_REGEX` | variable | no |
+| `ISSUES_QUERY` | variable | no |
+| `ISSUE_COMMENTS_QUERY` | variable | no |
+| `_formatJsDoc` | function | no |
+| `classifyCommit` | function | no |
+| `extractAst` | function | no |
+| `extractAstAndJsDoc` | function | no |
+| `extractChangelog` | function | no |
+| `extractConfigComments` | function | no |
+| `extractIssues` | function | no |
+| `extractJsDoc` | function | no |
+| `extractReadmes` | function | no |
+| `notifyParseFailure` | function | no |
+| `parseSource` | function | no |
+| `readCursor` | function | no |
+| `validatePath` | function | no |
+| `writeCursor` | function | no |
+
+### Detail
+
+#### `CURSOR_REGEX`
+
+```text
+CURSOR_REGEX
+```
+
+##### Params
+
+_None._
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `ISSUES_QUERY`
+
+```text
+ISSUES_QUERY
+```
+
+##### Params
+
+_None._
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `ISSUE_COMMENTS_QUERY`
+
+```text
+ISSUE_COMMENTS_QUERY
+```
+
+##### Params
+
+_None._
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `_formatJsDoc`
+
+```text
+_formatJsDoc(parsed): object
+```
+
+##### Params
+
+- `parsed`
+
+##### Returns
+
+`object`
+
+##### Examples
+
+_None._
+
+#### `classifyCommit`
+
+```text
+classifyCommit(subject)
+```
+
+Pure: classify a single conventional-commit subject line.
+
+##### Params
+
+- `subject`
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `extractAst`
+
+```text
+extractAst({ path, source })
+```
+
+##### Params
+
+- `{ path, source }`
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `extractAstAndJsDoc`
+
+```text
+extractAstAndJsDoc({ path, source }): object
+```
+
+##### Params
+
+- `{ path, source }`
+
+##### Returns
+
+`object`
+
+##### Examples
+
+_None._
+
+#### `extractChangelog`
+
+```text
+async extractChangelog({ since = '30.days.ago', repoDir = process.cwd() }): Promise<unknown>
+```
+
+Run `git log --since=<since>` in `repoDir` and return classified commits.
+
+##### Params
+
+- `{ since = '30.days.ago', repoDir = process.cwd() } = {}`
+
+##### Returns
+
+`Promise<unknown>`
+
+##### Examples
+
+_None._
+
+#### `extractConfigComments`
+
+```text
+async extractConfigComments(rootDir): Promise<object>
+```
+
+Extract inline-comment annotations from project config files.
+
+Looked-up files (best-effort -- missing files yield empty maps):
+  - `vitest.config.ts` (or `.js`, `.mts`, `.cts`) -- top-level
+    keys inside the `test: { ... }` block.
+  - `package.json` + sibling `package.scripts.md` -- comment for
+    each entry in `scripts`.
+  - `.env.example` -- comment for each `KEY=...` line.
+
+##### Params
+
+- `rootDir = process.cwd()`
+
+##### Returns
+
+`Promise<object>`
+
+##### Examples
+
+_None._
+
+#### `extractIssues`
+
+```text
+async extractIssues({
+  owner,
+  repo,
+  client,
+  cursorPath = DEFAULT_CURSOR_PATH,
+  pageSize = DEFAULT_PAGE_SIZE,
+  maxPages = DEFAULT_MAX_PAGES,
+  reset = false,
+  now = () => new Date(),
+}): Promise<object>
+```
+
+Paginated GraphQL extractor for issues. See file header for cursor invariants.
+
+Cursor-invalidation fallback (must_fix_in_build): when the pagination loop is
+resuming mid-run (`pageCursor !== null`) and the GraphQL call throws an error
+matched by `isCursorError` (explicit "cursor" mention, or pagination-argument
+error referencing "after"/"before" with "invalid"), the loop resets
+`pageCursor` to `null`, restores `sinceForRun` to the original
+`cursor.last_updated_at`, and retries the call once. On retry success, it
+immediately persists a cleared end_cursor (`writeCursor` with `end_cursor:
+null`) so the stale cursor on disk cannot re-trigger the fallback on the
+next run. If the retry also throws, the error propagates. Non-cursor errors
+(auth, scope, rate-limit) bypass the retry and propagate immediately.
+
+Per-issue comment pagination (#1391): each matched issue's `comments`
+connection is walked via `ISSUE_COMMENTS_QUERY` until `pageInfo.hasNextPage`
+is false or `MAX_COMMENTS_PAGES_PER_ISSUE` is hit. Issues with <= 100
+comments take the single-fetch path (no extra GraphQL calls). The
+`commentsTruncated` stat is true if ANY issue hit the per-issue page cap.
+
+##### Params
+
+- `{   owner,   repo,   client,   cursorPath = DEFAULT_CURSOR_PATH,   pageSize = DEFAULT_PAGE_SIZE,   maxPages = DEFAULT_MAX_PAGES,   reset = false,   now = () => new Date(), }`
+
+##### Returns
+
+`Promise<object>`
+
+##### Examples
+
+_None._
+
+#### `extractJsDoc`
+
+```text
+extractJsDoc({ path, source })
+```
+
+##### Params
+
+- `{ path, source }`
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `extractReadmes`
+
+```text
+async extractReadmes(rootDir, opts): Promise<unknown>
+```
+
+Walk `rootDir` and collect every README.md in any subdirectory.
+
+##### Params
+
+- `rootDir`
+- `opts = {}`
+
+##### Returns
+
+`Promise<unknown>`
+
+##### Examples
+
+_None._
+
+#### `notifyParseFailure`
+
+```text
+notifyParseFailure({ path, message }): void
+```
+
+##### Params
+
+- `{ path, message }`
+
+##### Returns
+
+`void`
+
+##### Examples
+
+_None._
+
+#### `parseSource`
+
+```text
+parseSource({ path, source }): object
+```
+
+##### Params
+
+- `{ path, source }`
+
+##### Returns
+
+`object`
+
+##### Examples
+
+_None._
+
+#### `readCursor`
+
+```text
+readCursor(filePath): object
+```
+
+Read the cursor file. Returns safe defaults on any failure path.
+
+Validation rules:
+ - Missing file, unreadable file, malformed JSON → defaults.
+ - `last_updated_at`: must be a string, must parse via `Date.parse`, and
+   must not be in the future. On any failure → coerce to `null` and warn.
+ - `end_cursor`: must match `CURSOR_REGEX`. On failure → coerce to `null`.
+
+##### Params
+
+- `filePath`
+
+##### Returns
+
+`object`
+
+##### Examples
+
+_None._
+
+#### `validatePath`
+
+```text
+validatePath(rawPath, root, kind)
+```
+
+Validate that `rawPath` resolves to a location inside `root`. On any
+failure, write a generic error to stderr and call `process.exit(2)`.
+
+##### Params
+
+- `rawPath`
+- `root`
+- `kind`
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `writeCursor`
+
+```text
+writeCursor(filePath, cursor): void
+```
+
+Atomically persist the cursor. Always overwrites `updated_at` with the
+current ISO timestamp. Creates the parent directory if missing.
+
+##### Params
+
+- `filePath`
+- `cursor`
+
+##### Returns
+
+`void`
+
+##### Examples
+
+_None._
+
+---
+
+# src/generators
+
+### Module summary
+
+Module src/generators
+
+### Exports
+
+| Name | Kind | Default |
+| --- | --- | --- |
+| `GENERATOR_REGISTRY` | variable | no |
+| `IGNORE_PATTERNS` | variable | no |
+| `KNOWN_GENERATOR_NAMES` | variable | no |
+| `__getAtomicWriteFileForTests` | function | no |
+| `__resetPromptCacheForTests` | function | no |
+| `_getValidator` | function | no |
+| `appendEntryToFile` | function | no |
+| `bucketOf` | function | no |
+| `buildDepGraph` | function | no |
+| `crossCheckHallucinations` | function | no |
+| `demoteHeadings` | function | no |
+| `enforcePromptBudget` | function | no |
+| `escapeScalar` | function | no |
+| `extractMentionedSymbols` | function | no |
+| `formatEntryMarkdown` | function | no |
+| `generateApiReference` | function | no |
+| `generateArchitectureDoc` | function | no |
+| `generateChangelog` | function | no |
+| `generateIssueEntries` | function | no |
+| `generateLlmsFullTxt` | function | no |
+| `generateLlmsTxt` | function | no |
+| `generateModuleDocs` | function | no |
+| `generateReferencePages` | function | no |
+| `generateSidebar` | function | no |
+| `generateWorkflowDocs` | function | no |
+| `groupModules` | function | no |
+| `loadModuleHashes` | function | no |
+| `loadPrompt` | function | no |
+| `loadPromptTemplate` | function | no |
+| `newFileHeader` | function | no |
+| `pageNameForDir` | function | no |
+| `parseFrontmatter` | function | no |
+| `renderMermaid` | function | no |
+| `renderModulePage` | function | no |
+| `renderPage` | function | no |
+| `renderTable` | function | no |
+| `resolveEnabledGenerators` | function | no |
+| `resolveOutputPath` | function | no |
+| `saveModuleHashes` | function | no |
+| `serializeFrontmatter` | function | no |
+| `serializeObject` | function | no |
+| `serializeReferenceFrontmatter` | function | no |
+| `serializeScalar` | function | no |
+| `splitSections` | function | no |
+| `stripFrontmatter` | function | no |
+| `validateEntry` | function | no |
+| `validateHedges` | function | no |
+
+### Detail
+
+#### `GENERATOR_REGISTRY`
+
+```text
+GENERATOR_REGISTRY
+```
+
+##### Params
+
+_None._
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `IGNORE_PATTERNS`
+
+```text
+IGNORE_PATTERNS
+```
+
+##### Params
+
+_None._
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `KNOWN_GENERATOR_NAMES`
+
+```text
+KNOWN_GENERATOR_NAMES
+```
+
+##### Params
+
+_None._
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `__getAtomicWriteFileForTests`
+
+```text
+__getAtomicWriteFileForTests()
+```
+
+Test-only seam so a stubbed rename failure can exercise AC-8 without
+mocking `node:fs/promises` globally. NOT public API.
+
+##### Params
+
+_None._
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `__resetPromptCacheForTests`
+
+```text
+__resetPromptCacheForTests(): void
+```
+
+Test-only: reset the cached template so a fresh read can be triggered
+after a hot edit. Not part of the public surface.
+
+##### Params
+
+_None._
+
+##### Returns
+
+`void`
+
+##### Examples
+
+_None._
+
+#### `_getValidator`
+
+```text
+_getValidator()
+```
+
+Internal getter so tests can confirm the validator is the same instance.
+
+##### Params
+
+_None._
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `appendEntryToFile`
+
+```text
+appendEntryToFile(outputPath, formattedMarkdown, category, issueNumber): object
+```
+
+##### Params
+
+- `outputPath`
+- `formattedMarkdown`
+- `category`
+- `issueNumber`
+
+##### Returns
+
+`object`
+
+##### Examples
+
+_None._
+
+#### `bucketOf`
+
+```text
+bucketOf(dirRel, buckets)
+```
+
+Classify a JS-module dirRel into a bucket name. Iterates buckets in
+declaration order; first match wins. Returns 'core' as catch-all.
+
+##### Params
+
+- `dirRel`
+- `buckets`
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `buildDepGraph`
+
+```text
+async buildDepGraph({ rootDir, globs, buckets }): Promise<object>
+```
+
+Build the architecture dep graph: JS modules from AST + directory
+descriptors from config.buckets.
+
+##### Params
+
+- `{ rootDir, globs, buckets }`
+
+##### Returns
+
+`Promise<object>`
+
+##### Examples
+
+_None._
+
+#### `crossCheckHallucinations`
+
+```text
+crossCheckHallucinations(llmText, exportNames)
+```
+
+Compute the set of mentioned symbols that are neither in `exportNames`
+nor in the intrinsics allowlist. A non-empty result is a hallucination.
+
+##### Params
+
+- `llmText`
+- `exportNames`
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `demoteHeadings`
+
+```text
+demoteHeadings(text)
+```
+
+Demote every ATX heading line (`#`-prefixed) by one level, capped at
+`######`. Code fences are tracked so headings inside fenced blocks are
+preserved verbatim.
+
+Fence tracking follows CommonMark: a closing fence must use the same
+marker character (`` ` `` or `~`) as the opening fence and be at least
+as long. A mismatched delimiter inside a fenced block (e.g. a `~~~`
+line within a ```` ``` ```` block) is therefore not treated as a close.
+
+##### Params
+
+- `text`
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `enforcePromptBudget`
+
+```text
+enforcePromptBudget({ userTemplate, vars }): object
+```
+
+Enforce the input prompt budget. If the rendered USER text exceeds
+`PROMPT_BUDGET_BYTES`, progressively drop the JSDOC block, clamp README,
+then drop EXPORTS, SIGNATURES, and RELATED blocks. If the prompt is still
+over budget after every block has been dropped, a final hard clamp
+truncates the rendered text to the byte budget so the caller is
+guaranteed never to send an oversized prompt. Returns `{prompt,
+truncated}` where `truncated` is the array of applied truncations (for
+diagnostics in warnings).
+
+##### Params
+
+- `{ userTemplate, vars }`
+
+##### Returns
+
+`object`
+
+##### Examples
+
+_None._
+
+#### `escapeScalar`
+
+```text
+escapeScalar(s)
+```
+
+Quote a YAML scalar string conservatively.
+
+Strings that contain anything that could be misparsed (special YAML chars,
+leading/trailing whitespace, leading sigils, or sequences that resemble
+other scalar types) are double-quoted with backslash escaping. Otherwise
+the value is emitted as a plain scalar.
+
+##### Params
+
+- `s`
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `extractMentionedSymbols`
+
+```text
+extractMentionedSymbols(text)
+```
+
+Scan the LLM text for backtick-quoted bare identifiers. Returns the set
+of distinct mentioned symbols (excluding strings that span multiple
+tokens or contain operators / punctuation).
+
+##### Params
+
+- `text`
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `formatEntryMarkdown`
+
+```text
+formatEntryMarkdown(category, entry, issueNumber)
+```
+
+##### Params
+
+- `category`
+- `entry`
+- `issueNumber`
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `generateApiReference`
+
+```text
+async generateApiReference({ rootDir, config, now }): Promise<object>
+```
+
+Generate API reference pages, write them to disk, and reconcile
+orphans. Returns the run summary and -- for tests -- a counter that
+proves no LLM call was made (`__llmCallCount === 0`).
+
+##### Params
+
+- `{ rootDir, config, now }`
+
+##### Returns
+
+`Promise<object>`
+
+##### Examples
+
+_None._
+
+#### `generateArchitectureDoc`
+
+```text
+async generateArchitectureDoc({ rootDir, config, now, describer }): Promise<object>
+```
+
+##### Params
+
+- `{ rootDir, config, now, describer }`
+
+##### Returns
+
+`Promise<object>`
+
+##### Examples
+
+_None._
+
+#### `generateChangelog`
+
+```text
+async generateChangelog({ rootDir, config, now, fetcher, narrator }): Promise<object>
+```
+
+Generate `wiki/reference/changelog.md`.
+
+##### Params
+
+- `{ rootDir, config, now, fetcher, narrator }`
+
+##### Returns
+
+`Promise<object>`
+
+##### Examples
+
+_None._
+
+#### `generateIssueEntries`
+
+```text
+async generateIssueEntries({
+  issues,
+  classify,
+  generateEntry,
+  sanitize,
+  config,
+  stateDir,
+  rootDir,
+}): Promise<object>
+```
+
+Generate wiki entries from a batch of classified issues.
+
+##### Params
+
+- `{   issues,   classify,   generateEntry,   sanitize,   config,   stateDir,   rootDir, }`
+
+##### Returns
+
+`Promise<object>`
+
+##### Examples
+
+_None._
+
+#### `generateLlmsFullTxt`
+
+```text
+async generateLlmsFullTxt({ rootDir, config }): Promise<object>
+```
+
+Generate `llms-full.txt`. See file header for full behaviour.
+
+##### Params
+
+- `{ rootDir, config }`
+
+##### Returns
+
+`Promise<object>`
+
+##### Examples
+
+_None._
+
+#### `generateLlmsTxt`
+
+```text
+async generateLlmsTxt({ rootDir, config }): Promise<object>
+```
+
+Generate `llms.txt`. See file header for full behaviour.
+
+##### Params
+
+- `{ rootDir, config }`
+
+##### Returns
+
+`Promise<object>`
+
+##### Examples
+
+_None._
+
+#### `generateModuleDocs`
+
+```text
+async generateModuleDocs({ rootDir, config }): Promise<object>
+```
+
+Generate module documentation pages. See file header for the contract.
+
+##### Params
+
+- `{ rootDir, config }`
+
+##### Returns
+
+`Promise<object>`
+
+##### Examples
+
+_None._
+
+#### `generateReferencePages`
+
+```text
+async generateReferencePages({ rootDir, config, now }): Promise<object>
+```
+
+Generate the 6 reference pages, write them under
+`<rootDir>/<config.paths.wikiOutput>/reference/`, and -- best-effort --
+fire a Telegram notification when warnings accumulated.
+
+##### Params
+
+- `{ rootDir, config, now }`
+
+##### Returns
+
+`Promise<object>`
+
+##### Examples
+
+_None._
+
+#### `generateSidebar`
+
+```text
+async generateSidebar({ rootDir, config, humanizer }): Promise<object>
+```
+
+Generate `sidebar.json`. See file header for full behaviour.
+
+The optional `humanizer` parameter exists so tests can inject a
+deterministic stand-in for `humanizeWithHaiku`. Production callers
+omit it; the default uses the real Haiku-backed helper.
+
+##### Params
+
+- `{ rootDir, config, humanizer }`
+
+##### Returns
+
+`Promise<object>`
+
+##### Examples
+
+_None._
+
+#### `generateWorkflowDocs`
+
+```text
+async generateWorkflowDocs({ rootDir, config, now, _generateGuide }): Promise<object>
+```
+
+Generate workflow guide pages. See the file header for behaviour.
+
+##### Params
+
+- `{ rootDir, config, now, _generateGuide }`
+
+##### Returns
+
+`Promise<object>`
+
+##### Examples
+
+_None._
+
+#### `groupModules`
+
+```text
+async groupModules({ rootDir, globs }): Promise<unknown>
+```
+
+Expand globs and group matching source files by immediate parent dir.
+
+##### Params
+
+- `{ rootDir, globs }`
+
+##### Returns
+
+`Promise<unknown>`
+
+##### Examples
+
+_None._
+
+#### `loadModuleHashes`
+
+```text
+async loadModuleHashes(stateDirAbs): Promise<unknown>
+```
+
+Load the persisted module-hash map. The schema is richer than
+`hash_tracker.js` (which only stores string values): each entry is
+`{hash, promptVersion, pageWritten}`. Returns an empty plain object if
+the file is missing.
+
+##### Params
+
+- `stateDirAbs`
+
+##### Returns
+
+`Promise<unknown>`
+
+##### Examples
+
+_None._
+
+#### `loadPrompt`
+
+```text
+loadPrompt(category): object
+```
+
+Load a prompt template for the given category.
+
+##### Params
+
+- `category`
+
+##### Returns
+
+`object`
+
+##### Examples
+
+_None._
+
+#### `loadPromptTemplate`
+
+```text
+loadPromptTemplate()
+```
+
+Load and cache the prompt template, splitting on the three section
+headings. Returns `{system, user, version}` where `version` is the
+`prompt-version: <n>` numeric value.
+
+##### Params
+
+_None._
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `newFileHeader`
+
+```text
+newFileHeader(category)
+```
+
+##### Params
+
+- `category`
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `pageNameForDir`
+
+```text
+pageNameForDir(dirRel): string
+```
+
+Derive the page filename from a POSIX-relative directory path.
+
+Uses split/join so EVERY `/` becomes `_`, not just the first occurrence.
+
+##### Params
+
+- `dirRel`
+
+##### Returns
+
+`string`
+
+##### Examples
+
+_None._
+
+#### `parseFrontmatter`
+
+```text
+parseFrontmatter(text)
+```
+
+Extract the `title` and `description` fields from a frontmatter YAML
+block. The parser is intentionally permissive: it accepts unquoted,
+double-quoted, and single-quoted scalars and ignores any other keys.
+
+##### Params
+
+- `text`
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `renderMermaid`
+
+```text
+renderMermaid({ nodes, edges, title })
+```
+
+Render a Mermaid `graph LR` block from a node + edge set.
+
+Each node renders as `nN["<dirRel> (<fileCount> files)"]` when the
+node is a directory-descriptor (non-JS bucket), or `nN["<dirRel>"]`
+for a JS-module node. Edges render one per line, sorted lexically.
+
+##### Params
+
+- `{ nodes, edges, title }`
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `renderModulePage`
+
+```text
+renderModulePage({
+  frontmatter,
+  moduleSummary,
+  exports,
+  signatures,
+  jsdocBlocks,
+})
+```
+
+Render a complete API reference page.
+
+##### Params
+
+- `{   frontmatter,   moduleSummary,   exports,   signatures,   jsdocBlocks, }`
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `renderPage`
+
+```text
+renderPage({ frontmatter, summary, sections })
+```
+
+Compose the full architecture page from a frontmatter block, a
+summary paragraph, and an ordered list of sections (each either a
+`mermaid` or `table` kind).
+
+##### Params
+
+- `{ frontmatter, summary, sections }`
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `renderTable`
+
+```text
+renderTable({ nodes, edges, title })
+```
+
+Render a Markdown table fallback for sub-graphs that exceed the
+Mermaid node cap. JS-module nodes use the columns
+`Module | Imports From | Imported By`; directory-descriptor nodes
+use `Directory | Files | Description`.
+
+##### Params
+
+- `{ nodes, edges, title }`
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `resolveEnabledGenerators`
+
+```text
+resolveEnabledGenerators(enabled)
+```
+
+Resolve the ordered list of generator entries to run from a config
+`enabled` array. Iteration order matches the input array (sequential
+dispatch in the orchestrator).
+
+Throws synchronously with a human-readable message on:
+  - non-array input (defense in depth; loader already validates shape)
+  - an entry that is not a registered generator name
+
+##### Params
+
+- `enabled`
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `resolveOutputPath`
+
+```text
+resolveOutputPath(rootDir, config, category)
+```
+
+##### Params
+
+- `rootDir`
+- `config`
+- `category`
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `saveModuleHashes`
+
+```text
+async saveModuleHashes(stateDirAbs, hashes): Promise<void>
+```
+
+Persist the module-hash map atomically. Keys sorted alphabetically.
+Mirrors the tmp+rename pattern from `hash_tracker.saveHashes`.
+
+##### Params
+
+- `stateDirAbs`
+- `hashes`
+
+##### Returns
+
+`Promise<void>`
+
+##### Examples
+
+_None._
+
+#### `serializeFrontmatter`
+
+```text
+serializeFrontmatter(obj): string
+```
+
+Build, ajv-validate, and deterministically serialize Starlight frontmatter.
+
+Throws an Error tagged with the ajv error path on invalid input.
+
+##### Params
+
+- `obj`
+
+##### Returns
+
+`string`
+
+##### Examples
+
+_None._
+
+#### `serializeObject`
+
+```text
+serializeObject(obj, depth)
+```
+
+Serialize an object as YAML at the given indent depth, with sorted keys.
+
+##### Params
+
+- `obj`
+- `depth`
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `serializeReferenceFrontmatter`
+
+```text
+serializeReferenceFrontmatter(obj): string
+```
+
+Variant of serializeFrontmatter for WG-34 reference/catalog pages. Identical
+surface and YAML output discipline; the only difference is the underlying
+schema, which permits `editUrl: null`. Used by reference_pages_generator
+when config.site.repoUrl is unavailable.
+
+##### Params
+
+- `obj`
+
+##### Returns
+
+`string`
+
+##### Examples
+
+_None._
+
+#### `serializeScalar`
+
+```text
+serializeScalar(value)
+```
+
+Serialize a single value with stable formatting.
+
+Booleans render unquoted, numbers render verbatim, null renders as bare
+`null` (Clarification C4), strings go through escapeScalar.
+
+##### Params
+
+- `value`
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `splitSections`
+
+```text
+splitSections(text): object
+```
+
+Split the LLM text into the five required sections. Throws a typed
+error when a section is missing or out of order.
+
+##### Params
+
+- `text`
+
+##### Returns
+
+`object`
+
+##### Examples
+
+_None._
+
+#### `stripFrontmatter`
+
+```text
+stripFrontmatter(text)
+```
+
+Strip a leading frontmatter block (`---\n...\n---\n`). Returns the
+post-frontmatter content; if no frontmatter is present, returns the
+input unchanged.
+
+##### Params
+
+- `text`
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `validateEntry`
+
+```text
+validateEntry(category, entry): object
+```
+
+Run the binary rubric against an entry.
+
+##### Params
+
+- `category`
+- `entry`
+
+##### Returns
+
+`object`
+
+##### Examples
+
+_None._
+
+#### `validateHedges`
+
+```text
+validateHedges(content): object
+```
+
+Detect banned hedge phrases (case-insensitive substring match).
+
+##### Params
+
+- `content`
+
+##### Returns
+
+`object`
+
+##### Examples
+
+_None._
+
+---
+
+# src/guards
+
+### Module summary
+
+Module src/guards
+
+### Exports
+
+| Name | Kind | Default |
+| --- | --- | --- |
+| `DOC_RATIO_THRESHOLD` | variable | no |
+| `HallucinationGuardError` | class | no |
+| `SNAPSHOT_UPDATE_SIGNAL` | variable | no |
+| `SOURCE_RATIO_THRESHOLD` | variable | no |
+| `checkHallucination` | function | no |
+| `main` | function | no |
+
+### Detail
+
+#### `DOC_RATIO_THRESHOLD`
+
+```text
+DOC_RATIO_THRESHOLD
+```
+
+##### Params
+
+_None._
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `HallucinationGuardError`
+
+```text
+HallucinationGuardError
+```
+
+##### Params
+
+_None._
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `SNAPSHOT_UPDATE_SIGNAL`
+
+```text
+SNAPSHOT_UPDATE_SIGNAL
+```
+
+##### Params
+
+_None._
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `SOURCE_RATIO_THRESHOLD`
+
+```text
+SOURCE_RATIO_THRESHOLD
+```
+
+##### Params
+
+_None._
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `checkHallucination`
+
+```text
+checkHallucination(opts): object
+```
+
+Run the hallucination guard for one doc/source pair.
+
+Decision table:
+ - doc-ratio > 0.20 AND source-ratio < 0.05 -> BLOCK, unless the
+   `[snapshot-update]` signal is present, in which case the doc change is
+   accepted and the golden snapshot is refreshed.
+ - any other combination -> PASS. When the doc differs from its golden
+   snapshot and the signal is present, the snapshot is refreshed.
+
+##### Params
+
+- `opts = {}`
+
+##### Returns
+
+`object`
+
+##### Examples
+
+_None._
+
+#### `main`
+
+```text
+main(argv, io): number
+```
+
+CLI entrypoint. Returns the process exit code instead of calling
+`process.exit` so it stays unit-testable.
+
+  node hallucination_guard.js \
+    --doc <path> --source <path> --golden <path> \
+    [--repo-dir <path>] [--commit-message <msg>]
+
+Exit codes: 0 = pass, 1 = blocked (hallucination), 2 = usage / runtime error.
+
+##### Params
+
+- `argv = process.argv.slice(2)`
+- `io = {}`
+
+##### Returns
+
+`number`
+
+##### Examples
+
+_None._
+
+---
+
+# src/publisher
+
+### Module summary
+
+Module src/publisher
+
+### Exports
+
+| Name | Kind | Default |
+| --- | --- | --- |
+| `generatePRBody` | function | no |
+| `handleAutoMerge` | function | no |
+| `openPR` | function | no |
+| `publishFiles` | function | no |
+
+### Detail
+
+#### `generatePRBody`
+
+```text
+async generatePRBody({
+  llmClient,
+  changedFiles,
+  sourceCommits,
+  repoUrl,
+  dryRun,
+}): Promise<unknown>
+```
+
+##### Params
+
+- `{   llmClient,   changedFiles,   sourceCommits,   repoUrl,   dryRun, }`
+
+##### Returns
+
+`Promise<unknown>`
+
+##### Examples
+
+_None._
+
+#### `handleAutoMerge`
+
+```text
+async handleAutoMerge({
+  githubClient,
+  owner,
+  repo,
+  pullNumber,
+  hitlRequired,
+  dryRun,
+  logger,
+}): Promise<object>
+```
+
+##### Params
+
+- `{   githubClient,   owner,   repo,   pullNumber,   hitlRequired,   dryRun,   logger, }`
+
+##### Returns
+
+`Promise<object>`
+
+##### Examples
+
+_None._
+
+#### `openPR`
+
+```text
+async openPR({
+  githubClient,
+  owner,
+  repo,
+  branch,
+  title,
+  body,
+  logger,
+  base = 'main',
+}): Promise<unknown>
+```
+
+##### Params
+
+- `{   githubClient,   owner,   repo,   branch,   title,   body,   logger,   base = 'main', }`
+
+##### Returns
+
+`Promise<unknown>`
+
+##### Examples
+
+_None._
+
+#### `publishFiles`
+
+```text
+async publishFiles({
+  githubClient,
+  owner,
+  repo,
+  files,
+  commitMessage,
+  hitlRequired,
+  dryRun,
+  logger,
+}): Promise<object>
+```
+
+##### Params
+
+- `{   githubClient,   owner,   repo,   files,   commitMessage,   hitlRequired,   dryRun,   logger, }`
+
+##### Returns
+
+`Promise<object>`
+
+##### Examples
+
+_None._
+
+---
+
+# src/sanitizers
+
+### Module summary
+
+Module src/sanitizers
+
+### Exports
+
+| Name | Kind | Default |
+| --- | --- | --- |
+| `BODY_LOC_THRESHOLD` | variable | no |
+| `ENTROPY_MIN_SCORE` | variable | no |
+| `ENTROPY_WINDOW_RE` | variable | no |
+| `EXIT_SECRET_DETECTED` | variable | no |
+| `HOST_REGEXES` | variable | no |
+| `INPUT_BYTE_CAP` | variable | no |
+| `MAX_MATCHES` | variable | no |
+| `PII_ALLOWLIST` | variable | no |
+| `PROVIDER_REGEXES` | variable | no |
+| `PUBLIC_HOST_ALLOWLIST` | variable | no |
+| `STAGE_ORDER` | variable | no |
+| `composeAll` | function | no |
+| `isPathBlocked` | function | no |
+| `logSecretHit` | function | no |
+| `sanitizeImplementations` | function | no |
+| `sanitizeIssueLog` | function | no |
+| `sanitizePII` | function | no |
+| `scan` | function | no |
+| `shannonEntropy` | function | no |
+
+### Detail
+
+#### `BODY_LOC_THRESHOLD`
+
+```text
+BODY_LOC_THRESHOLD
+```
+
+##### Params
+
+_None._
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `ENTROPY_MIN_SCORE`
+
+```text
+ENTROPY_MIN_SCORE
+```
+
+##### Params
+
+_None._
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `ENTROPY_WINDOW_RE`
+
+```text
+ENTROPY_WINDOW_RE
+```
+
+##### Params
+
+_None._
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `EXIT_SECRET_DETECTED`
+
+```text
+EXIT_SECRET_DETECTED
+```
+
+##### Params
+
+_None._
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `HOST_REGEXES`
+
+```text
+HOST_REGEXES
+```
+
+##### Params
+
+_None._
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `INPUT_BYTE_CAP`
+
+```text
+INPUT_BYTE_CAP
+```
+
+##### Params
+
+_None._
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `MAX_MATCHES`
+
+```text
+MAX_MATCHES
+```
+
+##### Params
+
+_None._
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `PII_ALLOWLIST`
+
+```text
+PII_ALLOWLIST
+```
+
+##### Params
+
+_None._
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `PROVIDER_REGEXES`
+
+```text
+PROVIDER_REGEXES
+```
+
+##### Params
+
+_None._
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `PUBLIC_HOST_ALLOWLIST`
+
+```text
+PUBLIC_HOST_ALLOWLIST
+```
+
+##### Params
+
+_None._
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `STAGE_ORDER`
+
+```text
+STAGE_ORDER
+```
+
+##### Params
+
+_None._
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `composeAll`
+
+```text
+composeAll(content, opts): object
+```
+
+Run all sanitizers in canonical order on `content`.
+
+##### Params
+
+- `content`
+- `opts`
+
+##### Returns
+
+`object`
+
+##### Examples
+
+_None._
+
+#### `isPathBlocked`
+
+```text
+isPathBlocked(absPath)
+```
+
+Stateless predicate: does the given absolute path point at content that the
+wiki-generator must refuse to read? Fail-closed: ambiguous filesystem errors
+(EACCES, ELOOP, etc.) resolve to `true`. ENOENT is the one safe miss because
+the on-disk pattern check already ran against the resolved input.
+
+##### Params
+
+- `absPath`
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `logSecretHit`
+
+```text
+logSecretHit(opts): void
+```
+
+Emit a structured `secret_hit` record to stderr.
+
+##### Params
+
+- `opts`
+
+##### Returns
+
+`void`
+
+##### Examples
+
+_None._
+
+#### `sanitizeImplementations`
+
+```text
+sanitizeImplementations(content)
+```
+
+##### Params
+
+- `content`
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `sanitizeIssueLog`
+
+```text
+sanitizeIssueLog(content)
+```
+
+##### Params
+
+- `content`
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `sanitizePII`
+
+```text
+sanitizePII(content)
+```
+
+##### Params
+
+- `content`
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `scan`
+
+```text
+scan(content, opts): object
+```
+
+Scan `content` for secret-shaped substrings.
+
+##### Params
+
+- `content`
+- `opts`
+
+##### Returns
+
+`object`
+
+##### Examples
+
+_None._
+
+#### `shannonEntropy`
+
+```text
+shannonEntropy(s)
+```
+
+Shannon entropy of a string in bits per character.
+
+Returns 0 for inputs shorter than the length floor (20 characters) so the
+caller can short-circuit candidate windows without a math call. Above the
+floor the value is `-Σ p(c) * log2(p(c))` over the multiset of characters.
+
+Pure, allocation-bounded (one `Map` keyed by unique characters), no I/O.
+
+##### Params
+
+- `s`
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+---
+
+# src/state
+
+### Module summary
+
+Module src/state
+
+### Exports
+
+| Name | Kind | Default |
+| --- | --- | --- |
+| `prune` | function | no |
+
+### Detail
+
+#### `prune`
+
+```text
+async prune(opts): Promise<unknown>
+```
+
+Prune stale entries from `file-hashes.json` and `issue-entries.json`.
+
+Two-pass policy:
+  1. Files whose repo-relative path is no longer in `presentFiles` get a
+     `missingSince` timestamp; once that timestamp is older than `ttlDays`
+     the entry is moved to a monthly archive and removed from the active
+     file. Files that come back clear their `missingSince` immediately.
+  2. Issue numbers whose `issueChecker(n)` returns false (404) follow the
+     same lifecycle. If `issueChecker` throws, the entry is left untouched
+     so transient errors (rate limits, network) do not classify a live
+     issue as deleted.
+
+##### Params
+
+- `opts = {}`
+
+##### Returns
+
+`Promise<unknown>`
+
+##### Examples
+
+_None._
+
+---
+
+# src/utils
+
+### Module summary
+
+Module src/utils
+
+### Exports
+
+| Name | Kind | Default |
+| --- | --- | --- |
+| `MODEL_PRICING` | variable | no |
+| `MONTHLY_COST_TARGET_USD` | variable | no |
+| `RecentPRsFetcherError` | class | no |
+| `__HARD_PROMPT_CAP` | variable | no |
+| `__resetDepsForTests` | function | no |
+| `__resetFetchForTests` | function | no |
+| `__setClientFactoryForTests` | function | no |
+| `__setDepsForTests` | function | no |
+| `__setFetchForTests` | function | no |
+| `__setSleepForTests` | function | no |
+| `aliasModel` | function | no |
+| `appendRunRecord` | function | no |
+| `calculateCost` | function | no |
+| `callLLM` | function | no |
+| `classifyWithHaiku` | function | no |
+| `createGitHubClient` | function | no |
+| `dateKey` | function | no |
+| `describeBuckets` | function | no |
+| `deterministicDescribe` | function | no |
+| `deterministicHumanize` | function | no |
+| `fetchRecentMergedPRs` | function | no |
+| `formatMonthlySummary` | function | no |
+| `formatRunSummary` | function | no |
+| `generateEntryWithSonnet` | function | no |
+| `generateWorkflowGuide` | function | no |
+| `getUsageSnapshot` | function | no |
+| `humanizeWithHaiku` | function | no |
+| `loadHistory` | function | no |
+| `logError` | function | no |
+| `logUpdate` | function | no |
+| `narrateWhatsNew` | function | no |
+| `projectMonth` | function | no |
+| `recordUsage` | function | no |
+| `reportCost` | function | no |
+| `resetUsage` | function | no |
+| `summarizeMonth` | function | no |
+| `summarizeRun` | function | no |
+| `yearMonthKey` | function | no |
+
+### Detail
+
+#### `MODEL_PRICING`
+
+```text
+MODEL_PRICING
+```
+
+##### Params
+
+_None._
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `MONTHLY_COST_TARGET_USD`
+
+```text
+MONTHLY_COST_TARGET_USD
+```
+
+##### Params
+
+_None._
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `RecentPRsFetcherError`
+
+```text
+RecentPRsFetcherError
+```
+
+##### Params
+
+_None._
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `__HARD_PROMPT_CAP`
+
+```text
+__HARD_PROMPT_CAP
+```
+
+##### Params
+
+_None._
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `__resetDepsForTests`
+
+```text
+__resetDepsForTests(): void
+```
+
+##### Params
+
+_None._
+
+##### Returns
+
+`void`
+
+##### Examples
+
+_None._
+
+#### `__resetFetchForTests`
+
+```text
+__resetFetchForTests(): void
+```
+
+Test hook: clear the override.
+
+##### Params
+
+_None._
+
+##### Returns
+
+`void`
+
+##### Examples
+
+_None._
+
+#### `__setClientFactoryForTests`
+
+```text
+__setClientFactoryForTests(factory): void
+```
+
+Override the Anthropic client factory. Tests only.
+
+##### Params
+
+- `factory`
+
+##### Returns
+
+`void`
+
+##### Examples
+
+_None._
+
+#### `__setDepsForTests`
+
+```text
+__setDepsForTests(deps): void
+```
+
+Override the Octokit constructor and execFile implementation. Tests only.
+
+##### Params
+
+- `deps`
+
+##### Returns
+
+`void`
+
+##### Examples
+
+_None._
+
+#### `__setFetchForTests`
+
+```text
+__setFetchForTests(fn): void
+```
+
+Test hook: override the fetch implementation.
+
+##### Params
+
+- `fn`
+
+##### Returns
+
+`void`
+
+##### Examples
+
+_None._
+
+#### `__setSleepForTests`
+
+```text
+__setSleepForTests(impl): void
+```
+
+Override the backoff sleeper. Tests only -- pass () => Promise.resolve() to
+skip delays entirely.
+
+##### Params
+
+- `impl`
+
+##### Returns
+
+`void`
+
+##### Examples
+
+_None._
+
+#### `aliasModel`
+
+```text
+aliasModel(name): object
+```
+
+Map a friendly alias to the concrete model id and (when applicable) the
+extended-thinking configuration. Throws on unknown alias.
+
+##### Params
+
+- `name`
+
+##### Returns
+
+`object`
+
+##### Examples
+
+_None._
+
+#### `appendRunRecord`
+
+```text
+async appendRunRecord(stateDir, record): Promise<unknown>
+```
+
+Append one run's cost record to `<stateDir>/cost-history.json` and persist
+atomically. The record carries the run id, the run's calendar date, the
+total tokens, and the total USD.
+
+##### Params
+
+- `stateDir`
+- `record`
+
+##### Returns
+
+`Promise<unknown>`
+
+##### Examples
+
+_None._
+
+#### `calculateCost`
+
+```text
+calculateCost(usage, model): number
+```
+
+Calculate cost in USD for a single LLM call.
+
+##### Params
+
+- `usage`
+- `model`
+
+##### Returns
+
+`number`
+
+##### Examples
+
+_None._
+
+#### `callLLM`
+
+```text
+async callLLM(opts): Promise<object>
+```
+
+Call the Anthropic Messages API with retries and a normalized response.
+
+##### Params
+
+- `opts`
+
+##### Returns
+
+`Promise<object>`
+
+##### Examples
+
+_None._
+
+#### `classifyWithHaiku`
+
+```text
+async classifyWithHaiku({ system, userContent }): Promise<unknown>
+```
+
+Invoke Haiku in JSON mode and return a validated classification result.
+
+##### Params
+
+- `{ system, userContent }`
+
+##### Returns
+
+`Promise<unknown>`
+
+##### Examples
+
+_None._
+
+#### `createGitHubClient`
+
+```text
+createGitHubClient(opts)
+```
+
+Build a wrapper around Octokit. Token defaults to WIKI_BOT_TOKEN.
+
+##### Params
+
+- `opts = {}`
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `dateKey`
+
+```text
+dateKey(date)
+```
+
+Format a `Date` as the `YYYY-MM-DD` calendar-day key.
+
+##### Params
+
+- `date`
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `describeBuckets`
+
+```text
+async describeBuckets(summaries, opts): Promise<unknown>
+```
+
+Single batched Sonnet-medium call describing every architecture
+bucket. Returns a Map<bucket, sentence> on success or null on any
+failure (caller falls back via deterministicDescribe).
+
+##### Params
+
+- `summaries`
+- `opts = {}`
+
+##### Returns
+
+`Promise<unknown>`
+
+##### Examples
+
+_None._
+
+#### `deterministicDescribe`
+
+```text
+deterministicDescribe(bucketName)
+```
+
+Deterministic per-bucket fallback. Returns a fixed sentence for the
+five spec-locked buckets; everything else returns a generic label.
+
+##### Params
+
+- `bucketName`
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `deterministicHumanize`
+
+```text
+deterministicHumanize(raw)
+```
+
+Deterministic fallback transform: split on `_`, `-`, and `/`,
+capitalize each word, join with spaces.
+
+Pure function, exported so the generator and tests can call it
+directly without invoking the LLM.
+
+##### Params
+
+- `raw`
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `fetchRecentMergedPRs`
+
+```text
+async fetchRecentMergedPRs({ sinceIso, repoDir, runner }): Promise<unknown>
+```
+
+Fetch merged PRs since `sinceIso` via `gh pr list --json ...`.
+
+##### Params
+
+- `{ sinceIso, repoDir, runner } = {}`
+
+##### Returns
+
+`Promise<unknown>`
+
+##### Examples
+
+_None._
+
+#### `formatMonthlySummary`
+
+```text
+formatMonthlySummary(monthSummary, target)
+```
+
+Build the day-1-of-month Telegram summary text for the previous month.
+
+##### Params
+
+- `monthSummary`
+- `target = MONTHLY_COST_TARGET_USD`
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `formatRunSummary`
+
+```text
+formatRunSummary({ runId, runSummary, projection })
+```
+
+Build the per-run Telegram summary text: total tokens, total USD, the
+per-generator (label) breakdown, and the month-to-date projection.
+
+##### Params
+
+- `{ runId, runSummary, projection }`
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `generateEntryWithSonnet`
+
+```text
+async generateEntryWithSonnet({ system, userContent }): Promise<unknown>
+```
+
+Invoke Sonnet-medium in JSON mode and return the parsed entry object.
+
+##### Params
+
+- `{ system, userContent }`
+
+##### Returns
+
+`Promise<unknown>`
+
+##### Examples
+
+_None._
+
+#### `generateWorkflowGuide`
+
+```text
+async generateWorkflowGuide({ topic, signals, system, userContent }): Promise<unknown>
+```
+
+Call Sonnet 4.6 medium (extended-thinking enabled) to produce a
+workflow guide. The caller supplies the assembled user message
+(`userContent`) and a system prompt; this wrapper does not assemble
+either string -- that responsibility lives in the generator so the
+prompt template stays close to the topic-grouping logic.
+
+Returns `{content, usage}` on success or `null` on any error.
+
+##### Params
+
+- `{ topic, signals, system, userContent }`
+
+##### Returns
+
+`Promise<unknown>`
+
+##### Examples
+
+_None._
+
+#### `getUsageSnapshot`
+
+```text
+getUsageSnapshot()
+```
+
+Return a deep copy of the accumulator entries so callers cannot mutate the
+live state.
+
+##### Params
+
+_None._
+
+##### Returns
+
+_None._
+
+##### Examples
+
+_None._
+
+#### `humanizeWithHaiku`
+
+```text
+async humanizeWithHaiku(labels, opts): Promise<unknown>
+```
+
+Attempt to humanize a list of labels by calling Haiku. Returns a
+`Map<originalLabel, humanizedLabel>` on success, or `null` on any
+failure. Caller decides whether to fall back.
+
+##### Params
+
+- `labels`
+- `opts = {}`
+
+##### Returns
+
+`Promise<unknown>`
+
+##### Examples
+
+_None._
+
+#### `loadHistory`
+
+```text
+async loadHistory(stateDir): Promise<unknown>
+```
+
+Load the persisted cost history from `<stateDir>/cost-history.json`.
+Returns an empty array when the file does not yet exist or is corrupt --
+cost history is observability data, never a hard dependency.
+
+##### Params
+
+- `stateDir`
+
+##### Returns
+
+`Promise<unknown>`
+
+##### Examples
+
+_None._
+
+#### `logError`
+
+```text
+async logError(event): Promise<unknown>
+```
+
+Log a pipeline error.
+
+##### Params
+
+- `event`
+
+##### Returns
+
+`Promise<unknown>`
+
+##### Examples
+
+_None._
+
+#### `logUpdate`
+
+```text
+async logUpdate(event): Promise<unknown>
+```
+
+Log a routine pipeline update.
+
+##### Params
+
+- `event`
+
+##### Returns
+
+`Promise<unknown>`
+
+##### Examples
+
+_None._
+
+#### `narrateWhatsNew`
+
+```text
+async narrateWhatsNew(groupedPRs, opts): Promise<object>
+```
+
+Generate the "What's New" narrative section via the LLM client.
+
+##### Params
+
+- `groupedPRs`
+- `opts = {}`
+
+##### Returns
+
+`Promise<object>`
+
+##### Examples
+
+_None._
+
+#### `projectMonth`
+
+```text
+projectMonth(history, now, target): object
+```
+
+Project the current month's total cost from the spend so far.
+
+Month-to-date USD is divided by the number of elapsed days to get a daily
+run rate, then multiplied by the number of days in the month. The result
+is compared against `target` (default: the $50 WG-29 target).
+
+##### Params
+
+- `history`
+- `now`
+- `target = MONTHLY_COST_TARGET_USD`
+
+##### Returns
+
+`object`
+
+##### Examples
+
+_None._
+
+#### `recordUsage`
+
+```text
+recordUsage(entry): void
+```
+
+Record one LLM call's token usage into the per-run accumulator.
+
+Called by `callLLM` after every successful Anthropic response. Invalid
+input is ignored rather than thrown: cost tracking must never break a
+pipeline run. A missing `label` defaults to `model` so the call is still
+attributed.
+
+##### Params
+
+- `entry`
+
+##### Returns
+
+`void`
+
+##### Examples
+
+_None._
+
+#### `reportCost`
+
+```text
+async reportCost({ stateDir, runId, telegramLogger, now, snapshot }): Promise<object>
+```
+
+Orchestrator post-run hook: persist the run's cost record, post the per-run
+summary to Telegram (`wiki_updates`), and -- on day 1 of the month -- post
+the previous month's aggregate.
+
+Cost reporting is observability, never a hard dependency: any failure is
+caught, logged via the Telegram logger, and swallowed so a reporting fault
+cannot fail an otherwise-successful pipeline run.
+
+##### Params
+
+- `{ stateDir, runId, telegramLogger, now, snapshot }`
+
+##### Returns
+
+`Promise<object>`
+
+##### Examples
+
+_None._
+
+#### `resetUsage`
+
+```text
+resetUsage(): void
+```
+
+Clear the per-run usage accumulator. Call at the start of every run.
+
+##### Params
+
+_None._
+
+##### Returns
+
+`void`
+
+##### Examples
+
+_None._
+
+#### `summarizeMonth`
+
+```text
+summarizeMonth(history, yearMonth): object
+```
+
+Aggregate every run record in the given calendar month.
+
+##### Params
+
+- `history`
+- `yearMonth`
+
+##### Returns
+
+`object`
+
+##### Examples
+
+_None._
+
+#### `summarizeRun`
+
+```text
+summarizeRun(snapshot): object
+```
+
+Compute tokens + USD for a usage snapshot, broken down per accumulator
+entry (one entry per model + call-site label).
+
+An unknown model (not in MODEL_PRICING) cannot be priced; its `usd` is
+`null` and it is counted in `unpricedEntries` rather than crashing the
+report. `calculateCost` throws on an unknown model, so the call is guarded.
+
+##### Params
+
+- `snapshot`
+
+##### Returns
+
+`object`
+
+##### Examples
+
+_None._
+
+#### `yearMonthKey`
+
+```text
+yearMonthKey(date): string
+```
+
+Format a `Date` as the `YYYY-MM` calendar-month key.
+
+##### Params
+
+- `date`
+
+##### Returns
+
+`string`
+
+##### Examples
+
+_None._

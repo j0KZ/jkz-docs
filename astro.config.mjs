@@ -156,6 +156,7 @@ export default defineConfig({
           // New subsystem pages insert their slug below.
           label: 'Subsystems',
           items: [
+            { slug: 'subsystems/automations-and-github' },
             { slug: 'subsystems/classifier-and-alignment' },
             { slug: 'subsystems/hermes' },
             { slug: 'subsystems/coderabbit' },

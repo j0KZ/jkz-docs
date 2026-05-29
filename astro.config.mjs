@@ -176,6 +176,8 @@ export default defineConfig({
           items: [
             { slug: 'operations/memory' },
             { slug: 'operations/slos-and-monitoring' },
+            { slug: 'operations/state-schema' },
+            { slug: 'operations/troubleshooting' },
           ],
         },
         {

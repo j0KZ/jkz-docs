@@ -166,11 +166,13 @@ export default defineConfig({
           ],
         },
         {
-          // Operations (Layer C). Pages here document how the running system
-          // is observed and kept healthy — SLOs, the monitoring loop, alerting.
-          // New operations pages insert their slug below.
+          // Operations deep-dives (Layer C). Pages here document how the
+          // running system is operated, observed, and kept healthy end to end.
+          // New operations pages insert their slug below rather than creating
+          // a second Operations group.
           label: 'Operations',
           items: [
+            { slug: 'operations/memory' },
             { slug: 'operations/slos-and-monitoring' },
           ],
         },

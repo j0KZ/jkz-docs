@@ -7,7 +7,7 @@ Most of jkz is about getting code right before a human sees it. Two subsystems s
 
 ## CodeRabbit integration
 
-[CodeRabbit](https://coderabbit.ai) is an AI code-review bot that comments on GitHub pull requests. jkz treats it as an additional adversarial reviewer that runs *alongside* the pipeline's own agents (Judge, Inspector, Sentinel) — not as a replacement for them. The pipeline never merges on CodeRabbit's say-so; its findings are triaged like any other signal and folded into the same human checkpoint.
+CodeRabbit is an AI code-review bot that comments on GitHub pull requests. jkz treats it as an additional adversarial reviewer that runs *alongside* the pipeline's own agents (Judge, Inspector, Sentinel) — not as a replacement for them. The pipeline never merges on CodeRabbit's say-so; its findings are triaged like any other signal and folded into the same human checkpoint.
 
 ### Where it runs
 

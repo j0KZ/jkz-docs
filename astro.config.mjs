@@ -43,6 +43,7 @@ export default defineConfig({
           label: 'Get started',
           items: [
             { label: 'Home', link: '/' },
+            { slug: 'get-started/install' },
             { slug: 'get-started/quickstart' },
             { slug: 'get-started/why-jkz' },
             { slug: 'get-started/how-jkz-works' },
@@ -52,11 +53,16 @@ export default defineConfig({
           label: 'Concepts',
           items: [
             { slug: 'concepts/pipeline' },
+            { slug: 'concepts/issue-types' },
             { slug: 'concepts/evidence-hierarchy' },
             { slug: 'concepts/ambiguity-gate' },
             { slug: 'concepts/merge-gate' },
             { slug: 'concepts/worktree-isolation' },
             { slug: 'concepts/cross-chat' },
+            { slug: 'concepts/signal-format' },
+            { slug: 'concepts/context-management' },
+            { slug: 'concepts/fallback' },
+            { slug: 'concepts/plugin-mode' },
           ],
         },
         {
@@ -87,11 +93,40 @@ export default defineConfig({
             { slug: 'commands/resume' },
             { slug: 'commands/start' },
             { slug: 'commands/status' },
+            { slug: 'commands/issue' },
+            { slug: 'commands/refine' },
+            { slug: 'commands/save' },
+            { slug: 'commands/load' },
+            { slug: 'commands/quit' },
+            { slug: 'commands/new-chat' },
             // ancillary
             { slug: 'commands/debate' },
+            { slug: 'commands/ask' },
             { slug: 'commands/research' },
             { slug: 'commands/vault' },
             { slug: 'commands/health' },
+            // quality & audit
+            { slug: 'commands/bugs' },
+            { slug: 'commands/quality' },
+            { slug: 'commands/deps' },
+            { slug: 'commands/perf-audit' },
+            { slug: 'commands/e2e' },
+            { slug: 'commands/skill-audit' },
+            { slug: 'commands/simplify' },
+            { slug: 'commands/deslop' },
+            // dev & review workflow
+            { slug: 'commands/commit' },
+            { slug: 'commands/cr-fix' },
+            { slug: 'commands/ship' },
+            { slug: 'commands/dev-self-review' },
+            { slug: 'commands/doc-sync' },
+            // consultation, analytics & memory (WG-71)
+            { slug: 'commands/cost' },
+            { slug: 'commands/insights' },
+            { slug: 'commands/calibrate' },
+            { slug: 'commands/memory-status' },
+            { slug: 'commands/memory-review' },
+            { slug: 'commands/memory-promote' },
           ],
         },
         {
@@ -116,11 +151,13 @@ export default defineConfig({
           ],
         },
         {
-          // Subsystem deep-dives (Layer B). Each page is an overview of one
-          // internal subsystem. New subsystem pages insert their slug here,
-          // ordered by topic rather than the alphabet.
+          // Subsystem deep-dives (Layer B). Pages here document a single
+          // long-lived subsystem end to end; they cross-link Concepts.
+          // New subsystem pages insert their slug below.
           label: 'Subsystems',
           items: [
+            { slug: 'subsystems/hermes' },
+            { slug: 'subsystems/telegram-bot' },
             { slug: 'subsystems/wiki-generator' },
           ],
         },
@@ -129,6 +166,7 @@ export default defineConfig({
           items: [
             { slug: 'reference/architecture' },
             { slug: 'reference/cli' },
+            { slug: 'reference/skills' },
             { slug: 'reference/changelog' },
             { slug: 'reference/design-decisions' },
             {

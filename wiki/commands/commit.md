@@ -27,7 +27,7 @@ flowchart LR
 
 - **Skip heuristic.** The CodeRabbit scan is skipped when the diff is under ~10 changed lines, or when every staged file is non-code (`.md`, `.json`, `.yml`, `.lock`, and similar). Trivial changes go straight to the commit.
 - **CR fix loop — up to 3 iterations.** Each pass scans the staged diff (via the CodeRabbit reviewer, falling back to the CLI wrapper), then classifies every finding as **VALID** (a real issue — gets fixed), **FALSE_POSITIVE** (dismissed with a `file:line` citation), or **LOW_SIGNAL** (informational — skipped). Valid fixes are applied surgically and re-staged. The loop ends as soon as a pass yields no valid findings, or after the third iteration.
-- **Commit.** The [`commit-commands:commit`](/commands/ship/) skill writes a conventional-commit message from the staged diff. The loop never commits mid-iteration — it stages fixes and commits once at the end.
+- **Commit.** The `commit-commands:commit` skill writes a conventional-commit message from the staged diff. The loop never commits mid-iteration — it stages fixes and commits once at the end.
 - **Push is opt-in.** Nothing is pushed unless you say so; if the branch has no upstream it uses `git push -u origin HEAD`.
 
 ## When to use it

@@ -116,6 +116,15 @@ export default defineConfig({
           ],
         },
         {
+          // Subsystem deep-dives (Layer B). Pages here document a single
+          // long-lived subsystem end to end; they cross-link Concepts.
+          // New subsystem pages insert their slug below.
+          label: 'Subsystems',
+          items: [
+            { slug: 'subsystems/hermes' },
+          ],
+        },
+        {
           label: 'Reference',
           items: [
             { slug: 'reference/architecture' },

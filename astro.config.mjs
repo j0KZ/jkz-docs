@@ -43,6 +43,7 @@ export default defineConfig({
           label: 'Get started',
           items: [
             { label: 'Home', link: '/' },
+            { slug: 'get-started/install' },
             { slug: 'get-started/quickstart' },
             { slug: 'get-started/why-jkz' },
             { slug: 'get-started/how-jkz-works' },

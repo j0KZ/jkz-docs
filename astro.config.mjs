@@ -92,6 +92,15 @@ export default defineConfig({
             { slug: 'commands/research' },
             { slug: 'commands/vault' },
             { slug: 'commands/health' },
+            // quality & audit
+            { slug: 'commands/bugs' },
+            { slug: 'commands/quality' },
+            { slug: 'commands/deps' },
+            { slug: 'commands/perf-audit' },
+            { slug: 'commands/e2e' },
+            { slug: 'commands/skill-audit' },
+            { slug: 'commands/simplify' },
+            { slug: 'commands/deslop' },
           ],
         },
         {

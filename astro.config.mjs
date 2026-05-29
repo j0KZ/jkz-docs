@@ -107,6 +107,12 @@ export default defineConfig({
             { slug: 'commands/skill-audit' },
             { slug: 'commands/simplify' },
             { slug: 'commands/deslop' },
+            // dev & review workflow
+            { slug: 'commands/commit' },
+            { slug: 'commands/cr-fix' },
+            { slug: 'commands/ship' },
+            { slug: 'commands/dev-self-review' },
+            { slug: 'commands/doc-sync' },
           ],
         },
         {

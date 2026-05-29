@@ -89,9 +89,17 @@ export default defineConfig({
             { slug: 'commands/status' },
             // ancillary
             { slug: 'commands/debate' },
+            { slug: 'commands/ask' },
             { slug: 'commands/research' },
             { slug: 'commands/vault' },
             { slug: 'commands/health' },
+            // consultation, analytics & memory (WG-71)
+            { slug: 'commands/cost' },
+            { slug: 'commands/insights' },
+            { slug: 'commands/calibrate' },
+            { slug: 'commands/memory-status' },
+            { slug: 'commands/memory-review' },
+            { slug: 'commands/memory-promote' },
           ],
         },
         {

@@ -116,6 +116,15 @@ export default defineConfig({
           ],
         },
         {
+          // Subsystem deep-dives (Layer B). Each page is an overview of one
+          // internal subsystem. New subsystem pages insert their slug here,
+          // ordered by topic rather than the alphabet.
+          label: 'Subsystems',
+          items: [
+            { slug: 'subsystems/wiki-generator' },
+          ],
+        },
+        {
           label: 'Reference',
           items: [
             { slug: 'reference/architecture' },

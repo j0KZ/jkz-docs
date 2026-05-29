@@ -56,7 +56,7 @@ Notifications are multi-backend, selected via `JKZ_NOTIFY_BACKEND` (comma-separa
 - **Telegram** — a long-polling daemon (`telegram-bot.js`) with inline-keyboard buttons and full pipeline control from your phone.
 - **GitHub** — checkpoint state mirrored to the issue for the GitHub approval poller.
 
-`notify.sh` **never blocks the pipeline**: it traps errors to `exit 0`, caps every network call with `curl --max-time 5`, and degrades gracefully — if notifications are disabled entirely, a plan-approval checkpoint falls back to a terminal prompt instead.
+`notify.sh` **never blocks the pipeline**: it traps errors to `exit 0`, caps every network call with `curl --max-time 5`, and exits silently when notifications are disabled — so a missing or misconfigured backend can never stall a run.
 
 ### Levels and events
 

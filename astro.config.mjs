@@ -43,6 +43,7 @@ export default defineConfig({
           label: 'Get started',
           items: [
             { label: 'Home', link: '/' },
+            { slug: 'get-started/install' },
             { slug: 'get-started/quickstart' },
             { slug: 'get-started/why-jkz' },
             { slug: 'get-started/how-jkz-works' },
@@ -52,11 +53,16 @@ export default defineConfig({
           label: 'Concepts',
           items: [
             { slug: 'concepts/pipeline' },
+            { slug: 'concepts/issue-types' },
             { slug: 'concepts/evidence-hierarchy' },
             { slug: 'concepts/ambiguity-gate' },
             { slug: 'concepts/merge-gate' },
             { slug: 'concepts/worktree-isolation' },
             { slug: 'concepts/cross-chat' },
+            { slug: 'concepts/signal-format' },
+            { slug: 'concepts/context-management' },
+            { slug: 'concepts/fallback' },
+            { slug: 'concepts/plugin-mode' },
           ],
         },
         {
@@ -92,6 +98,21 @@ export default defineConfig({
             { slug: 'commands/research' },
             { slug: 'commands/vault' },
             { slug: 'commands/health' },
+            // quality & audit
+            { slug: 'commands/bugs' },
+            { slug: 'commands/quality' },
+            { slug: 'commands/deps' },
+            { slug: 'commands/perf-audit' },
+            { slug: 'commands/e2e' },
+            { slug: 'commands/skill-audit' },
+            { slug: 'commands/simplify' },
+            { slug: 'commands/deslop' },
+            // dev & review workflow
+            { slug: 'commands/commit' },
+            { slug: 'commands/cr-fix' },
+            { slug: 'commands/ship' },
+            { slug: 'commands/dev-self-review' },
+            { slug: 'commands/doc-sync' },
           ],
         },
         {
@@ -116,11 +137,12 @@ export default defineConfig({
           ],
         },
         {
-          // Subsystems (WG-76+) — internal operational components that sit
-          // beside the pipeline: the Telegram bot, Hermes, the wiki
-          // generator. New subsystem pages append their slug here.
+          // Subsystem deep-dives (Layer B). Pages here document a single
+          // long-lived subsystem end to end; they cross-link Concepts.
+          // New subsystem pages insert their slug below.
           label: 'Subsystems',
           items: [
+            { slug: 'subsystems/hermes' },
             { slug: 'subsystems/telegram-bot' },
           ],
         },
@@ -129,6 +151,7 @@ export default defineConfig({
           items: [
             { slug: 'reference/architecture' },
             { slug: 'reference/cli' },
+            { slug: 'reference/skills' },
             { slug: 'reference/changelog' },
             { slug: 'reference/design-decisions' },
             {

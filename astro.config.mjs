@@ -93,8 +93,15 @@ export default defineConfig({
             { slug: 'commands/resume' },
             { slug: 'commands/start' },
             { slug: 'commands/status' },
+            { slug: 'commands/issue' },
+            { slug: 'commands/refine' },
+            { slug: 'commands/save' },
+            { slug: 'commands/load' },
+            { slug: 'commands/quit' },
+            { slug: 'commands/new-chat' },
             // ancillary
             { slug: 'commands/debate' },
+            { slug: 'commands/ask' },
             { slug: 'commands/research' },
             { slug: 'commands/vault' },
             { slug: 'commands/health' },
@@ -113,6 +120,13 @@ export default defineConfig({
             { slug: 'commands/ship' },
             { slug: 'commands/dev-self-review' },
             { slug: 'commands/doc-sync' },
+            // consultation, analytics & memory (WG-71)
+            { slug: 'commands/cost' },
+            { slug: 'commands/insights' },
+            { slug: 'commands/calibrate' },
+            { slug: 'commands/memory-status' },
+            { slug: 'commands/memory-review' },
+            { slug: 'commands/memory-promote' },
           ],
         },
         {
@@ -137,13 +151,15 @@ export default defineConfig({
           ],
         },
         {
-          // Subsystems — internal operational components that sit beside the
-          // pipeline (the research/finance pipeline, Hermes, the Telegram bot,
-          // the MCP servers, the wiki generator). New subsystem pages append
-          // their slug here.
+          // Subsystem deep-dives (Layer B). Pages here document a single
+          // long-lived subsystem end to end; they cross-link Concepts.
+          // New subsystem pages insert their slug below.
           label: 'Subsystems',
           items: [
+            { slug: 'subsystems/classifier-and-alignment' },
+            { slug: 'subsystems/hermes' },
             { slug: 'subsystems/research-finance' },
+            { slug: 'subsystems/telegram-bot' },
           ],
         },
         {

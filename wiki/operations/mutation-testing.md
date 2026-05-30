@@ -43,6 +43,7 @@ Modules marked ✓ meet the 80% gate. Each module has a follow-up issue tracking
 
 | Module | Score | Gate |
 |--------|-------|------|
+| `scripts/saturation-check.js` | 95.77% | ✓ |
 | `scripts/validators/rules/secrets.js` | 95.21% | ✓ |
 | `scripts/parse-gemini-stream.js` | 88.14% | ✓ |
 | `scripts/validators/rules/test-coverage.js` | 86.67% | ✓ |
@@ -66,7 +67,6 @@ Modules marked ✓ meet the 80% gate. Each module has a follow-up issue tracking
 | `scripts/truncate-output.js` | 46.93% | |
 | `scripts/loop-guard.js` | 42.56% | |
 | `scripts/vote-resolver.js` | 37.58% | |
-| `scripts/saturation-check.js` | 19.72% | |
 | `scripts/dependency-resolve.js` | 4.84% | |
 
 A low score is not automatically a problem: many survivors are *equivalent* mutants — semantically identical to the original (dead-code branches, defensive catches, regex alternation variants) — and need no new test. The per-module follow-up issues record which survivors are equivalents and which are real coverage gaps.

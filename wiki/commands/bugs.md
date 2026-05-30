@@ -1,5 +1,5 @@
 ---
-title: /jkz:bugs — Bug finder
+title: bugs
 description: Scan the codebase for bugs at three levels of depth — a fast deterministic pass, a deeper run that adds the test suite and cross-file analysis, and a full run that layers adversarial review on top. Advisory; it reports, it does not gate.
 ---
 

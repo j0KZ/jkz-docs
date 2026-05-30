@@ -1,5 +1,5 @@
 ---
-title: /jkz:plan
+title: plan
 description: The planning phase. Architect drafts the implementation strategy, the Auditor challenges it, the Curator validates the audit — up to three iterations, then a mandatory human checkpoint before any code is written.
 ---
 

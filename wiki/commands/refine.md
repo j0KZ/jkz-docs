@@ -1,5 +1,5 @@
 ---
-title: /jkz:refine — Sharpen an issue before planning
+title: refine
 description: A lightweight pre-plan step. /jkz:refine explores the codebase, asks targeted questions grounded in what it found, and writes a structured brief that the Architect and downstream agents consume automatically.
 ---
 

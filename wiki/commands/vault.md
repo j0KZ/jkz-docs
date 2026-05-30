@@ -1,5 +1,5 @@
 ---
-title: /jkz:vault
+title: vault
 description: A persistent store for researched ideas. List, show, search, and manage vault items across the project and global scopes, with FTS5 full-text search and status tracking.
 ---
 

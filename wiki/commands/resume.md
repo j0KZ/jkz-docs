@@ -1,5 +1,5 @@
 ---
-title: /jkz:resume — Diagnose & resume a pipeline
+title: resume
 description: When a pipeline was interrupted — a crash, a stop, an expired lock — /jkz:resume diagnoses exactly where it stalled and what happened, then delegates to the right command to pick up from that point.
 ---
 

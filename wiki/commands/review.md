@@ -1,5 +1,5 @@
 ---
-title: /jkz:review
+title: review
 description: The code-review phase. A CodeRabbit pre-scan and pre-push validators run first, then the Judge reviews the diff as a chaos engineer and the Inspector calibrates that review — a FAIL routes to the Doctor's fix cycle.
 ---
 

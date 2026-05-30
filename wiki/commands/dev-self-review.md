@@ -1,5 +1,5 @@
 ---
-title: /jkz:dev-self-review — Pre-PR self-review
+title: dev-self-review
 description: A fresh subagent reviews your pending diff against the jkz integration checklist before you open a PR — catching cross-file and consistency issues that only show up when the change is read as a whole.
 ---
 

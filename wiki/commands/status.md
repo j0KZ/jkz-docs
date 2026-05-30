@@ -1,5 +1,5 @@
 ---
-title: /jkz:status — Pipeline status
+title: status
 description: A read-only snapshot of the jkz pipeline — active issues and their phases, open PRs and their merge-gate state, recent agent activity, worktrees, dependencies, and system health.
 ---
 

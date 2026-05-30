@@ -75,58 +75,51 @@ export default defineConfig({
         {
           // Command reference pages, consolidated into a single group after
           // WG-63/64/65 each shipped its own slice (the concurrent merges left
-          // three separate Commands groups). Order is by category, not the
-          // alphabet (consistent with the Agents group): core pipeline first,
-          // then lightweight/lifecycle, then ancillary. New command pages
-          // insert their slug into the matching category below.
+          // three separate Commands groups). Order is alphabetical by command
+          // name, so the 40-entry list stays scannable. New command pages
+          // insert their slug in alphabetical position below.
           label: 'Commands',
           items: [
-            // core pipeline
-            { slug: 'commands/plan' },
-            { slug: 'commands/build' },
-            { slug: 'commands/review' },
-            { slug: 'commands/qa' },
-            { slug: 'commands/pipeline' },
-            // lightweight & lifecycle
-            { slug: 'commands/quick' },
-            { slug: 'commands/fix' },
-            { slug: 'commands/resume' },
-            { slug: 'commands/start' },
-            { slug: 'commands/status' },
-            { slug: 'commands/issue' },
-            { slug: 'commands/refine' },
-            { slug: 'commands/save' },
-            { slug: 'commands/load' },
-            { slug: 'commands/quit' },
-            { slug: 'commands/new-chat' },
-            // ancillary
-            { slug: 'commands/debate' },
             { slug: 'commands/ask' },
-            { slug: 'commands/research' },
-            { slug: 'commands/vault' },
-            { slug: 'commands/health' },
-            // quality & audit
             { slug: 'commands/bugs' },
-            { slug: 'commands/quality' },
-            { slug: 'commands/deps' },
-            { slug: 'commands/perf-audit' },
-            { slug: 'commands/e2e' },
-            { slug: 'commands/skill-audit' },
-            { slug: 'commands/simplify' },
-            { slug: 'commands/deslop' },
-            // dev & review workflow
+            { slug: 'commands/build' },
+            { slug: 'commands/calibrate' },
             { slug: 'commands/commit' },
+            { slug: 'commands/cost' },
             { slug: 'commands/cr-fix' },
-            { slug: 'commands/ship' },
+            { slug: 'commands/debate' },
+            { slug: 'commands/deps' },
+            { slug: 'commands/deslop' },
             { slug: 'commands/dev-self-review' },
             { slug: 'commands/doc-sync' },
-            // consultation, analytics & memory (WG-71)
-            { slug: 'commands/cost' },
+            { slug: 'commands/e2e' },
+            { slug: 'commands/fix' },
+            { slug: 'commands/health' },
             { slug: 'commands/insights' },
-            { slug: 'commands/calibrate' },
-            { slug: 'commands/memory-status' },
-            { slug: 'commands/memory-review' },
+            { slug: 'commands/issue' },
+            { slug: 'commands/load' },
             { slug: 'commands/memory-promote' },
+            { slug: 'commands/memory-review' },
+            { slug: 'commands/memory-status' },
+            { slug: 'commands/new-chat' },
+            { slug: 'commands/perf-audit' },
+            { slug: 'commands/pipeline' },
+            { slug: 'commands/plan' },
+            { slug: 'commands/qa' },
+            { slug: 'commands/quality' },
+            { slug: 'commands/quick' },
+            { slug: 'commands/quit' },
+            { slug: 'commands/refine' },
+            { slug: 'commands/research' },
+            { slug: 'commands/resume' },
+            { slug: 'commands/review' },
+            { slug: 'commands/save' },
+            { slug: 'commands/ship' },
+            { slug: 'commands/simplify' },
+            { slug: 'commands/skill-audit' },
+            { slug: 'commands/start' },
+            { slug: 'commands/status' },
+            { slug: 'commands/vault' },
           ],
         },
         {

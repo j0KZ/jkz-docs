@@ -1,5 +1,5 @@
 ---
-title: /jkz:build
+title: build
 description: The build phase. The Builder implements the approved plan inside an isolated worktree and opens the pull request — resumable, worktree-confined, and never able to merge.
 ---
 

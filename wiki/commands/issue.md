@@ -1,5 +1,5 @@
 ---
-title: /jkz:issue — Create a GitHub issue from a plan or text
+title: issue
 description: The direct route to a well-formed issue. /jkz:issue takes a plan file or a free-text description and produces a labeled, classified GitHub issue — skipping the conversational exploration of /jkz:start while keeping the same enrichment, implementation gate, and alignment checks.
 ---
 

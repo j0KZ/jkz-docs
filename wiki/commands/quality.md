@@ -1,5 +1,5 @@
 ---
-title: /jkz:quality — Project quality scan
+title: quality
 description: An on-demand quality scan across thirteen categories — formatting, linting, security, dead code, TODOs, dependencies, coverage, and more. Optionally auto-fixes formatting and linting, files findings as an issue, or narrows to a single category.
 ---
 

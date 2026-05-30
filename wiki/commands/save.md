@@ -1,5 +1,5 @@
 ---
-title: /jkz:save — Save session context for the next chat
+title: save
 description: Capture what this session did, decided, and learned — as a structured snapshot plus a human-readable context.md — so another chat or a future session can pick up exactly where this one left off.
 ---
 

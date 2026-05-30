@@ -1,5 +1,5 @@
 ---
-title: /jkz:new-chat — Open a parallel chat without collisions
+title: new-chat
 description: Spin up a git worktree as a sibling directory on a fresh branch, so a second Claude Code window can work the same project without file or branch conflicts with your current session.
 ---
 

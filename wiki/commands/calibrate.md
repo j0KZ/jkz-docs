@@ -1,5 +1,5 @@
 ---
-title: /jkz:calibrate
+title: calibrate
 description: Promote significant memory-store patterns into validator agents' calibration sections through a three-model tribunal with minority veto, so learned signals sharpen future reviews.
 ---
 

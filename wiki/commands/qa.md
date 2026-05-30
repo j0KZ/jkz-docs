@@ -1,5 +1,5 @@
 ---
-title: /jkz:qa
+title: qa
 description: The QA phase. Lens (frontend / accessibility) and Sentinel (backend / security) review the PR in parallel; a FAIL routes to the Doctor. The post-QA ambiguity gate is the last checkpoint before a human merges.
 ---
 

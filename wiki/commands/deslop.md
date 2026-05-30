@@ -1,5 +1,5 @@
 ---
-title: /jkz:deslop — AI prose cleanup
+title: deslop
 description: Clean AI-typical writing patterns from text — filler phrases, hedging, verbose constructions, em-dash overuse, redundant adverbs, and repetitive bullets. Preserves meaning and technical content; removes the fluff.
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: /jkz:memory-promote
+title: memory-promote
 description: Score a single memory file across five weighted dimensions and recommend whether to promote it to a rule, keep it, or archive it — behind a mandatory human checkpoint.
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: /jkz:quick — Lightweight pipeline (Builder + Judge)
+title: quick
 description: The minimum viable pipeline for small scoped changes. No Architect, no QA — the Builder implements the issue directly and the Judge is the sole reviewer, with the Doctor fixing on failure.
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: /jkz:memory-status
+title: memory-status
 description: A quick health dashboard for the Claude Code memory directory — total files, stale count, overlap pairs, and a by-type breakdown, with a one-line next step.
 ---
 

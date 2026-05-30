@@ -1,5 +1,5 @@
 ---
-title: /jkz:cost
+title: cost
 description: Report the API-equivalent cost of a pipeline issue at any point — broken down by phase, role, and iteration, with CodeRabbit-driven rows flagged so you can see CR overhead at a glance.
 ---
 

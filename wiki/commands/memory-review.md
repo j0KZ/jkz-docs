@@ -1,5 +1,5 @@
 ---
-title: /jkz:memory-review
+title: memory-review
 description: Scan the Claude Code memory files for staleness, overlaps, redundancy against existing rules, and promotion candidates — then suggest concrete curation actions.
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: /jkz:debate
+title: debate
 description: Run an on-demand adversarial debate between two or three models on any topic. Three phases — constructive, development, crystallization — with early termination on consensus, concession, or decisive evidence.
 ---
 

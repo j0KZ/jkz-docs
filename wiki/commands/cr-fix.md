@@ -1,5 +1,5 @@
 ---
-title: /jkz:cr-fix — CodeRabbit fix loop
+title: cr-fix
 description: An automated loop over an open PR — CodeRabbit reviews, Claude classifies and fixes the valid findings, commits once, pushes, and resolves the addressed review threads. Out-of-scope findings become a separate issue.
 ---
 

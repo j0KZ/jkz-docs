@@ -1,5 +1,5 @@
 ---
-title: /jkz:insights
+title: insights
 description: Analyze the deliberation history and surface pipeline metrics — pass rates, agent agreement, token usage, SLO status, groupthink signals, and optional skill-discovery candidates.
 ---
 

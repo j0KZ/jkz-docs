@@ -1,5 +1,5 @@
 ---
-title: /jkz:start — Conversational entry point
+title: start
 description: Arrive with a vague idea. jkz triages it, checks for duplicates, explores the codebase, asks targeted questions, writes a brief, creates a labeled GitHub issue, and recommends the right pipeline route.
 ---
 

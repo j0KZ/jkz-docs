@@ -1,5 +1,5 @@
 ---
-title: /jkz:ask
+title: ask
 description: Ask an ad-hoc question to an external model (Codex or Gemini) without any pipeline context. Each call is ephemeral — no session carries over between invocations.
 ---
 

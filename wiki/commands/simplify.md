@@ -1,5 +1,5 @@
 ---
-title: /jkz:simplify — Code simplification
+title: simplify
 description: Review recently changed code for reuse opportunities, quality issues, and efficiency improvements, then apply the refinements. It changes HOW the code works, never WHAT it does — and it refuses to over-simplify.
 ---
 

@@ -1,0 +1,17 @@
+---
+/* Dark-only override (WG-93). Forces the dark palette regardless of system
+   preference or stored choice, so Starlight, mermaid (autoTheme) and giscus
+   all resolve to dark consistently. Keeps the StarlightThemeProvider global so
+   components that call updatePickers() do not error. */
+---
+
+{/* Inlined to avoid FOUC, matching Starlight's default ThemeProvider. */}
+<script is:inline>
+	window.StarlightThemeProvider = (() => {
+		document.documentElement.dataset.theme = 'dark';
+		try {
+			localStorage.setItem('starlight-theme', 'dark');
+		} catch {}
+		return { updatePickers() {} };
+	})();
+</script>

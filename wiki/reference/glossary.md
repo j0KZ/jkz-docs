@@ -154,7 +154,7 @@ A reusable observation extracted from previous deliberations. Persisted in `stat
 
 A pipeline stage, represented as a GitHub label:
 
-```
+```text
 jkz:ready → jkz:planning → jkz:building → jkz:reviewing ←→ jkz:fixing → jkz:qa ←→ jkz:fixing
                                                                                    ↘ jkz:blocked
                                           jkz:approved ←─────────────────────────── jkz:qa (PASS)

@@ -30,6 +30,15 @@ export default defineConfig({
     }),
     starlight({
       title: 'jkz docs',
+      // Brand theme: dark-only, mirrors j0kz.dev (orange accent, warm
+      // near-black surfaces, Inter + JetBrains Mono). See src/styles/custom.css.
+      customCss: ['./src/styles/custom.css'],
+      // Dark-only: ThemeProvider forces the dark palette and ThemeSelect
+      // removes the now-redundant light/dark toggle (WG-93).
+      components: {
+        ThemeProvider: './src/components/ThemeProvider.astro',
+        ThemeSelect: './src/components/ThemeSelect.astro',
+      },
       social: [
         { icon: 'github', label: 'GitHub', href: 'https://github.com/j0KZ/jkz-docs' },
       ],
@@ -53,6 +62,7 @@ export default defineConfig({
           label: 'Concepts',
           items: [
             { slug: 'concepts/pipeline' },
+            { slug: 'concepts/models-and-invocation' },
             { slug: 'concepts/issue-types' },
             { slug: 'concepts/evidence-hierarchy' },
             { slug: 'concepts/ambiguity-gate' },
@@ -156,6 +166,7 @@ export default defineConfig({
           // New subsystem pages insert their slug below.
           label: 'Subsystems',
           items: [
+            { slug: 'subsystems/automations-and-github' },
             { slug: 'subsystems/classifier-and-alignment' },
             { slug: 'subsystems/hermes' },
             { slug: 'subsystems/coderabbit' },
@@ -174,8 +185,10 @@ export default defineConfig({
           // a second Operations group.
           label: 'Operations',
           items: [
+            { slug: 'operations/autonomy' },
             { slug: 'operations/memory' },
             { slug: 'operations/slos-and-monitoring' },
+            { slug: 'operations/maintenance-and-fallback' },
             { slug: 'operations/state-schema' },
             { slug: 'operations/troubleshooting' },
           ],

@@ -53,6 +53,7 @@ export default defineConfig({
           label: 'Concepts',
           items: [
             { slug: 'concepts/pipeline' },
+            { slug: 'concepts/models-and-invocation' },
             { slug: 'concepts/issue-types' },
             { slug: 'concepts/evidence-hierarchy' },
             { slug: 'concepts/ambiguity-gate' },

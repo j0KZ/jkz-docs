@@ -1,5 +1,5 @@
 ---
-title: /jkz:deps — Dependency audit
+title: deps
 description: A proactive dependency audit for the target project. Reports vulnerabilities, optionally applies safe fixes, previews breaking upgrades behind a confirmation gate, and escalates to a full supply-chain audit when the issue's compliance tier demands it.
 ---
 

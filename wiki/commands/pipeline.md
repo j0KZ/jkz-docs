@@ -1,5 +1,5 @@
 ---
-title: /jkz:pipeline
+title: pipeline
 description: "Run the full pipeline autonomously — Plan → Build → Review → QA → Completion. Plan approval is pre-flight; inside the loop you intervene three times: review approval, QA approval, and the manual merge."
 ---
 

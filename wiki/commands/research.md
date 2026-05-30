@@ -1,5 +1,5 @@
 ---
-title: /jkz:research
+title: research
 description: Orchestrate a four-phase financial research pipeline — SCOPE → RESEARCH → AUDIT → OUTPUT — with an Analyst that gathers evidence, an adversarial audit loop, and generated deliverables. Resumable per topic.
 ---
 

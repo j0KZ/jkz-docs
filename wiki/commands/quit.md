@@ -1,5 +1,5 @@
 ---
-title: /jkz:quit — Orderly session shutdown
+title: quit
 description: The clean way to end a session. /jkz:quit fetches live PR state, saves context, reviews memory-promotion candidates, checks open and pipeline PRs, releases a finished worktree lock, and deregisters the chat — then tells you it's safe to close.
 ---
 

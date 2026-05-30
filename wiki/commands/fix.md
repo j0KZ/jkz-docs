@@ -1,5 +1,5 @@
 ---
-title: /jkz:fix — The Doctor's fix cycle
+title: fix
 description: The surgical repair cycle. When a reviewer returns FAIL, the Doctor takes the failing verdict, applies a minimal targeted fix, and re-triggers the phase that failed — up to three attempts before escalating.
 ---
 

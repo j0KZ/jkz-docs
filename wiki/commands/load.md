@@ -1,5 +1,5 @@
 ---
-title: /jkz:load — Resume from a previous session
+title: load
 description: Retrieve the most recent session snapshot — from this chat or another — and present what was done, decided, and left pending, so you can continue with full reasoning context instead of starting cold.
 ---
 

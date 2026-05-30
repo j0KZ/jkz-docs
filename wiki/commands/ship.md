@@ -1,5 +1,5 @@
 ---
-title: /jkz:ship — Ad-hoc QA + commit workflow
+title: ship
 description: Runs format, lint, test, simplify, and the CodeRabbit pre-commit loop on the current branch — no pipeline state required. The pre-PR sequence for ad-hoc work, with a final opt-in push and PR.
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: /jkz:e2e — End-to-end testing
+title: e2e
 description: Generate and run end-to-end browser tests against a running app. Opus explores the codebase to write scenarios, Sonnet executes them through agent-browser, and the run produces a report with screenshots. Manual and advisory — it never blocks the pipeline.
 ---
 

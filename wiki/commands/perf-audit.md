@@ -1,5 +1,5 @@
 ---
-title: /jkz:perf-audit — Performance audit
+title: perf-audit
 description: Audit code for performance improvements against three strict criteria — needle-moving, isomorphic, and clear path. Only optimizations that pass all three are accepted and applied; everything else is rejected with an explanation.
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: /jkz:doc-sync — Doc sync check
+title: doc-sync
 description: Scans project state and compares it against auto-doc markers in the documentation, reporting where the docs have drifted. Optionally opens one issue per drifted doc so unactioned drift doesn't sit silently.
 ---
 

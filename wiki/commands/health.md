@@ -1,5 +1,5 @@
 ---
-title: /jkz:health
+title: health
 description: A full system health check — CLI version freshness, changelog review, relevance insights, and infrastructure status. The --fix flag auto-updates outdated CLIs and cleans stale worktrees; --deep adds auth, MCP, and notification checks.
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: /jkz:commit — CR pre-commit loop
+title: commit
 description: Reviews your staged changes with CodeRabbit before committing, applies the valid fixes in a bounded loop, then commits via the conventional-commit skill. No push unless you ask.
 ---
 

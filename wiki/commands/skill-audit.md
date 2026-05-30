@@ -1,5 +1,5 @@
 ---
-title: /jkz:skill-audit — Skill security audit
+title: skill-audit
 description: Scan skill files for security patterns — code injection, prompt injection, data exfiltration, jkz-specific violations, filesystem escape, and secret exposure. Returns a PASS / WARN / FAIL verdict with a per-finding breakdown.
 ---
 

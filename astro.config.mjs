@@ -24,9 +24,48 @@ export default defineConfig({
   site: 'https://docs.j0kz.dev',
   base: '/',
   integrations: [
+    // Mermaid: brand-coherent dark theme. The site is dark-only (ThemeProvider
+    // forces the dark palette, ThemeSelect is removed -- WG-93), so autoTheme's
+    // light/dark switching is dead weight and the built-in 'dark' theme (generic
+    // gray/purple) clashes with the orange brand. Drive the 'base' theme with
+    // themeVariables mirroring src/styles/custom.css instead (WG-91).
     mermaid({
-      theme: 'forest',
-      autoTheme: true,
+      theme: 'base',
+      autoTheme: false,
+      mermaidConfig: {
+        themeVariables: {
+          darkMode: true,
+          background: '#0b0c0f',
+          fontFamily:
+            "'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+          // Nodes -- warm near-black surface, orange border, bright text
+          primaryColor: '#181b20',
+          primaryBorderColor: '#f97015',
+          primaryTextColor: '#f6f6f4',
+          mainBkg: '#181b20',
+          nodeBorder: '#f97015',
+          nodeTextColor: '#f6f6f4',
+          // Secondary / tertiary node classes
+          secondaryColor: '#111317',
+          secondaryBorderColor: '#32363e',
+          secondaryTextColor: '#b7bbc3',
+          tertiaryColor: '#111317',
+          tertiaryBorderColor: '#32363e',
+          tertiaryTextColor: '#b7bbc3',
+          // Edges + edge labels (label background matches the page surface)
+          lineColor: '#5c6370',
+          textColor: '#b7bbc3',
+          edgeLabelBackground: '#0b0c0f',
+          // Subgraphs / clusters
+          clusterBkg: '#111317',
+          clusterBorder: '#32363e',
+          titleColor: '#fcb173',
+          // Notes
+          noteBkgColor: '#3d2314',
+          noteBorderColor: '#f97015',
+          noteTextColor: '#f6f6f4',
+        },
+      },
     }),
     starlight({
       title: 'jkz docs',

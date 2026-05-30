@@ -1,0 +1,47 @@
+/* ============================================================
+   jkz docs — brand theme (WG-93)
+   Dark-only. Palette mirrors j0kz.dev (contentcurator):
+   orange primary (#f97316) + warm near-black surfaces,
+   Inter for prose and JetBrains Mono for code.
+   Starlight ships dark as the `:root` default, so we only
+   override that layer; the theme toggle is removed and dark
+   is forced in ThemeProvider.astro, so `[data-theme='light']`
+   never applies.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+	color-scheme: dark;
+
+	/* Fonts — Inter (prose) + JetBrains Mono (code) */
+	--sl-font: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+	--sl-font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+	/* Warm near-black surfaces (brand background 220 15% 5%, card 220 15% 8%) */
+	--sl-color-white: hsl(60, 10%, 96%); /* headings / brightest text */
+	--sl-color-gray-1: hsl(48, 8%, 90%);
+	--sl-color-gray-2: hsl(220, 9%, 74%); /* body text */
+	--sl-color-gray-3: hsl(220, 9%, 56%); /* muted foreground */
+	--sl-color-gray-4: hsl(220, 10%, 40%);
+	--sl-color-gray-5: hsl(220, 11%, 22%); /* borders / inline-code bg */
+	--sl-color-gray-6: hsl(220, 14%, 11%); /* nav + sidebar surfaces */
+	--sl-color-black: hsl(220, 15%, 5%); /* page background */
+
+	/* Accent — brand orange (#f97316 primary, #ea580c accent) */
+	--sl-color-accent-low: hsl(22, 50%, 16%);
+	--sl-color-accent: hsl(24, 95%, 53%);
+	--sl-color-accent-high: hsl(27, 96%, 72%); /* link text on dark */
+}
+
+/* Brand-orange text selection (mirrors j0kz.dev bg-primary/30) */
+::selection {
+	background: hsl(24, 95%, 53%, 0.3);
+	color: var(--sl-color-white);
+}
+
+/* Orange focus ring for keyboard navigation */
+:focus-visible {
+	outline: 2px solid var(--sl-color-accent);
+	outline-offset: 2px;
+}

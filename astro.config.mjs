@@ -30,6 +30,15 @@ export default defineConfig({
     }),
     starlight({
       title: 'jkz docs',
+      // Brand theme: dark-only, mirrors j0kz.dev (orange accent, warm
+      // near-black surfaces, Inter + JetBrains Mono). See src/styles/custom.css.
+      customCss: ['./src/styles/custom.css'],
+      // Dark-only: ThemeProvider forces the dark palette and ThemeSelect
+      // removes the now-redundant light/dark toggle (WG-93).
+      components: {
+        ThemeProvider: './src/components/ThemeProvider.astro',
+        ThemeSelect: './src/components/ThemeSelect.astro',
+      },
       social: [
         { icon: 'github', label: 'GitHub', href: 'https://github.com/j0KZ/jkz-docs' },
       ],

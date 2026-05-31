@@ -4,6 +4,7 @@ import path from 'node:path';
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import mermaid from 'astro-mermaid';
+import llmsTxt from './src/integrations/llms-txt.mjs';
 
 // Starlight `autogenerate` does not work with this site's custom content
 // loader (`base: './wiki'` in src/content.config.ts) -- it resolves `directory`
@@ -244,5 +245,9 @@ export default defineConfig({
         },
       ],
     }),
+    // #1612: emit /llms.txt + /llms-full.txt at the site root from the full
+    // merged ./wiki tree (narrative + generated) per llmstxt.org. Runs on
+    // astro:build:done so it walks the same content the site publishes.
+    llmsTxt(),
   ],
 });

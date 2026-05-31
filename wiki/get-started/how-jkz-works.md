@@ -63,22 +63,24 @@ The **Builder** implements the approved plan inside an isolated worktree and ope
 
 Each role is a single responsibility with a single model class. Creative roles construct; adversarial roles attack; validators confirm; utility roles support. Dedicated reference pages for each role arrive in Phase 2 of this wiki.
 
-| Role | Phase | Class | Purpose |
-|------|-------|-------|---------|
-| **Architect** | Plan | creative | Designs the implementation strategy — why before how, scope before code. |
-| **Auditor** | Plan | adversarial | Challenges the plan before code exists: what is missing, vague, or will fail. |
-| **Curator** | Plan | validator | Validates the audit — calibrates severity, catches false positives and missed gaps. |
-| **Builder** | Build | creative | Implements the approved plan in an isolated worktree and opens the PR. |
-| **Judge** | Build (review) | adversarial | Chaos-engineers the diff — assumes a bug exists and asks how it fails. |
-| **Inspector** | Build (review) | validator | Precision filter on the Judge — verifies edge cases and execution claims. |
-| **Doctor** | Build / QA (fix) | creative | Surgical fixes for failing verdicts — minimal change, no scope creep. |
-| **Lens** | QA | validator | Frontend, visual, multimodal, and accessibility QA; parallel to Sentinel. |
-| **Sentinel** | QA | adversarial | Backend integrity, security, performance, infrastructure; parallel to Lens. |
-| **Analyst** | Research | creative | Quantitative research synthesis — every claim has a number, source, and date. |
-| **Librarian** | Cross-phase | utility | Indexes and retrieves project knowledge with source citations. |
-| **Classifier** | Intake | utility | Classifies issue complexity (trivial / quick / standard) to route the pipeline. |
+| Role | Phase | Class | Model / backend | Purpose |
+|------|-------|-------|-----------------|---------|
+| **Architect** | Plan | creative | Opus | Designs the implementation strategy — why before how, scope before code. |
+| **Auditor** | Plan | adversarial | External backend (endpoint required) | Challenges the plan before code exists: what is missing, vague, or will fail. |
+| **Curator** | Plan | validator | External validator → Gemini CLI fallback | Validates the audit — calibrates severity, catches false positives and missed gaps. |
+| **Builder** | Build | creative | Opus | Implements the approved plan in an isolated worktree and opens the PR. |
+| **Judge** | Build (review) | adversarial | External backend (endpoint required) | Chaos-engineers the diff — assumes a bug exists and asks how it fails. |
+| **Inspector** | Build (review) | validator | External validator → Gemini CLI fallback | Precision filter on the Judge — verifies edge cases and execution claims. |
+| **Doctor** | Build / QA (fix) | creative | Opus | Surgical fixes for failing verdicts — minimal change, no scope creep. |
+| **Lens** | QA | validator | External validator → Gemini CLI fallback | Frontend, visual, multimodal, and accessibility QA; parallel to Sentinel. |
+| **Sentinel** | QA | adversarial | External backend (endpoint required) | Backend integrity, security, performance, infrastructure; parallel to Lens. |
+| **Analyst** | Research | creative | Opus | Quantitative research synthesis — every claim has a number, source, and date. |
+| **Librarian** | Cross-phase | utility | Haiku | Indexes and retrieves project knowledge with source citations. |
+| **Classifier** | Intake | utility | Haiku | Classifies issue complexity (trivial / quick / standard) to route the pipeline. |
 
 That is four creative roles, three adversarial, three validators, and two utility — twelve in all. The Orchestrator (Claude Code itself) is not on the list: it directs the flow but never plans, builds, reviews, or merges.
+
+The **Model / backend** column answers the two questions the role list alone cannot. *Can I run jkz with just Opus?* No — the creative roles (Architect, Builder, Doctor, Analyst) are fixed on Opus, but the adversarial roles (Auditor, Judge, Sentinel) **require** a configured external endpoint, with no silent fallback that would let a review skip its challenger. *Which backend does Judge need?* An adversarial OpenAI-compatible endpoint set via `JKZ_JUDGE_ENDPOINT` / `JKZ_JUDGE_MODEL`. Validator roles (Curator, Inspector, Lens) are the forgiving ones: they default to an external validator endpoint and fall back to a local Gemini CLI when none is set.
 
 ## The multi-backend pattern
 

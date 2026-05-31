@@ -80,7 +80,11 @@ const DEFAULT_SUMMARY =
  * @returns {{ data: Record<string, string>, body: string }}
  */
 export function parseFrontmatter(text) {
-  const m = /^---\n([\s\S]*?)\n---(?:\n|$)/.exec(text);
+  // Tolerate CRLF endings: normalize before matching so files authored on
+  // Windows still yield their frontmatter (otherwise the `\n`-anchored regex
+  // misses and title/description silently fall back to H1/filename).
+  const normalized = text.replace(/\r\n/g, '\n');
+  const m = /^---\n([\s\S]*?)\n---(?:\n|$)/.exec(normalized);
   if (!m) return { data: {}, body: text };
   const data = {};
   for (const rawLine of m[1].split('\n')) {
@@ -95,7 +99,7 @@ export function parseFrontmatter(text) {
     }
     data[lm[1]] = v;
   }
-  return { data, body: text.slice(m[0].length) };
+  return { data, body: normalized.slice(m[0].length) };
 }
 
 /**
@@ -139,7 +143,10 @@ export function urlPathFromRel(relPath) {
   let slug = relPath.replace(/\.md$/, '');
   if (slug === 'index') return '/';
   if (slug.endsWith('/index')) slug = slug.slice(0, -'/index'.length);
-  return `/${slug}/`;
+  // Encode each path segment so filenames with reserved characters (spaces,
+  // `#`, `%`, ...) produce valid URLs; `/` separators are preserved.
+  const encoded = slug.split('/').map(encodeURIComponent).join('/');
+  return `/${encoded}/`;
 }
 
 /** Top-level section for a wiki-relative path; '' for root-level files. */
@@ -368,7 +375,7 @@ export default function llmsTxt(options = {}) {
         fs.writeFileSync(path.join(outDir, 'llms-full.txt'), llmsFullBody);
 
         logger.info(
-          `wrote llms.txt (${pages.length} pages) and llms-full.txt (${llmsFullBody.length} bytes)`,
+          `wrote llms.txt (${pages.length} pages) and llms-full.txt (${Buffer.byteLength(llmsFullBody, 'utf8')} bytes)`,
         );
         if (droppedCount > 0) {
           logger.warn(

@@ -79,6 +79,19 @@ test('urlPathFromRel matches Starlight trailing-slash routing', () => {
   assert.equal(urlPathFromRel('api-reference/index.md'), '/api-reference/');
 });
 
+test('urlPathFromRel encodes reserved characters per segment', () => {
+  // Spaces and reserved chars are percent-encoded; `/` separators preserved.
+  assert.equal(urlPathFromRel('reference/c & c.md'), '/reference/c%20%26%20c/');
+  assert.equal(urlPathFromRel('api-reference/scripts_run#x.md'), '/api-reference/scripts_run%23x/');
+});
+
+test('parseFrontmatter tolerates CRLF line endings', () => {
+  const { data, body } = parseFrontmatter('---\r\ntitle: Win\r\ndescription: CRLF\r\n---\r\n\r\nBody.\r\n');
+  assert.equal(data.title, 'Win');
+  assert.equal(data.description, 'CRLF');
+  assert.equal(body, '\nBody.\n');
+});
+
 test('collectMarkdown walks recursively and sorts', () => {
   const root = makeFixture();
   const files = collectMarkdown(root);

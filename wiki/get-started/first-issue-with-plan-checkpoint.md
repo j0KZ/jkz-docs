@@ -3,12 +3,11 @@ title: Your first issue with a plan checkpoint
 description: Drive an issue through jkz one phase at a time — plan, build, review, QA — and learn to read and approve the plan before any code is written.
 ---
 
-The [Quickstart](/get-started/quickstart/) handed the whole run to `/jkz:pipeline`
-and let it drive. This tutorial does the opposite: you run **one phase command at a
-time**, and you stop at the plan before a single line of code exists. The point is
-to feel the most important checkpoint in jkz — the moment you read a plan and decide
-whether the agents understood the problem — instead of letting it flash by inside an
-autonomous run.
+The [Quickstart](/get-started/quickstart/) handed the whole run to `/jkz:pipeline`.
+This tutorial does the opposite: you run **one phase command at a time**, and you stop
+at the plan before a single line of code exists. The point is the most important
+checkpoint in jkz: the moment you read a plan and decide whether the agents understood
+the problem, instead of letting it pass by inside an autonomous run.
 
 By the end you'll have shipped a small change by hand through `/jkz:plan` →
 `/jkz:build` → `/jkz:review` → `/jkz:qa` → merge, having approved the plan yourself.
@@ -62,15 +61,15 @@ skip. Note the issue number; we'll use `214` throughout.
 
 ## Step 2 — Plan it, then read the plan
 
-This is the phase the autonomous pipeline rushes past. Run it on its own:
+This is the phase the autonomous pipeline runs without pausing. Run it on its own:
 
 ```text
 /jkz:plan 214
 ```
 
 `/jkz:plan` runs the Architect to draft a plan, an adversarial backend (the Auditor)
-to challenge it, and a validator (the Curator) to confirm — looping up to three times
-on its own — and then it **stops and shows you the plan in full**:
+to challenge it, and a validator (the Curator) to confirm, looping up to three times
+on its own, and then it **stops and shows you the plan in full**:
 
 ```text
 PLAN
@@ -154,8 +153,8 @@ REVIEW
 ```
 
 Because the Judge compares the diff to *your* approved plan, "did it build the right
-thing?" has an objective answer now. If the Builder had drifted — fixed the Makefile
-you explicitly left out of scope — the Judge would catch the mismatch and return
+thing?" has an objective answer now. If the Builder had drifted (fixed the Makefile
+you explicitly left out of scope), the Judge would catch the mismatch and return
 **FAIL**, the Doctor would apply a targeted fix, and the phase would re-run, up to
 three times. If review still can't reach a clean pass it stops at `jkz:blocked` and
 escalates to you with an honest diagnosis rather than forcing a fix that hides the
@@ -179,10 +178,9 @@ QA
   >>> CHECKPOINT: PR #215 is approved and ready for merge.
 ```
 
-Lens and Sentinel run **in parallel** — one validates the change works as described,
-the other looks for security and operational fallout. A doc fix sails through; a real
-code change is where these two earn their keep. This is the final human checkpoint
-before merge.
+Lens and Sentinel run **in parallel**: one validates the change works as described,
+the other looks for security and operational fallout. A doc fix passes easily; a real
+code change is where these two matter. This is the final human checkpoint before merge.
 
 ## Step 6 — Merge it yourself
 
@@ -199,19 +197,19 @@ keyword in the PR body.
 
 ## What just happened
 
-- You drove each phase by hand — `/jkz:plan 214`, `/jkz:build 214`, `/jkz:review 215`,
-  `/jkz:qa 215` — instead of delegating the whole run to `/jkz:pipeline`. Plan and
+- You drove each phase by hand (`/jkz:plan 214`, `/jkz:build 214`, `/jkz:review 215`,
+  `/jkz:qa 215`) instead of delegating the whole run to `/jkz:pipeline`. Plan and
   build keyed off the **issue**; review and QA keyed off the **PR** that build opened.
 - You stopped at the **plan checkpoint** and approved the plan *before any code
   existed*. That's the cheapest place to catch a misunderstanding, and the autonomous
-  pipeline blinks through it.
+  pipeline passes through it without stopping.
 - Because you approved a concrete plan, the review phase had an objective question to
   answer: the Judge checked the diff against your plan, not against a vibe.
 - Nothing reached `main` without your passphrase through the merge gate.
 
 The trade-off is real: phase-by-phase gives you more control and more visibility at
 the cost of more commands. Once the plan checkpoint feels familiar, `/jkz:pipeline`
-runs these same phases and pauses at the same two decisions — plan and merge — with
+runs these same phases and pauses at the same two decisions (plan and merge) with
 less ceremony in between.
 
 ## Next steps

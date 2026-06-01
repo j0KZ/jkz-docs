@@ -3,7 +3,7 @@ title: Autonomy & auto-improvement
 description: jkz is autonomous where execution is mechanical and human-gated where judgement matters. How the autonomy dial works, which decisions always stay the owner's, how the system proposes its own work through proactive discovery and smart maintenance, and how it sharpens its own prompts over time.
 ---
 
-jkz is built around a deliberate split: it is **autonomous in execution** and **human-gated at the boundaries**. Inside a pipeline run the agents plan, build, review, and fix without asking permission for every step — that is the whole point of the augmented-engineering model. But the moments that are expensive to get wrong — approving a plan, accepting a review, merging to `main` — stay the owner's call. This page maps where that line sits, how far the dial can be turned, and the three mechanisms that let the system reach *beyond* execution to discover and propose its own work without ever taking the final decision away from you.
+jkz is built around a deliberate split: it is **autonomous in execution** and **human-gated at the boundaries**. Inside a pipeline run the agents plan, build, review, and fix without asking permission for every step. But the moments that are expensive to get wrong — approving a plan, accepting a review, merging to `main` — stay the owner's call. This page maps where that line sits, how far the dial can be turned, and the three mechanisms that let the system discover and propose its own work without ever taking the final decision away from you.
 
 ## The autonomy dial
 
@@ -80,7 +80,7 @@ Patterns extracted from agent deliberations are stored in SQLite via [`scripts/m
 - When a validator (Inspector, Curator, Lens) marks a finding a **false positive**, the corresponding adversarial pattern is penalised (`increment-ignore`), so a noisy heuristic gradually stops being injected.
 - On a **PASS** verdict, the top contributing patterns are reinforced.
 
-Contextual metadata (`--labels`, `--phase`) boosts patterns drawn from *similar* pipeline contexts, so a lesson learned on a security review surfaces preferentially on the next security review. The effect compounds quietly: the agents are not retrained, but the evidence they are handed each run is shaped by what proved useful — and what proved noisy — in the runs before.
+Contextual metadata (`--labels`, `--phase`) boosts patterns drawn from *similar* pipeline contexts, so a lesson learned on a security review surfaces preferentially on the next security review. The agents are not retrained, but the evidence they are handed each run is shaped by what proved useful — and what proved noisy — in the runs before.
 
 ## The auto-improvement story
 

@@ -60,7 +60,7 @@ Notifications are multi-backend, selected via `JKZ_NOTIFY_BACKEND` (comma-separa
 
 ### Levels and events
 
-Verbosity is controlled by `JKZ_NOTIFY_LEVEL` — `all`, `checkpoint`, or `critical` — and is overridable per backend, so you can get every agent post in Discord while Telegram only pings you at checkpoints. The dispatcher formats distinct events — `agent-posted`, `phase-transition`, `checkpoint`, `pipeline_complete`, `pipeline_blocked`, `ci_failed`, and pipeline-stuck escalations — each tagged with a model badge and a verdict icon.
+Verbosity is controlled by `JKZ_NOTIFY_LEVEL` (`all`, `checkpoint`, or `critical`) and is overridable per backend, so you can get every agent post in Discord while Telegram only pings you at checkpoints. The dispatcher formats distinct events — `agent-posted`, `phase-transition`, `checkpoint`, `pipeline_complete`, `pipeline_blocked`, `ci_failed`, and pipeline-stuck escalations — each tagged with a model badge and a verdict icon.
 
 ### Approvals and feedback
 

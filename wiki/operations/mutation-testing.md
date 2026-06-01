@@ -3,7 +3,7 @@ title: Mutation testing
 description: How jkz measures whether its test suite catches real regressions — what mutation testing is, how to run it locally with Stryker, where the reports land, the current per-module scores, and how to read killed-versus-survived results.
 ---
 
-Line coverage tells you which code ran during the tests. It says nothing about whether the tests would *notice* if that code started behaving differently. Mutation testing closes that gap: a runner generates small variants ("mutants") of the source under test — flipping operators, replacing literals, removing blocks — and reports which mutants the suite kills (a test fails) versus which survive (no test failed). A high line coverage with a low mutation score is the classic warning sign — tests that exercise the code without actually asserting on its behavior.
+Line coverage tells you which code ran during the tests. It says nothing about whether the tests would *notice* if that code started behaving differently. Mutation testing closes that gap: a runner generates small variants ("mutants") of the source under test — flipping operators, replacing literals, removing blocks — and reports which mutants the suite kills (a test fails) versus which survive (no test failed). A high line coverage with a low mutation score is the classic warning sign: tests that exercise the code without actually asserting on its behavior.
 
 jkz uses Stryker Mutator for JavaScript mutation testing. The current scope is intentionally narrow: a spike to validate the workflow before any broader rollout, run locally rather than in CI.
 

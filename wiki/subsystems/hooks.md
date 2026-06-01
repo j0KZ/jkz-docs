@@ -3,7 +3,7 @@ title: Hooks
 description: jkz's hooks extend the Claude Code lifecycle with two distinct families — guard hooks that block dangerous actions before they run, and lifecycle hooks that react to session events for state-keeping and observability. How they are wired, why they fail open, and what the hook server does.
 ---
 
-Claude Code fires events throughout a session: before a tool runs, after it finishes, when a session starts or ends, when the conversation is about to be compacted. jkz attaches small scripts — **hooks** — to those events. They are the project's reflexes: fast, deterministic, and mostly invisible until something needs to be stopped or recorded.
+Claude Code fires events throughout a session: before a tool runs, after it finishes, when a session starts or ends, when the conversation is about to be compacted. jkz attaches small scripts — **hooks** — to those events. They are fast, deterministic, and mostly invisible until something needs to be stopped or recorded.
 
 Two families do very different jobs, and the line between them is the key to understanding the system:
 
@@ -64,7 +64,7 @@ Lifecycle hooks fire on session and tool events. None of them can block; they ex
 
 ### The session-start fast path
 
-`on-session-start.sh` does roughly 20 seconds of interactive work — fine for a human starting a session, wasteful for the headless `claude --print` invocations that jkz scripts spawn constantly. It short-circuits those: when `CLAUDE_CODE_ENTRYPOINT=sdk-cli` (the value Claude Code sets for non-interactive `--print` runs), the hook runs only three essential steps — environment validation, expired-lock release, idempotent git-hook install — then exits before the banner. Detection is whitelist-only (only the exact value `sdk-cli` triggers it), so the default interactive path is unchanged. Kill-switch: `JKZ_SESSION_FASTPATH_DISABLE=1` forces the full path.
+`on-session-start.sh` does roughly 20 seconds of interactive work — fine for a human starting a session, wasteful for the headless `claude --print` invocations that jkz scripts spawn constantly. It short-circuits those: when `CLAUDE_CODE_ENTRYPOINT=sdk-cli` (the value Claude Code sets for non-interactive `--print` runs), the hook runs only three essential steps (environment validation, expired-lock release, idempotent git-hook install) then exits before the banner. Detection is whitelist-only (only the exact value `sdk-cli` triggers it), so the default interactive path is unchanged. Kill-switch: `JKZ_SESSION_FASTPATH_DISABLE=1` forces the full path.
 
 ### The CRLF safety net
 

@@ -39,7 +39,7 @@ These are the architecture decision records (ADRs) behind jkz. Each captures a c
 
 **Status:** Accepted
 
-**Context.** Adversarial roles — Auditor, Judge, Sentinel — exist to attack Opus's output. If they also ran on Opus, the reviewer would share the author's blind spots and the challenge would be theater (see ADR-002).
+**Context.** Adversarial roles — Auditor, Judge, Sentinel — exist to attack Opus's output. If they also ran on Opus, the reviewer would share the author's blind spots and the challenge would not be genuine (see ADR-002).
 
 **Decision.** Route adversarial roles to a configurable, OpenAI-compatible external endpoint (`JKZ_<ROLE>_ENDPOINT` / `JKZ_<ROLE>_MODEL`), and make that endpoint **required**. When it is unset the wrapper exits with code 4 and the pipeline halts — there is no silent fallback to Opus that would quietly let a review skip its challenger. Validator roles (Curator, Inspector, Lens), whose job is to confirm rather than attack, are the forgiving counterpart: they default to an external validator endpoint and fall back to a local Gemini CLI when none is configured.
 

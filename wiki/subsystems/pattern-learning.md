@@ -29,7 +29,7 @@ The three scripts behind it live in the main repo:
 
 ## Store
 
-Deliberations and the patterns derived from them live in a local SQLite database (via `better-sqlite3`). The `patterns` table is the heart of it: each row is a short piece of text an agent produced, tagged with the `role` that produced it, a `success_count` and `ignore_count`, the `last_used` timestamp, an optional embedding, and a `lifecycle_state`. Rows are unique on `(text_hash, role)` and stamped with a `project_id`, which is how scoping stays airtight — a query for the Judge's patterns on this project never sees another project's rows.
+Deliberations and the patterns derived from them live in a local SQLite database (via `better-sqlite3`). The `patterns` table holds the core data: each row is a short piece of text an agent produced, tagged with the `role` that produced it, a `success_count` and `ignore_count`, the `last_used` timestamp, an optional embedding, and a `lifecycle_state`. Rows are unique on `(text_hash, role)` and stamped with a `project_id`, which is how scoping stays airtight — a query for the Judge's patterns on this project never sees another project's rows.
 
 Patterns are not authored by hand. They are extracted from stored deliberations and classified into categories (an `observation`, a `causal` link, or a hard `rule`), then upserted: if the same text from the same role already exists, its `success_count` is incremented rather than a duplicate created.
 
@@ -40,7 +40,7 @@ A pattern's worth is not a flat count — it decays. When patterns are queried f
 - **Success rate** — `success_count` over `success_count` plus the accumulated ignore weight (`ignore_weight_score`, a float that grows with each validator rejection, falling back to a plain `ignore_count`). A pattern that keeps getting validated and never ignored trends toward 1.0; one that validators keep rejecting trends toward 0.
 - **Time decay** — multiplied by `exp(−daysSinceUse / 14)`, so a pattern unused for two weeks is worth roughly a third of a fresh one. The exception: a pattern reinforced three or more times is immune to decay — once the pipeline has confirmed it that often, it stops aging.
 - **Category weight** — a `rule` is multiplied by 1.3 and a `causal` link by 1.1, because a hard rule is worth surfacing over a loose observation.
-- **Context boost** — if the current issue's labels or changed files overlap with the context a pattern was learned in, its score gets a small bump. This is the `--labels` / `--phase` relevance signal: patterns from similar situations float to the top.
+- **Context boost** — if the current issue's labels or changed files overlap with the context a pattern was learned in, its score gets a small bump. This is the `--labels` / `--phase` relevance signal: patterns from similar situations score higher.
 
 When embeddings are available, the final score blends semantic similarity to the query with the decayed score (60/40). Patterns move through a five-state lifecycle — `observed` on first sight, `candidate` once seen twice, `verified` once they recur across distinct contexts, `active` after an explicit promotion, and `deprecated` if they age out without being used. The automatic transitions run up to `verified`; the jump to `active` is a separate, human-approved promotion.
 
@@ -52,7 +52,7 @@ The formatter renders each pattern as one line tagged with its track record — 
 
 ## Correct
 
-The loop's discipline comes from the correction step, which runs after a validator finishes. The pipeline pairs an adversarial role with the validator that checks it — by convention the Curator checks the Auditor in Plan, the Inspector checks the Judge in Review, and the Lens checks the Sentinel in QA. The pairing isn't hardcoded in the correction step: the roles are handed to `feedback-loop.js` at runtime via `--adversarial-role` and `--validator-role`. When the validator's verdict (read from its [`verdict-json`](/concepts/signal-format/) block) lists **false positives**, `feedback-loop.js` locates the matching text in the adversarial deliberation — by exact substring, or by fuzzy token overlap as a fallback — and penalizes that pattern with `increment-ignore`.
+The loop's discipline comes from the correction step, which runs after a validator finishes. The pipeline pairs an adversarial role with the validator that checks it — by convention the Curator checks the Auditor in Plan, the Inspector checks the Judge in Review, and the Lens checks the Sentinel in QA. The pairing isn't hardcoded in the correction step: the roles are handed to `feedback-loop.js` at runtime via `--adversarial-role` and `--validator-role`. When the validator's verdict (read from its [`verdict-json`](/concepts/signal-format/) block) lists **false positives**, `feedback-loop.js` locates the matching text in the adversarial deliberation (by exact substring, or by fuzzy token overlap as a fallback) and penalizes that pattern with `increment-ignore`.
 
 Two details make the penalty trustworthy:
 

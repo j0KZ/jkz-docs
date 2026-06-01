@@ -19,7 +19,7 @@ Rows that ran while CodeRabbit was active — a review with CR findings injected
 
 ## When to use
 
-Run `/jkz:cost` whenever you want to understand where a pipeline's tokens went — after a run that felt expensive, when tuning effort levels, or when deciding whether CodeRabbit is earning its keep. The interpretation notes call out the patterns worth acting on: CR overhead above 30% of the grand total, a single role consuming more than half a phase, or repeated iterations on the same role that hint the upstream Builder or Architect plan needs more effort.
+Run `/jkz:cost` whenever you want to understand where a pipeline's tokens went — after a run that felt expensive, when tuning effort levels, or when deciding whether CodeRabbit overhead is justified. The interpretation notes call out the patterns worth acting on: CR overhead above 30% of the grand total, a single role consuming more than half a phase, or repeated iterations on the same role that hint the upstream Builder or Architect plan needs more effort.
 
 ## Key behavior
 

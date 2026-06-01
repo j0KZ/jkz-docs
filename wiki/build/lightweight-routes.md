@@ -61,7 +61,7 @@ If a change has any of the right-hand qualities, reach for the full `/jkz:pipeli
 
 `/jkz:fix <pr-number> --source <review|qa>` is not a route you usually invoke by hand. It is the **fix cycle** that `/jkz:review` and `/jkz:qa` (and `/jkz:quick`) call automatically whenever a reviewer returns FAIL. Its job: take the failing verdict, apply a minimal targeted fix, and re-trigger the phase that failed.
 
-The agent behind it is the **Doctor** (Claude Opus) — the surgeon of the pipeline. It changes exactly what broke and nothing more: no scope creep, no opportunistic refactors.
+The agent behind it is the **Doctor** (Claude Opus). It changes exactly what broke and nothing more: no scope creep, no opportunistic refactors.
 
 What happens inside one fix cycle:
 

@@ -3,7 +3,7 @@ title: pipeline
 description: "Run the full pipeline autonomously — Plan → Build → Review → QA → Completion. Plan approval is pre-flight; inside the loop you intervene three times: review approval, QA approval, and the manual merge."
 ---
 
-`/jkz:pipeline <issue-number>` runs the complete jkz pipeline end to end with minimal hand-holding. It is the route for `standard`-complexity work — a feature that spans layers, a refactor with design decisions, anything where the plan deserves a checkpoint before code is written and QA deserves a checkpoint before merge.
+`/jkz:pipeline <issue-number>` runs the complete jkz pipeline end to end with minimal intervention. It is the route for `standard`-complexity work — a feature that spans layers, a refactor with design decisions, anything where the plan deserves a checkpoint before code is written and QA deserves a checkpoint before merge.
 
 The pipeline is autonomous, not unattended. Plan approval happens **pre-flight**, before the loop starts. Then, inside the loop, you intervene at exactly three points: the review approval, the QA approval, and the final manual merge. Everything between those gates — agent dispatch, iteration, fix cycles — runs on its own.
 

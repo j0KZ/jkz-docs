@@ -18,7 +18,7 @@ description: Orchestrate a four-phase financial research pipeline — SCOPE → 
 
 ## When to use
 
-Use `/jkz:research` when you need a structured, evidence-backed financial deliverable rather than a quick answer — an investment thesis, a market sizing, a due-diligence risk matrix, a supply-chain map, or a catalyst-driven derivative valuation. The pipeline is built for work that benefits from an adversarial audit before you trust the conclusions. For a one-off lookup, a chat question is faster; `/jkz:research` earns its cost when the output needs to withstand scrutiny.
+Use `/jkz:research` when you need a structured, evidence-backed financial deliverable rather than a quick answer — an investment thesis, a market sizing, a due-diligence risk matrix, a supply-chain map, or a catalyst-driven derivative valuation. The pipeline is built for work that benefits from an adversarial audit before you trust the conclusions. For a one-off lookup, a chat question is faster; `/jkz:research` is worth running when the output needs to withstand scrutiny.
 
 ## Key behavior
 

@@ -21,7 +21,7 @@ flowchart LR
 - It opens a pull request targeting `main` with a `Closes #N` (or `Fixes #N`) keyword so the eventual merge auto-closes the issue.
 - It reports back a build summary (files created/modified/deleted, deviations, acceptance-criteria coverage) and a structured `jkz:verdict-json` signal: `COMPLETE` or `BLOCKED`.
 
-When a plan step is impossible — a file was renamed, an API changed, a dependency is missing — the Builder **stops and reports `BLOCKED`** rather than fabricating success. A blocked build is a valid outcome that escalates to you, not a failure to paper over.
+When a plan step is impossible — a file was renamed, an API changed, a dependency is missing — the Builder **stops and reports `BLOCKED`** rather than fabricating success. A blocked build is a valid outcome that escalates to you, not a failure to hide.
 
 ## When to run it
 

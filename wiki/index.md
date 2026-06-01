@@ -17,7 +17,7 @@ hero:
 ---
 
 Most agent tools optimize for autonomy. jkz optimizes for control. Code work runs
-through three phases — **plan**, **build**, **QA** — across twelve specialized roles.
+through three phases (**plan**, **build**, **QA**) across twelve specialized roles.
 In each, Opus drafts, an adversarial backend tries to break the work, and a validator
 confirms. Git is the only source of truth; agents never talk to each other directly.
 Nothing reaches `main` without you: the system iterates up to three times on its own,

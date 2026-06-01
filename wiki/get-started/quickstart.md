@@ -6,13 +6,13 @@ description: Install jkz, run your first pipeline, and ship a change end-to-end.
 This is the shortest honest path from "I just installed jkz" to "I shipped a small
 change through the full pipeline and merged it myself." It takes a few focused
 minutes of your time plus some waiting while the agents deliberate. Pick a tiny,
-low-risk change for your first run — the point is to feel the loop, not to ship
+low-risk change for your first run — the point is to see the pipeline in action, not to ship
 something important.
 
 :::note[About the outputs below]
 Command outputs are **illustrative**. jkz wraps live models and external backends,
-so exact wording, token counts, and timings drift from run to run. The *shape* —
-which agent speaks, in what order, and what gates you hit — is stable. Treat the
+so exact wording, token counts, and timings drift from run to run. The *shape*
+(which agent speaks, in what order, and what gates you hit) is stable. Treat the
 snippets as "what you'll roughly see," not byte-for-byte transcripts.
 :::
 
@@ -105,7 +105,7 @@ Created issue #128 — chore: add alt text to footer logo
 Recommended: /jkz:quick 128   (small, scoped — lightweight pipeline)
 ```
 
-Under the hood the orchestrator triages the idea (trivial / quick / standard),
+The orchestrator triages the idea (trivial / quick / standard),
 checks for a duplicate open issue, writes a short brief, creates the GitHub issue
 with the right type and complexity labels, and recommends a route. Trivial things
 it offers to just fix inline — no issue, no ceremony.

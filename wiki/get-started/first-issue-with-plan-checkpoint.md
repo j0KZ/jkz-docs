@@ -1,13 +1,13 @@
 ---
 title: Your first issue with a plan checkpoint
-description: A hands-on first run driving the phases yourself — /jkz:plan, then /jkz:build, /jkz:review, /jkz:qa — so you feel the human-in-the-loop control at every phase boundary instead of letting the autonomous pipeline advance for you.
+description: A hands-on first run driving the phases yourself (/jkz:plan, then /jkz:build, /jkz:review, /jkz:qa) so you feel the human-in-the-loop control at every phase boundary instead of letting the autonomous pipeline advance for you.
 ---
 
 The [quickstart](/get-started/quickstart/) hands one issue to `/jkz:pipeline` and lets
 it run autonomously, pausing only to approve the plan and the merge. This tutorial
 takes the **other** path: you drive each phase by hand — `/jkz:plan`, then
 `/jkz:build`, then `/jkz:review`, then `/jkz:qa` — and stop to look around between
-them. Same destination, but you hold the wheel the whole way. The point is to feel
+them. Same destination, but you control each step. The point is to see
 where the phase boundaries are and what you get to decide at each one.
 
 It takes a few focused minutes plus some waiting while the agents deliberate. Pick a
@@ -17,8 +17,8 @@ want a change worth planning.
 
 :::note[About the outputs below]
 Command outputs are **illustrative**. jkz wraps live models and external backends,
-so exact wording, token counts, and timings drift from run to run. The *shape* —
-which command you run, which agent speaks, and what gate you hit — is stable. Treat
+so exact wording, token counts, and timings drift from run to run. The *shape*
+(which command you run, which agent speaks, and what gate you hit) is stable. Treat
 the snippets as "what you'll roughly see," not byte-for-byte transcripts.
 :::
 
@@ -27,7 +27,7 @@ the snippets as "what you'll roughly see," not byte-for-byte transcripts.
 You need the same setup as the quickstart: the **Claude Code CLI** signed in, **`gh`**
 authenticated against a repo you can safely open a throwaway PR against, and jkz
 installed (`jkz install` then `jkz init`). If you haven't done that yet, run the
-[quickstart](/get-started/quickstart/) first — it walks the install end-to-end — then
+[quickstart](/get-started/quickstart/) first (it walks the install end-to-end), then
 come back here for the manual route.
 
 For a complete planning loop you'll want an adversarial backend configured (the
@@ -42,8 +42,8 @@ Choose something small but with a real decision in it. Good first targets:
 - Add one new optional field to a status command's output.
 - Add input validation to a function that currently trusts its caller.
 
-Each of these has *a question to answer* — what shape should the JSON be? what's the
-default? — which is exactly what makes the plan checkpoint worth seeing. Avoid the
+Each of these has a question to answer (what shape should the JSON be? what's the
+default?), which is exactly what makes the plan checkpoint worth seeing. Avoid the
 ambitious refactor; you want one clear decision, not ten.
 
 ## Step 2 — Turn it into an issue with `/jkz:start`
@@ -79,8 +79,8 @@ separate, deliberate step. Note the issue number; we'll use `214` throughout.
 ```
 
 This runs the **Plan** phase and nothing else. The Architect drafts a strategy, the
-Auditor attacks it, and the Curator calibrates the audit — iterating up to three
-times on its own — then it stops and prints the full plan for you:
+Auditor attacks it, and the Curator calibrates the audit, iterating up to three
+times on its own, then stops and prints the full plan for you:
 
 ```text
 PLAN
@@ -126,7 +126,7 @@ BUILD
 ```
 
 Again it stops. You now have a PR with the implementation on it, but no review
-verdict yet. Take a look at the diff if you like — `gh pr diff 215` — before moving on.
+verdict yet. Take a look at the diff if you like (`gh pr diff 215`) before moving on.
 
 ## Step 5 — Review it with `/jkz:review`
 
@@ -210,7 +210,7 @@ intervene between phases** — review the diff before QA, re-plan after seeing t
 build, or stop after review for a change that doesn't need QA. Once you trust the
 loop and just want the result, `/jkz:pipeline` runs the same phases back-to-back and
 only pauses at the plan and the merge. The phases are identical either way; the
-difference is how many times *you* get the wheel.
+difference is how many phase boundaries *you* cross manually.
 
 ## Next steps
 

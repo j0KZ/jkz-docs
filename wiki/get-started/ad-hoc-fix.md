@@ -7,7 +7,7 @@ Not every change deserves an Architect, an Auditor, and a QA pass. A typo, a wro
 error message, a one-line off-by-one — running the full pipeline on those wastes
 tokens and your time. This tutorial walks you through the **lightweight path**
 hands-on: you'll ship one small fix with `/jkz:quick` (Builder + Judge, no plan, no
-QA) and feel how much shorter the loop is than the [full
+QA) and see how much shorter it is than the [full
 pipeline](/get-started/first-issue-with-plan-checkpoint/).
 
 It takes only a couple of minutes. Pick something genuinely tiny and reversible — the
@@ -15,8 +15,8 @@ whole point is that small changes move fast.
 
 :::note[About the outputs below]
 Command outputs are **illustrative**. jkz wraps live models and external backends,
-so exact wording, token counts, and timings drift from run to run. The *shape* —
-which command you run and which agent speaks — is stable, not the byte-for-byte text.
+so exact wording, token counts, and timings drift from run to run. The *shape*
+(which command you run and which agent speaks) is stable, not the byte-for-byte text.
 :::
 
 ## Before you start

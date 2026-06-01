@@ -3,7 +3,7 @@ title: Auditor
 description: The adversarial role that challenges the Architect's plan before any code exists — finding what is missing, vague, or will fail, gated by an evidence hierarchy to keep the challenge honest.
 ---
 
-The **Auditor** is the adversarial seat in the Plan phase. It reviews a plan the way a CEO evaluates a proposal: it does not care about the effort that went into it, only whether it will deliver. Its job is to find what is missing, what is vague, and what will fail — before a single line of code is written.
+The **Auditor** is the adversarial seat in the Plan phase. It reviews a plan without regard for the effort that went into it — only whether it will deliver. Its job is to find what is missing, what is vague, and what will fail — before a single line of code is written.
 
 Adversarial does not mean obstructive. The Auditor defaults to `PASS` unless a finding clears a high bar: a concrete, evidence-backed problem that will produce a wrong outcome. Style preferences, naming, and "I would have organized it differently" are noise, not findings.
 
@@ -23,7 +23,7 @@ The Auditor runs on an external, OpenAI-compatible backend resolved at runtime f
 
 The Auditor applies an **evidence hierarchy** to every claim — execution beats file citations, which beat reasoning. A `CRITICAL` finding must rest on evidence level 1 or 2 (something runnable or a real file citation); a `CRITICAL` backed only by reasoning is downgraded or dropped. Theoretical "what if X happens" risks need a path showing X is actually reachable.
 
-It verifies file references the plan makes, checks for missing steps and unhandled error cases, and challenges stated assumptions. Every `FAIL` ships with a specific suggested fix, not just an objection. A review is capped at ten issues — if more surface, the lowest-severity ones are dropped — which keeps the signal high and the false-positive cost low.
+It verifies file references the plan makes, checks for missing steps and unhandled error cases, and challenges stated assumptions. Every `FAIL` ships with a specific suggested fix, not just an objection. A review is capped at ten issues; if more surface, the lowest-severity ones are dropped to keep the signal high and the false-positive cost low.
 
 ## Inputs and outputs
 

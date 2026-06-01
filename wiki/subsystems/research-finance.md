@@ -3,7 +3,7 @@ title: Research & finance pipeline
 description: How /jkz:research turns a question into an audited financial deliverable — the four-phase flow, its three dedicated agent roles, the finance MCP data sources it pulls from, and how Hermes runs it unattended.
 ---
 
-The same pipeline that builds code — one model creates, an adversarial backend challenges, a validator confirms — also drives financial research. `/jkz:research` is that pattern pointed at a question instead of a codebase: an Analyst investigates and writes, a Research-Auditor fact-checks adversarially, and a Research-Reviewer validates the methodology. The output is not a pull request but a set of deliverables — a report, structured data, and a sourced evidence log — that have survived the same kind of scrutiny.
+The same pipeline that builds code (one model creates, an adversarial backend challenges, a validator confirms) also drives financial research. `/jkz:research` is that pattern pointed at a question instead of a codebase: an Analyst investigates and writes, a Research-Auditor fact-checks adversarially, and a Research-Reviewer validates the methodology. The output is not a pull request but a set of deliverables — a report, structured data, and a sourced evidence log — that have survived the same kind of scrutiny.
 
 This page covers the flow, the three agent roles, the finance data servers the pipeline pulls from, and how Hermes runs research on a schedule without a human at the keyboard.
 
@@ -52,7 +52,7 @@ AUDIT runs two agents in parallel against the draft, mirroring the main pipeline
 - The **Research-Auditor** fact-checks adversarially — recomputing arithmetic, resolving cited URLs, checking that sources actually support the claims, and scoring completeness against the template.
 - The **Research-Reviewer** validates the *methodology* — is the analytical framework sound and standard, does the report answer what the brief asked, are the confidence distribution and freshness reasonable.
 
-Both emit a verdict. The Auditor passes only on **zero CRITICAL findings, zero HIGH findings, and completeness ≥ 90%**; the Reviewer passes on a sound-methodology / brief-compliant verdict. If both pass, the audit reports are written and the run proceeds to OUTPUT. If either fails, Doctor (Opus) applies a targeted fix and the audit re-runs — up to **3 iterations**. After the third failure the run proceeds anyway, but the reports are marked unresolved so the gaps are visible rather than hidden. The Reviewer also surfaces `knowledge_gaps[]` — open questions worth a follow-up — which are presented to you at the end.
+Both emit a verdict. The Auditor passes only on **zero CRITICAL findings, zero HIGH findings, and completeness ≥ 90%**; the Reviewer passes on a sound-methodology / brief-compliant verdict. If both pass, the audit reports are written and the run proceeds to OUTPUT. If either fails, Doctor (Opus) applies a targeted fix and the audit re-runs — up to **3 iterations**. After the third failure the run proceeds anyway, but the reports are marked unresolved so the gaps are visible rather than hidden. The Reviewer also surfaces `knowledge_gaps[]` (open questions worth a follow-up), which are presented to you at the end.
 
 ### OUTPUT — generate deliverables
 
@@ -93,4 +93,4 @@ Beyond the MCP servers, the Analyst treats **Damodaran's** published datasets (b
 
 Research does not have to be driven from a chat. **Hermes** — jkz's operational layer — can run the pipeline on a schedule. The mechanism is label-driven: an issue tagged `jkz:research-pending` (created directly, via a Telegram `/research <topic>` command, or proposed by a periodic suggestion job) is picked up by a poller that runs every five minutes, processes pending issues FIFO under a single-worker lock, and invokes `/jkz:research` non-interactively.
 
-Each run's deliverables are synced to Google Drive under a per-run folder, with state and logs kept locally. Idle cost is zero — when there is nothing tagged, the poller exits early and no model is invoked. Kill-switches disable the poller, the bisync, or the whole research feature independently. The operational details — folder layout, cron cadence, timeouts, and the issue-body schema — live on the [Hermes page](/subsystems/hermes/).
+Each run's deliverables are synced to Google Drive under a per-run folder, with state and logs kept locally. Idle cost is zero — when there is nothing tagged, the poller exits early and no model is invoked. Kill-switches disable the poller, the bisync, or the whole research feature independently. The operational details (folder layout, cron cadence, timeouts, and the issue-body schema) are on the [Hermes page](/subsystems/hermes/).

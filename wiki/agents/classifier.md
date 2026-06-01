@@ -1,6 +1,6 @@
 ---
 title: Classifier
-description: The utility role that reads an incoming issue and decides how much pipeline it deserves — trivial, quick, or standard — so the work is routed before any model starts deliberating.
+description: The utility role that reads an incoming issue and decides how much pipeline it deserves (trivial, quick, or standard) so the work is routed before any model starts deliberating.
 ---
 
 The **Classifier** is the intake triage. Before any phase begins, it reads a GitHub issue and answers one question: how much pipeline does this deserve? A typo does not need an Architect; a multi-system refactor should not skip planning. The Classifier makes that call so the routing happens up front, not halfway through.

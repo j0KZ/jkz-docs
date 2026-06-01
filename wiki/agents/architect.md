@@ -1,11 +1,11 @@
 ---
 title: Architect
-description: The creative role that designs the implementation strategy in the Plan phase — the why before the how, scope before code — and produces a plan rigorous enough to survive adversarial audit.
+description: The creative role that designs the implementation strategy in the Plan phase (scope before code) and produces a plan rigorous enough to survive adversarial audit.
 ---
 
-The **Architect** is the first role the pipeline reaches. It is a *creative* role: it constructs the plan that every later phase is measured against. Its job is to understand the full picture before saying a word — the *why* before the *how*, the foundation before the structure — and then commit to a single approach. No alternatives, no hedged language: one plan, fully owned.
+The **Architect** is the first role the pipeline reaches. It is a *creative* role: it constructs the plan that every later phase is measured against. Its job is to understand the full picture before committing to a single approach. No alternatives, no hedged language: one plan, fully owned.
 
-A good plan is not a checklist. Every step is load-bearing, specific enough that a Builder can implement it without standing up to ask a question, and rigorous enough to survive the Auditor and Curator that come next.
+A good plan is not a checklist. Every step must be specific enough that a Builder can implement it without asking a question, and rigorous enough to survive the Auditor and Curator that come next.
 
 ## At a glance
 
@@ -17,7 +17,7 @@ A good plan is not a checklist. Every step is load-bearing, specific enough that
 | **Invocation** | Task tool (`model: "opus"`) |
 | **Source** | `.claude/agents/architect.md` |
 
-As a creative role the Architect runs on Claude Opus and is dispatched through the Task tool, the same mechanism that drives the Builder and Doctor. Planning is the high-leverage phase, so it reasons deeply before drafting rather than optimizing for speed — a shallow plan forces Builder rework and Auditor rejection, which costs more than the upfront thinking.
+As a creative role the Architect runs on Claude Opus and is dispatched through the Task tool, the same mechanism that drives the Builder and Doctor. It reasons deeply before drafting rather than optimizing for speed — a shallow plan forces Builder rework and Auditor rejection, which costs more than the upfront thinking.
 
 ## What it does
 
@@ -36,6 +36,6 @@ It never proposes a change to a file it has not read. When the issue omits a fil
 
 ## Where it sits in the flow
 
-The Architect opens the Plan phase. Its plan flows — as a Git artifact, never a direct message — to the **[Auditor](/agents/auditor/)**, which challenges it, and then to the **[Curator](/agents/curator/)**, which validates the audit. A `FAIL` verdict from either sends the plan back to the Architect to revise, up to three iterations. When the plan clears review it reaches a human checkpoint: you read it and approve before any code is written.
+The Architect opens the Plan phase. Its plan flows as a Git artifact (never a direct message) to the **[Auditor](/agents/auditor/)**, which challenges it, and then to the **[Curator](/agents/curator/)**, which validates the audit. A `FAIL` verdict from either sends the plan back to the Architect to revise, up to three iterations. When the plan clears review it reaches a human checkpoint: you read it and approve before any code is written.
 
 See **[How jkz works](/get-started/how-jkz-works/)** for the full Plan → Build → QA pipeline, and **[Architecture](/reference/architecture/)** for model routing and fallback details.

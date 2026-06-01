@@ -3,7 +3,7 @@ title: perf-audit
 description: Audit code for performance improvements against three strict criteria — needle-moving, isomorphic, and clear path. Only optimizations that pass all three are accepted and applied; everything else is rejected with an explanation.
 ---
 
-`/jkz:perf-audit` looks for performance improvements, but holds every proposal to a deliberately high bar. An optimization is accepted only if it is **measurably impactful, behaviorally identical, and cleanly contained**. The discipline is the point: it rejects the cosmetic micro-optimizations that usually masquerade as performance work.
+`/jkz:perf-audit` looks for performance improvements, but holds every proposal to a deliberately high bar. An optimization is accepted only if it is **measurably impactful, behaviorally identical, and cleanly contained**. That strictness is intentional: it rejects cosmetic micro-optimizations that usually pass as performance work.
 
 ## At a glance
 

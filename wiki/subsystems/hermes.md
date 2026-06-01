@@ -3,11 +3,11 @@ title: Hermes
 description: Hermes is jkz's always-on agent — a VPS container that runs the project's scheduled background work. How its cron scheduler is driven from a single registry, what the jobs are, and which LLM backends it uses.
 ---
 
-Most of jkz runs in front of you: an interactive Claude Code session driving a pipeline you approve step by step. Hermes is the part that runs when no one is watching. It is a long-lived container on a VPS that executes jkz's scheduled background work — health checks, security audits, cost reports, cleanup, and autonomous research — and reports the results to Telegram. Think of it as the project's night shift: deterministic, mostly token-free, and independent of any open chat.
+Most of jkz runs in front of you: an interactive Claude Code session driving a pipeline you approve step by step. Hermes is the part that runs when no one is watching. It is a long-lived container on a VPS that executes jkz's scheduled background work — health checks, security audits, cost reports, cleanup, and autonomous research — and reports the results to Telegram. It runs deterministically, mostly without LLM calls, and independently of any open chat.
 
 ## The scheduler model
 
-Hermes is scheduled by the **Linux `cron` daemon running inside the container** — not by a hand-edited crontab, and not by an LLM. The single source of truth is [`config/cron-registry.json`](https://github.com/j0KZ/jkz_Multi-Agent_System/blob/main/config/cron-registry.json) in the main repo. At container start, the entrypoint runs `scripts/hermes/generate-crontab.sh`, which reads the registry, expands the `${HERMES_JKZ_ROOT}` path variable to the container path, and writes `/etc/cron.d/jkz`. The cron daemon then fires each line on its schedule. The generator is idempotent — it overwrites `/etc/cron.d/jkz` on every run — so the registry is always the authority and `/etc/cron.d/jkz` is never edited by hand.
+Hermes is scheduled by the **Linux `cron` daemon running inside the container** — not by a hand-edited crontab, and not by an LLM. The single source of truth is [`config/cron-registry.json`](https://github.com/j0KZ/jkz_Multi-Agent_System/blob/main/config/cron-registry.json) in the main repo. At container start, the entrypoint runs `scripts/hermes/generate-crontab.sh`, which reads the registry, expands the `${HERMES_JKZ_ROOT}` path variable to the container path, and writes `/etc/cron.d/jkz`. The cron daemon then fires each line on its schedule. The generator is idempotent (it overwrites `/etc/cron.d/jkz` on every run), so the registry is always the authority and `/etc/cron.d/jkz` is never edited by hand.
 
 ```text
 container start

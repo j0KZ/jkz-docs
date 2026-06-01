@@ -3,7 +3,7 @@ title: Run a pipeline — /jkz:pipeline end-to-end
 description: The operational walkthrough of /jkz:pipeline — what you type, what runs autonomously through Plan, Build, Review, and QA, and the four points where you decide. Includes the phase/role flow and every human checkpoint.
 ---
 
-[`/jkz:pipeline <issue-number>`](/commands/pipeline/) drives one issue from `jkz:ready` to a merge-ready PR through four phases — **Plan → Build → Review → QA** — and stops at every point that needs a human. This page is the operator's view: the command you run, what happens between checkpoints, and exactly what you decide at each one. For the conceptual model — the twelve roles, the multi-backend deliberation loop, why merge stays human — read [How jkz works](/get-started/how-jkz-works/) first; this page assumes it.
+[`/jkz:pipeline <issue-number>`](/commands/pipeline/) drives one issue from `jkz:ready` to a merge-ready PR through four phases — **Plan → Build → Review → QA** — and stops at every point that needs a human. This page is the operator's view: the command you run, what happens between checkpoints, and exactly what you decide at each one. For the conceptual model (the twelve roles, the multi-backend deliberation loop, why merge stays human) read [How jkz works](/get-started/how-jkz-works/) first; this page assumes it.
 
 ## The one command
 

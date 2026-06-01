@@ -13,13 +13,13 @@ The two popular escapes both make this worse. Generating code without review com
 
 jkz is built on a different bet: that an explicit, adversarial pipeline with a human at the end produces code you can actually trust, and that the overhead is worth it for work that matters.
 
-The pipeline has three phases — **Plan**, **Build**, and **QA** — and a fixed rhythm inside each: one model proposes, a different model challenges it adversarially, and a third confirms the result. Roles are specialized and named. They never negotiate directly; everything they produce flows through the pull request, which is the only place state lives. At the end of every phase, a human reads the result. For the mechanics — the roles, the phase boundaries, the deliberation loop — see [How jkz works](/get-started/how-jkz-works/).
+The pipeline has three phases (**Plan**, **Build**, and **QA**), with a fixed rhythm inside each: one model proposes, a different model challenges it adversarially, and a third confirms the result. Roles are specialized and named. They never negotiate directly; everything they produce flows through the pull request, which is the only place state lives. At the end of every phase, a human reads the result. For the mechanics (the roles, the phase boundaries, the deliberation loop), see [How jkz works](/get-started/how-jkz-works/).
 
 ## What jkz commits to
 
 These are opinions, not features. They constrain the system on purpose:
 
-- **You merge.** The pipeline iterates internally — up to three times per phase — but it never merges on its own. The final decision to ship is always a human's. This is enforced, not merely encouraged.
+- **You merge.** The pipeline iterates internally (up to three times per phase), but it never merges on its own. The final decision to ship is always a human's. This is enforced, not merely encouraged.
 - **Git is the source of truth.** Agents do not message each other. Every plan, critique, and fix is a commit or a PR comment, so the full reasoning trail is auditable after the fact.
 - **One role, one verb, one owner.** There is never ambiguity about which agent did what, or which model is responsible for a given step. Diffuse accountability is how silent failures hide.
 - **Shift left.** Errors are caught by the adversarial and validator roles before they reach the human checkpoint. The human arbitrates judgment calls, not typos.
@@ -34,8 +34,8 @@ An honest pitch names its costs:
 
 ## When to use jkz — and when not to
 
-Reach for jkz when the cost of a silent error is high: features with real surface area, changes touching security-sensitive code, refactors where "it still behaves the same" is the entire point, or any work where you want a defensible record of why each decision was made. The adversarial loop earns its overhead exactly when a mistake would be expensive to discover later.
+Reach for jkz when the cost of a silent error is high: features with real surface area, changes touching security-sensitive code, refactors where "it still behaves the same" is the entire point, or any work where you want a defensible record of why each decision was made. The adversarial loop pays off exactly when a mistake would be expensive to discover later.
 
-Skip it — or use `/jkz:quick` — when the change is small and self-evidently correct: a typo, a config bump, a one-line fix you could review in the time it takes to read this sentence. Running the full pipeline there buys nothing but latency and tokens.
+Skip it (or use `/jkz:quick`) when the change is small and self-evidently correct: a typo, a config bump, a one-line fix you could review in the time it takes to read this sentence. Running the full pipeline there buys nothing but latency and tokens.
 
 The honest summary: jkz trades speed and token cost for a correctness floor and an audit trail, with a human as the final arbiter. If that trade fits the work in front of you, start with the [Quickstart](/get-started/quickstart/).

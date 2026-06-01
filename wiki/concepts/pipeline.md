@@ -3,9 +3,9 @@ title: The pipeline
 description: The three-phase state machine behind jkz — how Plan, Build, and QA map to roles, why each phase iterates up to three times, and when QA is required.
 ---
 
-jkz is a state machine with three phases — **Plan**, **Build**, and **QA** — and one rule that never bends: a phase advances only when its work has survived a challenge. Every phase runs the same rhythm. One model creates, a second model attacks the result, a third confirms the verdict. The phase moves forward only when the verdict holds.
+jkz is a state machine with three phases (**Plan**, **Build**, and **QA**) and one rule that never bends: a phase advances only when its work has survived a challenge. Every phase runs the same rhythm. One model creates, a second model attacks the result, a third confirms the verdict. The phase moves forward only when the verdict holds.
 
-If you want the gentle, end-to-end tour — the twelve roles, the multi-backend pattern, the mermaid diagram of the whole flow — read [How jkz works](/get-started/how-jkz-works/) first. This page is the mechanical view: the phases as states, the roles mapped onto them, and the loops that gate each transition.
+If you want the gentle, end-to-end tour (the twelve roles, the multi-backend pattern, the mermaid diagram of the whole flow), read [How jkz works](/get-started/how-jkz-works/) first. This page is the mechanical view: the phases as states, the roles mapped onto them, and the loops that gate each transition.
 
 ## Three phases, three commands
 
@@ -35,7 +35,7 @@ The **Doctor** is the cross-phase repair role. It does not belong to a single tr
 
 ## Iteration and escalation
 
-A failing verdict does not stop the pipeline. It loops the work back to the role that can fix it — the Architect in Plan, the Doctor in Build and QA — for **up to three attempts**. Each attempt sees the prior failure as context, so the loop converges rather than repeating itself.
+A failing verdict does not stop the pipeline. It loops the work back to the role that can fix it (the Architect in Plan, the Doctor in Build and QA) for **up to three attempts**. Each attempt sees the prior failure as context, so the loop converges rather than repeating itself.
 
 Three is a hard ceiling, not a target. Exhaust the attempts without a clean verdict and the pipeline **stops and escalates to you** with an explicit diagnosis. It does not force a fourth fix that merely passes the checks while hiding the real problem. Honest escalation over a silent hack is a first-class outcome here, not a failure mode — a pipeline that stops and tells you *why* has done its job.
 

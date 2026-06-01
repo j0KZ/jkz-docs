@@ -19,7 +19,7 @@ flowchart LR
     H --> build(["jkz:building"])
 ```
 
-- The **Architect** (Claude Opus) designs the *why* before the *how*: the load-bearing decisions, the scope boundaries, the files to touch, the build sequence, and the verification criteria.
+- The **Architect** (Claude Opus) designs the approach: the key decisions, the scope boundaries, the files to touch, the build sequence, and the verification criteria.
 - The **Auditor** (adversarial backend) challenges that plan the way a skeptic evaluates a proposal — it ignores the effort and asks what is missing, what is vague, and what will fail.
 - The **Curator** (validator backend) validates the audit itself, catching miscalibrated severities and false positives.
 

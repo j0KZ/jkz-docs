@@ -5,7 +5,7 @@ description: Install jkz on a clean machine — prerequisites, the install comma
 
 This is the from-zero path: what you need installed, how to get jkz onto your
 machine, how to wire it into a project, and what to put in `.env`. If you just
-want to feel the loop on a tiny change, the [Quickstart](/get-started/quickstart/)
+want to run a tiny change end-to-end, the [Quickstart](/get-started/quickstart/)
 is shorter — come back here when you want the full picture.
 
 ## Prerequisites

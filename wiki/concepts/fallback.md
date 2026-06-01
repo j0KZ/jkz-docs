@@ -20,7 +20,7 @@ A busier failure is rate limiting: `429 / RESOURCE_EXHAUSTED`. Here the wrapper 
 
 ### Tier 3 — an OpenAI-compatible provider
 
-For validator roles, the first escalation is a different OpenAI-compatible endpoint. If one is configured for the role (or globally), the wrapper dispatches a single attempt there. On success the verdict is propagated verbatim and the run is marked as having used the API tier. On failure — or if no such endpoint is configured — it falls through to the next tier.
+For validator roles, the first escalation is a different OpenAI-compatible endpoint. If one is configured for the role (or globally), the wrapper dispatches a single attempt there. On success the verdict is propagated verbatim and the run is marked as having used the API tier. On failure (or if no such endpoint is configured), it falls through to the next tier.
 
 ### Tier 4 — the in-session model
 
@@ -44,7 +44,7 @@ The largest failures are not a single call going wrong — they are a whole back
 | **Validator backend** (Curator, Inspector, Lens) | The validation frontend is skipped. The system notifies you; you decide. |
 | **Claude Code** (the orchestrator) | Everything stops — it *is* the runtime that drives every other role. |
 
-The pattern is deliberate. Recoverable failures (a missing model, a rate limit) are handled where they happen, invisibly. A backend outage is a quality-of-evidence question — running the pipeline without its adversarial reviewer is a real trade-off — so the system surfaces it and leaves the call to you rather than quietly degrading.
+The pattern is deliberate. Recoverable failures (a missing model, a rate limit) are handled where they happen, invisibly. A backend outage is a quality-of-evidence question: running the pipeline without its adversarial reviewer is a real trade-off, so the system surfaces it and leaves the call to you rather than quietly degrading.
 
 ## See also
 

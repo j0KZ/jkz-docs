@@ -35,7 +35,7 @@ The summary pulls together, from the snapshot and pipeline state:
 If no snapshot is found, `/jkz:load` falls back to `.claude/context.md` and presents that instead. It closes by asking what you'd like to work on.
 
 :::note[Cross-chat continuity]
-Snapshots are stored per-chat under `state/session-snapshots/`. `/jkz:load` retrieves the **most recent** one — which is usually from a *different* session, exactly the case where loading earns its keep. See [cross-chat awareness](/concepts/cross-chat/).
+Snapshots are stored per-chat under `state/session-snapshots/`. `/jkz:load` retrieves the **most recent** one — which is usually from a *different* session, exactly the case where loading is most useful. See [cross-chat awareness](/concepts/cross-chat/).
 :::
 
 ## Related

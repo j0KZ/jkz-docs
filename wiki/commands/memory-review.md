@@ -3,9 +3,9 @@ title: memory-review
 description: Scan the Claude Code memory files for staleness, overlaps, redundancy against existing rules, and promotion candidates — then suggest concrete curation actions.
 ---
 
-`/jkz:memory-review [--stale-days N]` is the full audit of your memory directory. Where [`/jkz:memory-status`](/commands/memory-status/) gives you the headline, this command opens the hood: which files have gone stale, which pairs overlap, which memories are already covered by an existing rule, which are missing their structural markers, and which are worth promoting.
+`/jkz:memory-review [--stale-days N]` is the full audit of your memory directory. Where [`/jkz:memory-status`](/commands/memory-status/) gives you the headline, this command shows the detail: which files have gone stale, which pairs overlap, which memories are already covered by an existing rule, which are missing their structural markers, and which are worth promoting.
 
-The goal is curation. Memory accretes — a healthy directory is one that is periodically pruned of the stale and the redundant, so the signal that remains is the signal that earns its place in context.
+The goal is curation. Memory accretes — a healthy directory is one that is periodically pruned of the stale and the redundant, so the remaining signal is the signal that belongs in context.
 
 ## At a glance
 

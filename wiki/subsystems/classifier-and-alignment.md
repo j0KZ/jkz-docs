@@ -8,7 +8,7 @@ Two checks run at the very front of the system, before a single agent starts del
 - **How much pipeline does this deserve?** — the [complexity classifier](#issue-complexity-classifier) routes the issue to `trivial`, `quick`, or `standard`.
 - **Does the issue body still say what the user asked for?** — the [alignment validator](#issue-alignment-validator) compares the source (a conversation, a brief, or raw input) against the issue body the pipeline will consume, and repairs drift before it propagates.
 
-Both are deliberately defensive: a failure in either one falls back to a safe default rather than blocking the work. They are the gatekeepers at the door, not the bouncers — they steer and correct, but they never stop the user from getting in.
+Both are deliberately defensive: a failure in either one falls back to a safe default rather than blocking the work. They steer and correct, but they never stop the user from getting in.
 
 ## Issue complexity classifier
 

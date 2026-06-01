@@ -28,7 +28,7 @@ The line that matters is between FIX and DECIDE. A FIX is something with a defen
 
 ## Fail-open by design
 
-The gate is **fail-open**: if the scan itself errors or cannot run, the pipeline continues rather than blocking. This is deliberate. The ambiguity gate is a safety net for decisions, not a load-bearing gate for correctness — those are the adversarial reviews and [the merge gate](/concepts/merge-gate/), which fail *closed*. An infrastructure hiccup in an advisory scan should not wedge a pipeline that is otherwise healthy.
+The gate is **fail-open**: if the scan itself errors or cannot run, the pipeline continues rather than blocking. This is deliberate. The ambiguity gate is a safety net for decisions, not a correctness gate — those are the adversarial reviews and [the merge gate](/concepts/merge-gate/), which fail *closed*. An infrastructure hiccup in an advisory scan should not wedge a pipeline that is otherwise healthy.
 
 The trade-off is honest: a failed scan means a DECIDE-class ambiguity might slip past unflagged. That residual risk is acceptable precisely because the gate is one of several human checkpoints, not the only one. You still approve the plan, and you still perform the merge — a missed flag narrows the safety margin, it does not open the door to `main`.
 

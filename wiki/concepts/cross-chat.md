@@ -42,13 +42,13 @@ The heartbeat does double duty. It keeps a session alive in the registry, and it
 
 ## Session snapshots
 
-When you switch chats — or come back tomorrow — context should travel with you. Snapshots make that possible. They are stored per-chat in `state/session-snapshots/<session_id>.json` and capture more than git state: completed work, decisions made, and gotchas worth carrying forward.
+When you switch chats (or come back tomorrow), context should travel with you. Snapshots make that possible. They are stored per-chat in `state/session-snapshots/<session_id>.json` and capture more than git state: completed work, decisions made, and gotchas worth carrying forward.
 
 - `/jkz:save` captures a rich snapshot of the current session.
 - `/jkz:load` retrieves the most recent snapshot — including one left by *another* session — so a fresh chat can pick up where the last left off.
 - `/jkz:quit` runs `/jkz:save` and then deregisters the session cleanly.
 
-Orphan snapshots — more than 24 hours old with no active chat behind them — are cleaned up on session start, so the store does not grow without bound.
+Orphan snapshots (more than 24 hours old with no active chat behind them) are cleaned up on session start, so the store does not grow without bound.
 
 ## What this is not
 

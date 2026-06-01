@@ -3,7 +3,7 @@ title: How jkz works
 description: The three phases of the pipeline, the twelve roles, the multi-backend deliberation loop, and the human checkpoints that gate every merge.
 ---
 
-jkz turns one issue into one merged pull request through three phases — **plan**, **build**, and (for features) **QA** — staffed by twelve specialized roles. In each phase Opus drafts the work, an adversarial backend tries to break it, and a validator backend confirms the verdict. Agents never talk to each other: every handoff is a Git artifact (a plan comment, a PR diff, a review comment). The pipeline iterates on its own up to three times per phase, but it cannot reach `main`. You do that, and only you.
+jkz turns one issue into one merged pull request through three phases (**plan**, **build**, and for features **QA**), staffed by twelve specialized roles. In each phase Opus drafts the work, an adversarial backend tries to break it, and a validator backend confirms the verdict. Agents never talk to each other: every handoff is a Git artifact (a plan comment, a PR diff, a review comment). The pipeline iterates on its own up to three times per phase, but it cannot reach `main`. You do that, and only you.
 
 ## The pipeline at a glance
 
@@ -43,17 +43,17 @@ flowchart TD
     M --> done(["Merged to main"])
 ```
 
-The dotted edges are iteration loops. A failing verdict sends the work back — to the Architect in planning, to the Doctor in build and QA — for up to three attempts. Exhaust those and the pipeline stops and escalates to you rather than forcing a fix that merely passes the checks.
+The dotted edges are iteration loops. A failing verdict sends the work back (to the Architect in planning, to the Doctor in build and QA) for up to three attempts. Exhaust those and the pipeline stops and escalates to you rather than forcing a fix that merely passes the checks.
 
 ## The three phases
 
 ### Plan — `/jkz:plan`
 
-The **Architect** designs the implementation strategy: the *why* before the *how*, the scope boundaries before a single line of code. The **Auditor** then challenges that plan the way a CEO evaluates a proposal — it ignores the effort and asks what is missing, what is vague, and what will fail. The **Curator** validates the audit itself, catching miscalibrated severities and false positives. Up to three iterations, then a **human checkpoint**: you read the plan and approve it. Nothing is built until you do.
+The **Architect** designs the implementation strategy: scope and rationale before any code. The **Auditor** then challenges that plan the way a CEO evaluates a proposal — it ignores the effort and asks what is missing, what is vague, and what will fail. The **Curator** validates the audit itself, catching miscalibrated severities and false positives. Up to three iterations, then a **human checkpoint**: you read the plan and approve it. Nothing is built until you do.
 
 ### Build — `/jkz:build` → `/jkz:review`
 
-The **Builder** implements the approved plan inside an isolated worktree and opens a pull request. A CodeRabbit prescan and fix loop catch the obvious issues first, then pre-push validators run deterministic checks (secrets, leftover debug statements, capability invariants). The **Judge** reviews the diff as a chaos engineer — it assumes there *is* a bug and asks how the code fails. The **Inspector** is the precision filter on that review, verifying edge cases and execution claims. On a FAIL the **Doctor** performs a surgical fix — exactly what broke, nothing more — and the diff goes back through review, up to three times.
+The **Builder** implements the approved plan inside an isolated worktree and opens a pull request. A CodeRabbit prescan and fix loop catch the obvious issues first, then pre-push validators run deterministic checks (secrets, leftover debug statements, capability invariants). The **Judge** reviews the diff as a chaos engineer — it assumes there *is* a bug and asks how the code fails. The **Inspector** is the precision filter on that review, verifying edge cases and execution claims. On a FAIL the **Doctor** applies a minimal fix (exactly what broke, nothing more) and the diff goes back through review, up to three times.
 
 ### QA — `/jkz:qa`
 
@@ -65,7 +65,7 @@ Each role is a single responsibility with a single model class. Creative roles c
 
 | Role | Phase | Class | Model / backend | Purpose |
 |------|-------|-------|-----------------|---------|
-| **Architect** | Plan | creative | Opus | Designs the implementation strategy — why before how, scope before code. |
+| **Architect** | Plan | creative | Opus | Designs the implementation strategy — scope and rationale before code. |
 | **Auditor** | Plan | adversarial | External backend (endpoint required) | Challenges the plan before code exists: what is missing, vague, or will fail. |
 | **Curator** | Plan | validator | External validator → Gemini CLI fallback | Validates the audit — calibrates severity, catches false positives and missed gaps. |
 | **Builder** | Build | creative | Opus | Implements the approved plan in an isolated worktree and opens the PR. |

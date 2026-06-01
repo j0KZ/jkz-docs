@@ -42,7 +42,7 @@ The size cap adapts to the situation:
 
 Any of these can be overridden with the `JKZ_MAX_OUTPUT_BYTES` environment variable (where `0` disables truncation entirely).
 
-Two things make the truncation *smart* rather than crude. First, it extracts and re-inserts the protected blocks — the verdict, the compact-plan, the TL;DR, the Accumulated Patterns — so they survive even when the surrounding prose is cut. Second, when it does have to cut, it keeps a head *and* a tail rather than just lopping off the end, because the conclusion of a review is often as important as its opening. The head/tail split is role-aware: a security reviewer whose conclusions land at the end keeps more of its tail, while a role with front-loaded findings keeps more of its head.
+Two things make the truncation *smart* rather than crude. First, it extracts and re-inserts the protected blocks (the verdict, the compact-plan, the TL;DR, the Accumulated Patterns) so they survive even when the surrounding prose is cut. Second, when it does have to cut, it keeps a head *and* a tail rather than just lopping off the end, because the conclusion of a review is often as important as its opening. The head/tail split is role-aware: a security reviewer whose conclusions land at the end keeps more of its tail, while a role with front-loaded findings keeps more of its head.
 
 One important exception: the full, untruncated output is always preserved where fidelity matters — the complete deliberation record and the PR comment receive the unabridged text. Truncation protects the *live context window*, not the audit trail.
 

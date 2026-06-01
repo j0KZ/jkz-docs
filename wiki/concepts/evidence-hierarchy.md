@@ -17,7 +17,7 @@ The order is the whole point. Execution beats citation beats reasoning, because 
 
 ## Why adversarial roles require level 1 or 2
 
-The adversarial roles — **Auditor** in Plan, **Judge** in Build, **Sentinel** in QA — exist to break the work, and their verdicts gate the pipeline. So their verdicts carry a strict rule: **reasoning alone is never sufficient for approval.** An adversarial PASS must rest on level 1 or level 2 evidence. If the only thing supporting a claim is an argument, the claim does not clear the gate.
+The adversarial roles (**Auditor** in Plan, **Judge** in Build, **Sentinel** in QA) exist to break the work, and their verdicts gate the pipeline. So their verdicts carry a strict rule: **reasoning alone is never sufficient for approval.** An adversarial PASS must rest on level 1 or level 2 evidence. If the only thing supporting a claim is an argument, the claim does not clear the gate.
 
 This is what makes the [create → challenge → confirm rhythm](/concepts/pipeline/) more than theatre. The challenger is not asked whether the work *seems* right; it is asked to show, by execution or citation, that it *is*. A validator then checks that the evidence is real and on point. The discipline is what lets the pipeline iterate autonomously without quietly approving plausible-but-wrong work.
 

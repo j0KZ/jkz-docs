@@ -14,7 +14,7 @@ Not all work is the same shape. Adding a feature, fixing a bug, restructuring co
 | `refactor` | `refactor` | Current → target state | Behavior preserved | Optional |
 | `chore` | `chore` | Mechanical change | No behavior shift | Optional |
 
-A `feature` is new behavior, so the plan is about *design* and the review is about *quality* — and because new behavior can break in ways nothing else catches, QA is mandatory. A `bug` flips the emphasis to *root cause*: a fix that treats the symptom without naming the cause is the most common way a bug comes back. A `refactor` is judged against a single promise — behavior is preserved — so the plan frames the work as a move from a current state to a target state, and the review checks that nothing observable changed. A `chore` (a dependency bump, a config tweak, a mechanical rename) should shift no behavior at all, so both plan and review stay deliberately minimal.
+A `feature` is new behavior, so the plan is about *design* and the review is about *quality* — and because new behavior can break in ways nothing else catches, QA is mandatory. A `bug` flips the emphasis to *root cause*: a fix that treats the symptom without naming the cause is the most common way a bug comes back. A `refactor` is judged against a single promise (behavior is preserved): the plan frames the work as a move from a current state to a target state, and the review checks that nothing observable changed. A `chore` (a dependency bump, a config tweak, a mechanical rename) should shift no behavior at all, so both plan and review stay deliberately minimal.
 
 ## QA is required only for features
 

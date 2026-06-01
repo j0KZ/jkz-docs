@@ -73,7 +73,7 @@ A few rules make these blocks reliable:
 - **`false_positives` requires evidence** and is only meaningful for validator roles — it lets a validator flag findings from the prior adversarial agent that turned out to be noise.
 - The block **must stay inside the HTML comment.** If it leaks outside, it shows up as visible text in the PR and breaks parsing.
 
-The `id` carries a one-letter role prefix — `J` for Judge, `I` for Inspector, `L` for Lens, `S` for Sentinel — so a finding can always be traced back to who raised it. The optional `root_cause` classifies *why* something failed (an implementation bug, a missing validation, a security vulnerability, a test gap, and so on) rather than just what it looks like; when unsure, an agent omits it rather than guessing.
+The `id` carries a one-letter role prefix (`J` for Judge, `I` for Inspector, `L` for Lens, `S` for Sentinel) so a finding can always be traced back to who raised it. The optional `root_cause` classifies *why* something failed (an implementation bug, a missing validation, a security vulnerability, a test gap, and so on) rather than just what it looks like; when unsure, an agent omits it rather than guessing.
 
 Why a compact block at all? Because it lets the orchestrator carry a roughly 200-token summary of each iteration into the next one, instead of re-feeding an entire prose review.
 

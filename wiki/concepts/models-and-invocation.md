@@ -3,7 +3,7 @@ title: Models & invocation
 description: How jkz maps each role to a model and invokes it — the four model kinds, the create-challenge-confirm pattern they form, and the endpoint routing that decides which backend runs each role.
 ---
 
-jkz is deliberately multi-backend. No single model writes the code, reviews it, and signs off on it — that would let one model's blind spots survive end to end. Instead each role is bound to a model chosen for the *kind* of work it does, and the roles are arranged so that one model's output is challenged by a second and confirmed by a third. This page describes that mapping and how each role is actually invoked at runtime. The failure side of the story — what happens when a model 404s or a backend goes dark — lives in [Fallback](/concepts/fallback/).
+jkz is deliberately multi-backend. No single model writes the code, reviews it, and signs off on it — that would let one model's blind spots survive end to end. Instead each role is bound to a model chosen for the *kind* of work it does, and the roles are arranged so that one model's output is challenged by a second and confirmed by a third. This page describes that mapping and how each role is actually invoked at runtime. The failure side of the story (what happens when a model 404s or a backend goes dark) lives in [Fallback](/concepts/fallback/).
 
 ## Four kinds of model
 
@@ -26,7 +26,7 @@ The kinds are not just a labelling scheme — they form a pipeline shape that re
 2. An **adversarial** model challenges it — actively trying to find what is wrong.
 3. A **validator** model confirms — checking the result holds up.
 
-Planning runs Architect → Auditor → Curator. Review runs Builder → Judge → Inspector. Using *different* model families for the create and challenge steps is the point: an adversarial reviewer that shares the author's training is far more likely to share its mistakes. The asymmetry between adversarial and validator backends (below) follows directly from this — the challenge step is load-bearing, so it is not allowed to silently disappear.
+Planning runs Architect → Auditor → Curator. Review runs Builder → Judge → Inspector. Using *different* model families for the create and challenge steps is the point: an adversarial reviewer that shares the author's training is far more likely to share its mistakes. The asymmetry between adversarial and validator backends (below) follows directly from this — the challenge step is required, so it is not allowed to silently disappear.
 
 ## How each kind is invoked
 

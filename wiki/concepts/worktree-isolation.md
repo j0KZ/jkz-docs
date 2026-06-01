@@ -16,7 +16,7 @@ The system uses two distinct kinds of worktree, and keeping them straight is the
 
 An **issue worktree** is the desk a pipeline works at. It is created once when work on issue `#N` begins, lives as long as the issue is in flight, and is reused across the plan, build, review, and QA phases. The path convention is deterministic: a sibling directory named `jkz-worktree-<N>`, branched from `main`.
 
-An **agent worktree** is scratch space. When Claude Code dispatches a subagent with `isolation: "worktree"` — the Builder and the Doctor, the roles that mutate files — it spins up a throwaway worktree under `.claude/worktrees/`, lets the agent work in it, and tears it down afterward. These are the reason a quick-mode PR often lands on a `worktree-agent-<id>` branch rather than `jkz/issue-<N>`.
+An **agent worktree** is scratch space. When Claude Code dispatches a subagent with `isolation: "worktree"` (the Builder and the Doctor, the roles that mutate files), it spins up a throwaway worktree under `.claude/worktrees/`, lets the agent work in it, and tears it down afterward. These are the reason a quick-mode PR often lands on a `worktree-agent-<id>` branch rather than `jkz/issue-<N>`.
 
 ## The lifecycle
 
@@ -26,7 +26,7 @@ A pipeline command does not just `cd` into a directory. It runs a precise sequen
 issue-worktree.js ensure  →  EnterWorktree  →  ...work...  →  ExitWorktree(keep)  →  (optional) issue-worktree.js cleanup
 ```
 
-`ensure` is **idempotent**: if the worktree already exists it is reused, if not it is created from the base branch. The same session then switches into it via `EnterWorktree` — no second Claude Code window required — does the phase's work, and switches back out with `ExitWorktree` keeping the tree in place for the next phase.
+`ensure` is **idempotent**: if the worktree already exists it is reused, if not it is created from the base branch. The same session then switches into it via `EnterWorktree` (no second Claude Code window required), does the phase's work, and switches back out with `ExitWorktree` keeping the tree in place for the next phase.
 
 ### The skip guard
 

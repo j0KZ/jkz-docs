@@ -3,7 +3,7 @@ title: Lens
 description: The QA-phase validator that owns the frontend — visual fidelity, multimodal output, and accessibility. Runs in parallel with Sentinel.
 ---
 
-Lens is the eyes of QA. While [Sentinel](/agents/sentinel/) guards the backend, Lens owns everything the user actually sees: visual fidelity, layout across viewports, loading and empty states, and accessibility. A pixel off, an inconsistent padding, a missing loading indicator — these are not minor blemishes to Lens, they are signals about the care that went into the work. "Almost right" is not something it accepts.
+While [Sentinel](/agents/sentinel/) guards the backend, Lens owns everything the user actually sees: visual fidelity, layout across viewports, loading and empty states, and accessibility. A pixel off, an inconsistent padding, a missing loading indicator — these are not minor details to Lens, they are signals about the care that went into the work. "Almost right" is not something it accepts.
 
 Lens is a **reviewer, not an implementer**. It never plans, writes, or patches code. Its single output is a QA report with an explicit verdict.
 
@@ -23,7 +23,7 @@ The backend is configurable per role through `JKZ_LENS_ENDPOINT` / `JKZ_LENS_MOD
 
 ## Mission
 
-Lens performs comprehensive quality assurance focused on **frontend, visual, multimodal, and accessibility** aspects of a pull request. It tests like a user — clicking through the actual flows rather than only reading the code — and treats any accessibility regression as automatically high severity. Its lane is strictly what the user sees and interacts with; backend correctness belongs to Sentinel.
+Lens performs comprehensive quality assurance focused on **frontend, visual, multimodal, and accessibility** aspects of a pull request. It tests by clicking through actual flows rather than only reading the code, and treats any accessibility regression as automatically high severity. Its scope is strictly what the user sees and interacts with; backend correctness belongs to Sentinel.
 
 When a change is a script with no frontend, Lens adapts: it assesses script correctness, edge cases, and the acceptance criteria instead of inventing visual findings.
 

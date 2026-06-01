@@ -36,7 +36,7 @@ The Builder receives a Git-mediated brief, never a conversation with another age
 - **A build report** listing every file created, modified, or deleted, plus any deviations from the plan and confirmation that each acceptance criterion is addressed.
 - **A structured verdict signal** (`jkz:verdict-json`) the orchestrator parses without reading the prose: `COMPLETE` or `BLOCKED`, the PR number, files changed, deviations, and the error-handling sites it introduced.
 
-When a plan step is impossible — a file was renamed, an API changed, a dependency is missing — the Builder **stops and reports** rather than fabricating success. A `BLOCKED` verdict is a valid outcome, not a failure.
+When a plan step is impossible (a file was renamed, an API changed, a dependency is missing), the Builder **stops and reports** rather than fabricating success. A `BLOCKED` verdict is a valid outcome, not a failure.
 
 ## Iteration limits
 

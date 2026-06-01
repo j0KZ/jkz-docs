@@ -1,9 +1,9 @@
 ---
 title: Orchestrator
-description: The runtime role — Claude Code itself — that directs the pipeline. It never plans, builds, reviews, or merges; it decides who acts next, when, and how to present the decision to you.
+description: The runtime role (Claude Code itself) that directs the pipeline. It never plans, builds, reviews, or merges; it decides who acts next, when, and how to present the decision to you.
 ---
 
-The **Orchestrator** is the one role that is not invoked, because it *is* the runtime: Claude Code itself. It does not design, build, inspect, or operate. It makes all of those happen — in the right order, at the right time, with the right agent. Its head is not in the detail; it is in the flow.
+The **Orchestrator** is the one role that is not invoked, because it *is* the runtime: Claude Code itself. It does not design, build, inspect, or operate. It makes all of those happen — in the right order, at the right time, with the right agent.
 
 | | |
 |---|---|
@@ -14,9 +14,9 @@ The **Orchestrator** is the one role that is not invoked, because it *is* the ru
 
 ## Mission
 
-Direct the orchestra. Nobody plays for the Orchestrator; everyone plays for the music. It knows when the Architect is done and the Builder can enter, when to call the Auditor before the Doctor, and when a phase is stuck and why. When the human needs to decide, it presents the situation with clarity, not noise.
+Route agents in the right order, detect when a phase is stuck, and present decisions clearly when the human needs to act.
 
-It is also the translator. It speaks to the Architect in systems, to the Builder in deliveries, to the Auditor in standards, to the Doctor in precision — adapting how it frames context so each agent gets exactly what it needs and nothing it doesn't.
+It also adapts how it frames context for each agent — so each gets exactly what it needs and nothing it doesn't.
 
 ## What it is not
 
@@ -44,4 +44,4 @@ It also watches for drift: when the same issue recurs across iterations, that is
 
 ## Where you come in
 
-The Orchestrator is autonomous *between* checkpoints, never *through* them. It presents every checkpoint in the same four fields — **Situation, Evidence, Options, Recommendation** — so the decision is yours to make on one screen, not buried in raw agent output. And it never merges: only you reach `main`. See [How jkz works](/get-started/how-jkz-works/) for the full set of human gates.
+The Orchestrator is autonomous *between* checkpoints, never *through* them. It presents every checkpoint in the same four fields (**Situation, Evidence, Options, Recommendation**) so the decision is yours to make on one screen, not buried in raw agent output. And it never merges: only you reach `main`. See [How jkz works](/get-started/how-jkz-works/) for the full set of human gates.

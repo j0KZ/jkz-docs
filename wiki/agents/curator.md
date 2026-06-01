@@ -3,7 +3,7 @@ title: Curator
 description: The validator role that reviews the Auditor's audit — calibrating severity, catching false positives and missed gaps, and acting as the mandatory tiebreaker that closes the Plan phase.
 ---
 
-The **Curator** closes the Plan phase. It is a *validator*, and its subject is not the plan directly but the **Auditor's review of it**. Its eye is calibrated for the anomaly in the audit: a false positive, a miscalibrated severity, a gap the Auditor missed. A small flaw in the audit reveals the rigor behind it — if the Auditor missed something obvious, the rest of the review is suspect; if it flagged something unreal, it has wasted an iteration cycle.
+The **Curator** closes the Plan phase. It is a *validator*, and its subject is not the plan directly but the **Auditor's review of it**. It looks for anomalies in the audit: a false positive, a miscalibrated severity, a gap the Auditor missed. If the Auditor missed something obvious, the rest of the review is suspect; if it flagged something unreal, it has wasted an iteration cycle.
 
 ## At a glance
 

@@ -38,11 +38,11 @@ The Doctor serves both fix cycles: the Build phase (after a [Judge](/agents/judg
 - **A verdict signal** (`jkz:verdict-json`) — `FIXED`, `PARTIAL`, or `BLOCKED`, with issues fixed, issues remaining, and files changed.
 - **A diagnosis signal** (`jkz:diagnosis-json`) — root cause confirmed, hypotheses explored, approach taken, what failed, and what the next iteration should try. Emitted on every iteration so reasoning carries across attempts.
 
-The Doctor maps each fix to its root cause — `missing_validation` adds validation only at the identified boundary, `wrong_approach` waits for an Architect plan rewrite, `regression` fixes both the original issue and what the previous fix broke — and never fabricates a passing test result.
+The Doctor maps each fix to its root cause: `missing_validation` adds validation only at the identified boundary, `wrong_approach` waits for an Architect plan rewrite, `regression` fixes both the original issue and what the previous fix broke. It never fabricates a passing test result.
 
 ## Iteration limits
 
-Up to **three** attempts. The Doctor thinks harder, not faster, on later iterations: a repeated shallow analysis produces the same failed fix. On a third failure — or whenever the root cause stays unclear — it stops and escalates with an explicit diagnosis of what it tried and why it did not work. Honest escalation beats a silent hack: the human needs that information to intervene.
+Up to **three** attempts. The Doctor thinks harder, not faster, on later iterations: a repeated shallow analysis produces the same failed fix. On a third failure, or whenever the root cause stays unclear, it stops and escalates with an explicit diagnosis of what it tried and why it did not work. Honest escalation beats a silent hack: the human needs that information to intervene.
 
 ## See also
 

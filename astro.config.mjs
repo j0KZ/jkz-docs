@@ -93,6 +93,8 @@ export default defineConfig({
             { label: 'Home', link: '/' },
             { slug: 'get-started/install' },
             { slug: 'get-started/quickstart' },
+            { slug: 'get-started/first-issue-with-plan-checkpoint' },
+            { slug: 'get-started/ad-hoc-fix' },
             { slug: 'get-started/why-jkz' },
             { slug: 'get-started/how-jkz-works' },
           ],

@@ -83,7 +83,7 @@ Reverse the symlink with `npm unlink -g jkz-multi-agent-system`.
 
 ```bash
 jkz version        # prints the version
-jkz help           # lists subcommands: install, init, docker, uninstall
+jkz help           # lists subcommands: install, init, docker, uninstall, update, version
 ```
 
 :::caution[Windows]

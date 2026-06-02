@@ -31,7 +31,7 @@ Adversarial agent (`kind: adversarial`) that challenges the Architect's plan in 
 
 ## Builder
 
-Opus agent (`kind: creative`) that implements code in an isolated worktree. Low effort — a good plan does most of the work.
+Opus agent (`kind: creative`) that implements code in an isolated worktree. `xhigh` effort.
 
 ## checkpoint
 
@@ -90,9 +90,8 @@ The level of cognitive effort per role. For Opus, configured in agent frontmatte
 
 | Value | Roles | When |
 |-------|-------|------|
-| `low` | Builder | Default. |
-| `medium` | Architect | Default. |
-| `high` | Auditor, Research-Auditor | Default. Doctor only on iteration 3 or `wrong_approach`. |
+| `high` | Architect, Analyst, Auditor, Research-Auditor | Default. |
+| `xhigh` | Builder, Doctor | Default. `/jkz:fix` lowers the Doctor to `high` on attempt 3 or `wrong_approach`. |
 
 ## Evidence Hierarchy
 

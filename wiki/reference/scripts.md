@@ -48,7 +48,7 @@ node scripts/json-helper.js set <field> <value> state/pipeline/<issue>.json
 |--------|--------------|
 | `health-check.sh` | Full system health check: CLI versions, auth, MCP servers, tests, npm audit, stale worktrees, service status. `--fix` updates outdated CLIs; `--deep` adds auth, MCP, and notifications. |
 | `circuit-breaker.js` | Protects the pipeline from downed services. States: `closed` → `open` (after 3 consecutive failures) → `half_open` → `closed`. State in `state/circuit/<service>.json`. |
-| `telegram-bot.js` | Monitoring and remote-control bot: 9 health checks every 10 min, task discovery every 30 min, inline commands. Requires `JKZ_NOTIFY_BACKEND=telegram`. |
+| `telegram-bot.js` | Monitoring and remote-control bot: 11 health checks every 10 min, task discovery every 30 min, inline commands. Requires `JKZ_NOTIFY_BACKEND=telegram`. |
 | `monitoring-checks.js` | The 9 async checks behind the monitoring loop (agent idle, CI status, stale worktrees, rate limits, SLO compliance, groupthink, and more). |
 | `slo-check.js` | Evaluates pipelines against the 4 SLOs in `scripts/slos.json` over a 30-day window. |
 

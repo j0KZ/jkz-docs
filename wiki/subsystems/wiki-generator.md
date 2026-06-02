@@ -93,7 +93,7 @@ Either way the sanitizer gate stays critical, not lax. Turning off the human gat
 
 ## Operation
 
-The pipeline is run by **Hermes on a daily schedule** (05:00 America/Santiago), staggered after the documentation-sync job to avoid collision. To avoid stacking work, a run **auto-skips** if the previous PR has not merged within 48 hours. Operational events route to dedicated Telegram topics — run summaries and warnings to one, sanitizer and sync failures to another — and the bot token is rotated on a fixed 90-day cadence.
+The pipeline is run by **Hermes on a daily schedule** (04:35 America/Santiago), staggered after the documentation-sync job to avoid collision. To avoid stacking work, a run **auto-skips** if the previous PR has not merged within 48 hours. Operational events route to dedicated Telegram topics — run summaries and warnings to one, sanitizer and sync failures to another — and the bot token is rotated on a fixed 90-day cadence.
 
 ## What this is not
 

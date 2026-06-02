@@ -33,7 +33,7 @@ docker exec hermes-agent service cron reload
 
 ## The jobs
 
-The registry holds **27 jobs**: 25 run under container cron, and 2 are marked `"runner": "direct"` so the generator skips them — they run from the VPS host crontab instead (currently the autobackup and a DST-adjustment helper). Each job wraps its script with `hermes-report-wrapper.sh`, which persists a JSON report to `state/reports/<date>/<job>.json` and posts a summary to Telegram.
+The registry holds **28 jobs**: 26 run under container cron, and 2 are marked `"runner": "direct"` so the generator skips them — they run from the VPS host crontab instead (currently the autobackup and a DST-adjustment helper). Each job wraps its script with `hermes-report-wrapper.sh`, which persists a JSON report to `state/reports/<date>/<job>.json` and posts a summary to Telegram.
 
 Jobs are organized by Telegram thread:
 

@@ -91,7 +91,7 @@ The level of cognitive effort per role. For Opus, configured in agent frontmatte
 | Value | Roles | When |
 |-------|-------|------|
 | `high` | Architect, Analyst, Auditor, Research-Auditor | Default. |
-| `xhigh` | Builder, Doctor | Default. `/jkz:fix` lowers the Doctor to `high` on attempt 3 or `wrong_approach`. |
+| `xhigh` | Builder, Doctor | Default. The Doctor keeps `xhigh` on every fix attempt — no per-attempt downgrade. |
 
 ## Evidence Hierarchy
 

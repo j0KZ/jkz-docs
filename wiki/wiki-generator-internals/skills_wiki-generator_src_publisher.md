@@ -16,12 +16,40 @@ _None._
 
 | Name | Kind | Default |
 | --- | --- | --- |
+| `findOpenAutoPublishPR` | function | no |
 | `generatePRBody` | function | no |
 | `handleAutoMerge` | function | no |
 | `openPR` | function | no |
 | `publishFiles` | function | no |
 
 ## Detail
+
+### `findOpenAutoPublishPR`
+
+```text
+async findOpenAutoPublishPR({ githubClient, owner, repo, logger }): Promise<unknown>
+```
+
+Search for an already-open auto-publish PR so a re-run refreshes a single PR in
+place instead of stacking a fresh `wiki/auto-<date>` PR each run (#1772).
+
+The search is scoped to OPEN PRs on the `wiki/auto-` branch prefix — the same
+prefix the drift sign-off PRs use. The returned node is the FIRST entry that is
+OPEN, NOT a draft, and whose title does NOT carry `(sign-off required)`. The
+draft + marker filters keep the auto-publish path from ever touching a drift
+sign-off PR (which is a draft PR with its own dedup/refresh logic).
+
+Fail-safe: a thrown lookup is logged and surfaced to the caller as null so the
+run proceeds to open a fresh PR (never suppress a publish). Mirrors
+`drift_pr.findOpenDriftPR`.
+
+#### Params
+
+- `{ githubClient, owner, repo, logger }`
+
+#### Returns
+
+`Promise<unknown>`
 
 ### `generatePRBody`
 
@@ -98,7 +126,6 @@ async publishFiles({
   repo,
   files,
   commitMessage,
-  hitlRequired,
   dryRun,
   logger,
 }): Promise<object>
@@ -106,7 +133,7 @@ async publishFiles({
 
 #### Params
 
-- `{   githubClient,   owner,   repo,   files,   commitMessage,   hitlRequired,   dryRun,   logger, }`
+- `{   githubClient,   owner,   repo,   files,   commitMessage,   dryRun,   logger, }`
 
 #### Returns
 

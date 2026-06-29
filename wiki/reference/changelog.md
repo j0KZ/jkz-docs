@@ -28,6 +28,7 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - add deslop prose-cleanup phase (6.5) (#1636) ([#1637](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1637))
 
 #### Fixes
+- wiki-generator: refresh a single auto-publish PR in place (#1772) ([#1773](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1773))
 - harden PR workflows against untrusted input ([#1771](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1771))
 - redact credential-named keys in query_env at every scope ([#1765](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1765))
 - override qs to >=6.15.2 to clear moderate DoS advisory (#1743) ([#1755](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1755))
@@ -79,6 +80,17 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - extract shared ISO_8601 constant in wiki-generator (#1631) ([#1640](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1640))
 
 #### Other
+- re-apply 4 auto-reverted Dependabot bumps (#1767-#1770) ([#1776](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1776))
+- Reapply "fix: wiki-generator: refresh a single auto-publish PR in place (#1772) (#1773)" ([#1775](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1775))
+- Revert "build(deps-dev): bump @types/node from 25.9.3 to 26.0.0 in /mcp (#1768)"
+- bump @types/node from 25.9.3 to 26.0.0 in /mcp ([#1768](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1768))
+- Revert "build(deps): bump the minor-and-patch group with 4 updates (#1769)"
+- bump the minor-and-patch group with 4 updates ([#1769](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1769))
+- Revert "build(deps): bump @hono/node-server in /mcp in the minor-and-patch group (#1767)"
+- bump @hono/node-server in /mcp in the minor-and-patch group ([#1767](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1767))
+- Revert "build(deps): bump @cyclonedx/cyclonedx-npm from 4.2.1 to 5.0.0 (#1770)"
+- bump @cyclonedx/cyclonedx-npm from 4.2.1 to 5.0.0 ([#1770](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1770))
+- Revert "fix: wiki-generator: refresh a single auto-publish PR in place (#1772) (#1773)"
 - Reapply "fix(mcp): redact credential-named keys in query_env at every scope (#1765)" ([#1766](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1766))
 - Revert "fix(mcp): redact credential-named keys in query_env at every scope (#1765)"
 - bump the minor-and-patch group with 5 updates ([#1753](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1753))

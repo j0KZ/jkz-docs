@@ -28,6 +28,7 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - add deslop prose-cleanup phase (6.5) (#1636) ([#1637](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1637))
 
 #### Fixes
+- bump hono override to >=4.12.25 to clear high-severity advisories ([#1777](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1777))
 - wiki-generator: refresh a single auto-publish PR in place (#1772) ([#1773](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1773))
 - harden PR workflows against untrusted input ([#1771](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1771))
 - redact credential-named keys in query_env at every scope ([#1765](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1765))
@@ -73,6 +74,7 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - infer string return types for un-annotated JS (AC#3 of #1628) ([#1630](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1630))
 
 #### Refactors
+- normalize em-dash/ellipsis ai-traces (#1759) ([#1781](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1781))
 - migrate Hermes cron to deterministic --render-check (#1750) ([#1757](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1757))
 - renumber orphaned ADRs to resolve numbering collisions (#1745) ([#1756](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1756))
 - kill documentation drift at the source via doc-sync --render-check ([#1742](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1742))
@@ -80,6 +82,8 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - extract shared ISO_8601 constant in wiki-generator (#1631) ([#1640](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1640))
 
 #### Other
+- Revert "refactor(deslop): normalize em-dash/ellipsis ai-traces (#1759) (#1781)"
+- Revert "fix(mcp): bump hono override to >=4.12.25 to clear high-severity advisories (#1777)"
 - re-apply 4 auto-reverted Dependabot bumps (#1767-#1770) ([#1776](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1776))
 - Reapply "fix: wiki-generator: refresh a single auto-publish PR in place (#1772) (#1773)" ([#1775](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1775))
 - Revert "build(deps-dev): bump @types/node from 25.9.3 to 26.0.0 in /mcp (#1768)"

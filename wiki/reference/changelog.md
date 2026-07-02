@@ -13,6 +13,20 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 <a id="full-history"></a>
 ## Full history
 
+### 2026-07
+
+#### Features
+- add jkz-powers cross-platform lite plugin (+ label/gitignore hygiene) ([#1794](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1794))
+
+#### Fixes
+- jkz hooks: resolve target to the real project, fail-loud guards (QW-6) ([#1799](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1799))
+
+#### Other
+- jkz plugin: remove dead entrypoints from manifest and installer (QW-3) ([#1798](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1798))
+- promote 7 memory-review rules to project conventions ([#1796](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1796))
+- Reapply "feat: add jkz-powers cross-platform lite plugin (+ label/gitignore hygiene) (#1794)" ([#1795](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1795))
+- Revert "feat: add jkz-powers cross-platform lite plugin (+ label/gitignore hygiene) (#1794)"
+
 ### 2026-06
 
 #### Features

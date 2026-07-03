@@ -16,9 +16,11 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 ### 2026-07
 
 #### Features
+- jkz install delivers personas, skills, MCP server and guards to the target (QW-1, QW-2, QW-9) ([#1801](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1801))
 - add jkz-powers cross-platform lite plugin (+ label/gitignore hygiene) ([#1794](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1794))
 
 #### Fixes
+- jkz update: read-only --check and no rebuild on session start (QW-4, QW-5) ([#1800](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1800))
 - jkz hooks: resolve target to the real project, fail-loud guards (QW-6) ([#1799](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1799))
 
 #### Other

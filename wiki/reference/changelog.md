@@ -20,8 +20,12 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - add jkz-powers cross-platform lite plugin (+ label/gitignore hygiene) ([#1794](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1794))
 
 #### Fixes
+- fail-loud install summary and honest command bootstrap (QW-7) ([#1803](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1803))
 - jkz update: read-only --check and no rebuild on session start (QW-4, QW-5) ([#1800](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1800))
 - jkz hooks: resolve target to the real project, fail-loud guards (QW-6) ([#1799](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1799))
+
+#### Refactors
+- jkz install zero host-git mutation by default, merge-gate opt-in (QW-8) ([#1802](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1802))
 
 #### Other
 - jkz plugin: remove dead entrypoints from manifest and installer (QW-3) ([#1798](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1798))

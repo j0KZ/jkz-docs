@@ -16,6 +16,7 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 ### 2026-07
 
 #### Features
+- jkz health: target-side integration checks in /jkz:health --deep (verification backbone) ([#1804](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1804))
 - jkz install delivers personas, skills, MCP server and guards to the target (QW-1, QW-2, QW-9) ([#1801](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1801))
 - add jkz-powers cross-platform lite plugin (+ label/gitignore hygiene) ([#1794](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1794))
 

@@ -21,6 +21,7 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - add jkz-powers cross-platform lite plugin (+ label/gitignore hygiene) ([#1794](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1794))
 
 #### Fixes
+- bump hono override floor to >=4.12.25 (npm-audit regression) ([#1808](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1808))
 - fail-loud install summary and honest command bootstrap (QW-7) ([#1803](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1803))
 - jkz update: read-only --check and no rebuild on session start (QW-4, QW-5) ([#1800](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1800))
 - jkz hooks: resolve target to the real project, fail-loud guards (QW-6) ([#1799](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1799))
@@ -29,6 +30,11 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - jkz install zero host-git mutation by default, merge-gate opt-in (QW-8) ([#1802](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1802))
 
 #### Other
+- bump the minor-and-patch group with 5 updates ([#1807](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1807))
+- bump the minor-and-patch group across 1 directory with 2 updates ([#1806](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1806))
+- bump actions/checkout from 6 to 7 ([#1785](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1785))
+- bump trufflesecurity/trufflehog ([#1784](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1784))
+- windows-latest test matrix for the install harness (junctions, path separators) ([#1805](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1805))
 - jkz plugin: remove dead entrypoints from manifest and installer (QW-3) ([#1798](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1798))
 - promote 7 memory-review rules to project conventions ([#1796](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1796))
 - Reapply "feat: add jkz-powers cross-platform lite plugin (+ label/gitignore hygiene) (#1794)" ([#1795](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1795))

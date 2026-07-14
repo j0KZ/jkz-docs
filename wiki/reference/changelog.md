@@ -16,6 +16,8 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 ### 2026-07
 
 #### Features
+- Architecture invariant tests: enforce prose invariants in CI ([#1820](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1820))
+- Implement the canonical per-domain HTML dashboards decided in ADR-016 ([#1819](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1819))
 - jkz health: target-side integration checks in /jkz:health --deep (verification backbone) ([#1804](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1804))
 - jkz install delivers personas, skills, MCP server and guards to the target (QW-1, QW-2, QW-9) ([#1801](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1801))
 - add jkz-powers cross-platform lite plugin (+ label/gitignore hygiene) ([#1794](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1794))
@@ -30,6 +32,15 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - jkz install zero host-git mutation by default, merge-gate opt-in (QW-8) ([#1802](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1802))
 
 #### Other
+- archive external-integration hardening spec and Phase 1 plan ([#1814](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1814))
+- jkz plugin: migrate to a real Claude Code plugin (Phase 2) ([#1823](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1823))
+- bump @cyclonedx/cyclonedx-npm from 5.0.0 to 6.0.0 ([#1813](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1813))
+- bump typescript from 6.0.3 to 7.0.2 in /mcp ([#1811](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1811))
+- bump the minor-and-patch group across 1 directory with 4 updates ([#1812](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1812))
+- bump @types/node ([#1810](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1810))
+- deactivate static effort overrides on Claude roles, align docs ([#1822](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1822))
+- Reapply "feat: Implement the canonical per-domain HTML dashboards decided in ADR-016 (#1819)" ([#1821](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1821))
+- Revert "feat: Implement the canonical per-domain HTML dashboards decided in ADR-016 (#1819)"
 - bump the minor-and-patch group with 5 updates ([#1807](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1807))
 - bump the minor-and-patch group across 1 directory with 2 updates ([#1806](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1806))
 - bump actions/checkout from 6 to 7 ([#1785](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1785))

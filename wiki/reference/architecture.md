@@ -16,7 +16,7 @@ title: Architecture
 
 ```mermaid
 graph LR
-  n0["scripts/ (494 files)"]
+  n0["scripts/ (497 files)"]
 ```
 
 Operational and pipeline scripts.

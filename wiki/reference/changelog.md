@@ -16,6 +16,7 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 ### 2026-07
 
 #### Features
+- Pattern promotion: mine SQLite patterns into committed rules file ([#1830](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1830))
 - Architecture invariant tests: enforce prose invariants in CI ([#1820](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1820))
 - Implement the canonical per-domain HTML dashboards decided in ADR-016 ([#1819](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1819))
 - jkz health: target-side integration checks in /jkz:health --deep (verification backbone) ([#1804](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1804))
@@ -23,15 +24,20 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - add jkz-powers cross-platform lite plugin (+ label/gitignore hygiene) ([#1794](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1794))
 
 #### Fixes
+- make test-root pass on hosted runners ([#1829](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1829))
+- resolve CycloneDX CLI via package root ([#1827](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1827))
+- stop stale pipeline runs inflating stats; archive old state instead of deleting ([#1826](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1826))
 - bump hono override floor to >=4.12.25 (npm-audit regression) ([#1808](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1808))
 - fail-loud install summary and honest command bootstrap (QW-7) ([#1803](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1803))
 - jkz update: read-only --check and no rebuild on session start (QW-4, QW-5) ([#1800](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1800))
 - jkz hooks: resolve target to the real project, fail-loud guards (QW-6) ([#1799](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1799))
 
 #### Refactors
+- Entropy scan: 61 finding(s) -- 2026-07-06 ([#1825](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1825))
 - jkz install zero host-git mutation by default, merge-gate opt-in (QW-8) ([#1802](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1802))
 
 #### Other
+- Reapply "fix: Gate the UI build in CI and fix the current tsc type errors (#1732)" ([#1828](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1828))
 - archive external-integration hardening spec and Phase 1 plan ([#1814](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1814))
 - jkz plugin: migrate to a real Claude Code plugin (Phase 2) ([#1823](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1823))
 - bump @cyclonedx/cyclonedx-npm from 5.0.0 to 6.0.0 ([#1813](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1813))

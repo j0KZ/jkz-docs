@@ -16,6 +16,8 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 ### 2026-07
 
 #### Features
+- per-issue companion artifact -- standardized template, republished at every phase transition ([#1837](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1837))
+- rework global wizard for Ollama-only backend ([#1836](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1836))
 - Pattern promotion: mine SQLite patterns into committed rules file ([#1830](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1830))
 - Architecture invariant tests: enforce prose invariants in CI ([#1820](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1820))
 - Implement the canonical per-domain HTML dashboards decided in ADR-016 ([#1819](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1819))
@@ -24,6 +26,13 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - add jkz-powers cross-platform lite plugin (+ label/gitignore hygiene) ([#1794](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1794))
 
 #### Fixes
+- make /jkz:research functional (mcp-invoke routing, AskUserQuestion gates, cross-block persistence) ([#1842](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1842))
+- harden /jkz:issue command (trust boundary, triage regex, cross-block persistence) ([#1841](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1841))
+- apply pipeline-commands audit findings (1 HIGH, 10 MED, LOWs) ([#1840](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1840))
+- minor findings from the /jkz:quit review ([#1839](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1839))
+- self-contained step blocks, worktree-safe state-dir cascade ([#1838](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1838))
+- build.md dispatches role 'builder-preflight' unknown to resolve-wrapper.sh ([#1835](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1835))
+- self-hosted .claude/settings.json hooks read tool_input from stdin (inert guards, #1831) ([#1834](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1834))
 - make test-root pass on hosted runners ([#1829](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1829))
 - resolve CycloneDX CLI via package root ([#1827](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1827))
 - stop stale pipeline runs inflating stats; archive old state instead of deleting ([#1826](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1826))

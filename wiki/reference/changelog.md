@@ -16,6 +16,8 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 ### 2026-07
 
 #### Features
+- Wrapper retry hardening: 429 handling, Retry-After, per-role budgets ([#1854](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1854))
+- split Review/QA into per-phase sections + findings collapsibles ([#1855](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1855))
 - per-issue companion artifact -- standardized template, republished at every phase transition ([#1837](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1837))
 - rework global wizard for Ollama-only backend ([#1836](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1836))
 - Pattern promotion: mine SQLite patterns into committed rules file ([#1830](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1830))
@@ -26,6 +28,8 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - add jkz-powers cross-platform lite plugin (+ label/gitignore hygiene) ([#1794](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1794))
 
 #### Fixes
+- align resume-diagnose.js with the step-gate.js steps schema ([#1859](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1859))
+- wrapper env var mapping for hyphenated roles + stdin drain in CLI presence checks ([#1847](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1847))
 - make /jkz:research functional (mcp-invoke routing, AskUserQuestion gates, cross-block persistence) ([#1842](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1842))
 - harden /jkz:issue command (trust boundary, triage regex, cross-block persistence) ([#1841](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1841))
 - apply pipeline-commands audit findings (1 HIGH, 10 MED, LOWs) ([#1840](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1840))

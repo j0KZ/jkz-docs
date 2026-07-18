@@ -16,6 +16,11 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 ### 2026-07
 
 #### Features
+- NFR floor for feature issues + conditional architecture diagram ([#1885](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1885))
+- Add integration tests for abstained re-dispatch paths ([#1877](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1877))
+- Circuit breaker for MCP server calls in mcp-invoke.js ([#1864](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1864))
+- abstained verdict state for infra-level review-backend failures ([#1862](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1862))
+- Bidirectional artifact linking: inject artifact URL into issue and PR ([#1869](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1869))
 - Wrapper retry hardening: 429 handling, Retry-After, per-role budgets ([#1854](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1854))
 - split Review/QA into per-phase sections + findings collapsibles ([#1855](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1855))
 - per-issue companion artifact -- standardized template, republished at every phase transition ([#1837](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1837))
@@ -28,6 +33,16 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - add jkz-powers cross-platform lite plugin (+ label/gitignore hygiene) ([#1794](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1794))
 
 #### Fixes
+- verdict-json extractors are first-match: prose mention of the literal marker hijacks the parse ([#1889](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1889))
+- move fix.md worktree lookup to standalone helper (harness $0/$2 corruption) ([#1884](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1884))
+- Test suite depends on ambient state: guard-worktree passes by coincidence, worktree-gate collides with locked residue ([#1882](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1882))
+- build.md pre-push gate acts on wrong data: stale CR severity regex + two-dot diff base ([#1881](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1881))
+- Doctor dispatched with wrong config: model routing counts files not lines; maxTurns:5 truncates the typed agent ([#1879](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1879))
+- research wrappers write completion sentinels for research-role invocations ([#1872](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1872))
+- derive research-output-gws default formats from brief deliverables ([#1875](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1875))
+- persist auditor-report.md mid-loop and generate errata.md in /jkz:research ([#1874](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1874))
+- retry-count off-by-one so MAX_ATTEMPTS caps total requests (#1856) ([#1876](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1876))
+- normalize per-issue record in abstain/suppress append ([#1870](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1870))
 - align resume-diagnose.js with the step-gate.js steps schema ([#1859](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1859))
 - wrapper env var mapping for hyphenated roles + stdin drain in CLI presence checks ([#1847](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1847))
 - make /jkz:research functional (mcp-invoke routing, AskUserQuestion gates, cross-block persistence) ([#1842](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1842))
@@ -46,10 +61,14 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - jkz hooks: resolve target to the real project, fail-loud guards (QW-6) ([#1799](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1799))
 
 #### Refactors
+- replace eval with printf -v in _set helper (#1848) ([#1873](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1873))
 - Entropy scan: 61 finding(s) -- 2026-07-06 ([#1825](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1825))
 - jkz install zero host-git mutation by default, merge-gate opt-in (QW-8) ([#1802](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1802))
 
 #### Other
+- surface a content TL;DR before the score table ([#1887](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1887))
+- document gh pr comment OPEN-check exemption (#1863) ([#1883](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1883))
+- document JKZ_MCP_BREAKER_* variables in .env.example (#1871) ([#1878](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1878))
 - Reapply "fix: Gate the UI build in CI and fix the current tsc type errors (#1732)" ([#1828](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1828))
 - archive external-integration hardening spec and Phase 1 plan ([#1814](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1814))
 - jkz plugin: migrate to a real Claude Code plugin (Phase 2) ([#1823](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1823))

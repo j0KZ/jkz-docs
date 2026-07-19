@@ -16,6 +16,11 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 ### 2026-07
 
 #### Features
+- surface silent better-sqlite3 native-dep failure (B3) ([#1926](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1926))
+- auto-regenerate stale plugin-env on session start (F1) ([#1925](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1925))
+- Redact secrets at external sinks: PR comments and Telegram ([#1913](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1913))
+- register web-researcher MCP server ([#1903](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1903))
+- test-failure blame protocol requires base-branch proof (#1892) ([#1898](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1898))
 - NFR floor for feature issues + conditional architecture diagram ([#1885](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1885))
 - Add integration tests for abstained re-dispatch paths ([#1877](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1877))
 - Circuit breaker for MCP server calls in mcp-invoke.js ([#1864](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1864))
@@ -33,6 +38,19 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - add jkz-powers cross-platform lite plugin (+ label/gitignore hygiene) ([#1794](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1794))
 
 #### Fixes
+- lowercase brief-derived RESEARCH_TYPE reads ([#1928](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1928))
+- Doctor prompt inputs self-contained (L2) + multi-line Deliverables derivation (L3) ([#1920](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1920))
+- ingest.js readLog() fails closed on corrupt/unreadable log (#1910) ([#1916](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1916))
+- correct Lens Visual Input @file native-inspection over-claim ([#1914](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1914))
+- ingest.js: processing reservation is not mutually exclusive (TOCTOU) ([#1908](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1908))
+- price kimi-k2.7-code:cloud so validator cost is not reported as $0 (#1899) ([#1909](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1909))
+- jkz-mc-sync: migrate existing MC validator records to kimi-k2.7-code:cloud (not only new agents) ([#1911](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1911))
+- abstained-verdict handling in AUDIT (H1) ([#1902](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1902))
+- align ingest.js parent timeout with invoker's 300s deadline ([#1907](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1907))
+- harden AUDIT/OUTPUT robustness (7 fixes) ([#1901](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1901))
+- worktree.test.js leaks its locked worktree + markers on cleanup ([#1891](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1891))
+- cleanup-merged never detects squash-merges from a different head branch ([#1890](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1890))
+- review.md verdict-read in meta-audit, blind mode, conflict detection (#1867) ([#1886](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1886))
 - verdict-json extractors are first-match: prose mention of the literal marker hijacks the parse ([#1889](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1889))
 - move fix.md worktree lookup to standalone helper (harness $0/$2 corruption) ([#1884](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1884))
 - Test suite depends on ambient state: guard-worktree passes by coincidence, worktree-gate collides with locked residue ([#1882](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1882))
@@ -61,11 +79,23 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - jkz hooks: resolve target to the real project, fail-loud guards (QW-6) ([#1799](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1799))
 
 #### Refactors
+- remove Gemini CLI backend, route validators to Ollama Cloud ([#1893](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1893))
 - replace eval with printf -v in _set helper (#1848) ([#1873](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1873))
 - Entropy scan: 61 finding(s) -- 2026-07-06 ([#1825](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1825))
 - jkz install zero host-git mutation by default, merge-gate opt-in (QW-8) ([#1802](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1802))
 
 #### Other
+- bump c8 from 11.0.0 to 12.0.0 ([#1919](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1919))
+- bump the minor-and-patch group with 2 updates ([#1917](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1917))
+- bump @hono/node-server in /mcp in the minor-and-patch group ([#1918](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1918))
+- add macOS to the install-harness matrix (T1) ([#1927](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1927))
+- fix stale merge-gate marker comment ([#1924](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1924))
+- fix Phase-2 drift + complete ADR-018 consequences ([#1922](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1922))
+- install/uninstall hygiene ([#1923](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1923))
+- surface footer with direct PR link at each post-PR stage ([#1921](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1921))
+- fix Wrapper Exit Codes table drift + document research-output-gws.js exit contract ([#1915](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1915))
+- external-dependency caveats (gws OUTPUT prereq + embeddings fail-open) ([#1904](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1904))
+- generalize validator prompts off Gemini/glm-5.1 backend naming ([#1912](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1912))
 - surface a content TL;DR before the score table ([#1887](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1887))
 - document gh pr comment OPEN-check exemption (#1863) ([#1883](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1883))
 - document JKZ_MCP_BREAKER_* variables in .env.example (#1871) ([#1878](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1878))

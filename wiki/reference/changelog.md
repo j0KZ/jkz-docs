@@ -16,6 +16,7 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 ### 2026-07
 
 #### Features
+- flag missing required adversarial endpoints in /jkz:health (B1) ([#1930](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1930))
 - surface silent better-sqlite3 native-dep failure (B3) ([#1926](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1926))
 - auto-regenerate stale plugin-env on session start (F1) ([#1925](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1925))
 - Redact secrets at external sinks: PR comments and Telegram ([#1913](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1913))
@@ -38,6 +39,9 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - add jkz-powers cross-platform lite plugin (+ label/gitignore hygiene) ([#1794](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1794))
 
 #### Fixes
+- guard publishes composeAll's redacted body (audit roadmap #2) ([#1940](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1940))
+- reconcile max_tokens with thinking.budget_tokens in callLLM (audit Problem B) ([#1939](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1939))
+- scope stale-removal to generator-owned prefixes (#1782 Problem C) ([#1938](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1938))
 - lowercase brief-derived RESEARCH_TYPE reads ([#1928](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1928))
 - Doctor prompt inputs self-contained (L2) + multi-line Deliverables derivation (L3) ([#1920](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1920))
 - ingest.js readLog() fails closed on corrupt/unreadable log (#1910) ([#1916](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1916))
@@ -85,6 +89,12 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - jkz install zero host-git mutation by default, merge-gate opt-in (QW-8) ([#1802](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1802))
 
 #### Other
+- document learned-pattern pool cold-start (status quo decision #1931) ([#1943](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1943))
+- refresh stale references, navigation, and versionless model refs ([#1936](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1936))
+- raise root-suite line coverage from 74.75% to 91.93% ([#1935](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1935))
+- [docs] Refresh README: Opus 4.8, commit count, 6 missing commands ([#1934](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1934))
+- symbolic model-backend refs + purge removed-Gemini references (anti-drift) ([#1932](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1932))
+- verify guard hook fires in a foreign target (B6) ([#1929](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1929))
 - bump c8 from 11.0.0 to 12.0.0 ([#1919](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1919))
 - bump the minor-and-patch group with 2 updates ([#1917](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1917))
 - bump @hono/node-server in /mcp in the minor-and-patch group ([#1918](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1918))

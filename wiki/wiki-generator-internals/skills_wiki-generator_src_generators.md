@@ -16,6 +16,7 @@ _None._
 
 | Name | Kind | Default |
 | --- | --- | --- |
+| `GENERATOR_OWNED_PREFIXES` | variable | no |
 | `GENERATOR_REGISTRY` | variable | no |
 | `IGNORE_PATTERNS` | variable | no |
 | `KNOWN_GENERATOR_NAMES` | variable | no |
@@ -62,6 +63,20 @@ _None._
 | `validateHedges` | function | no |
 
 ## Detail
+
+### `GENERATOR_OWNED_PREFIXES`
+
+```text
+GENERATOR_OWNED_PREFIXES
+```
+
+#### Params
+
+_None._
+
+#### Returns
+
+_None._
 
 ### `GENERATOR_REGISTRY`
 

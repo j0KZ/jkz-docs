@@ -39,6 +39,7 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - add jkz-powers cross-platform lite plugin (+ label/gitignore hygiene) ([#1794](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1794))
 
 #### Fixes
+- remove dead cross-pipeline FTS advisory (#1937) ([#1947](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1947))
 - guard publishes composeAll's redacted body (audit roadmap #2) ([#1940](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1940))
 - reconcile max_tokens with thinking.budget_tokens in callLLM (audit Problem B) ([#1939](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1939))
 - scope stale-removal to generator-owned prefixes (#1782 Problem C) ([#1938](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1938))
@@ -89,6 +90,10 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - jkz install zero host-git mutation by default, merge-gate opt-in (QW-8) ([#1802](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1802))
 
 #### Other
+- expand coverage for Batch A/B decision + context modules ([#1950](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1950))
+- triage residual Gemini routing refs in commands and round-robin skill ([#1946](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1946))
+- remove deprecated Gemini validator refs in create-agent and model-debate-plan ([#1945](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1945))
+- de-version stale validator config block in .env.example ([#1944](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1944))
 - document learned-pattern pool cold-start (status quo decision #1931) ([#1943](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1943))
 - refresh stale references, navigation, and versionless model refs ([#1936](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1936))
 - raise root-suite line coverage from 74.75% to 91.93% ([#1935](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1935))

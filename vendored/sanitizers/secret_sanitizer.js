@@ -18,7 +18,7 @@
  * Pipeline (7 stages, in order):
  *   1. Type guard (`content` is a string; `opts` is a plain object or undefined).
  *   2. 1 MiB size cap (short-circuits with `kind: 'input_too_large'`).
- *   3. Provider iteration (6 catalogue entries).
+ *   3. Provider iteration (10 catalogue entries).
  *   4. Host iteration (4 catalogue entries; url/host hits on
  *      PUBLIC_HOST_ALLOWLIST are exempt). The `ipv6_candidate` entry is
  *      the ONLY kind requiring post-regex validation: `node:net`'s `isIPv6()`

@@ -19,12 +19,32 @@
  * the truth question to `node:net`'s `isIPv6()`. See ADR-2 in the iter 3 plan.
  */
 
-// --- Provider regexes (6) ------------------------------------------------
+// --- Provider regexes (10) -----------------------------------------------
 
 const ANTHROPIC_RE = /(?<![A-Za-z0-9_-])sk-ant-[A-Za-z0-9_-]{20,200}(?![A-Za-z0-9_-])/g;
 const OPENAI_RE = /(?<![A-Za-z0-9_-])sk-proj-[A-Za-z0-9_-]{20,200}(?![A-Za-z0-9_-])/g;
 const GITHUB_CLASSIC_RE = /(?<![A-Za-z0-9_])ghp_[A-Za-z0-9]{36}(?![A-Za-z0-9_])/g;
 const GITHUB_FINE_GRAINED_RE = /(?<![A-Za-z0-9_])github_pat_[A-Za-z0-9_]{82}(?![A-Za-z0-9_])/g;
+// GitHub App / OAuth token family (audit roadmap #3a). GitHub issues these
+// with the `ghX_` prefix documented in its token-format docs: `gho_` OAuth
+// access token, `ghu_` GitHub-App user access token, `ghs_` installation
+// access token -- the `GITHUB_TOKEN` in Actions -- `ghr_` refresh token.
+// `gho_`, `ghu_`, and `ghr_` share the classic PAT's `ghX_` + 36-char base62
+// body shape. `ghs_` is dual-format: the legacy 36-char base62 body AND the
+// stateless `ghs_APPID_JWT` shape GitHub began rolling out on 2026-04-27 for
+// newly minted installation tokens (JWT = three base64url segments joined by
+// dots); GITHUB_APP_INSTALL_RE matches both via a bounded alternation. Before
+// this, only the classic `ghp_` and fine-grained `github_pat_` were
+// catalogued, so the OAuth token the `gh` CLI stores (`gho_`) and the Actions
+// `GITHUB_TOKEN` (`ghs_`) -- the two highest-probability real leaks for this
+// project -- escaped the provider catalogue and fell through to the entropy
+// fallback, whose hex ceiling (log2(16)=4.0 < 4.5) does not fire on base62
+// bodies of this length.
+const GITHUB_OAUTH_RE = /(?<![A-Za-z0-9_])gho_[A-Za-z0-9]{36}(?![A-Za-z0-9_])/g;
+const GITHUB_APP_USER_RE = /(?<![A-Za-z0-9_])ghu_[A-Za-z0-9]{36}(?![A-Za-z0-9_])/g;
+const GITHUB_APP_INSTALL_RE =
+  /(?<![A-Za-z0-9_])ghs_(?:[A-Za-z0-9]{36}|\d{1,12}_[A-Za-z0-9_-]{1,500}\.[A-Za-z0-9_-]{1,500}\.[A-Za-z0-9_-]{1,500})(?![A-Za-z0-9_])/g;
+const GITHUB_APP_REFRESH_RE = /(?<![A-Za-z0-9_])ghr_[A-Za-z0-9]{36}(?![A-Za-z0-9_])/g;
 const AWS_ACCESS_KEY_RE = /(?<![A-Z0-9])AKIA[0-9A-Z]{16}(?![0-9A-Z])/g;
 const TELEGRAM_BOT_TOKEN_RE = /(?<![A-Za-z0-9_-])\d{8,12}:[A-Za-z0-9_-]{30,40}(?![A-Za-z0-9_-])/g;
 
@@ -33,6 +53,10 @@ export const PROVIDER_REGEXES = Object.freeze([
   Object.freeze({ kind: 'openai_api_key', pattern: OPENAI_RE }),
   Object.freeze({ kind: 'github_classic_pat', pattern: GITHUB_CLASSIC_RE }),
   Object.freeze({ kind: 'github_fine_grained_pat', pattern: GITHUB_FINE_GRAINED_RE }),
+  Object.freeze({ kind: 'github_oauth_token', pattern: GITHUB_OAUTH_RE }),
+  Object.freeze({ kind: 'github_app_user_token', pattern: GITHUB_APP_USER_RE }),
+  Object.freeze({ kind: 'github_app_installation_token', pattern: GITHUB_APP_INSTALL_RE }),
+  Object.freeze({ kind: 'github_app_refresh_token', pattern: GITHUB_APP_REFRESH_RE }),
   Object.freeze({ kind: 'aws_access_key_id', pattern: AWS_ACCESS_KEY_RE }),
   Object.freeze({ kind: 'telegram_bot_token', pattern: TELEGRAM_BOT_TOKEN_RE }),
 ]);

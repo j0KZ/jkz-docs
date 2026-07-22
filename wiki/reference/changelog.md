@@ -16,6 +16,12 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 ### 2026-07
 
 #### Features
+- /jkz:map command for on-demand architecture graph ([#1984](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1984))
+- json, svg and obsidian exports for the architecture graph ([#1982](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1982))
+- [architecture-graph] cross-file symbol resolution and semantic edges ([#1983](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1983))
+- adopt ReasonBlocks-style structured pattern format and close the reasoning-trace loop ([#1972](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1972))
+- Louvain community detection (--cluster=louvain) ([#1978](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1978))
+- architecture graph MVP -- extractor, folder clustering, vis.js render ([#1968](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1968))
 - flag missing required adversarial endpoints in /jkz:health (B1) ([#1930](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1930))
 - surface silent better-sqlite3 native-dep failure (B3) ([#1926](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1926))
 - auto-regenerate stale plugin-env on session start (F1) ([#1925](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1925))
@@ -39,6 +45,10 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - add jkz-powers cross-platform lite plugin (+ label/gitignore hygiene) ([#1794](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1794))
 
 #### Fixes
+- parse full query-patterns stdout instead of last line ([#1989](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1989))
+- skip tags whose Release is already published ([#1988](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1988))
+- Four silent-degradation bugs in the review tooling (build-pr-diff pipe truncation, CR CLI --plain, cr-reconcile bot-login filter) ([#1977](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1977))
+- resolve npm audit vulnerabilities in root lockfile ([#1967](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1967))
 - remove dead cross-pipeline FTS advisory (#1937) ([#1947](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1947))
 - guard publishes composeAll's redacted body (audit roadmap #2) ([#1940](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1940))
 - reconcile max_tokens with thinking.budget_tokens in callLLM (audit Problem B) ([#1939](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1939))
@@ -84,12 +94,17 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - jkz hooks: resolve target to the real project, fail-loud guards (QW-6) ([#1799](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1799))
 
 #### Refactors
+- Entropy scan: 41 finding(s) -- 2026-07-20 ([#1973](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1973))
+- audit and remove dead/unreachable code in scripts/ and hooks/ ([#1970](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1970))
 - remove Gemini CLI backend, route validators to Ollama Cloud ([#1893](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1893))
 - replace eval with printf -v in _set helper (#1848) ([#1873](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1873))
 - Entropy scan: 61 finding(s) -- 2026-07-06 ([#1825](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1825))
 - jkz install zero host-git mutation by default, merge-gate opt-in (QW-8) ([#1802](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1802))
 
 #### Other
+- record the Leiden decision for the architecture graph (option C) ([#1991](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1991))
+- document the pattern-format env vars in .env.example ([#1986](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1986))
+- refresh README installation, fix license/role-count drift, cut v1.1.0 ([#1975](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1975))
 - expand coverage for Batch A/B decision + context modules ([#1950](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1950))
 - triage residual Gemini routing refs in commands and round-robin skill ([#1946](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1946))
 - remove deprecated Gemini validator refs in create-agent and model-debate-plan ([#1945](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1945))

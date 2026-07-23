@@ -16,6 +16,16 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 ### 2026-07
 
 #### Features
+- auto-capture builder/doctor subagent reports for the reasoning-trace learner ([#2028](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2028))
+- [architecture-graph] Louvain Q is reported without connectivity context, so 0.98 on a 754-component graph reads as clean modularity ([#2025](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2025))
+- activate structured pattern format at constructive call sites ([#2027](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2027))
+- Standardize the human-facing report: Markdown footer links + one report skeleton ([#2014](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2014))
+- [architecture-graph] shell coupling is invisible: .sh files couple by process invocation, not by source ([#2011](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2011))
+- [architecture-graph] intra-file calls produce no edges, so ~79% of function nodes hang off their file by a single thread ([#2007](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2007))
+- [architecture-graph] node labels are unreadable: full paths on file nodes, ambiguous bare names on symbols ([#2010](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2010))
+- Resolve workspace aliases (tsconfig paths, npm workspaces) in the architecture graph ([#1993](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1993))
+- issue-scoped architecture impact subgraph ([#1987](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1987))
+- [architecture-graph] extractJs misses default export expressions ([#1990](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1990))
 - /jkz:map command for on-demand architecture graph ([#1984](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1984))
 - json, svg and obsidian exports for the architecture graph ([#1982](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1982))
 - [architecture-graph] cross-file symbol resolution and semantic edges ([#1983](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1983))
@@ -45,6 +55,19 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - add jkz-powers cross-platform lite plugin (+ label/gitignore hygiene) ([#1794](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1794))
 
 #### Fixes
+- disclose viz truncation on the stdout counts line ([#2022](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2022))
+- honor JKZ_TARGET_PROJECT in issue-worktree.js and new-chat.js ([#2024](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2024))
+- make the reasoning-trace learner hooks self-contained ([#2026](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2026))
+- make the CR pre-flight gate bot-agnostic ([#2019](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2019))
+- correlate pipeline state with the current branch and surface the artifact ([#2017](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2017))
+- clear fast-uri advisories in both trees and fix the monitor duplicate guard (#2003, #2004) ([#2015](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2015))
+- validate-phase.sh: IS_QUICK silently false when pipeline state missing ([#2006](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2006))
+- [jkz:map] scope slug collapses distinct directories into one name ([#2013](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2013))
+- [architecture-graph] a scoped /jkz:map run overwrites the canonical architecture.json export ([#2005](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2005))
+- refuse merge when CI is not green in merge-on-approve.yml ([#2009](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2009))
+- prune _refs and REFS before descending ([#2002](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2002))
+- QA abstain-redispatch race, worktree state-dir self-reference, unscoped ls -t fallbacks ([#1985](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1985))
+- catalogue GitHub App/OAuth token family (audit roadmap #3a) ([#1942](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1942))
 - parse full query-patterns stdout instead of last line ([#1989](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1989))
 - skip tags whose Release is already published ([#1988](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1988))
 - Four silent-degradation bugs in the review tooling (build-pr-diff pipe truncation, CR CLI --plain, cr-reconcile bot-login filter) ([#1977](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1977))
@@ -94,6 +117,8 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - jkz hooks: resolve target to the real project, fail-loud guards (QW-6) ([#1799](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1799))
 
 #### Refactors
+- [architecture-graph] split the test suite by area so parallel PRs stop conflicting on one tail hunk ([#2018](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2018))
+- [architecture-graph] Louvain: allow a node to move back into a singleton community ([#1992](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1992))
 - Entropy scan: 41 finding(s) -- 2026-07-20 ([#1973](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1973))
 - audit and remove dead/unreachable code in scripts/ and hooks/ ([#1970](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1970))
 - remove Gemini CLI backend, route validators to Ollama Cloud ([#1893](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1893))
@@ -102,6 +127,8 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - jkz install zero host-git mutation by default, merge-gate opt-in (QW-8) ([#1802](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1802))
 
 #### Other
+- pin JKZ_ARCH_MAX_NODES so ambient values stop reddening the suite ([#2030](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2030))
+- Add setup.sh: one-command bootstrap for a blank machine ([#2029](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2029))
 - record the Leiden decision for the architecture graph (option C) ([#1991](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1991))
 - document the pattern-format env vars in .env.example ([#1986](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1986))
 - refresh README installation, fix license/role-count drift, cut v1.1.0 ([#1975](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1975))

@@ -16,6 +16,12 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 ### 2026-07
 
 #### Features
+- Widen Judge review context: -U20 diff + removed-symbol sweep annex ([#2098](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2098))
+- configurable env-var prefix list for symbol-sweep plugin-mode targets ([#2093](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2093))
+- Encode Qodo compliance rules as deterministic pre-push linters ([#2085](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2085))
+- Pre-push removed-symbol sweep: catch docs/code drift before the PR ([#2086](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2086))
+- Automated final sweep of open review threads before requesting merge ([#2084](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2084))
+- bound the DIFF_STAT header and move pr_diff off argv in the QA launch write ([#2073](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2073))
 - auto-capture builder/doctor subagent reports for the reasoning-trace learner ([#2028](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2028))
 - [architecture-graph] Louvain Q is reported without connectivity context, so 0.98 on a 754-component graph reads as clean modularity ([#2025](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2025))
 - activate structured pattern format at constructive call sites ([#2027](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2027))
@@ -55,6 +61,24 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - add jkz-powers cross-platform lite plugin (+ label/gitignore hygiene) ([#1794](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1794))
 
 #### Fixes
+- plan-digest: cache gate does not observe checkpoint_architect_plan repointing ([#2100](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2100))
+- blocked issues never auto-unblock (lock deadlock + two dead sweep channels) ([#2099](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2099))
+- npm test is not hermetic: 23 failures across 9 suites when JKZ_HOME/JKZ_TARGET_PROJECT/JKZ_STATE_DIR are exported ([#2097](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2097))
+- read Lens/Sentinel verdicts via read-verdict.js ([#2094](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2094))
+- Pattern B lib scripts word-split their command-string bins on paths with spaces or globs ([#2087](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2087))
+- fail loud on an omitted Architect Plan + input-mtime cache invalidation ([#2079](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2079))
+- Config resolution: out-of-scope findings from PR #2068 ([#2078](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2078))
+- land the cross-link on every PR via a single artifact-crosslink.sh call ([#2064](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2064))
+- health-check.sh does not load the .env cascade: backends invisible to direct callers, notification check always disabled ([#2068](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2068))
+- add env bootstrap to commands that lack it (plugin mode) ([#2060](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2060))
+- memory-store DB path ignores JKZ_STATE_DIR; add observability for silent learner no_capture skips ([#2065](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2065))
+- exempt reasoning-trace patterns from the 180-day retention prune ([#2059](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2059))
+- research-reviewer must not inherit the code-model validator default ([#2058](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2058))
+- Fix session-agent state-dir split that drops all Builder/Doctor reasoning-trace captures ([#2062](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2062))
+- Raise Lens QA diff budget from 12K to Sentinel's 60K ([#2050](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2050))
+- quick.md Judge prompt: quoted heredoc drops PR diff and plan from the review prompt ([#2051](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2051))
+- replace the yahoo-finance MCP transport for Stage 0 price history ([#2039](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2039))
+- make all 5 research types work end-to-end ([#2038](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2038))
 - disclose viz truncation on the stdout counts line ([#2022](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2022))
 - honor JKZ_TARGET_PROJECT in issue-worktree.js and new-chat.js ([#2024](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2024))
 - make the reasoning-trace learner hooks self-contained ([#2026](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2026))
@@ -117,6 +141,12 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - jkz hooks: resolve target to the real project, fail-loud guards (QW-6) ([#1799](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1799))
 
 #### Refactors
+- Source compliance linter rule set per target (plugin-mode portability) ([#2095](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2095))
+- extract abstain-classification machinery to classify-role-outcome.sh ([#2075](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2075))
+- CR bot (Qodo): out-of-scope findings from PR #2067 ([#2077](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2077))
+- Retention prune: support schema-conditional exemption clauses in state-cleanup.js ([#2067](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2067))
+- Reactivate lint-paths.sh as a docs-validation gate (fix 3 defects + 7 bare paths) ([#2061](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2061))
+- dedupe duplicated prompt appends and unclamp Haiku pre-filter diff ([#2052](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2052))
 - [architecture-graph] split the test suite by area so parallel PRs stop conflicting on one tail hunk ([#2018](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2018))
 - [architecture-graph] Louvain: allow a node to move back into a singleton community ([#1992](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1992))
 - Entropy scan: 41 finding(s) -- 2026-07-20 ([#1973](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1973))
@@ -127,6 +157,16 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - jkz install zero host-git mutation by default, merge-gate opt-in (QW-8) ([#1802](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1802))
 
 #### Other
+- add pricing entries for claude-fable-5 and claude-opus-4-8 ([#2096](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2096))
+- seed learned-patterns.md with recurring bot-finding classes + injection canary (#2072) ([#2074](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2074))
+- Investigate: pattern store nearly empty (1 pattern) despite live reasoning-trace loop ([#2053](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2053))
+- drop windows-latest from install-harness matrix ([#2049](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2049))
+- merge the three docs validators into one job and add path filters ([#2037](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2037))
+- make agent label descriptions model-agnostic ([#2034](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2034))
+- use version-agnostic model alias in creative agent frontmatter ([#2035](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2035))
+- document setup.sh as the blank-machine install path ([#2033](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2033))
+- restore ADR-016, the UI surfaces audit and the 2026-06-09 audit record ([#2032](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2032))
+- drop gemini and codex from CLI freshness tracking ([#2031](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2031))
 - pin JKZ_ARCH_MAX_NODES so ambient values stop reddening the suite ([#2030](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2030))
 - Add setup.sh: one-command bootstrap for a blank machine ([#2029](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2029))
 - record the Leiden decision for the architecture graph (option C) ([#1991](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1991))

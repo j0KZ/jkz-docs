@@ -16,6 +16,8 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 ### 2026-07
 
 #### Features
+- generic coupling linter — catch doc/comment drift before the bots do ([#2122](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2122))
+- Backfill embeddings for deliberations and knowledge_base ([#2118](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2118))
 - Widen Judge review context: -U20 diff + removed-symbol sweep annex ([#2098](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2098))
 - configurable env-var prefix list for symbol-sweep plugin-mode targets ([#2093](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2093))
 - Encode Qodo compliance rules as deterministic pre-push linters ([#2085](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2085))
@@ -61,6 +63,13 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - add jkz-powers cross-platform lite plugin (+ label/gitignore hygiene) ([#1794](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1794))
 
 #### Fixes
+- count only substantive files in the sub-issue split gate ([#2125](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2125))
+- Fix silent-failure bugs in the embeddings path (local Ollama) ([#2114](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2114))
+- verify release assets and honor the version pin on .git-less jkz update ([#2121](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2121))
+- alert on transitions, fix the liveness false positive, cut AskUserQuestion noise ([#2117](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2117))
+- write the release tag to .jkz-version, never package.json.version ([#2104](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2104))
+- drain stdin in learning-extract mock shims; surface silent classification failures ([#2103](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2103))
+- every PR should carry a companion artifact; a missing one must be observable ([#2102](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2102))
 - plan-digest: cache gate does not observe checkpoint_architect_plan repointing ([#2100](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2100))
 - blocked issues never auto-unblock (lock deadlock + two dead sweep channels) ([#2099](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2099))
 - npm test is not hermetic: 23 failures across 9 suites when JKZ_HOME/JKZ_TARGET_PROJECT/JKZ_STATE_DIR are exported ([#2097](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2097))
@@ -157,6 +166,10 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - jkz install zero host-git mutation by default, merge-gate opt-in (QW-8) ([#1802](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1802))
 
 #### Other
+- options purchase decision framework spec (debit structures, v1) ([#2138](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2138))
+- pin the architecture-graph subsystem's untested invariants ([#2120](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2120))
+- Teach the review bots our conventions via repo config ([#2111](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2111))
+- Extend dev-self-review with the measured escaped-defect taxonomy ([#2110](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2110))
 - add pricing entries for claude-fable-5 and claude-opus-4-8 ([#2096](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2096))
 - seed learned-patterns.md with recurring bot-finding classes + injection canary (#2072) ([#2074](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2074))
 - Investigate: pattern store nearly empty (1 pattern) despite live reasoning-trace loop ([#2053](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2053))

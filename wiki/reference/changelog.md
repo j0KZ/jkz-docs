@@ -16,6 +16,11 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 ### 2026-07
 
 #### Features
+- provision Ollama embeddings and verify what the installer installs ([#2155](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2155))
+- payoff + expected-value calculator for the four v1 option structures ([#2150](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2150))
+- options research template (W7) ([#2151](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2151))
+- Realized volatility helper (20/60/120d) over daily closes ([#2139](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2139))
+- options-chain.js: fetch live option chains from Yahoo (cookie/crumb handshake) ([#2140](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2140))
 - generic coupling linter — catch doc/comment drift before the bots do ([#2122](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2122))
 - Backfill embeddings for deliberations and knowledge_base ([#2118](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2118))
 - Widen Judge review context: -U20 diff + removed-symbol sweep annex ([#2098](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2098))
@@ -63,6 +68,12 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - add jkz-powers cross-platform lite plugin (+ label/gitignore hygiene) ([#1794](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1794))
 
 #### Fixes
+- Fixed-name /tmp/jkz-prompt.txt races between concurrent background wrapper launches ([#2161](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2161))
+- Wrapper hygiene: strip reasoning blocks and preserve failed inputs ([#2159](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2159))
+- correct model pricing table and surface cache tokens in the cost report ([#2158](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2158))
+- anchor relative deliberation_file to the producer's base, not the CWD ([#2157](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2157))
+- resolve the real session id instead of an empty CLAUDE_SESSION_ID ([#2143](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2143))
+- Slash-command arg substitution breaks bash functions using $1 ([#2141](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2141))
 - count only substantive files in the sub-issue split gate ([#2125](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2125))
 - Fix silent-failure bugs in the embeddings path (local Ollama) ([#2114](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2114))
 - verify release assets and honor the version pin on .git-less jkz update ([#2121](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2121))
@@ -166,6 +177,10 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - jkz install zero host-git mutation by default, merge-gate opt-in (QW-8) ([#1802](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1802))
 
 #### Other
+- bump the minor-and-patch group with 5 updates ([#2153](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2153))
+- bump @hono/node-server in /mcp in the minor-and-patch group ([#2152](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2152))
+- Add plan-digest contract lint: caller/callee flag closure + kill-switch branch closure ([#2160](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2160))
+- CI supply-chain hardening: pin all GitHub Actions by SHA, drop dependency lifecycle scripts ([#2142](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2142))
 - options purchase decision framework spec (debit structures, v1) ([#2138](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2138))
 - pin the architecture-graph subsystem's untested invariants ([#2120](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2120))
 - Teach the review bots our conventions via repo config ([#2111](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2111))

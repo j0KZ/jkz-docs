@@ -16,6 +16,11 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 ### 2026-07
 
 #### Features
+- run the disabled CI checks in a pre-push hook ([#2183](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2183))
+- greeks via Black-Scholes from chain IV + injected risk-free rate ([#2170](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2170))
+- Daily option-chain snapshotting to accumulate IV history (start early) ([#2169](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2169))
+- feed verified repository evidence to the adversarial plan roles ([#2164](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2164))
+- candidate sweep with expiry filter, strike enumeration, liquidity gate and EV ranking ([#2171](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2171))
 - provision Ollama embeddings and verify what the installer installs ([#2155](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2155))
 - payoff + expected-value calculator for the four v1 option structures ([#2150](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2150))
 - options research template (W7) ([#2151](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2151))
@@ -68,6 +73,14 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - add jkz-powers cross-platform lite plugin (+ label/gitignore hygiene) ([#1794](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1794))
 
 #### Fixes
+- bind GraphQL variables with -F k=v, not the httpie ':=' form ([#2182](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2182))
+- isFlagLike misreports -Infinity as a flag and binds -N as a string value ([#2179](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2179))
+- use $JKZ_STATE_DIR in the plan-digest exit-3 warning ([#2126](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2126))
+- use $JKZ_STATE_DIR in incomplete-digest warning path ([#2178](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2178))
+- parseArgs in options-chain.js and realized-vol.js silently skips unknown arguments ([#2176](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2176))
+- add scripts/prompts/** to positive-guidance path scope ([#2175](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2175))
+- verify the release tarball before extracting it ([#2145](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2145))
+- write cache entries on current/unavailable branches ([#2168](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2168))
 - Fixed-name /tmp/jkz-prompt.txt races between concurrent background wrapper launches ([#2161](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2161))
 - Wrapper hygiene: strip reasoning blocks and preserve failed inputs ([#2159](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2159))
 - correct model pricing table and surface cache tokens in the cost report ([#2158](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2158))
@@ -161,6 +174,7 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - jkz hooks: resolve target to the real project, fail-loud guards (QW-6) ([#1799](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1799))
 
 #### Refactors
+- align the Auditor and Curator prompts with their runtime capabilities ([#2162](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2162))
 - Source compliance linter rule set per target (plugin-mode portability) ([#2095](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2095))
 - extract abstain-classification machinery to classify-role-outcome.sh ([#2075](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2075))
 - CR bot (Qodo): out-of-scope findings from PR #2067 ([#2077](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2077))
@@ -177,6 +191,14 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - jkz install zero host-git mutation by default, merge-gate opt-in (QW-8) ([#1802](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1802))
 
 #### Other
+- add retention guardrails to memory-review ([#2184](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2184))
+- cut test.yml from five billed jobs to two, and add a local CI runner ([#2180](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2180))
+- prepare v1.2.0 -- CHANGELOG section + CLI version bump ([#2119](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2119))
+- bump better-sqlite3 from 12.11.1 to 13.0.1 ([#2154](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2154))
+- slim CLAUDE.md by moving operational blocks to scoped rules ([#2172](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2172))
+- path-scope positive-guidance.md and dedup its abstract sections ([#2173](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2173))
+- raise the Node floor to 22 across the repo, install path and CI ([#2165](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2165))
+- Quota mitigations: path-scope conventions.md rules + cap creative-role effort at high ([#2166](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2166))
 - bump the minor-and-patch group with 5 updates ([#2153](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2153))
 - bump @hono/node-server in /mcp in the minor-and-patch group ([#2152](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2152))
 - Add plan-digest contract lint: caller/callee flag closure + kill-switch branch closure ([#2160](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2160))

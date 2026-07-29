@@ -190,6 +190,10 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - Entropy scan: 61 finding(s) -- 2026-07-06 ([#1825](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1825))
 - jkz install zero host-git mutation by default, merge-gate opt-in (QW-8) ([#1802](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1802))
 
+#### Performance
+- trim the always-on instruction block by 34% (~2.7K tokens/turn) ([#2194](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2194))
+- cut ~22.7K tokens of per-turn base context (prune context.md, scope conventions.md) ([#2188](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2188))
+
 #### Other
 - add retention guardrails to memory-review ([#2184](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2184))
 - cut test.yml from five billed jobs to two, and add a local CI runner ([#2180](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2180))

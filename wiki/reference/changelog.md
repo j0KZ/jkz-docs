@@ -195,6 +195,7 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - cut ~22.7K tokens of per-turn base context (prune context.md, scope conventions.md) ([#2188](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2188))
 
 #### Other
+- document full-pipeline Ollama Cloud role backends in env template ([#2197](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2197))
 - add retention guardrails to memory-review ([#2184](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2184))
 - cut test.yml from five billed jobs to two, and add a local CI runner ([#2180](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2180))
 - prepare v1.2.0 -- CHANGELOG section + CLI version bump ([#2119](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2119))

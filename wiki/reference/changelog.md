@@ -16,6 +16,8 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 ### 2026-07
 
 #### Features
+- historical IV backfill -- constant-maturity ATM series via Black-Scholes inversion ([#2198](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2198))
+- gate engine — nine-block cascade with configurable thresholds and visible intermediates ([#2181](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2181))
 - run the disabled CI checks in a pre-push hook ([#2183](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2183))
 - greeks via Black-Scholes from chain IV + injected risk-free rate ([#2170](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2170))
 - Daily option-chain snapshotting to accumulate IV history (start early) ([#2169](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2169))
@@ -73,6 +75,7 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - add jkz-powers cross-platform lite plugin (+ label/gitignore hygiene) ([#1794](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1794))
 
 #### Fixes
+- make direct-runner cron jobs visible to the daily digest ([#2208](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2208))
 - bind GraphQL variables with -F k=v, not the httpie ':=' form ([#2182](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2182))
 - isFlagLike misreports -Infinity as a flag and binds -N as a string value ([#2179](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2179))
 - use $JKZ_STATE_DIR in the plan-digest exit-3 warning ([#2126](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2126))
@@ -174,6 +177,7 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - jkz hooks: resolve target to the real project, fail-loud guards (QW-6) ([#1799](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1799))
 
 #### Refactors
+- mcp-invoke: negotiate protocol era instead of hardcoding the 2024-11-05 initialize handshake ([#2202](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2202))
 - align the Auditor and Curator prompts with their runtime capabilities ([#2162](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2162))
 - Source compliance linter rule set per target (plugin-mode portability) ([#2095](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2095))
 - extract abstain-classification machinery to classify-role-outcome.sh ([#2075](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2075))
@@ -195,6 +199,9 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - cut ~22.7K tokens of per-turn base context (prune context.md, scope conventions.md) ([#2188](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2188))
 
 #### Other
+- Warn about measured pipeline cost when an explicit route overrides a low complexity label ([#2199](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2199))
+- open the plan checkpoint with a plain-language TL;DR ([#2205](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2205))
+- Wire validators/run.js into pre-push so compliance sub-linters run outside the pipeline ([#2201](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2201))
 - document full-pipeline Ollama Cloud role backends in env template ([#2197](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2197))
 - add retention guardrails to memory-review ([#2184](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2184))
 - cut test.yml from five billed jobs to two, and add a local CI runner ([#2180](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2180))

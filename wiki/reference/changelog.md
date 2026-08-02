@@ -13,6 +13,52 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 <a id="full-history"></a>
 ## Full history
 
+### 2026-08
+
+#### Features
+- add [atomic-write] sub-linter flagging hand-rolled tmp+rename that bypasses scripts/atomic-write.js ([#2207](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2207))
+- ship /jkz:options as a separate command, merge-gated on Stage 1 calibration ([#2213](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2213))
+
+#### Fixes
+- surface plan-slot truncation instead of hiding it ([#2269](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2269))
+- options-calibration: calibration record bypasses the engine's semantic threshold validation ([#2266](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2266))
+- /jkz:options command file: dead meta.no_candidate_cleared branch + TOCTOU in ownership cleanup ([#2264](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2264))
+- impossible calendar dates pass the seven-input gate ([#2267](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2267))
+- decomposed parents never auto-closed -- durable gate + a trigger that can satisfy it ([#2259](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2259))
+- stop npm test's kill switch from suppressing the discord-auth source-guard probe ([#2260](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2260))
+- auto-revert.yml loses a push race, silently leaving an unauthorized merge on main ([#2253](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2253))
+- resolve the eight valid Qodo findings from PR #2236 ([#2248](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2248))
+- patch brace-expansion and tar advisories flagged by npm-audit-root ([#2255](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2255))
+- options-decide: seven-input gate row 2 misses the probability upper bound and the sum-to-1.00 check ([#2252](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2252))
+- scope the shell-function rule to shell-like paths ([#2247](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2247))
+- re-land PR #2213 after auto-revert (options framework, #2137) ([#2238](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2238))
+- widen the error-indicator guard in coderabbit-wrapper.sh ([#2224](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2224))
+- Four pipeline routes never register in the chat registry, and /jkz:quit's mtime fallback silently reports another chat's PR as the session's own ([#2222](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2222))
+- fold --worktree into the run.js cache key ([#2221](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2221))
+- Discord bot token is passed on the process command line at 15 sites, exposing it via /proc and ps ([#2220](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2220))
+
+#### Refactors
+- compliance sub-linter suppressions are invisible to skipped[] (235 of 248 unreported) ([#2250](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2250))
+- gate validator rules and compliance sub-linters on a declared execution mode ([#2215](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2215))
+
+#### Other
+- options-decide: record why the exit-4 gate table is report output, not a diagnostic ([#2263](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2263))
+- options-decide CLI hygiene: --topic containment check and a --help example (both lintable) ([#2262](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2262))
+- Curator input contract: it never receives the issue, and the digest drops the Auditor's quoted spans ([#2254](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2254))
+- Fix the repo-wide orphan-test check so it accepts .sh sources and split-suite stems ([#2251](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2251))
+- fix: Four pipeline routes never register in the chat registry, and /jkz:quit's mtime fallback silently reports another chat's PR as the session's own ([#2239](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2239))
+- fix: Discord bot token is passed on the process command line at 15 sites, exposing it via /proc and ps ([#2234](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2234))
+- fix: widen the error-indicator guard in coderabbit-wrapper.sh ([#2237](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2237))
+- Reapply "fix(validators): fold --worktree into the run.js cache key (#2221)" ([#2240](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2240))
+- Reapply "chore: document the two push-gate kill-switches in .env.example (#2219)" ([#2235](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2235))
+- Revert "fix: widen the error-indicator guard in coderabbit-wrapper.sh (#2224)"
+- Revert "feat(options): ship /jkz:options as a separate command, merge-gated on Stage 1 calibration (#2213)"
+- Revert "fix: Four pipeline routes never register in the chat registry, and /jkz:quit's mtime fallback silently reports another chat's PR as the session's own (#2222)"
+- Revert "fix(validators): fold --worktree into the run.js cache key (#2221)"
+- Revert "chore: document the two push-gate kill-switches in .env.example (#2219)"
+- document the two push-gate kill-switches in .env.example ([#2219](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2219))
+- Revert "fix: Discord bot token is passed on the process command line at 15 sites, exposing it via /proc and ps (#2220)"
+
 ### 2026-07
 
 #### Features

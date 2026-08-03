@@ -16,10 +16,16 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 ### 2026-08
 
 #### Features
+- /jkz:trivial -- a formal route for complexity:trivial issues ([#2271](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2271))
+- Fix two structural false positives in plan-digest-lint.js ([#2265](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2265))
 - add [atomic-write] sub-linter flagging hand-rolled tmp+rename that bypasses scripts/atomic-write.js ([#2207](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2207))
 - ship /jkz:options as a separate command, merge-gated on Stage 1 calibration ([#2213](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2213))
 
 #### Fixes
+- QA compliance skill and SBOM warning are computed then discarded ([#2200](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2200))
+- plan-digest-lint: entry-scoped prohibition vocabulary drops a co-located introduced kill-switch ([#2273](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2273))
+- close the five gaps the #2185 ambiguity scan raised after PR #2208 merged ([#2214](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2214))
+- /jkz:options step 1 does not verify the brief declares Type: derivative ([#2270](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2270))
 - surface plan-slot truncation instead of hiding it ([#2269](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2269))
 - options-calibration: calibration record bypasses the engine's semantic threshold validation ([#2266](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2266))
 - /jkz:options command file: dead meta.no_candidate_cleared branch + TOCTOU in ownership cleanup ([#2264](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2264))
@@ -38,10 +44,20 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - Discord bot token is passed on the process command line at 15 sites, exposing it via /proc and ps ([#2220](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2220))
 
 #### Refactors
+- migrate to MCP SDK v2 and the stateless 2026-07-28 revision ([#2210](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2210))
+- Guarantee deterministic tools/list ordering in the jkz-pipeline MCP server ([#2275](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2275))
 - compliance sub-linter suppressions are invisible to skipped[] (235 of 248 unreported) ([#2250](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2250))
 - gate validator rules and compliance sub-linters on a declared execution mode ([#2215](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2215))
 
 #### Other
+- ADR-025 states three stale facts and http-server onerror drops non-Error diagnostics (PR #2210 follow-up) ([#2279](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2279))
+- document the dedicated Google Drive OAuth client and its rotation procedure ([#2206](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2206))
+- CodeRabbit: out-of-scope findings from PR #2275 ([#2277](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2277))
+- bump DavidAnson/markdownlint-cli2-action ([#2227](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2227))
+- bump actions/setup-node from 6.5.0 to 7.0.0 ([#2226](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2226))
+- bump the minor-and-patch group in /mcp with 3 updates ([#2258](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2258))
+- bump the minor-and-patch group with 2 updates ([#2257](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2257))
+- bump trufflesecurity/trufflehog ([#2225](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2225))
 - options-decide: record why the exit-4 gate table is report output, not a diagnostic ([#2263](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2263))
 - options-decide CLI hygiene: --topic containment check and a --help example (both lintable) ([#2262](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2262))
 - Curator input contract: it never receives the issue, and the digest drops the Auditor's quoted spans ([#2254](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2254))

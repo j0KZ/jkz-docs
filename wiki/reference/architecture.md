@@ -16,7 +16,7 @@ title: Architecture
 
 ```mermaid
 graph LR
-  n0["scripts/ (619 files)"]
+  n0["scripts/ (618 files)"]
 ```
 
 Operational and pipeline scripts.
@@ -34,7 +34,7 @@ Agent system prompts and configuration.
 
 ```mermaid
 graph LR
-  n0[".claude/skills/ (38 files)"]
+  n0[".claude/skills/ (37 files)"]
 ```
 
 Reusable Claude Code skill definitions.
@@ -68,6 +68,7 @@ graph LR
   n0 --> n2
   n0 --> n3
   n0 --> n4
+  n0 --> n5
   n0 --> n6
   n0 --> n7
   n0 --> n9
@@ -81,10 +82,12 @@ graph LR
   n4 --> n9
   n7 --> n1
   n7 --> n4
+  n7 --> n5
   n7 --> n6
   n7 --> n10
   n7 --> n12
   n11 --> n4
+  n11 --> n5
   n11 --> n12
   n12 --> n1
   n12 --> n5

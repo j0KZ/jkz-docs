@@ -16,12 +16,21 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 ### 2026-08
 
 #### Features
+- Add a line-scoped suppression marker to dry-check for documented duplications ([#2317](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2317))
 - /jkz:trivial -- a formal route for complexity:trivial issues ([#2271](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2271))
 - Fix two structural false positives in plan-digest-lint.js ([#2265](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2265))
 - add [atomic-write] sub-linter flagging hand-rolled tmp+rename that bypasses scripts/atomic-write.js ([#2207](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2207))
 - ship /jkz:options as a separate command, merge-gated on Stage 1 calibration ([#2213](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2213))
 
 #### Fixes
+- dispatch review-comment category/severity extraction per bot format ([#2322](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2322))
+- make the terminal the decision surface at every human checkpoint ([#2327](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2327))
+- match the directory itself in '**/<dir>/**' allowPaths globs ([#2328](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2328))
+- scanRegexLiteral: boolean class tracking truncates v-flag nested classes containing a slash ([#2326](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2326))
+- Pre-push gate: timeout contradiction, health blind spot, and unswept reports ([#2298](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2298))
+- npm test is red on main: #2232 rename orphaned review-integration.test.js ([#2320](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2320))
+- codebase-context reads the deliberation raw, starving the Auditor and Curator ([#2319](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2319))
+- make the plugin actually load in a foreign target ([#2301](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2301))
 - QA compliance skill and SBOM warning are computed then discarded ([#2200](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2200))
 - plan-digest-lint: entry-scoped prohibition vocabulary drops a co-located introduced kill-switch ([#2273](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2273))
 - close the five gaps the #2185 ambiguity scan raised after PR #2208 merged ([#2214](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2214))
@@ -44,12 +53,18 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - Discord bot token is passed on the process command line at 15 sites, exposing it via /proc and ps ([#2220](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2220))
 
 #### Refactors
+- Extract a shared atomicWriteFile helper in skills/wiki-generator/src/ ([#2316](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2316))
+- resolve 17 entropy-scan findings and the extractor bugs behind 9 of them ([#2291](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2291))
 - migrate to MCP SDK v2 and the stateless 2026-07-28 revision ([#2210](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2210))
 - Guarantee deterministic tools/list ordering in the jkz-pipeline MCP server ([#2275](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2275))
 - compliance sub-linter suppressions are invisible to skipped[] (235 of 248 unreported) ([#2250](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2250))
 - gate validator rules and compliance sub-linters on a declared execution mode ([#2215](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2215))
 
 #### Other
+- Translate the two remaining Spanish documents under docs/planning-audits/ and docs/plans/ ([#2318](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2318))
+- Remove MiniMax backend support from versioned code (keep historical plan snapshots) ([#2321](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2321))
+- Replace CodeRabbit with PR-Agent as a local pre-push review gate ([#2232](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2232))
+- Drop the retired CodeRabbit plugin from toggle-plugins profiles ([#2281](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2281))
 - ADR-025 states three stale facts and http-server onerror drops non-Error diagnostics (PR #2210 follow-up) ([#2279](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2279))
 - document the dedicated Google Drive OAuth client and its rotation procedure ([#2206](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2206))
 - CodeRabbit: out-of-scope findings from PR #2275 ([#2277](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2277))

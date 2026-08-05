@@ -16,6 +16,9 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 ### 2026-08
 
 #### Features
+- Spike -- validate Hermes as the jkz voice companion via the existing MCP ([#2329](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2329))
+- persist and expose pre-push scanner findings so downstream roles stop re-judging them ([#2324](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2324))
+- provider-agnostic TTS text normalization layer for the voice agent ([#2340](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2340))
 - Add a line-scoped suppression marker to dry-check for documented duplications ([#2317](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2317))
 - /jkz:trivial -- a formal route for complexity:trivial issues ([#2271](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2271))
 - Fix two structural false positives in plan-digest-lint.js ([#2265](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2265))
@@ -23,6 +26,11 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - ship /jkz:options as a separate command, merge-gated on Stage 1 calibration ([#2213](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2213))
 
 #### Fixes
+- WebSocket handshake logs the Origin header but never validates it (CSW ([#2358](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2358))
+- repair test-coverage resolution and close the one real gap (integrations/hermes/patches) ([#2331](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2331))
+- reviewers were reading a diff with the code cut out of it ([#2338](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2338))
+- make the plugin expose its agents, and stop citing artifacts by paths that only resolve in this repo ([#2330](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2330))
+- pin the entropy-scan rule engine to the scanned tree, and budget the learning-extract Haiku call ([#2333](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2333))
 - dispatch review-comment category/severity extraction per bot format ([#2322](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2322))
 - make the terminal the decision surface at every human checkpoint ([#2327](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2327))
 - match the directory itself in '**/<dir>/**' allowPaths globs ([#2328](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2328))
@@ -61,6 +69,8 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - gate validator rules and compliance sub-linters on a declared execution mode ([#2215](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2215))
 
 #### Other
+- mark the superseded Voice Agent sections ([#2356](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2356))
+- reconcile every ROADMAP phase status against the tree ([#2357](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2357))
 - Translate the two remaining Spanish documents under docs/planning-audits/ and docs/plans/ ([#2318](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2318))
 - Remove MiniMax backend support from versioned code (keep historical plan snapshots) ([#2321](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2321))
 - Replace CodeRabbit with PR-Agent as a local pre-push review gate ([#2232](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2232))

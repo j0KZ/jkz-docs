@@ -45,4 +45,6 @@ The mechanics, for LLMs and engineers who want the full picture.
 - [Architecture](/reference/architecture/) — phase boundaries, roles, model routing.
 - [API reference](/api-reference/) — auto-generated module exports and signatures.
 - [Design decisions](/reference/design-decisions/) — the ADRs and trade-offs.
+- [llms.txt](/llms.txt) — this site as a plain-text index, for agents.
+- [llms-full.txt](/llms-full.txt) — every page concatenated, one document.
 :::

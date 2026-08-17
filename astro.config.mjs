@@ -238,6 +238,12 @@ export default defineConfig({
             { slug: 'reference/skills' },
             { slug: 'reference/changelog' },
             { slug: 'reference/design-decisions' },
+            // Plain-text mirrors emitted by the llmsTxt() integration below.
+            // They are build artifacts, not wiki pages, so they carry no slug
+            // and are linked by path -- from every page, so an agent that lands
+            // anywhere on the site can find the whole corpus in one fetch.
+            { label: 'llms.txt', link: '/llms.txt', attrs: { target: '_blank' } },
+            { label: 'llms-full.txt', link: '/llms-full.txt', attrs: { target: '_blank' } },
             {
               label: 'API',
               collapsed: true,

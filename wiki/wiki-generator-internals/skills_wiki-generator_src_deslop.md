@@ -17,6 +17,7 @@ _None._
 | Name | Kind | Default |
 | --- | --- | --- |
 | `DESLOP_RULES` | variable | no |
+| `FRONTMATTER_FENCE` | variable | no |
 | `composeDeslop` | function | no |
 | `deslopWithLLM` | function | no |
 | `limitEmDashesPerParagraph` | function | no |
@@ -33,6 +34,20 @@ _None._
 
 ```text
 DESLOP_RULES
+```
+
+#### Params
+
+_None._
+
+#### Returns
+
+_None._
+
+### `FRONTMATTER_FENCE`
+
+```text
+FRONTMATTER_FENCE
 ```
 
 #### Params

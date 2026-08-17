@@ -256,7 +256,7 @@ async runDriftCheck({ githubClient, logger, orchestrator, dryRun }): Promise<obj
 
 Run the drift check end to end. When drift is detected (and not a dry run),
 publishes the changed pages to a fresh branch and opens a **draft** PR for
-owner sign-off. NEVER merges, never auto-merges — the human signs the diff.
+owner sign-off. NEVER merges, never auto-merges -- the human signs the diff.
 
 #### Params
 

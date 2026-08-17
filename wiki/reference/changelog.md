@@ -42,7 +42,6 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - Monitoring reports green when the check never ran ([#2473](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2473))
 - govern prose invocations and agents/, anchor 48 sites on ${VAR:?} ([#2464](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2464))
 - make the review-to-fix loop re-review, and make every degraded verdict or skipped gate fail closed ([#2408](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2408))
-- Telegram patches never reach the gateway; callbacks unauthorized ([#2469](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2469))
 - require the env locator above the first $JKZ_HOME line, not merely inside the fence ([#2474](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2474))
 - replace the wildcard test-path exemption with a shared enumerated inventory ([#2456](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2456))
 - require the jkz env bootstrap per bash fence, behind a shrinking baseline ([#2452](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2452))
@@ -66,9 +65,7 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - docs/operations/dashboards.md documents a VPS dashboard path that does not exist ([#2396](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2396))
 - pre-push findings store -- scan identity, state root authority, and two silent-drop paths ([#2388](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2388))
 - align the gitleaks allowlist with the secrets-validator policy ([#2384](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2384))
-- guard-credentials.sh writes its JSON result to stderr instead of stdout ([#2380](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2380))
 - audit 2026-08 quick wins (guards, pipeline state, portability, Hermes patches, notify) ([#2364](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2364))
-- WebSocket handshake logs the Origin header but never validates it (CSW ([#2358](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2358))
 - repair test-coverage resolution and close the one real gap (integrations/hermes/patches) ([#2331](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2331))
 - reviewers were reading a diff with the code cut out of it ([#2338](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2338))
 - make the plugin expose its agents, and stop citing artifacts by paths that only resolve in this repo ([#2330](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2330))
@@ -86,12 +83,9 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - close the five gaps the #2185 ambiguity scan raised after PR #2208 merged ([#2214](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2214))
 - /jkz:options step 1 does not verify the brief declares Type: derivative ([#2270](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2270))
 - surface plan-slot truncation instead of hiding it ([#2269](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2269))
-- options-calibration: calibration record bypasses the engine's semantic threshold validation ([#2266](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2266))
 - /jkz:options command file: dead meta.no_candidate_cleared branch + TOCTOU in ownership cleanup ([#2264](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2264))
 - impossible calendar dates pass the seven-input gate ([#2267](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2267))
 - decomposed parents never auto-closed -- durable gate + a trigger that can satisfy it ([#2259](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2259))
-- stop npm test's kill switch from suppressing the discord-auth source-guard probe ([#2260](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2260))
-- auto-revert.yml loses a push race, silently leaving an unauthorized merge on main ([#2253](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2253))
 - resolve the eight valid Qodo findings from PR #2236 ([#2248](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2248))
 - patch brace-expansion and tar advisories flagged by npm-audit-root ([#2255](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2255))
 - options-decide: seven-input gate row 2 misses the probability upper bound and the sum-to-1.00 check ([#2252](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2252))
@@ -100,7 +94,6 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - widen the error-indicator guard in coderabbit-wrapper.sh ([#2224](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2224))
 - Four pipeline routes never register in the chat registry, and /jkz:quit's mtime fallback silently reports another chat's PR as the session's own ([#2222](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2222))
 - fold --worktree into the run.js cache key ([#2221](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2221))
-- Discord bot token is passed on the process command line at 15 sites, exposing it via /proc and ps ([#2220](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2220))
 
 #### Refactors
 - Align the diff-truncation trigger with the byte budget it gates ([#2472](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2472))
@@ -147,7 +140,6 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - Curator input contract: it never receives the issue, and the digest drops the Auditor's quoted spans ([#2254](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2254))
 - Fix the repo-wide orphan-test check so it accepts .sh sources and split-suite stems ([#2251](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2251))
 - fix: Four pipeline routes never register in the chat registry, and /jkz:quit's mtime fallback silently reports another chat's PR as the session's own ([#2239](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2239))
-- fix: Discord bot token is passed on the process command line at 15 sites, exposing it via /proc and ps ([#2234](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2234))
 - fix: widen the error-indicator guard in coderabbit-wrapper.sh ([#2237](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2237))
 - Reapply "fix(validators): fold --worktree into the run.js cache key (#2221)" ([#2240](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2240))
 - Reapply "chore: document the two push-gate kill-switches in .env.example (#2219)" ([#2235](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2235))
@@ -157,7 +149,6 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - Revert "fix(validators): fold --worktree into the run.js cache key (#2221)"
 - Revert "chore: document the two push-gate kill-switches in .env.example (#2219)"
 - document the two push-gate kill-switches in .env.example ([#2219](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/2219))
-- Revert "fix: Discord bot token is passed on the process command line at 15 sites, exposing it via /proc and ps (#2220)"
 
 ### 2026-07
 
@@ -297,7 +288,6 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - review.md verdict-read in meta-audit, blind mode, conflict detection (#1867) ([#1886](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1886))
 - verdict-json extractors are first-match: prose mention of the literal marker hijacks the parse ([#1889](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1889))
 - move fix.md worktree lookup to standalone helper (harness $0/$2 corruption) ([#1884](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1884))
-- Test suite depends on ambient state: guard-worktree passes by coincidence, worktree-gate collides with locked residue ([#1882](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1882))
 - build.md pre-push gate acts on wrong data: stale CR severity regex + two-dot diff base ([#1881](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1881))
 - Doctor dispatched with wrong config: model routing counts files not lines; maxTurns:5 truncates the typed agent ([#1879](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1879))
 - research wrappers write completion sentinels for research-role invocations ([#1872](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1872))
@@ -313,7 +303,6 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - minor findings from the /jkz:quit review ([#1839](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1839))
 - self-contained step blocks, worktree-safe state-dir cascade ([#1838](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1838))
 - build.md dispatches role 'builder-preflight' unknown to resolve-wrapper.sh ([#1835](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1835))
-- self-hosted .claude/settings.json hooks read tool_input from stdin (inert guards, #1831) ([#1834](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1834))
 - make test-root pass on hosted runners ([#1829](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1829))
 - resolve CycloneDX CLI via package root ([#1827](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1827))
 - stop stale pipeline runs inflating stats; archive old state instead of deleting ([#1826](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1826))
@@ -444,14 +433,12 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - bump hono override to >=4.12.25 to clear high-severity advisories ([#1777](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1777))
 - wiki-generator: refresh a single auto-publish PR in place (#1772) ([#1773](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1773))
 - harden PR workflows against untrusted input ([#1771](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1771))
-- redact credential-named keys in query_env at every scope ([#1765](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1765))
 - override qs to >=6.15.2 to clear moderate DoS advisory (#1743) ([#1755](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1755))
 - unquarantine 4 stdio MCP Server tests and remove CI skip-pattern ([#1747](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1747))
 - --stdin-file E2BIG truncation in wrapper large-prompt rescue path ([#1741](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1741))
 - prevent pipeline freeze from hung CBM MCP calls (#1736) ([#1737](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1737))
 - Unify worktree deletion behind the #1055 safe-remove guards and fix locking fail-safes ([#1733](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1733))
 - Hermes deploy integrity: bake the 4 patches into the Dockerfile and unify the jkz-root path ([#1734](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1734))
-- stop query_env from disclosing JKZ_ secrets (trust-boundary hardening) ([#1735](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1735))
 - Gate the UI build in CI and fix the current tsc type errors ([#1732](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1732))
 - run c8 with --all, wire coverage gate into CI, test byzantine-gate path ([#1730](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1730))
 - break infinite redelivery loop on poisoned update offset ([#1731](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1731))
@@ -461,8 +448,6 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - memory-dream silent failure + bounded backup retention ([#1723](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1723))
 - reapply #1695 merge-gate hardening (4th recovery) + fix auto-revert instructions ([#1724](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1724))
 - reapply #1695 merge-gate hardening (2nd recovery) ([#1719](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1719))
-- Enforce the human merge checkpoint server-side and close the auto-revert User-actor bypass ([#1717](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1717))
-- stop fabricated PASS verdicts and split --force gate bypass (#1694) ([#1716](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1716))
 - repair research-bisync cron path and silence empty research-poll ticks ([#1715](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1715))
 - split CI test job into parallel suites with honest MCP quarantine ([#1714](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1714))
 - audit 2026-06-09 quick wins (security, gates, notify, docs, hygiene) ([#1711](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1711))
@@ -482,7 +467,6 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - stop downgrading effort to high on last attempt ([#1639](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1639))
 - cancel pending Telegram text-batch tasks on disconnect ([#1635](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1635))
 - reschedule Telegram polling-conflict retries ([#1632](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1632))
-- authorize Telegram model-picker callbacks ([#1633](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1633))
 - stop recycling Telegram exec-approval IDs across restarts ([#1634](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1634))
 - infer string return types for un-annotated JS (AC#3 of #1628) ([#1630](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1630))
 
@@ -509,8 +493,6 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - Revert "build(deps): bump @cyclonedx/cyclonedx-npm from 4.2.1 to 5.0.0 (#1770)"
 - bump @cyclonedx/cyclonedx-npm from 4.2.1 to 5.0.0 ([#1770](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1770))
 - Revert "fix: wiki-generator: refresh a single auto-publish PR in place (#1772) (#1773)"
-- Reapply "fix(mcp): redact credential-named keys in query_env at every scope (#1765)" ([#1766](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1766))
-- Revert "fix(mcp): redact credential-named keys in query_env at every scope (#1765)"
 - bump the minor-and-patch group with 5 updates ([#1753](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1753))
 - bump the minor-and-patch group in /mcp with 2 updates ([#1752](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1752))
 - register memory-backup + cr-history-catchup in cron-registry ([#1751](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1751))
@@ -529,9 +511,6 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - Revert "Reapply "fix: reapply #1695 merge-gate hardening (2nd recovery) (#1719)" (#1722)"
 - Reapply "fix: reapply #1695 merge-gate hardening (2nd recovery) (#1719)" ([#1722](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1722))
 - Revert "fix: reapply #1695 merge-gate hardening (2nd recovery) (#1719)"
-- Revert "Reapply "fix: Enforce the human merge checkpoint server-side and close the auto-revert User-actor bypass (#1717)" (#1718)"
-- Reapply "fix: Enforce the human merge checkpoint server-side and close the auto-revert User-actor bypass (#1717)" ([#1718](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1718))
-- Revert "fix: Enforce the human merge checkpoint server-side and close the auto-revert User-actor bypass (#1717)"
 - complete ui/.env.example and refresh model labels ([#1671](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1671))
 - ignore wiki-generator output dirs and MCP test temp ([#1661](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1661))
 - fix 3 moderate vulns + bump anthropic-sdk/better-sqlite3/eslint ([#1660](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1660))
@@ -578,7 +557,6 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - centralize claude CLI spawn via runClaude helper (#1306) ([#1425](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1425))
 - dynamic question budget by complexity tier in /jkz:start ([#1440](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1440))
 - WG-19 publisher modules (#1256) ([#1437](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1437))
-- harden issue_extractor CLI paths (--cursor / --output) against traversal ([#1436](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1436))
 - [wiki-generator] WG-34, Reference & stats pages generator ([#1428](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1428))
 - WG-17 issue-driven content pipeline ([#1429](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1429))
 - WG-15 workflow doc generator (#1269) ([#1423](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1423))
@@ -591,7 +569,6 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - [wiki-generator] WG-13, Output formatters (sidebar + llms.txt + llms-full.txt) ([#1365](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1365))
 - adversarial-bypass defenses for the alignment validator ([#1360](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1360))
 - persist background tasks (crons + note) in session snapshot ([#1346](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1346))
-- validate paths.wikiOutput against directory traversal ([#1345](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1345))
 - Agent View integration, discoverable subagents + worktree yield ([#1344](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1344))
 - WG-04 sanitizer helpers (entropy + log + index) [#1294] ([#1341](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1341))
 - URI-encode firstFile per segment in editUrl ([#1340](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1340))
@@ -674,7 +651,6 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - add changelog + issueCategories to config schema ([#1496](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1496))
 - wiki-generator signature blocks emit `text` language tag (MD040) ([#1488](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1488))
 - expand glob ignore list to include .next/.cache/coverage/.git ([#1485](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1485))
-- wiki-generator editUrl wiring leaks private repo and trips sanitizer (blocks #1276) ([#1483](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1483))
 - show publish section in `config` debug output ([#1481](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1481))
 - route publisher to publish.repoUrl, not site.repoUrl ([#1480](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1480))
 - exclude node_modules/dist/build from modules glob ([#1478](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1478))
@@ -682,7 +658,6 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - authenticate LLM client via OAuth, not API key ([#1473](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1473))
 - add missing `run` subcommand to wiki-generator cron ([#1470](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1470))
 - dedupe complexity:* labels in mergeLabels ([#1464](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1464))
-- [wiki-generator] phaseSanitize reads commit.message but extractor emits commit.subject -> secret scan inert ([#1462](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1462))
 - [wiki-generator] phaseGuard re-screens trusted frontmatter editUrl -> every generated page fails guard ([#1461](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1461))
 - [mcp] resolve npm audit vulnerabilities (#1315) ([#1454](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1454))
 - expand heredoc placeholders so PR diff reaches Lens/Sentinel ([#1433](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1433))
@@ -711,7 +686,6 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - /jkz:quick lock TTL + PR-number cascade for agent worktrees ([#1153](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1153))
 - restore test suite — fix 24 pre-existing failures (#1147) ([#1151](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1151))
 - task-discovery skips complexity label on non-high confidence ([#1149](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1149))
-- Telegram bot: race condition in checkpoint approval (callback + reply) ([#1141](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1141))
 - telegram-bot sendMessage truncation strips parse_mode and logs tgApi failures ([#1145](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1145))
 - Telegram bot: pendingIdCounter resets on restart, IDs collide with previous-session buttons ([#1144](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1144))
 - correct phase ordering + restore computeCost fallback ([#1139](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/1139))
@@ -1013,7 +987,6 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - correct step-gate require call for cr_pass_gate
 - add || true to triage grep to prevent set -e failure on no match
 - fetch live PR state before /jkz:save to prevent stale context.md ([#731](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/731))
-- sanitize --pr argument against path traversal in extract-test-gaps.js ([#726](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/726))
 - support --delib-file flag in codex-wrapper and gemini-wrapper ([#724](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/724))
 - resolve CR findings from PR #711 ([#716](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/716))
 - enforce PR closing keyword verification in build and quick pipelines ([#709](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/709))
@@ -1293,7 +1266,6 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - gws-client Windows compatibility and real API commands ([#503](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/503))
 - entropy-scan dedup -- worktree-safe repo name + local state file ([#483](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/483))
 - codex plugin setup script Windows compatibility ([#415](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/415))
-- migrate auth from localStorage to httpOnly cookies (closes #401) ([#409](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/409))
 - batch CR findings (5 issues) ([#404](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/404))
 - use find -L to follow symlinks in smoke test ([#403](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/403))
 - allow hyphens in role names and update plugin/hook paths ([#402](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/402))
@@ -1344,7 +1316,6 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - switch gitleaks dir → detect --no-git (fixes exit 126) ([#103](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/103))
 - implement finding lifecycle resolve on PASS via persisted hashes ([#102](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/102))
 - correct secrets-scan output parsing and sed redaction false positive ([#100](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/100))
-- prevent TOCTOU race in stale lock removal ([#99](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/99))
 - async withFileLock and generic drive letter in jkz.cmd ([#98](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/98))
 - add -v flag and allowlist SHA256 checksums ([#96](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/96))
 - scope c8 to project files with --include flag ([#95](https://github.com/j0KZ/jkz_Multi-Agent_System/pull/95))
@@ -1507,7 +1478,6 @@ Narrative summary unavailable. See [Full history](#full-history) below.
 - add pipeline watcher, harden Judge/Inspector calibration
 - add merge gate health checks to health-check.sh
 - add init-merge-gate.sh for cross-project merge protection
-- add auto-revert for unauthorized PR merges
 - add server-side merge gate — human-only PR approval
 - lock on create, unlock on clean
 - add _parse_worktrees() helper for --porcelain -z output

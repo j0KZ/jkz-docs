@@ -17,6 +17,8 @@ import llmsTxt, {
   demoteHeadings,
   buildLlmsTxt,
   buildLlmsFullTxt,
+  mirrorFileName,
+  buildSectionMirrors,
 } from './llms-txt.mjs';
 
 const SITE = 'https://docs.j0kz.dev';
@@ -172,6 +174,103 @@ test('buildLlmsFullTxt: single H1 root, per-page ## blocks with source + demoted
   assert.match(full, /## The pipeline\n\nSource: https:\/\/docs\.j0kz\.dev\/concepts\/pipeline\//);
   // The pipeline body's `## Phases` is demoted to `### Phases`.
   assert.match(full, /^### Phases$/m);
+});
+
+test('mirrorFileName slugifies, roots to home, and refuses reserved names', () => {
+  assert.equal(mirrorFileName('get-started'), 'llms-get-started.txt');
+  assert.equal(mirrorFileName('API Reference'), 'llms-api-reference.txt');
+  // The wiki root has no section key.
+  assert.equal(mirrorFileName(''), 'llms-home.txt');
+  // A `full/` section would overwrite the whole-site concatenation.
+  assert.equal(mirrorFileName('full'), null);
+  // Nothing a directory name contains can escape the output directory.
+  assert.equal(mirrorFileName('../../etc'), 'llms-etc.txt');
+  assert.equal(mirrorFileName('///'), null);
+});
+
+test('buildSectionMirrors partitions the pages exactly, one mirror per section', () => {
+  const root = makeFixture();
+  const { pages } = loadPages(root, SITE);
+  const { mirrors, skipped } = buildSectionMirrors({
+    pages,
+    title: 'jkz docs',
+    summary: 'Summary.',
+    site: SITE,
+  });
+  assert.deepEqual(skipped, []);
+  // One mirror per distinct section, root included.
+  const sections = [...new Set(pages.map((p) => p.section))];
+  assert.equal(mirrors.length, sections.length);
+  assert.deepEqual(
+    mirrors.map((m) => m.section),
+    sections,
+  );
+  // Every page is counted exactly once across the mirrors.
+  assert.equal(
+    mirrors.reduce((n, m) => n + m.pageCount, 0),
+    pages.length,
+  );
+  const home = mirrors.find((m) => m.section === '');
+  assert.equal(home.fileName, 'llms-home.txt');
+  assert.equal(home.label, 'Home');
+  assert.equal(home.absUrl, `${SITE}/llms-home.txt`);
+});
+
+test('buildSectionMirrors skips a section whose slug collides with one already claimed', () => {
+  const pages = [
+    { section: 'api-reference', title: 'A', absUrl: `${SITE}/a/`, body: 'A body' },
+    { section: 'api_reference', title: 'B', absUrl: `${SITE}/b/`, body: 'B body' },
+  ];
+  const { mirrors, skipped } = buildSectionMirrors({
+    pages,
+    title: 'jkz docs',
+    summary: 'Summary.',
+    site: SITE,
+  });
+  assert.equal(mirrors.length, 1);
+  assert.equal(mirrors[0].section, 'api-reference');
+  assert.deepEqual(skipped, ['api_reference']);
+  // The surviving mirror is not polluted by the dropped section.
+  assert.ok(!mirrors[0].body.includes('B body'));
+});
+
+test('each mirror keeps a single H1 root and carries only its own pages', () => {
+  const root = makeFixture();
+  const { pages } = loadPages(root, SITE);
+  const { mirrors } = buildSectionMirrors({
+    pages,
+    title: 'jkz docs',
+    summary: 'Summary.',
+    site: SITE,
+  });
+  const concepts = mirrors.find((m) => m.section === 'concepts');
+  assert.equal((concepts.body.match(/^# (?!#)/gm) || []).length, 1);
+  assert.match(concepts.body, /Source: https:\/\/docs\.j0kz\.dev\/concepts\/pipeline\//);
+  // No page from another section leaked in.
+  assert.ok(!concepts.body.includes('/get-started/install/'));
+  assert.equal(concepts.bytes, Buffer.byteLength(concepts.body, 'utf8'));
+});
+
+test('buildLlmsTxt advertises the mirrors last, and omits the section without them', () => {
+  const root = makeFixture();
+  const { pages } = loadPages(root, SITE);
+  const { mirrors } = buildSectionMirrors({
+    pages,
+    title: 'jkz docs',
+    summary: 'Summary.',
+    site: SITE,
+  });
+  const withMirrors = buildLlmsTxt({ pages, title: 'jkz docs', summary: 'Summary.', mirrors });
+  assert.match(withMirrors, /## Section mirrors/);
+  assert.match(
+    withMirrors,
+    /- \[Get started\]\(https:\/\/docs\.j0kz\.dev\/llms-get-started\.txt\): 1 page, ~\d+ KB/,
+  );
+  // The mirrors block trails the page index.
+  assert.ok(withMirrors.indexOf('## API reference') < withMirrors.indexOf('## Section mirrors'));
+  // Default (no mirrors passed) is unchanged.
+  const without = buildLlmsTxt({ pages, title: 'jkz docs', summary: 'Summary.' });
+  assert.ok(!without.includes('## Section mirrors'));
 });
 
 test('default export is a named Astro integration with a build:done hook', () => {

@@ -22,6 +22,11 @@
 //   - `llms-full.txt`: the same header, then every page concatenated as a `##`
 //     block (title + source URL + body, frontmatter stripped and headings
 //     demoted one level so the document keeps a single H1 root).
+//   - `llms-<section>.txt`: one mirror per section, same shape as
+//     `llms-full.txt` but carrying only that section's pages. `llms-full.txt`
+//     is ~750 KB -- past what most agents accept in a single fetch -- so the
+//     mirrors let a consumer pull one topic instead of the whole site. Together
+//     they partition `llms-full.txt` exactly. Advertised from `llms.txt`.
 //   - Dedupes by canonical URL (keep-first) and logs the dropped count.
 //
 // Title resolution order: frontmatter `title:` -> first body `# H1` -> a
@@ -53,8 +58,12 @@ export const SECTION_ORDER = [
   'api-reference',
 ];
 
-/** Human-readable labels for known sections; unknown sections are humanized. */
+/**
+ * Human-readable labels for known sections; unknown sections are humanized.
+ * The `''` key is the wiki root -- `index.md` plus any other top-level page.
+ */
 const SECTION_LABELS = {
+  '': 'Home',
   'get-started': 'Get started',
   concepts: 'Concepts',
   build: 'Build',
@@ -288,7 +297,7 @@ export function demoteHeadings(body) {
  * @param {{ pages: Array<object>, title: string, summary: string }} args
  * @returns {string}
  */
-export function buildLlmsTxt({ pages, title, summary }) {
+export function buildLlmsTxt({ pages, title, summary, mirrors = [] }) {
   const out = [`# ${title}`, '', `> ${summary}`, ''];
   // Group in the already-sorted page order.
   const bySection = new Map();
@@ -304,6 +313,23 @@ export function buildLlmsTxt({ pages, title, summary }) {
     for (const p of items) {
       const desc = p.description ? `: ${p.description}` : '';
       out.push(`- [${p.title}](${p.absUrl})${desc}`);
+    }
+    out.push('');
+  }
+  if (mirrors.length > 0) {
+    out.push(
+      '## Section mirrors',
+      '',
+      'Full page text split by section, same shape as `llms-full.txt`. Fetch one',
+      'of these instead of the whole site when you only need a single topic.',
+      '',
+    );
+    for (const m of mirrors) {
+      const kb = Math.max(1, Math.round(m.bytes / 1024));
+      const pageWord = m.pageCount === 1 ? 'page' : 'pages';
+      out.push(
+        `- [${m.label}](${m.absUrl}): ${m.pageCount} ${pageWord}, ~${kb} KB — full text of the ${m.label} section.`,
+      );
     }
     out.push('');
   }
@@ -324,6 +350,73 @@ export function buildLlmsFullTxt({ pages, title, summary }) {
     if (body) out.push(body, '');
   }
   return out.join('\n').replace(/\n+$/, '\n');
+}
+
+/**
+ * Output basenames a section mirror must never claim: overwriting either would
+ * replace the site index or the full concatenation with a single section.
+ */
+const RESERVED_MIRRORS = new Set(['llms.txt', 'llms-full.txt']);
+
+/**
+ * Output basename for a section's mirror, or `null` when the section cannot own
+ * one. Slugified to `[a-z0-9-]` so a directory name can never escape the build
+ * output directory; the wiki root (`''`) maps to `llms-home.txt`.
+ *
+ * @param {string} section - top-level section key ('' for the wiki root)
+ * @returns {string|null}
+ */
+export function mirrorFileName(section) {
+  const slug = (section || 'home')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+  if (!slug) return null;
+  const name = `llms-${slug}.txt`;
+  return RESERVED_MIRRORS.has(name) ? null : name;
+}
+
+/**
+ * Build one `llms-<section>.txt` body per section, in the page order already
+ * fixed by `loadPages`. Pure -- no I/O. The mirrors partition `pages` exactly:
+ * every page lands in exactly one mirror, except pages whose section is skipped
+ * for a reserved filename (returned in `skipped` so the caller can warn).
+ *
+ * @param {{ pages: Array<object>, title: string, summary: string, site: string }} args
+ * @returns {{ mirrors: Array<{section:string,label:string,fileName:string,absUrl:string,pageCount:number,bytes:number,body:string}>, skipped: string[] }}
+ */
+export function buildSectionMirrors({ pages, title, summary, site }) {
+  const origin = site.replace(/\/$/, '');
+  const bySection = new Map();
+  for (const p of pages) {
+    if (!bySection.has(p.section)) bySection.set(p.section, []);
+    bySection.get(p.section).push(p);
+  }
+  const mirrors = [];
+  const skipped = [];
+  const claimed = new Set();
+  for (const [section, items] of bySection) {
+    const fileName = mirrorFileName(section);
+    // Skip a reserved name, and skip a slug collision (`api-reference` and
+    // `api_reference` both slugify to `llms-api-reference.txt`) -- writing both
+    // would silently drop one section's pages behind the other's.
+    if (!fileName || claimed.has(fileName)) {
+      skipped.push(section);
+      continue;
+    }
+    claimed.add(fileName);
+    const body = buildLlmsFullTxt({ pages: items, title, summary });
+    mirrors.push({
+      section,
+      label: sectionLabel(section),
+      fileName,
+      absUrl: `${origin}/${fileName}`,
+      pageCount: items.length,
+      bytes: Buffer.byteLength(body, 'utf8'),
+      body,
+    });
+  }
+  return { mirrors, skipped };
 }
 
 /**
@@ -367,16 +460,31 @@ export default function llmsTxt(options = {}) {
         }
         const { title, summary } = resolveSiteMeta(wikiDir);
 
-        const llmsTxtBody = buildLlmsTxt({ pages, title, summary });
+        const { mirrors, skipped } = buildSectionMirrors({ pages, title, summary, site });
+        const llmsTxtBody = buildLlmsTxt({ pages, title, summary, mirrors });
         const llmsFullBody = buildLlmsFullTxt({ pages, title, summary });
 
+        // Write the mirrors BEFORE the index that advertises them: a failure
+        // partway through must not leave llms.txt pointing at files that were
+        // never written.
         const outDir = new URL('.', dir).pathname;
-        fs.writeFileSync(path.join(outDir, 'llms.txt'), llmsTxtBody);
+        for (const m of mirrors) {
+          fs.writeFileSync(path.join(outDir, m.fileName), m.body);
+        }
         fs.writeFileSync(path.join(outDir, 'llms-full.txt'), llmsFullBody);
+        fs.writeFileSync(path.join(outDir, 'llms.txt'), llmsTxtBody);
 
         logger.info(
           `wrote llms.txt (${pages.length} pages) and llms-full.txt (${Buffer.byteLength(llmsFullBody, 'utf8')} bytes)`,
         );
+        logger.info(
+          `wrote ${mirrors.length} section mirror(s): ${mirrors.map((m) => m.fileName).join(', ')}`,
+        );
+        if (skipped.length > 0) {
+          logger.warn(
+            `skipped ${skipped.length} section mirror(s) whose filename is reserved: ${skipped.join(', ')}`,
+          );
+        }
         if (droppedCount > 0) {
           logger.warn(
             `dropped ${droppedCount} duplicate-URL page(s): ${droppedUrls.join(', ')}`,

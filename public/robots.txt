@@ -1,0 +1,14 @@
+# jkz docs -- https://docs.j0kz.dev
+#
+# Plain-text mirrors for LLM agents, per https://llmstxt.org:
+#   https://docs.j0kz.dev/llms.txt       page index, one line per page
+#   https://docs.j0kz.dev/llms-full.txt  every published page, concatenated
+#
+# Without this file Cloudflare serves a managed robots.txt that carries only
+# content-signal comments -- no directives and, critically, no Sitemap line,
+# so crawlers never discover the 140-page sitemap.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://docs.j0kz.dev/sitemap-index.xml

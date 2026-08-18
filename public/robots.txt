@@ -1,8 +1,13 @@
 # jkz docs -- https://docs.j0kz.dev
 #
 # Plain-text mirrors for LLM agents, per https://llmstxt.org:
-#   https://docs.j0kz.dev/llms.txt       page index, one line per page
-#   https://docs.j0kz.dev/llms-full.txt  every published page, concatenated
+#   https://docs.j0kz.dev/llms.txt          page index, one line per page
+#   https://docs.j0kz.dev/llms-full.txt     every published page, concatenated
+#   https://docs.j0kz.dev/llms-<section>.txt one section's pages, concatenated
+#
+# llms-full.txt is ~745 KB, past what most agents accept in a single fetch. The
+# per-section mirrors partition it exactly and are listed under "Section
+# mirrors" at the end of llms.txt -- start there, then fetch the section needed.
 #
 # Without this file Cloudflare serves a managed robots.txt that carries only
 # content-signal comments -- no directives and, critically, no Sitemap line,

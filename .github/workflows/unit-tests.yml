@@ -1,0 +1,48 @@
+name: Unit Tests
+
+# Runs the zero-dependency `node --test` suite under `src/`. Today that is the
+# llms.txt integration, which emits the plain-text mirrors agents fetch -- a
+# regression there is invisible in the rendered site, so it needs its own gate.
+# No `npm install`: the suite imports only `node:` builtins and local modules.
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'src/**/*.mjs'
+      - 'package.json'
+      - '.nvmrc'
+      - '.github/workflows/unit-tests.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'src/**/*.mjs'
+      - 'package.json'
+      - '.nvmrc'
+      - '.github/workflows/unit-tests.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: unit-tests-${{ github.head_ref || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      - name: Run tests
+        run: npm test
